@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next { height: 100%; }
+
+html { font-size: clamp(15px, 0.9vw + 12px, 19px); }
+
+@layer base {
+  :root {
+    --bg: #0f1224;
+    --card: #151a2f;
+    --border: #27304d;
+    --fg: #e6e9f5;
+    --muted: #a6b0d4;
+    --accent: #84c5f4;
+    --accent-2: #b6f0d1;
+    --accent-5: #cbb9ff;
+  }
+  body { background: radial-gradient(1000px 600px at 50% -10%, #1a1f3a 0%, var(--bg) 60%); color: var(--fg); }
+  a { color: #96c9ff; }
+  a:hover { color: #c6e2ff; }
+  input, select, textarea { background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: 0.5rem; }
+  label { color: var(--muted); }
+}
+
+@layer components {
+  .container { @apply mx-auto max-w-7xl px-4; }
+  .card { border: 1px solid var(--border); background: var(--card); border-radius: 0.75rem; }
+  .card-body { @apply p-4; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded px-3 py-2 text-sm font-medium transition-colors; }
+  .btn-primary { color: #0b0f1f; background: linear-gradient(135deg, var(--accent), var(--accent-5)); }
+  .btn-primary:hover { filter: brightness(1.05); }
+  .btn-secondary { color: var(--fg); background: #202744; border: 1px solid var(--border); }
+  .btn-secondary:hover { background: #263156; }
+  .btn-ghost { color: var(--fg); background: transparent; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.04); }
+  .header-grad { background: linear-gradient(180deg, rgba(182,240,209,0.06), rgba(132,197,244,0)); border-bottom: 1px solid var(--border); }
+  .muted { color: var(--muted); }
+  .text-der { color: #84c5f4; }
+  .text-die { color: #f7c8d0; }
+  .text-das { color: #b6f0d1; }
+  .chip { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium; }
+  .chip-der { color: #0b0f1f; background: linear-gradient(135deg, #84c5f4, #cbb9ff); }
+  .chip-die { color: #0b0f1f; background: linear-gradient(135deg, #f7c8d0, #cbb9ff); }
+  .chip-das { color: #0b0f1f; background: linear-gradient(135deg, #b6f0d1, #84c5f4); }
+  .gender-der { color: #0b0f1f; background: linear-gradient(135deg, #84c5f4, #cbb9ff); }
+  .gender-die { color: #0b0f1f; background: linear-gradient(135deg, #f7c8d0, #cbb9ff); }
+  .gender-das { color: #0b0f1f; background: linear-gradient(135deg, #b6f0d1, #84c5f4); }
+  .overlay { @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm; }
+  .confetti-layer { @apply absolute inset-0 overflow-hidden pointer-events-none; }
+}
+
+/* Simple celebratory animations */
+@keyframes pop-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes float-up {
+  0% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+.animate-pop { animation: pop-in 500ms ease-out both; }
+.animate-fade-up { animation: float-up 600ms ease-out both; }
+.confetti-container { position: relative; overflow: hidden; }
+.confetti-piece {
+  position: absolute; top: -10vh; width: 6px; height: 14px; border-radius: 2px;
+  animation: confetti-fall 2.2s linear forwards;
+}

@@ -1,0 +1,776 @@
+{
+  "users": [
+    {
+      "id": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "role": "ADMIN",
+      "passwordHash": "$2b$10$jf1IVzmaN5YSnjCUnsWmSulKM.m2aYWz7v1bWV30CBGVZECFIEKE6"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "title": "Lekce 1 část 2",
+      "description": "strana 13",
+      "createdAt": "2025-11-10T20:53:15.968Z"
+    }
+  ],
+  "entries": [
+    {
+      "id": "6a4a6d0b-94e5-45b5-931d-c882370092d6",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "aber",
+      "translation": "ale",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "gender": null,
+      "explanation": null,
+      "createdAt": "2025-11-10T20:54:02.872Z"
+    },
+    {
+      "id": "01a1e1d6-6226-43b2-bc21-3f57d7aa6a17",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Alter",
+      "translation": "věk",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "das",
+      "explanation": null,
+      "createdAt": "2025-11-10T20:54:26.605Z"
+    },
+    {
+      "id": "ff00f2c4-9049-4633-a78c-583961d83bc1",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "auch",
+      "translation": "také",
+      "type": "WORD",
+      "partOfSpeech": "adv",
+      "gender": null,
+      "explanation": null,
+      "createdAt": "2025-11-10T20:54:55.814Z"
+    },
+    {
+      "id": "0016a3c3-7e5d-47cc-a65e-d66bbbb775ca",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "aus",
+      "translation": "z",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "gender": null,
+      "explanation": "z něčeho atd..",
+      "createdAt": "2025-11-10T20:55:26.089Z"
+    },
+    {
+      "id": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Band",
+      "translation": "skupina",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "die",
+      "explanation": "(hudební) skupina",
+      "createdAt": "2025-11-10T20:56:07.889Z",
+      "genders": [
+        "die"
+      ]
+    },
+    {
+      "id": "544f263d-c74e-40ed-a071-8c0307e54375",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "chatten",
+      "translation": "chatovat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "gender": null,
+      "explanation": "povídat si s někým, er chatter",
+      "createdAt": "2025-11-10T20:58:05.818Z"
+    },
+    {
+      "id": "95c37e12-6fa6-460b-94b1-1eaa25caf02d",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Computerspiele",
+      "translation": "počítačová hra",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "das",
+      "explanation": "Computerspiel -e",
+      "createdAt": "2025-11-10T20:58:49.102Z",
+      "genders": [
+        "das"
+      ]
+    },
+    {
+      "id": "e2f11584-1258-4c8d-bdc7-aa8bef82e608",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "E-mail",
+      "translation": "email",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "das",
+      "explanation": "email das ale i die",
+      "createdAt": "2025-11-10T20:59:46.813Z",
+      "genders": [
+        "die",
+        "das"
+      ]
+    },
+    {
+      "id": "81d0c38f-c9ef-4314-8afb-29aabd00aed5",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Englisch",
+      "translation": "angličtina",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "das",
+      "explanation": "Angličtina - jazyk",
+      "createdAt": "2025-11-10T21:00:26.346Z",
+      "genders": [
+        "das"
+      ]
+    },
+    {
+      "id": "9f7797a9-708f-4191-ab39-76e7e49b7cf9",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Fan",
+      "translation": "fanoušek",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "der",
+      "explanation": "fanoušek, Fan, -s",
+      "createdAt": "2025-11-10T21:00:53.669Z",
+      "genders": [
+        "der"
+      ]
+    },
+    {
+      "id": "1859a327-a094-47cc-ab81-eb75dcc74fd3",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Französisch",
+      "translation": "francouzština",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "das",
+      "explanation": "Jazyk - Francie",
+      "createdAt": "2025-11-10T21:02:13.813Z",
+      "genders": [
+        "das"
+      ]
+    },
+    {
+      "id": "8572a36d-77fe-4a85-91f5-cc6957b106f8",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Freund",
+      "translation": "kamarád",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "der",
+      "explanation": "Freund, -e",
+      "createdAt": "2025-11-10T21:02:41.331Z",
+      "genders": [
+        "der"
+      ]
+    },
+    {
+      "id": "f5aa45ed-89d6-4cc8-b099-57e7f8a0afec",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Freundin",
+      "translation": "kamarádka",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "die",
+      "explanation": "Freundin, -nen",
+      "createdAt": "2025-11-10T21:03:22.753Z",
+      "genders": [
+        "die"
+      ]
+    },
+    {
+      "id": "60cb8115-966f-41f6-92a1-866269654a86",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Fußball",
+      "translation": "fotbal",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "der",
+      "explanation": "míčová hra",
+      "createdAt": "2025-11-10T21:05:15.209Z",
+      "genders": [
+        "der"
+      ]
+    },
+    {
+      "id": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "gehen",
+      "translation": "jít",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "gender": null,
+      "explanation": "chodit",
+      "createdAt": "2025-11-10T21:06:29.331Z"
+    },
+    {
+      "id": "f7b45038-1d68-4501-8101-3e2e219d7295",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "gern",
+      "translation": "rád",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "gender": null,
+      "explanation": "mít rád/mít ráda",
+      "createdAt": "2025-11-10T21:07:10.827Z"
+    },
+    {
+      "id": "3f17372d-60f5-435b-bae0-6d87399df919",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Gitarre",
+      "translation": "kytara",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "die",
+      "explanation": "hudební nástroj strunný, Gitarre, -n",
+      "createdAt": "2025-11-10T21:08:02.205Z",
+      "genders": [
+        "die"
+      ]
+    },
+    {
+      "id": "a316170e-6858-4729-88ed-e5ac93538811",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Handy",
+      "translation": "mobil",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "gender": "das",
+      "explanation": "telefon, Handy, -s",
+      "createdAt": "2025-11-10T21:09:29.140Z",
+      "genders": [
+        "das"
+      ]
+    },
+    {
+      "id": "a64f1379-af1d-41f1-932c-84a82f82e8c1",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Hobby",
+      "translation": "koníček",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "zájem, Hobby, -s",
+      "createdAt": "2025-11-10T21:22:16.637Z"
+    },
+    {
+      "id": "9a549780-4f5f-47ad-a700-e3daa1e8d97e",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Hören",
+      "translation": "poslouchat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "poslouchá, er hört",
+      "createdAt": "2025-11-10T21:23:20.751Z"
+    },
+    {
+      "id": "cd58a516-10b0-437d-aed4-039b1eedf925",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "im Internet surfen",
+      "translation": "surfovat na internetu,prohlížet si internet,být na internetu",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-10T21:24:09.154Z"
+    },
+    {
+      "id": "16898ae0-469a-4e3b-8c6b-16cd6b5ccd00",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Immer",
+      "translation": "pořád,neustále",
+      "type": "WORD",
+      "partOfSpeech": "adv",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-10T21:24:33.894Z"
+    },
+    {
+      "id": "685fb419-c6d9-42c6-80b5-05ab26a64fc1",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Jahr",
+      "translation": "rok",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "Jahr, -e",
+      "createdAt": "2025-11-10T21:25:09.604Z"
+    },
+    {
+      "id": "a71f383b-e8af-4aa5-a42e-85587abf6dc4",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "kein",
+      "translation": "žádný",
+      "type": "WORD",
+      "partOfSpeech": "adv",
+      "genders": null,
+      "explanation": "kein/keine podle rodu",
+      "createdAt": "2025-11-10T21:25:53.981Z"
+    },
+    {
+      "id": "779a4b19-beaa-48b8-9435-c60ae44795cd",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Klavier",
+      "translation": "klavír",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "hudebná nástroj, Klavier, -e",
+      "createdAt": "2025-11-10T21:26:39.124Z"
+    },
+    {
+      "id": "027463a9-2d25-44d6-9357-21b840be7187",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "kommen",
+      "translation": "pocházet",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er kommt aus Deutschland-Pochází z německa",
+      "createdAt": "2025-11-10T21:27:14.001Z"
+    },
+    {
+      "id": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Konzert",
+      "translation": "koncert",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "hudební představní, Konzert, -e",
+      "createdAt": "2025-11-10T21:27:51.729Z"
+    },
+    {
+      "id": "351eb764-825f-4809-9fca-485b07c354cd",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "lernen",
+      "translation": "učit se",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er lernt Musik. Učí se hudbu",
+      "createdAt": "2025-11-10T21:28:28.234Z"
+    },
+    {
+      "id": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "liegen",
+      "translation": "ležet",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er liegt. On leží.\r\nPilsen liegt in Tschechien. Plzeň leží v česku",
+      "createdAt": "2025-11-10T21:29:28.633Z"
+    },
+    {
+      "id": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Nachname",
+      "translation": "příjmění",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "Nachname, -n",
+      "createdAt": "2025-11-10T21:30:21.274Z"
+    },
+    {
+      "id": "6b6137ca-e6db-4381-8fd4-a530b5a496c0",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "nicht weit von",
+      "translation": "nedaleko,poblíž,koho,čeho",
+      "type": "WORD",
+      "partOfSpeech": "adv",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-10T21:32:04.787Z"
+    },
+    {
+      "id": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "reisen",
+      "translation": "cestovat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er reist.",
+      "createdAt": "2025-11-10T21:33:20.974Z"
+    },
+    {
+      "id": "cd1f512b-259a-42cc-9c1c-44af76826fdc",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "schreiben",
+      "translation": "psát",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er schreibt. On píše",
+      "createdAt": "2025-11-10T21:33:55.214Z"
+    },
+    {
+      "id": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Schule",
+      "translation": "škola,vězení",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "die"
+      ],
+      "explanation": "Schule, -n",
+      "createdAt": "2025-11-10T21:35:03.419Z"
+    },
+    {
+      "id": "4b42ed79-f4b8-4a65-b14b-157f81a7ef2c",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "spielen",
+      "translation": "hrát",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er spielt. On hraje. Sie spielt Gitarre. Ona hraje na kytaru",
+      "createdAt": "2025-11-10T21:39:00.478Z"
+    },
+    {
+      "id": "8527f9b5-bf56-4122-9f93-656fbacf3ee1",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "tanzen",
+      "translation": "tancovat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er tanzt. On tancuje.",
+      "createdAt": "2025-11-10T21:48:29.738Z"
+    },
+    {
+      "id": "04ac36e9-59b8-4502-82e3-61aaae629eda",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Vorname",
+      "translation": "křestní jméno",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "Vorname, -n",
+      "createdAt": "2025-11-10T21:48:58.538Z"
+    },
+    {
+      "id": "4f4b8657-8fd9-4776-9a7f-f166402d3712",
+      "lessonId": "b645c01b-f1ca-44a6-b724-184d2cc16b95",
+      "term": "Wohnort",
+      "translation": "bydliště",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "Wohnort, -e",
+      "createdAt": "2025-11-10T21:49:31.855Z"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "2cf419d5-35fc-4f4d-bc8b-776acf060c6c",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:13:45.737Z"
+    },
+    {
+      "id": "db56761e-8950-4eae-92fa-5984be175641",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosím",
+      "correct": true,
+      "createdAt": "2025-11-10T17:13:52.118Z"
+    },
+    {
+      "id": "f85dfbcb-37d3-4aae-b35d-84f289094115",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": false,
+      "createdAt": "2025-11-10T17:13:56.983Z"
+    },
+    {
+      "id": "85a2a07e-958c-46f2-9caa-fc477367aac5",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:19:10.644Z"
+    },
+    {
+      "id": "e2679a02-a3ef-4843-b52d-50b65eb53217",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:20:58.519Z"
+    },
+    {
+      "id": "f049bb2a-3618-4622-81de-5908fd515e8c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "Děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:24:48.070Z"
+    },
+    {
+      "id": "4f828ac2-f0fa-45ea-864d-c716c39031c0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "Prosím",
+      "correct": true,
+      "createdAt": "2025-11-10T17:24:57.685Z"
+    },
+    {
+      "id": "eed91fec-0d86-4ffd-953d-1a569102a5b1",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "Dobrý den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:25:01.080Z"
+    },
+    {
+      "id": "01390f57-5751-448a-8d5e-7571ec1983f4",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "Guten Tag",
+      "correct": true,
+      "createdAt": "2025-11-10T17:27:51.218Z"
+    },
+    {
+      "id": "e866fdb7-80e1-42e5-98ff-e6232b9f23ce",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "bitte",
+      "correct": true,
+      "createdAt": "2025-11-10T17:27:55.749Z"
+    },
+    {
+      "id": "b42d3b92-a3c6-46b9-9a69-cfb53bfb7877",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "danke",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:00.170Z"
+    },
+    {
+      "id": "674b7bb5-e031-443d-9e58-53d70049044f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "danke",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:14.242Z"
+    },
+    {
+      "id": "8fa44270-6909-4056-8ab2-ce1e7f294869",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "guten tag",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:20.578Z"
+    },
+    {
+      "id": "f0adf149-5631-4d5c-9859-e488b5af9379",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "bitte",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:25.732Z"
+    },
+    {
+      "id": "a9ac3177-1cf8-4218-af2b-94bdc7893047",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:33.628Z"
+    },
+    {
+      "id": "97139e81-d32b-4c4e-a86d-af7214d6a3d8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dik",
+      "correct": false,
+      "createdAt": "2025-11-10T17:28:36.710Z"
+    },
+    {
+      "id": "284677d7-22b0-4923-aba9-31ae4122f282",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dekuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:42.672Z"
+    },
+    {
+      "id": "fa6ba4b6-50c3-4883-9f12-c534ccdacdf6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "guten tag",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:47.232Z"
+    },
+    {
+      "id": "01a33701-3104-4bca-87f6-723cb83b2f1e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dekuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:32:37.151Z"
+    },
+    {
+      "id": "6ccbc0a7-f3d1-4f76-b9a6-05507b482096",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:32:40.698Z"
+    },
+    {
+      "id": "587e362e-ee8a-4713-b8a1-68469b6e7eff",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:32:43.449Z"
+    },
+    {
+      "id": "b3643535-34c5-4dc9-bd0f-1a971ff81fdf",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dekuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:34:37.477Z"
+    },
+    {
+      "id": "7bf76795-0e36-43ce-bdec-8342ed3bd2be",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:34:41.618Z"
+    },
+    {
+      "id": "7e642599-dfcd-4909-9820-ad55dfe7d198",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:34:45.794Z"
+    },
+    {
+      "id": "3b1b7455-bd2c-48b2-974b-b2e05357002c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "Děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:38:57.609Z"
+    },
+    {
+      "id": "1482f81f-da10-4cfa-8a9c-28171129cf67",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:48:17.216Z"
+    },
+    {
+      "id": "97d3fbc9-3edd-45f5-9226-eed5b9459c18",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "danke",
+      "correct": false,
+      "createdAt": "2025-11-10T17:48:44.264Z"
+    },
+    {
+      "id": "e6512520-bc3d-440d-9cf6-0e6deecfcb95",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "",
+      "correct": false,
+      "createdAt": "2025-11-10T17:53:21.699Z"
+    },
+    {
+      "id": "81f340dd-acff-4cfe-8160-5e93cd9f6742",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prso",
+      "correct": false,
+      "createdAt": "2025-11-10T17:54:34.018Z"
+    },
+    {
+      "id": "c1775d26-5541-439f-9175-f785823bb1de",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:54:44.093Z"
+    },
+    {
+      "id": "c8535b84-6ae8-4ede-a74b-14154e46ab35",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "bitte",
+      "correct": true,
+      "createdAt": "2025-11-10T18:08:19.229Z"
+    },
+    {
+      "id": "7f247d60-b73e-4f49-bc7f-181bb77d7a76",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "guten tag",
+      "correct": true,
+      "createdAt": "2025-11-10T18:08:24.606Z"
+    },
+    {
+      "id": "313e69d9-4091-4011-bd20-c7c0e0355755",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T18:47:08.757Z"
+    },
+    {
+      "id": "45ed643f-47a6-40cc-b25a-653ecbe7cc95",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T18:47:17.162Z"
+    },
+    {
+      "id": "ae651ed5-8983-44e1-8242-609584c1baa7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "aefgag",
+      "correct": false,
+      "createdAt": "2025-11-10T19:15:57.332Z"
+    },
+    {
+      "id": "d5005648-89c7-48d5-8665-d3b2994917f7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "wda",
+      "correct": false,
+      "createdAt": "2025-11-10T19:16:01.145Z"
+    }
+  ]
+}
