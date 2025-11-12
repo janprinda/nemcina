@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function AvatarUpload({ name, initialSrc }: { name: string; initialSrc: string }) {
   const [preview, setPreview] = useState(initialSrc);
@@ -22,7 +23,7 @@ export default function AvatarUpload({ name, initialSrc }: { name: string; initi
         }
       }}
     >
-      <img src={preview} alt="avatar" className="w-28 h-28 mx-auto rounded-full object-cover mb-3" />
+      <Image src={preview || '/avatar-placeholder.png'} alt="avatar" width={112} height={112} unoptimized className="w-28 h-28 mx-auto rounded-full object-cover mb-3" />
       <input ref={inputRef} type="file" name={name} accept="image/*" className="hidden" onChange={(e)=>{
         const f = e.target.files?.[0];
         if (f) setPreview(URL.createObjectURL(f));
@@ -34,4 +35,3 @@ export default function AvatarUpload({ name, initialSrc }: { name: string; initi
     </div>
   );
 }
-

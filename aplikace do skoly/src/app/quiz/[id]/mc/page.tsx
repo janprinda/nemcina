@@ -89,7 +89,7 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [current, feedback, options, selected, currentDir]);
+  }, [current, feedback, options, selected, currentDir, genderChoice, genderRetry]);
 
   if (!entries.length) return <div>Načítám… nebo v lekci nejsou slovíčka.</div>;
 

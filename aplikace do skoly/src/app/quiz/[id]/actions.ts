@@ -1,4 +1,4 @@
-"use server";
+﻿"use server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/server/authOptions";
 import { getEntryById, recordAttempt } from "@/server/store";
@@ -9,7 +9,7 @@ export async function submitAnswer(entryId: string, answer: string, dir?: 'de2cs
   const session = await getServerSession(authOptions as any);
   const userId = (session as any)?.user?.id as string | undefined;
   const entry = await getEntryById(entryId);
-  if (!entry) return { correct: false, expected: '', expectedGenders: null, genderCorrect: false };
+  if (!entry) return { correct: false, expected: '', expectedGenders: null, genderCorrect: false, textCorrect: false };
   const expected = dir === 'cs2de' ? entry.term : entry.translation;
   const expectedVariants = (dir === 'cs2de')
     ? [expected]
@@ -32,6 +32,9 @@ function normalize(s: string) {
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '') // diakritika
-    .replace(/ß/g, 'ss')
+    .replace(/Ăź/g, 'ss')
     .replace(/\s+/g, ' ');
 }
+
+
+

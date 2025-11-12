@@ -42,6 +42,10 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
     });
   }, [params.id, dirParam, shuffleParam]);
 
+  // Reset noun gender UI when moving between items or directions
+  // Depend on idx and dirs (the array that determines direction per item)
+  useEffect(() => { setGenderChoice(''); setGenderRetry(false); }, [idx, dirs]);
+
   const current = entries[idx];
   const done = idx >= entries.length;
   const currentDir = dirs[idx] || 'de2cs';
@@ -254,4 +258,3 @@ function computeMinorNotes(answer: string, expected: string): string[] {
   }
   return Array.from(new Set(notes));
 }
-  useEffect(() => { setGenderChoice(''); setGenderRetry(false); }, [idx, currentDir]);

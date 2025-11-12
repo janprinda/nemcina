@@ -5,7 +5,7 @@
       "name": "",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$ER6dl9MRbJ6iVN41ZKyq3.la1p/jNYDhUKSu1HXKipFzRikvt2tEO",
+      "passwordHash": "$2a$10$1Gqoh9ZpOVL8eUzkPyPat.wKFob7FjQyQu/2H0OWUP1ZCS1R7xLcy",
       "displayName": "",
       "nickname": ""
     },
@@ -1464,68 +1464,7 @@
       "createdAt": "2025-11-12T17:15:13.643Z"
     }
   ],
-  "teacherCodes": [
-    {
-      "id": "6d78aa7a-a7bc-4206-8f7b-be683e00dfe7",
-      "code": "EU5CPZ",
-      "activated": false,
-      "createdAt": "2025-11-11T23:03:20.780Z"
-    },
-    {
-      "id": "1064fc96-0b74-4e61-9852-dccdfa9e896b",
-      "code": "B55LCS",
-      "activated": false,
-      "createdAt": "2025-11-11T23:03:20.780Z"
-    },
-    {
-      "id": "5047d0b0-1081-4ab8-aa69-24d20d479c86",
-      "code": "7FC76V",
-      "activated": false,
-      "createdAt": "2025-11-11T23:03:20.780Z"
-    },
-    {
-      "id": "5ada35ec-3c73-44b0-b7e3-01e5f875e021",
-      "code": "8I8NAN",
-      "activated": false,
-      "createdAt": "2025-11-11T23:03:20.780Z"
-    },
-    {
-      "id": "c8ac2231-0838-4f27-956f-8a2fe284f166",
-      "code": "QS9EMP",
-      "activated": false,
-      "createdAt": "2025-11-11T23:03:20.780Z"
-    },
-    {
-      "id": "42f18370-aa26-4fe4-afd7-253d5af89ffa",
-      "code": "IGAV1M",
-      "activated": false,
-      "createdAt": "2025-11-11T23:15:24.203Z"
-    },
-    {
-      "id": "ec72c0fe-8847-4207-9704-381278d69b55",
-      "code": "W9JZWJ",
-      "activated": false,
-      "createdAt": "2025-11-11T23:15:24.203Z"
-    },
-    {
-      "id": "66663abd-b4f0-481b-9de1-389d9502ad33",
-      "code": "ZM6UXO",
-      "activated": false,
-      "createdAt": "2025-11-11T23:15:24.203Z"
-    },
-    {
-      "id": "94810998-f7af-4b7f-8f92-d691fd05ccdf",
-      "code": "PRU0DL",
-      "activated": false,
-      "createdAt": "2025-11-11T23:15:24.203Z"
-    },
-    {
-      "id": "809d0d66-1ce6-43fe-b0bc-ac032c5c712e",
-      "code": "T4GE26",
-      "activated": false,
-      "createdAt": "2025-11-11T23:15:24.203Z"
-    }
-  ],
+  "teacherCodes": [],
   "classes": [
     {
       "id": "663945c5-0681-431d-ab4c-0dcc1e446dbe",

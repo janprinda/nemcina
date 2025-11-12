@@ -4,6 +4,7 @@ import { createClassAction, regenerateCodeAction, sendClassMessageAction, startP
 import { getUsers, listClassMembers, listClassesForUser, listMessages, getLessons } from "@/server/store";
 import PartyWidget from "@/components/PartyWidget";
 import CopyCode from "@/components/CopyCode";
+import Image from "next/image";
 
 export default async function TeacherClassPage() {
   const session = await getServerSession(authOptions as any);
@@ -90,7 +91,7 @@ export default async function TeacherClassPage() {
               return (
                 <div key={m.id} className="flex items-center justify-between text-sm">
                   <div className="flex items-center gap-2">
-                    <img src={u?.avatarUrl || '/avatar-placeholder.png'} alt="avatar" className="w-6 h-6 rounded-full object-cover" />
+                    <Image src={u?.avatarUrl || '/avatar-placeholder.png'} alt="avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover" />
                     <div>{u?.displayName || u?.name || u?.email || '—'}</div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -114,7 +115,7 @@ export default async function TeacherClassPage() {
                 const u = users.find((u: any) => u.id === m.userId);
                 return (
                   <div key={m.id} className="text-sm flex items-start gap-2">
-                    <img src={u?.avatarUrl || '/avatar-placeholder.png'} alt="avatar" className="w-6 h-6 rounded-full object-cover mt-0.5" />
+                    <Image src={u?.avatarUrl || '/avatar-placeholder.png'} alt="avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover mt-0.5" />
                     <div>
                       <b>{u?.displayName || u?.name || u?.email || '—'}</b>: {m.content} <span className="muted">{new Date(m.createdAt).toLocaleString()}</span>
                     </div>

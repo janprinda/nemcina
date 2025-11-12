@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type State = { party: any; players: Array<{ id:string; displayName:string; score:number; avatarUrl?: string|null }>; entryId?: string; dir?: 'de2cs'|'cs2de' } | null;
 
@@ -51,7 +52,7 @@ export default function PartyWidget({ classId, canControl }: { classId: string; 
             {(state?.players||[]).map((p,i)=> (
               <div key={p.id} className="flex items-center justify-between text-sm">
                 <div className="flex items-center gap-2">
-                  <img src={p.avatarUrl || '/avatar-placeholder.png'} alt="avatar" className="w-6 h-6 rounded-full object-cover" />
+                  <Image src={p.avatarUrl || '/avatar-placeholder.png'} alt="avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover" />
                   <div><span className="muted">{i+1}.</span> {p.displayName}</div>
                 </div>
                 <div className="font-medium">{p.score} b.</div>
@@ -64,4 +65,3 @@ export default function PartyWidget({ classId, canControl }: { classId: string; 
     </div>
   );
 }
-
