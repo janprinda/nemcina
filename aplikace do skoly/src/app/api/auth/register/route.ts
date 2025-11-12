@@ -31,7 +31,8 @@ export async function POST(req: Request) {
   const exists = await findUserByEmail(email);
   if (exists) return NextResponse.json({ error: 'Uživatel již existuje' }, { status: 400 });
 
-  const dbPath = path.join(process.cwd(), 'data', 'db.json');
+  const dataDir = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(process.cwd(), 'data');
+  const dbPath = path.join(dataDir, 'db.json');
   await fs.mkdir(path.dirname(dbPath), { recursive: true });
   const raw = await fs.readFile(dbPath, 'utf8').catch(() => JSON.stringify({ users: [], lessons: [], entries: [], attempts: [] }));
   const db = JSON.parse(raw);
