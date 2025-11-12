@@ -1,6 +1,7 @@
 export { default } from "next-auth/middleware";
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    "/((?!_next|public|api/auth|auth).*)",
+  ],
 };
-

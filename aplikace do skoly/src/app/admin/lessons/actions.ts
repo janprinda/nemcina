@@ -15,7 +15,10 @@ export async function createLesson(formData: FormData) {
     title: data.title,
     description: data.description,
   });
-  if (!parsed.success) return { error: "Neplatná data" };
+  if (!parsed.success) {
+    revalidatePath("/admin/lessons");
+    redirect("/admin/lessons");
+  }
   await storeCreate(parsed.data);
   revalidatePath("/admin/lessons");
   redirect("/admin/lessons");
@@ -26,3 +29,4 @@ export async function deleteLesson(id: string) {
   revalidatePath("/admin/lessons");
   redirect("/admin/lessons");
 }
+

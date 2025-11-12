@@ -1,5 +1,5 @@
 import { upsertAdmin, getLessons, createLesson, addEntry } from "@/server/store";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 let initialized = false;
 

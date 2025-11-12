@@ -48,7 +48,10 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
 
   const currentDir = dirs[idx] || 'de2cs';
   const prompt = currentDir === 'de2cs' ? 'Vyber správný překlad (CZ)' : 'Vyber správný překlad (DE)';
-  const shown = currentDir === 'de2cs' ? current?.term : current?.translation;
+  const shownBase = currentDir === 'de2cs' ? current?.term : current?.translation;
+  const shown = (currentDir === 'de2cs' && current?.partOfSpeech === 'noun' && current?.genders?.length)
+    ? `${current.genders!.join('/')} ${shownBase}`
+    : shownBase;
   const options = useMemo(() => {
     if (!current) return [] as string[];
     const pool = entries.filter(e => e.id !== current.id);
@@ -94,7 +97,7 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
             <div className="mt-1 text-2xl font-semibold text-gray-100">{shown}</div>
           </div></div>
           <div className="text-xs muted text-left">Tip: ß lze psát jako "ss".</div>
-          {current?.partOfSpeech === 'noun' && (
+          {currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && (
             <div className="space-y-2">
               <div className="text-sm muted">Vyber rod (der/die/das)</div>
               <div className="grid grid-cols-3 gap-2">

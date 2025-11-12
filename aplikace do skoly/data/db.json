@@ -2,10 +2,30 @@
   "users": [
     {
       "id": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "name": "Admin",
+      "name": "",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2b$10$jf1IVzmaN5YSnjCUnsWmSulKM.m2aYWz7v1bWV30CBGVZECFIEKE6"
+      "passwordHash": "$2a$10$VZjtYXbwBNh0FEcvyeKqYuRQFkUEsUL1S2N02xP0itO8aCa7zSfzy",
+      "displayName": "",
+      "nickname": ""
+    },
+    {
+      "id": "a54fea40-d0c3-456b-8b56-",
+      "name": "",
+      "email": "jenaprindaa@gmail.com",
+      "role": "ADMIN",
+      "passwordHash": "$2b$10$z47MnveSvgmMZgtM8V8RieeHgwiJw6GQvQ8XKqOLQOY4pgq30jM5K",
+      "birthDate": "2009-11-27",
+      "interests": [
+        "cestování",
+        "programování",
+        "jazyk"
+      ],
+      "phone": "+420 774638234",
+      "desiredClassCode": null,
+      "avatarUrl": "/uploads/a54fea40-d0c3-456b-8b56--1762901706648.jpg",
+      "displayName": "",
+      "nickname": ""
     }
   ],
   "lessons": [
@@ -771,6 +791,676 @@
       "answer": "wda",
       "correct": false,
       "createdAt": "2025-11-10T19:16:01.145Z"
+    },
+    {
+      "id": "1c594d53-3b13-4f52-ac99-da2d28f04931",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "60cb8115-966f-41f6-92a1-866269654a86",
+      "answer": "fotbal",
+      "correct": true,
+      "createdAt": "2025-11-10T22:54:20.549Z"
+    },
+    {
+      "id": "8f94390d-b45b-45b0-b0f9-9b20b6b731cd",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "95c37e12-6fa6-460b-94b1-1eaa25caf02d",
+      "answer": "počítačová hra",
+      "correct": true,
+      "createdAt": "2025-11-10T22:54:25.523Z"
+    },
+    {
+      "id": "1ee5af1e-5dc0-4d7b-9c64-872dc0e52e67",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f7b45038-1d68-4501-8101-3e2e219d7295",
+      "answer": "rád",
+      "correct": true,
+      "createdAt": "2025-11-10T22:54:35.473Z"
+    },
+    {
+      "id": "381eddb0-647f-4787-8b2b-7db62850d825",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "01a1e1d6-6226-43b2-bc21-3f57d7aa6a17",
+      "answer": "věk",
+      "correct": true,
+      "createdAt": "2025-11-10T22:54:56.935Z"
+    },
+    {
+      "id": "5df5dc39-0cae-4364-9fff-af1ef7299579",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "544f263d-c74e-40ed-a071-8c0307e54375",
+      "answer": "hrát",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:13.131Z"
+    },
+    {
+      "id": "fb0cba06-ea9b-4b73-b3df-b5d5bd163013",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a64f1379-af1d-41f1-932c-84a82f82e8c1",
+      "answer": "koníček",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:14.513Z"
+    },
+    {
+      "id": "fedaaccb-affb-439c-bbb8-44cb5a8acb7c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "answer": "škola,vězení",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:15.584Z"
+    },
+    {
+      "id": "d78c43b9-d145-4c62-9796-10f410b2fab0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6b6137ca-e6db-4381-8fd4-a530b5a496c0",
+      "answer": "kamarádka",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:16.004Z"
+    },
+    {
+      "id": "8f8a54b5-0e1c-4758-85ba-49f3487fe2a0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "8572a36d-77fe-4a85-91f5-cc6957b106f8",
+      "answer": "kamarád",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:17.021Z"
+    },
+    {
+      "id": "d1559ba6-52a6-4112-bfa7-0bf449b9d022",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "685fb419-c6d9-42c6-80b5-05ab26a64fc1",
+      "answer": "cestovat",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:18.144Z"
+    },
+    {
+      "id": "ca44bcd0-89c1-4c1f-8b26-ec31a825ea3f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "věk",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:18.958Z"
+    },
+    {
+      "id": "19a4223e-a5d1-4032-8ab6-53057ec403b3",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ff00f2c4-9049-4633-a78c-583961d83bc1",
+      "answer": "angličtina",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:19.860Z"
+    },
+    {
+      "id": "7c507e8f-bdd9-4777-8e81-77130a4a48cd",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "e2f11584-1258-4c8d-bdc7-aa8bef82e608",
+      "answer": "cestovat",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:20.956Z"
+    },
+    {
+      "id": "b813a2bc-bee7-4dc8-8c33-c6e4c6043911",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "4f4b8657-8fd9-4776-9a7f-f166402d3712",
+      "answer": "bydliště",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:22.555Z"
+    },
+    {
+      "id": "f084bba7-a971-4f19-a85d-9dbef5656374",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "027463a9-2d25-44d6-9357-21b840be7187",
+      "answer": "rok",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:23.801Z"
+    },
+    {
+      "id": "fb5f426e-d83c-4584-a33b-265073aef381",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9a549780-4f5f-47ad-a700-e3daa1e8d97e",
+      "answer": "poslouchat",
+      "correct": true,
+      "createdAt": "2025-11-10T22:55:24.501Z"
+    },
+    {
+      "id": "ea4841c5-8491-40cf-95a1-6882df7d7103",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f7797a9-708f-4191-ab39-76e7e49b7cf9",
+      "answer": "fanoušek",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:25.322Z"
+    },
+    {
+      "id": "b5238f84-97e2-4007-a29b-3bd0750bac6e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "8527f9b5-bf56-4122-9f93-656fbacf3ee1",
+      "answer": "tancovat",
+      "correct": true,
+      "createdAt": "2025-11-10T22:55:26.020Z"
+    },
+    {
+      "id": "94e4be3f-417f-4b74-a565-8847e7291d8e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6a4a6d0b-94e5-45b5-931d-c882370092d6",
+      "answer": "klavír",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:26.460Z"
+    },
+    {
+      "id": "644e0d66-e861-4772-9be0-39a84f5ff5cc",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "779a4b19-beaa-48b8-9435-c60ae44795cd",
+      "answer": "bydliště",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:26.892Z"
+    },
+    {
+      "id": "0e092552-deb7-462c-a5b1-57f8caa1b729",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "answer": "hrát",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:27.309Z"
+    },
+    {
+      "id": "7c1f9cfd-37e0-4366-aa0f-a9157b0808a3",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "answer": "surfovat na internetu,prohlížet si internet,být na internetu",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:27.907Z"
+    },
+    {
+      "id": "214dfc64-168b-4f32-bab8-6ef75af79275",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "4b42ed79-f4b8-4a65-b14b-157f81a7ef2c",
+      "answer": "skupina",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:28.470Z"
+    },
+    {
+      "id": "c64f18dc-8c56-4c92-baeb-4cd861ecf68f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "3f17372d-60f5-435b-bae0-6d87399df919",
+      "answer": "skupina",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:28.830Z"
+    },
+    {
+      "id": "77912354-9fb3-42e2-a3c5-a7ad722addf8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "answer": "žádný",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:29.348Z"
+    },
+    {
+      "id": "bbad1735-3c4c-4bb6-b60c-8c3d085426b9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "0016a3c3-7e5d-47cc-a65e-d66bbbb775ca",
+      "answer": "kamarádka",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:29.876Z"
+    },
+    {
+      "id": "fa1cb4d4-4117-4011-8c91-46194b77de16",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a316170e-6858-4729-88ed-e5ac93538811",
+      "answer": "mobil",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:30.251Z"
+    },
+    {
+      "id": "60ba1cb7-1b23-4b23-9eec-df2330ac1c16",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "16898ae0-469a-4e3b-8c6b-16cd6b5ccd00",
+      "answer": "pořád,neustále",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:30.823Z"
+    },
+    {
+      "id": "d0b0e3b3-6967-4f81-8772-0ab66fe28728",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "answer": "francouzština",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:31.178Z"
+    },
+    {
+      "id": "39a6dd36-b351-4e60-a479-5b091c99b981",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "z",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:31.581Z"
+    },
+    {
+      "id": "664a000c-ad28-41bc-a1af-0ddfaf83a8a4",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "351eb764-825f-4809-9fca-485b07c354cd",
+      "answer": "ale",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:32.121Z"
+    },
+    {
+      "id": "1bbf1b41-bd71-4e2d-9206-907f209f7f02",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cd1f512b-259a-42cc-9c1c-44af76826fdc",
+      "answer": "také",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:32.597Z"
+    },
+    {
+      "id": "814fa158-7770-4121-b2e5-e203931118a6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cd58a516-10b0-437d-aed4-039b1eedf925",
+      "answer": "surfovat na internetu,prohlížet si internet,být na internetu",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:33.022Z"
+    },
+    {
+      "id": "91146633-ae45-4e72-acd1-aff4d1b91253",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a71f383b-e8af-4aa5-a42e-85587abf6dc4",
+      "answer": "koncert",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:33.470Z"
+    },
+    {
+      "id": "ad1200b3-07d6-4b3a-bedd-cbfd7ed27f1f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "81d0c38f-c9ef-4314-8afb-29aabd00aed5",
+      "answer": "pocházet",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:33.958Z"
+    },
+    {
+      "id": "157dccab-8984-4d31-bf35-1b58d0da2c5f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "04ac36e9-59b8-4502-82e3-61aaae629eda",
+      "answer": "cestovat",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:34.479Z"
+    },
+    {
+      "id": "39a64451-4e0c-450a-b6c2-adee0313ceee",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f5aa45ed-89d6-4cc8-b099-57e7f8a0afec",
+      "answer": "kamarád",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:35.750Z"
+    },
+    {
+      "id": "8c3758fd-0aca-453c-8c86-ddebcd00578d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1859a327-a094-47cc-ab81-eb75dcc74fd3",
+      "answer": "koníček",
+      "correct": false,
+      "createdAt": "2025-11-10T22:55:37.593Z"
+    },
+    {
+      "id": "cbf20b1a-61ff-45f9-bb25-a9d3715c11ca",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "9a549780-4f5f-47ad-a700-e3daa1e8d97e",
+      "answer": "Hören",
+      "correct": true,
+      "createdAt": "2025-11-11T22:53:55.413Z"
+    },
+    {
+      "id": "9d4c38c5-e693-4212-a6cc-e32f4aeb1df5",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "81d0c38f-c9ef-4314-8afb-29aabd00aed5",
+      "answer": "Nachname",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:00.307Z"
+    },
+    {
+      "id": "68f3c027-c752-421b-bf3d-7fa5beb0d4c7",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "answer": "Konzert",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:01.688Z"
+    },
+    {
+      "id": "f57df752-b145-492c-9f1b-fa7673b847cb",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "16898ae0-469a-4e3b-8c6b-16cd6b5ccd00",
+      "answer": "schreiben",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:02.175Z"
+    },
+    {
+      "id": "3377e27a-3a63-4940-bcc0-c345eb20d0b5",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "6b6137ca-e6db-4381-8fd4-a530b5a496c0",
+      "answer": "Fußball",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:02.605Z"
+    },
+    {
+      "id": "b7ab4b5a-93a3-4591-a097-a6f0bf0c74d9",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "cd58a516-10b0-437d-aed4-039b1eedf925",
+      "answer": "im Internet surfen",
+      "correct": true,
+      "createdAt": "2025-11-11T22:54:03.027Z"
+    },
+    {
+      "id": "a6aa2943-0a20-42d0-bae0-a4bde0dec24e",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "9f7797a9-708f-4191-ab39-76e7e49b7cf9",
+      "answer": "Freundin",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:03.432Z"
+    },
+    {
+      "id": "bb04c1c1-9a40-40b5-8c25-cfc5b26a9731",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "4f4b8657-8fd9-4776-9a7f-f166402d3712",
+      "answer": "Vorname",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:04.042Z"
+    },
+    {
+      "id": "8312e263-a7e5-4d27-ab9c-c0ae24cfc5aa",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:04.637Z"
+    },
+    {
+      "id": "37f907fc-4610-4eb1-abfa-c498a6918940",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "95c37e12-6fa6-460b-94b1-1eaa25caf02d",
+      "answer": "Schule",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:05.147Z"
+    },
+    {
+      "id": "d9367f38-a61b-4301-8720-6d41d22f8c43",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "a71f383b-e8af-4aa5-a42e-85587abf6dc4",
+      "answer": "kein",
+      "correct": true,
+      "createdAt": "2025-11-11T22:54:05.646Z"
+    },
+    {
+      "id": "d825c7fd-c209-4fe6-b3bb-9dacf530ca25",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "1859a327-a094-47cc-ab81-eb75dcc74fd3",
+      "answer": "Französisch",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:06.110Z"
+    },
+    {
+      "id": "d21aa2f9-b793-41e0-b1d6-fa7affc51f9f",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "cd1f512b-259a-42cc-9c1c-44af76826fdc",
+      "answer": "Freundin",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:06.608Z"
+    },
+    {
+      "id": "b7f69e85-24a1-4155-8cf2-550f4a351240",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "8527f9b5-bf56-4122-9f93-656fbacf3ee1",
+      "answer": "Vorname",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:07.119Z"
+    },
+    {
+      "id": "4b287f6a-dceb-484f-ae1d-71d2d4afc5c5",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "a316170e-6858-4729-88ed-e5ac93538811",
+      "answer": "Handy",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:07.618Z"
+    },
+    {
+      "id": "51d4341b-0f1a-49e8-ba9b-47b68776cf3d",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "685fb419-c6d9-42c6-80b5-05ab26a64fc1",
+      "answer": "im Internet surfen",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:08.105Z"
+    },
+    {
+      "id": "48abab74-873e-4c96-a30c-bb5095abd261",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "4b42ed79-f4b8-4a65-b14b-157f81a7ef2c",
+      "answer": "Schule",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:08.764Z"
+    },
+    {
+      "id": "e4714f20-9641-4ff9-9581-c3bedf779405",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "e2f11584-1258-4c8d-bdc7-aa8bef82e608",
+      "answer": "Immer",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:09.228Z"
+    },
+    {
+      "id": "c58fea46-4777-4866-85fb-bfaeaf79e754",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "f7b45038-1d68-4501-8101-3e2e219d7295",
+      "answer": "Immer",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:09.752Z"
+    },
+    {
+      "id": "d1bfb26c-1464-47ed-bff0-76bf6770bba8",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "answer": "Wohnort",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:10.502Z"
+    },
+    {
+      "id": "523900b4-8762-4405-9034-73130446f53e",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "0016a3c3-7e5d-47cc-a65e-d66bbbb775ca",
+      "answer": "aus",
+      "correct": true,
+      "createdAt": "2025-11-11T22:54:10.803Z"
+    },
+    {
+      "id": "927f7c71-4294-4f3e-b142-c494b2f3339f",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "ff00f2c4-9049-4633-a78c-583961d83bc1",
+      "answer": "Französisch",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:11.268Z"
+    },
+    {
+      "id": "4d06f409-e1d8-4aea-8adb-26e98188ee32",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "01a1e1d6-6226-43b2-bc21-3f57d7aa6a17",
+      "answer": "E-mail",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:11.745Z"
+    },
+    {
+      "id": "32defb3f-8336-473b-a76f-13aa50514335",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "027463a9-2d25-44d6-9357-21b840be7187",
+      "answer": "gern",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:12.210Z"
+    },
+    {
+      "id": "d9e78a05-2bd2-49ce-9a3f-de33a18cdeba",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "8572a36d-77fe-4a85-91f5-cc6957b106f8",
+      "answer": "Band",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:12.731Z"
+    },
+    {
+      "id": "55444a63-f179-4d99-953a-e1a1928c3c1f",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "6a4a6d0b-94e5-45b5-931d-c882370092d6",
+      "answer": "Wohnort",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:13.242Z"
+    },
+    {
+      "id": "80e56f1e-bc3c-45d4-aad9-6e4706cd49e1",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "f5aa45ed-89d6-4cc8-b099-57e7f8a0afec",
+      "answer": "Immer",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:13.785Z"
+    },
+    {
+      "id": "a2cfcb0b-59e0-4c30-91a1-25e7db44973b",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "60cb8115-966f-41f6-92a1-866269654a86",
+      "answer": "Französisch",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:14.298Z"
+    },
+    {
+      "id": "cca98fc5-7d7c-47b3-bac9-9e4fa92d2dba",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "779a4b19-beaa-48b8-9435-c60ae44795cd",
+      "answer": "Hören",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:14.838Z"
+    },
+    {
+      "id": "e888b184-3711-4ed1-abaa-9df3708b5368",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "04ac36e9-59b8-4502-82e3-61aaae629eda",
+      "answer": "Immer",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:15.352Z"
+    },
+    {
+      "id": "eec74162-945d-47a8-b3d6-c3ec04221e14",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "answer": "aus",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:15.850Z"
+    },
+    {
+      "id": "da063a6d-f983-420f-831c-a648f4e711e3",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "3f17372d-60f5-435b-bae0-6d87399df919",
+      "answer": "Vorname",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:16.361Z"
+    },
+    {
+      "id": "6565f83c-3161-4873-a5f6-3fc6d661dd7c",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "351eb764-825f-4809-9fca-485b07c354cd",
+      "answer": "Englisch",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:16.928Z"
+    },
+    {
+      "id": "3a05f983-1f28-4b1f-94bb-3d42d4721c0e",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "answer": "Band",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:18.797Z"
+    },
+    {
+      "id": "14768e8b-28ce-45ab-9ff4-aecaf81a58b7",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "Englisch",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:19.885Z"
+    },
+    {
+      "id": "7fdb0ed9-a2c8-44f3-916a-cbfd4e7ae285",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "a64f1379-af1d-41f1-932c-84a82f82e8c1",
+      "answer": "Hobby",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:21.110Z"
+    },
+    {
+      "id": "113b1064-35d0-4ded-8d05-315c6ea1bb3e",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "answer": "Alter",
+      "correct": false,
+      "createdAt": "2025-11-11T22:54:22.847Z"
+    },
+    {
+      "id": "aece4f53-5212-43ce-a358-25716d99e218",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "entryId": "544f263d-c74e-40ed-a071-8c0307e54375",
+      "answer": "chatten",
+      "correct": true,
+      "createdAt": "2025-11-11T22:54:24.116Z"
+    }
+  ],
+  "teacherCodes": [
+    {
+      "id": "6d78aa7a-a7bc-4206-8f7b-be683e00dfe7",
+      "code": "EU5CPZ",
+      "activated": false,
+      "createdAt": "2025-11-11T23:03:20.780Z"
+    },
+    {
+      "id": "1064fc96-0b74-4e61-9852-dccdfa9e896b",
+      "code": "B55LCS",
+      "activated": false,
+      "createdAt": "2025-11-11T23:03:20.780Z"
+    },
+    {
+      "id": "5047d0b0-1081-4ab8-aa69-24d20d479c86",
+      "code": "7FC76V",
+      "activated": false,
+      "createdAt": "2025-11-11T23:03:20.780Z"
+    },
+    {
+      "id": "5ada35ec-3c73-44b0-b7e3-01e5f875e021",
+      "code": "8I8NAN",
+      "activated": false,
+      "createdAt": "2025-11-11T23:03:20.780Z"
+    },
+    {
+      "id": "c8ac2231-0838-4f27-956f-8a2fe284f166",
+      "code": "QS9EMP",
+      "activated": false,
+      "createdAt": "2025-11-11T23:03:20.780Z"
+    },
+    {
+      "id": "42f18370-aa26-4fe4-afd7-253d5af89ffa",
+      "code": "IGAV1M",
+      "activated": false,
+      "createdAt": "2025-11-11T23:15:24.203Z"
+    },
+    {
+      "id": "ec72c0fe-8847-4207-9704-381278d69b55",
+      "code": "W9JZWJ",
+      "activated": false,
+      "createdAt": "2025-11-11T23:15:24.203Z"
+    },
+    {
+      "id": "66663abd-b4f0-481b-9de1-389d9502ad33",
+      "code": "ZM6UXO",
+      "activated": false,
+      "createdAt": "2025-11-11T23:15:24.203Z"
+    },
+    {
+      "id": "94810998-f7af-4b7f-8f92-d691fd05ccdf",
+      "code": "PRU0DL",
+      "activated": false,
+      "createdAt": "2025-11-11T23:15:24.203Z"
+    },
+    {
+      "id": "809d0d66-1ce6-43fe-b0bc-ac032c5c712e",
+      "code": "T4GE26",
+      "activated": false,
+      "createdAt": "2025-11-11T23:15:24.203Z"
     }
   ]
 }

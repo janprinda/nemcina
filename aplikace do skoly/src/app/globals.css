@@ -29,14 +29,47 @@ html { font-size: clamp(15px, 0.9vw + 12px, 19px); }
   .card { border: 1px solid var(--border); background: var(--card); border-radius: 0.75rem; }
   .card-body { @apply p-4; }
   .btn { @apply inline-flex items-center justify-center gap-2 rounded px-3 py-2 text-sm font-medium transition-colors; }
-  .btn-primary { color: #0b0f1f; background: linear-gradient(135deg, var(--accent), var(--accent-5)); }
-  .btn-primary:hover { filter: brightness(1.05); }
-  .btn-secondary { color: var(--fg); background: #202744; border: 1px solid var(--border); }
-  .btn-secondary:hover { background: #263156; }
-  .btn-ghost { color: var(--fg); background: transparent; }
-  .btn-ghost:hover { background: rgba(255,255,255,0.04); }
+  /* Global interactive polish */
+  .btn { position: relative; overflow: hidden; background-size: 200% 200%; transition: background-position .35s ease, box-shadow .25s ease; }
+  .btn:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(132,197,244,.45); }
+  /* No lift on hover/active */
+  .btn:hover { transform: none; }
+  .btn:active { transform: none; }
+
+  /* Primary with animated gradient sweep */
+  .btn-primary { color: #0b0f1f; background-image: linear-gradient(135deg, var(--accent), var(--accent-5)); }
+  .btn-primary:hover { background-position: 100% 0; }
+
+  /* Secondary with subtle gradient film + hover sweep */
+  .btn-secondary { color: var(--fg); background-color: #202744; background-image: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.08)); border: 1px solid var(--border); }
+  .btn-secondary:hover { background-position: 100% 0; background-color: #263156; }
+
+  /* Ghost with faint gradient glow on hover */
+  .btn-ghost { color: var(--fg); background-image: linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0.06)); }
+  .btn-ghost:hover { background-position: 100% 0; background-color: rgba(255,255,255,0.05); }
+
+  /* Exclude gender chips from generic hover tweaks */
+  .btn.gender-der:hover,
+  .btn.gender-die:hover,
+  .btn.gender-das:hover { background-position: initial; background-color: initial; }
   .header-grad { background: linear-gradient(180deg, rgba(182,240,209,0.06), rgba(132,197,244,0)); border-bottom: 1px solid var(--border); }
   .muted { color: var(--muted); }
+  .field { text-align: left; }
+  .field label { @apply text-sm; color: var(--muted); }
+  .input { @apply w-full px-3 py-2 rounded; background: var(--card); color: var(--fg); border: 1px solid var(--border); transition: border-color .2s ease, box-shadow .2s ease; }
+  .input-lg { @apply px-4 py-3 text-base; }
+  .input::placeholder { color: #9aa3c0; opacity: .85; }
+  .input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(132,197,244,.15); }
+  .select { @apply rounded border bg-[var(--card)] text-[var(--fg)]; border-color: var(--border); -webkit-appearance: none; -moz-appearance: none; appearance: none; padding: .5rem 2.25rem .5rem .5rem; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23cbd5ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .6rem center; background-size: 12px 8px; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+  .select-lg { @apply text-base; }
+  .select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(132,197,244,.15); }
+  .select:hover { background-color: rgba(255,255,255,.02); }
+  .card { border: 1px solid var(--border); background: var(--card); border-radius: 0.9rem; box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+  .card-body { @apply p-5; }
+  table tr:hover { background: rgba(255,255,255,.02); }
+  .stepper { @apply flex items-center justify-center gap-2 text-xs; }
+  .step { @apply h-2 w-2 rounded-full bg-[var(--border)]; }
+  .step-active { background: var(--accent); }
   .text-der { color: #84c5f4; }
   .text-die { color: #f7c8d0; }
   .text-das { color: #b6f0d1; }

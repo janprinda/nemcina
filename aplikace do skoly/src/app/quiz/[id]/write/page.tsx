@@ -45,7 +45,10 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
   const done = idx >= entries.length;
   const currentDir = dirs[idx] || 'de2cs';
   const prompt = currentDir === 'de2cs' ? 'Přelož do češtiny' : 'Přelož do němčiny';
-  const shown = currentDir === 'de2cs' ? current?.term : current?.translation;
+  const shownBase = currentDir === 'de2cs' ? current?.term : current?.translation;
+  const shown = (currentDir === 'de2cs' && current?.partOfSpeech === 'noun' && current?.genders?.length)
+    ? `${current.genders!.join('/')} ${shownBase}`
+    : shownBase;
   const expectedNow = current ? (currentDir === 'de2cs' ? current.translation : current.term) : '';
   const hint = useMemo(() => {
     if (!expectedNow) return '';
@@ -80,7 +83,7 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
             <div className="mt-1 text-2xl font-semibold text-gray-100">{shown}</div>
           </div></div>
           {/* Gender selection for nouns */}
-          {current?.partOfSpeech === 'noun' && (
+          {currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && (
             <div className="space-y-2">
               <div className="text-sm muted">Vyber rod (der/die/das)</div>
               <div className="grid grid-cols-3 gap-2">
@@ -118,7 +121,7 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
                   setFeedback({ correct: !!res.correct, expected: res.expected });
                   setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: answer, term: current.term, translation: current.translation, dir: currentDir }]);
                 }}>Odeslat</button>
-              <button className="btn btn-secondary" onClick={() => setHintLevel(h => Math.min(2, (h+1) as 1|2))}>Nápověda</button>
+              <button className="btn btn-secondary" onClick={() => setHintLevel(h => Math.min(2, (h+1)) as 0|1|2)}>Nápověda</button>
             </div>
           ) : null}
           {feedback && (

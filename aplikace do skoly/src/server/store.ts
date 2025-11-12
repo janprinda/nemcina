@@ -2,8 +2,10 @@ import { promises as fs } from "fs";
 import path from "path";
 import crypto from "crypto";
 
-export type Role = "USER" | "ADMIN";
-export type User = { id: string; name?: string | null; email?: string | null; role: Role; passwordHash?: string | null };
+export type Role = "USER" | "ADMIN" | "TEACHER";
+export type User = { id: string; name?: string | null; displayName?: string | null; nickname?: string | null; email?: string | null; role: Role; passwordHash?: string | null; birthDate?: string | null; interests?: string[] | null; phone?: string | null; desiredClassCode?: string | null; avatarUrl?: string | null };
+
+export type TeacherCode = { id: string; code: string; note?: string | null; activated: boolean; activatedAt?: string | null; activatedBy?: string | null; createdAt: string };
 export type Lesson = { id: string; title: string; description?: string | null; createdAt: string };
 export type Entry = {
   id: string;
@@ -18,7 +20,43 @@ export type Entry = {
 };
 export type Attempt = { id: string; userId?: string | null; entryId: string; answer: string; correct: boolean; createdAt: string };
 
-type DB = { users: User[]; lessons: Lesson[]; entries: Entry[]; attempts: Attempt[] };
+export type Account = {
+  id: string;
+  userId: string;
+  type: string;
+  provider: string;
+  providerAccountId: string;
+  access_token?: string | null;
+  refresh_token?: string | null;
+  expires_at?: number | null;
+  token_type?: string | null;
+  scope?: string | null;
+  id_token?: string | null;
+};
+
+export type Session = {
+  id: string;
+  sessionToken: string;
+  userId: string;
+  expires: string; // ISO date
+};
+
+export type VerificationToken = {
+  identifier: string;
+  token: string;
+  expires: string; // ISO date
+};
+
+type DB = {
+  users: User[];
+  lessons: Lesson[];
+  entries: Entry[];
+  attempts: Attempt[];
+  accounts?: Account[];
+  sessions?: Session[];
+  verificationTokens?: VerificationToken[];
+  teacherCodes?: TeacherCode[];
+};
 
 const dataDir = path.join(process.cwd(), "data");
 const dbFile = path.join(dataDir, "db.json");
@@ -26,7 +64,7 @@ const dbFile = path.join(dataDir, "db.json");
 async function ensure() {
   await fs.mkdir(dataDir, { recursive: true });
   try { await fs.access(dbFile); } catch {
-    const empty: DB = { users: [], lessons: [], entries: [], attempts: [] };
+    const empty: DB = { users: [], lessons: [], entries: [], attempts: [], accounts: [], sessions: [], verificationTokens: [], teacherCodes: [] };
     await fs.writeFile(dbFile, JSON.stringify(empty, null, 2), "utf8");
   }
 }
@@ -44,7 +82,7 @@ export async function createLesson(data: { title: string; description?: string |
   db.lessons.push(l); await write(db); return l;
 }
 export async function deleteLesson(lessonId: string) { const db = await read(); db.entries = db.entries.filter(e=> e.lessonId !== lessonId); db.lessons = db.lessons.filter(l=> l.id!==lessonId); await write(db); }
-export async function updateLesson(lessonId: string, data: Partial<Pick<Lesson,'title'|'description'|'languageFrom'|'languageTo'>>) {
+export async function updateLesson(lessonId: string, data: Partial<Pick<Lesson,'title'|'description'>>) {
   const db = await read();
   const idx = db.lessons.findIndex(l => l.id === lessonId);
   if (idx === -1) return null;
@@ -99,3 +137,20 @@ export async function upsertAdmin(email: string, name: string, passwordHash: str
 export async function getUsers() { const db = await read(); return db.users.slice(); }
 export async function getAttempts() { const db = await read(); return db.attempts.slice(); }
 export async function updateUserName(userId: string, name: string) { const db = await read(); const u = db.users.find(x=>x.id===userId); if (!u) return null; u.name = name; await write(db); return u; }
+export async function updateUser(userId: string, patch: Partial<User>) { const db = await read(); const u = db.users.find(x=>x.id===userId); if (!u) return null; Object.assign(u, patch); await write(db); return u; }
+
+// Teacher codes
+export async function listTeacherCodes() { const db = await read(); db.teacherCodes ||= []; return db.teacherCodes; }
+export async function createTeacherCodes(count: number) {
+  const db = await read(); db.teacherCodes ||= [];
+  const make = () => Math.random().toString(36).slice(2, 8).toUpperCase();
+  const out: TeacherCode[] = [];
+  for (let i=0;i<count;i++) { const code = make(); const tc: TeacherCode = { id: id(), code, activated: false, createdAt: new Date().toISOString() }; db.teacherCodes.push(tc); out.push(tc); }
+  await write(db); return out;
+}
+export async function updateTeacherCodeNote(idv: string, note: string) { const db = await read(); const t = (db.teacherCodes ||= []).find(c=>c.id===idv); if (!t) return null; t.note = note; await write(db); return t; }
+export async function deleteTeacherCode(idv: string) { const db = await read(); db.teacherCodes = (db.teacherCodes ||= []).filter(c=>c.id!==idv); await write(db); }
+export async function activateTeacherCodeIfValid(input: string, userId: string) {
+  const db = await read(); const t = (db.teacherCodes ||= []).find(c=>c.code === input && !c.activated);
+  if (!t) return false; t.activated = true; t.activatedAt = new Date().toISOString(); t.activatedBy = userId; await write(db); return true;
+}

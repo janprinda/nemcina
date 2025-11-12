@@ -1,13 +1,15 @@
 "use server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/server/authOptions";
 import { getEntryById, recordAttempt } from "@/server/store";
 
-export async function submitAnswer(entryId: string, answer: string, dir?: 'de2cs' | 'cs2de', chosenGender?: 'der'|'die'|'das'|null) {
-  const session = await getServerSession(authOptions);
-  const userId = session?.user?.id as string | undefined;
+type SubmitResult = { correct: boolean; expected: string; expectedGenders: ("der"|"die"|"das")[] | null; genderCorrect: boolean };
+
+export async function submitAnswer(entryId: string, answer: string, dir?: 'de2cs' | 'cs2de', chosenGender?: 'der'|'die'|'das'|null): Promise<SubmitResult> {
+  const session = await getServerSession(authOptions as any);
+  const userId = (session as any)?.user?.id as string | undefined;
   const entry = await getEntryById(entryId);
-  if (!entry) return { error: "Nenalezeno" };
+  if (!entry) return { correct: false, expected: '', expectedGenders: null, genderCorrect: false };
   const expected = dir === 'cs2de' ? entry.term : entry.translation;
   const expectedVariants = (dir === 'cs2de')
     ? [expected]

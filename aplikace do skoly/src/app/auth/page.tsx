@@ -1,6 +1,7 @@
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function AuthPage() {
   const { data: session } = useSession();
@@ -35,8 +36,9 @@ export default function AuthPage() {
       >
         Přihlásit
       </button>
+      {/* OAuth login buttons removed per request */}
+      <div className="text-sm">Nemáš účet? <Link className="underline" href="/auth/signup">Registrace</Link></div>
       <p className="text-sm text-gray-400">Účet admin se vytvoří automaticky při startu (viz seed).</p>
     </div>
   );
 }
-
