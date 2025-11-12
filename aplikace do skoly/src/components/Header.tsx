@@ -11,6 +11,8 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-2 text-sm">
           <Link className="btn btn-ghost" href="/">Domů</Link>
           <Link className="btn btn-ghost" href="/leaderboard">Žebříček</Link>
+          <Link className="btn btn-ghost" href="/classes">Třída</Link>
+          <Link className="btn btn-ghost" href="/teacher/class">Učitelská třída</Link>
           <Link className="btn btn-ghost" href="/profile">Profil</Link>
           <Link className="btn btn-ghost" href="/admin">Admin</Link>
           <Link className="btn btn-primary" href="/auth">Přihlášení</Link>
@@ -22,6 +24,8 @@ export default function Header() {
           <div className="container py-3 flex flex-col gap-2">
             <Link className="btn btn-ghost" href="/" onClick={()=>setOpen(false)}>Domů</Link>
             <Link className="btn btn-ghost" href="/leaderboard" onClick={()=>setOpen(false)}>Žebříček</Link>
+            <Link className="btn btn-ghost" href="/classes" onClick={()=>setOpen(false)}>Třída</Link>
+            <Link className="btn btn-ghost" href="/teacher/class" onClick={()=>setOpen(false)}>Učitelská třída</Link>
             <Link className="btn btn-ghost" href="/profile" onClick={()=>setOpen(false)}>Profil</Link>
             <Link className="btn btn-ghost" href="/admin" onClick={()=>setOpen(false)}>Admin</Link>
             <Link className="btn btn-primary" href="/auth" onClick={()=>setOpen(false)}>Přihlášení</Link>

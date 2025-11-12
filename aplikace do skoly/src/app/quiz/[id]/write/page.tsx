@@ -28,6 +28,7 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState<null | { correct: boolean; expected: string }>(null);
   const [genderChoice, setGenderChoice] = useState<''|'der'|'die'|'das'>('');
+  const [genderRetry, setGenderRetry] = useState(false);
   const [hintLevel, setHintLevel] = useState<0|1|2>(0);
   const [dirs, setDirs] = useState<Array<'de2cs'|'cs2de'>>([]);
   const [results, setResults] = useState<Array<{ id: string; correct: boolean; expected: string; your: string; term: string; translation: string; dir: 'de2cs'|'cs2de' }>>([]);
@@ -99,25 +100,33 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
           )}
           <div className="text-xs muted text-left">Tip: ß lze psát jako "ss". Více překladů piš odděleně "," nebo ";".</div>
           <input className="w-full px-3 py-2" placeholder="Tvoje odpověď"
-                 value={answer} onChange={(e) => setAnswer(e.target.value)} onKeyDown={(e) => {
-                   if (e.key === 'Enter') {
-                     e.preventDefault();
-                     if (!feedback) {
-                       (async () => {
-                         const res = await submitAnswer(current.id, answer, currentDir, genderChoice || null);
-                         setFeedback({ correct: !!res.correct, expected: res.expected });
-                         setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: answer, term: current.term, translation: current.translation, dir: currentDir }]);
-                       })();
-                     } else {
-                       setFeedback(null); setAnswer(""); setIdx((i)=>i+1);
-                     }
-                   }
-                 }} />
+                  value={answer} onChange={(e) => setAnswer(e.target.value)} onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      if (!feedback) {
+                        (async () => {
+                          const res = await submitAnswer(current.id, answer, currentDir, genderChoice || null);
+                          if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
+                            setGenderRetry(true);
+                            return;
+                          }
+                          setFeedback({ correct: !!res.correct, expected: res.expected });
+                          setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: answer, term: current.term, translation: current.translation, dir: currentDir }]);
+                        })();
+                      } else {
+                        setFeedback(null); setAnswer(""); setIdx((i)=>i+1);
+                      }
+                    }
+                  }} />
           {!feedback ? (
             <div className="flex gap-2 justify-center">
               <button className="btn btn-primary"
                 onClick={async () => {
                   const res = await submitAnswer(current.id, answer, currentDir, genderChoice || null);
+                  if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
+                    setGenderRetry(true);
+                    return;
+                  }
                   setFeedback({ correct: !!res.correct, expected: res.expected });
                   setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: answer, term: current.term, translation: current.translation, dir: currentDir }]);
                 }}>Odeslat</button>
@@ -135,6 +144,9 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
               onNext={() => { setFeedback(null); setAnswer(""); setHintLevel(0); setIdx((i)=>i+1); }}
               onRetry={!feedback.correct ? () => { setFeedback(null); setHintLevel(0); setAnswer(""); } : undefined}
             />
+          )}
+          {genderRetry && (
+            <div className="text-xs text-yellow-300 mt-2">Text je správně, oprav jen rod (der/die/das) a odešli znovu.</div>
           )}
           {hint && !feedback && (
             <div className="text-sm muted">Nápověda: <span className="text-gray-200">{hint}</span></div>
@@ -242,3 +254,4 @@ function computeMinorNotes(answer: string, expected: string): string[] {
   }
   return Array.from(new Set(notes));
 }
+  useEffect(() => { setGenderChoice(''); setGenderRetry(false); }, [idx, currentDir]);

@@ -31,6 +31,7 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
   const [results, setResults] = useState<Array<{ id: string; correct: boolean; expected: string; your: string; term: string; translation: string; dir: 'de2cs'|'cs2de' }>>([]);
   const [eliminated, setEliminated] = useState<Set<string>>(new Set());
   const [genderChoice, setGenderChoice] = useState<''|'der'|'die'|'das'>('');
+  const [genderRetry, setGenderRetry] = useState(false);
 
   // shuffle() defined above at module scope
 
@@ -61,7 +62,7 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
     const correct = currentDir === 'de2cs' ? current.translation : current.term;
     return shuffle([correct, ...distractors]);
   }, [current, entries, currentDir]);
-  useEffect(() => { setEliminated(new Set()); setSelected(null); }, [idx, currentDir]);
+  useEffect(() => { setEliminated(new Set()); setSelected(null); setGenderChoice(''); setGenderRetry(false); }, [idx, currentDir]);
   // Keyboard shortcuts: 1-4 select option, Enter confirm/next
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -72,7 +73,12 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
           setSelected(options[map[e.key]]);
         } else if (e.key === 'Enter' && selected) {
           (async () => {
-            const res = await submitAnswer(current.id, selected, currentDir);
+            const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null);
+            if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
+              // allow one retry to fix only gender
+              setGenderRetry(true);
+              return;
+            }
             setFeedback({ correct: !!res.correct, expected: res.expected });
             setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: selected, term: current.term, translation: current.translation, dir: currentDir }]);
           })();
@@ -109,13 +115,16 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
                   );
                 })}
               </div>
+              {genderRetry && (
+                <div className="text-xs text-yellow-300">Text je správně, oprav jen rod (der/die/das) a potvrď znovu.</div>
+              )}
             </div>
           )}
           <div className="grid gap-2">
             {options.map((opt, i) => (
               <button key={opt}
-                      className={`btn ${selected === opt ? 'btn-primary' : 'btn-secondary'} ${eliminated.has(opt) ? 'opacity-40 pointer-events-none' : ''}`}
-                      onClick={() => setSelected(opt)}>
+                      className={`btn ${selected === opt ? 'btn-primary' : 'btn-secondary'} ${eliminated.has(opt) || genderRetry ? 'opacity-40 pointer-events-none' : ''}`}
+                      onClick={() => { if (!genderRetry) setSelected(opt); }}>
                 <span className="opacity-70 mr-1 text-xs">{i+1}.</span> {opt}
               </button>
             ))}
@@ -126,13 +135,17 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
                       onClick={async () => {
                         if (!selected) return;
                         const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null);
+                        if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
+                          setGenderRetry(true);
+                          return;
+                        }
                         setFeedback({ correct: !!res.correct, expected: res.expected });
                         setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: selected, term: current.term, translation: current.translation, dir: currentDir }]);
                       }}>Potvrdit</button>
               <button className="btn btn-secondary" onClick={() => {
                 const wrong = options.filter(o => o !== (currentDir === 'de2cs' ? current!.translation : current!.term) && !eliminated.has(o));
                 const toRemove = wrong.slice(0, Math.max(0, Math.min(2, wrong.length)));
-                setEliminated(prev => new Set([...Array.from(prev), ...toRemove]));
+                if (!genderRetry) setEliminated(prev => new Set([...Array.from(prev), ...toRemove]));
               }}>Nápověda (50/50)</button>
             </div>
           ) : (

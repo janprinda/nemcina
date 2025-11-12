@@ -41,6 +41,12 @@ export default async function AdminIndex() {
             <div className="text-sm muted">Generování kódů, poznámky, export do PDF.</div>
           </div>
         </Link>
+        <Link href="/admin/classes" className="card">
+          <div className="card-body">
+            <div className="font-medium">Třídy</div>
+            <div className="text-sm muted">Správa tříd, přiřazení učitelů.</div>
+          </div>
+        </Link>
       </div>
     </div>
   );

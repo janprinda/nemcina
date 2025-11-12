@@ -5,7 +5,7 @@
       "name": "",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$IlgY.zCR7I9l7vO.8Z8JyOFiRagrUroe/7jmDiI65p6cVZOQe3SRO",
+      "passwordHash": "$2a$10$BQbIMEHqHxcVkU.VJHfSZewtWcJAZ.oC39hn5ncVLF6tWQHljbS4K",
       "displayName": "",
       "nickname": ""
     },
@@ -26,6 +26,21 @@
       "avatarUrl": "/uploads/a54fea40-d0c3-456b-8b56--1762901706648.jpg",
       "displayName": "",
       "nickname": ""
+    },
+    {
+      "id": "03e04b22-19ab-413a-9ec7-",
+      "name": "Maksym Kuliy",
+      "email": "maksymkuliy@gmail.com",
+      "role": "TEACHER",
+      "passwordHash": "$2a$10$Fd/HzdouEEZ.S5TWbc.ZNeUqC2lqoki7Aqe4KJzcEVwpe4DbXEkJS",
+      "birthDate": "2009-11-27",
+      "interests": [
+        "cestování",
+        "programování",
+        "jazyk"
+      ],
+      "phone": "+420 123456789",
+      "desiredClassCode": null
     }
   ],
   "lessons": [
@@ -1399,6 +1414,54 @@
       "answer": "chatten",
       "correct": true,
       "createdAt": "2025-11-11T22:54:24.116Z"
+    },
+    {
+      "id": "2a80f539-a21d-4a6b-8fb7-c9baf9302736",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "answer": "liegen",
+      "correct": true,
+      "createdAt": "2025-11-12T17:14:49.828Z"
+    },
+    {
+      "id": "d49d6b52-9c6b-433e-920e-2fa8aca7375e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": true,
+      "createdAt": "2025-11-12T17:14:59.557Z"
+    },
+    {
+      "id": "5943ef33-5d8c-486a-b932-9d513f708a69",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "351eb764-825f-4809-9fca-485b07c354cd",
+      "answer": "lernen",
+      "correct": true,
+      "createdAt": "2025-11-12T17:15:03.672Z"
+    },
+    {
+      "id": "69d236bd-2685-4bb5-b421-db2770fba801",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "answer": "gehen",
+      "correct": true,
+      "createdAt": "2025-11-12T17:15:06.412Z"
+    },
+    {
+      "id": "a9fc749b-43e5-484f-bef4-0460e10b07ee",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "4b42ed79-f4b8-4a65-b14b-157f81a7ef2c",
+      "answer": "spielen",
+      "correct": true,
+      "createdAt": "2025-11-12T17:15:10.759Z"
+    },
+    {
+      "id": "eb7784c4-48b8-47fa-830c-76b87f801c81",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f7b45038-1d68-4501-8101-3e2e219d7295",
+      "answer": "gern",
+      "correct": true,
+      "createdAt": "2025-11-12T17:15:13.643Z"
     }
   ],
   "teacherCodes": [
@@ -1461,6 +1524,23 @@
       "code": "T4GE26",
       "activated": false,
       "createdAt": "2025-11-11T23:15:24.203Z"
+    }
+  ],
+  "classes": [
+    {
+      "id": "663945c5-0681-431d-ab4c-0dcc1e446dbe",
+      "name": "Němčina 1.B",
+      "code": "69U044",
+      "teacherId": "a54fea40-d0c3-456b-8b56-",
+      "createdAt": "2025-11-12T17:59:14.386Z"
+    }
+  ],
+  "classMemberships": [
+    {
+      "id": "7b48c721-1191-44bc-adbf-abe47e9507d5",
+      "classId": "663945c5-0681-431d-ab4c-0dcc1e446dbe",
+      "userId": "a54fea40-d0c3-456b-8b56-",
+      "role": "TEACHER"
     }
   ]
 }

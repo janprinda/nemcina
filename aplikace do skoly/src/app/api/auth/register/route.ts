@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     ? (body.interests as string[]).map(s=> String(s).trim()).filter(Boolean).slice(0, 20)
     : String(body?.interests || '').split(',').map(s=> s.trim()).filter(Boolean).slice(0, 20);
   const emailOk = /.+@.+\..+/.test(email);
-  if (!emailOk || !password || password.length < 6) return NextResponse.json({ error: 'Neplatná data' }, { status: 400 });
+  const passUpperOk = /[A-Z]/.test(password); const passNumOk = /\\d/.test(password); if (!emailOk || !password || password.length < 8 || !passUpperOk || !passNumOk) return NextResponse.json({ error: 'Neplatn� data' }, { status: 400 });
   const exists = await findUserByEmail(email);
   if (exists) return NextResponse.json({ error: 'Uživatel již existuje' }, { status: 400 });
 
@@ -45,3 +45,5 @@ export async function POST(req: Request) {
 function cryptoRandomId() {
   return (globalThis.crypto?.randomUUID?.() || (Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2))).slice(0, 24);
 }
+
+

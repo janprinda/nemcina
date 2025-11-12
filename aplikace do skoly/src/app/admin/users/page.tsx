@@ -1,4 +1,4 @@
-import { getUsers, updateUser } from "@/server/store";
+import { getUsers, updateUser, deleteUserById } from "@/server/store";
 import { revalidatePath } from "next/cache";
 
 async function updateAction(formData: FormData) {
@@ -26,7 +26,7 @@ export default async function AdminUsersPage() {
               <th className="py-2 pr-3">Zobrazované</th>
               <th className="py-2 pr-3">Přezdívka</th>
               <th className="py-2 pr-3">Role</th>
-              <th className="py-2"></th>
+              <th className="py-2">Akce</th>
             </tr>
           </thead>
           <tbody>
@@ -48,7 +48,11 @@ export default async function AdminUsersPage() {
                   </select>
                   <button className="btn btn-secondary">Uložit</button>
                 </form></td>
-                <td></td>
+                <td className="py-2 pr-3 text-right">
+                  <form action={async () => { "use server"; await deleteUserById(u.id); revalidatePath('/admin/users'); }}>
+                    <button className="btn btn-ghost text-red-400" type="submit">Smazat</button>
+                  </form>
+                </td>
               </tr>
             ))}
           </tbody>

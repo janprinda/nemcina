@@ -20,6 +20,28 @@ export type Entry = {
 };
 export type Attempt = { id: string; userId?: string | null; entryId: string; answer: string; correct: boolean; createdAt: string };
 
+// Classes and chat
+export type ClassRoom = { id: string; name: string; code: string; teacherId: string; createdAt: string };
+export type ClassMembership = { id: string; classId: string; userId: string; role: 'STUDENT'|'TEACHER'|'ADMIN' };
+export type ChatMessage = { id: string; classId: string; userId: string; content: string; createdAt: string };
+
+// Party (live activity like Kahoot)
+export type Party = {
+  id: string;
+  classId: string;
+  lessonId: string;
+  mode: 'mc'|'write';
+  timerSec: number;
+  status: 'lobby'|'running'|'ended';
+  createdBy: string;
+  createdAt: string;
+  entryIds: string[];
+  dirs: Array<'de2cs'|'cs2de'>;
+  currentIndex: number;
+};
+export type PartyPlayer = { id: string; partyId: string; userId: string; displayName: string; score: number; joinedAt: string };
+export type PartyAnswer = { id: string; partyId: string; userId: string; entryId: string; dir: 'de2cs'|'cs2de'; answer: string; points: number; textCorrect: boolean; genderCorrect: boolean; createdAt: string };
+
 export type Account = {
   id: string;
   userId: string;
@@ -56,6 +78,12 @@ type DB = {
   sessions?: Session[];
   verificationTokens?: VerificationToken[];
   teacherCodes?: TeacherCode[];
+  classes?: ClassRoom[];
+  classMemberships?: ClassMembership[];
+  chatMessages?: ChatMessage[];
+  parties?: Party[];
+  partyPlayers?: PartyPlayer[];
+  partyAnswers?: PartyAnswer[];
 };
 
 const dataDir = path.join(process.cwd(), "data");
@@ -64,7 +92,7 @@ const dbFile = path.join(dataDir, "db.json");
 async function ensure() {
   await fs.mkdir(dataDir, { recursive: true });
   try { await fs.access(dbFile); } catch {
-    const empty: DB = { users: [], lessons: [], entries: [], attempts: [], accounts: [], sessions: [], verificationTokens: [], teacherCodes: [] };
+    const empty: DB = { users: [], lessons: [], entries: [], attempts: [], accounts: [], sessions: [], verificationTokens: [], teacherCodes: [], classes: [], classMemberships: [], chatMessages: [], parties: [], partyPlayers: [], partyAnswers: [] };
     await fs.writeFile(dbFile, JSON.stringify(empty, null, 2), "utf8");
   }
 }
@@ -138,6 +166,7 @@ export async function getUsers() { const db = await read(); return db.users.slic
 export async function getAttempts() { const db = await read(); return db.attempts.slice(); }
 export async function updateUserName(userId: string, name: string) { const db = await read(); const u = db.users.find(x=>x.id===userId); if (!u) return null; u.name = name; await write(db); return u; }
 export async function updateUser(userId: string, patch: Partial<User>) { const db = await read(); const u = db.users.find(x=>x.id===userId); if (!u) return null; Object.assign(u, patch); await write(db); return u; }
+export async function deleteUserById(userId: string) { const db = await read(); db.users = db.users.filter(u=>u.id!==userId); db.classMemberships = (db.classMemberships||[]).filter(m=>m.userId!==userId); db.chatMessages = (db.chatMessages||[]).filter(m=>m.userId!==userId); db.partyPlayers = (db.partyPlayers||[]).filter(p=>p.userId!==userId); db.partyAnswers = (db.partyAnswers||[]).filter(a=>a.userId!==userId); db.accounts = (db.accounts||[]).filter(a=>a.userId!==userId); db.sessions = (db.sessions||[]).filter(s=>s.userId!==userId); await write(db); }
 
 // Teacher codes
 export async function listTeacherCodes() { const db = await read(); db.teacherCodes ||= []; return db.teacherCodes; }
@@ -154,3 +183,135 @@ export async function activateTeacherCodeIfValid(input: string, userId: string) 
   const db = await read(); const t = (db.teacherCodes ||= []).find(c=>c.code === input && !c.activated);
   if (!t) return false; t.activated = true; t.activatedAt = new Date().toISOString(); t.activatedBy = userId; await write(db); return true;
 }
+
+// Class helpers
+function newClassCode(): string { return Math.random().toString(36).slice(2, 8).toUpperCase(); }
+
+export async function listClasses() { const db = await read(); db.classes ||= []; return db.classes; }
+export async function getClassById(classId: string) { const db = await read(); return (db.classes ||= []).find(c=>c.id===classId) || null; }
+export async function getClassByCode(code: string) { const db = await read(); return (db.classes ||= []).find(c=>c.code.toUpperCase() === code.toUpperCase()) || null; }
+export async function listClassesForUser(userId: string) {
+  const db = await read();
+  const memberships = (db.classMemberships ||= []).filter(m => m.userId === userId);
+  const classes = (db.classes ||= []).filter(c => memberships.some(m => m.classId === c.id));
+  return classes;
+}
+
+export async function createClass(name: string, teacherId: string, allowMultiple = false) {
+  const db = await read();
+  const teacher = db.users.find(u => u.id === teacherId);
+  if (!teacher) throw new Error('Teacher not found');
+  const existing = (db.classes ||= []).filter(c => c.teacherId === teacherId);
+  if (teacher.role === 'TEACHER' && !allowMultiple && existing.length > 0) throw new Error('Teacher already has a class');
+  const c: ClassRoom = { id: id(), name, code: newClassCode(), teacherId, createdAt: new Date().toISOString() };
+  db.classes.push(c);
+  (db.classMemberships ||= []).push({ id: id(), classId: c.id, userId: teacherId, role: 'TEACHER' });
+  await write(db);
+  return c;
+}
+
+export async function regenerateClassCode(classId: string) {
+  const db = await read();
+  const i = (db.classes ||= []).findIndex(c => c.id === classId);
+  if (i === -1) return null;
+  db.classes[i].code = newClassCode();
+  await write(db);
+  return db.classes[i];
+}
+
+export async function joinClassByCode(userId: string, code: string) {
+  const db = await read();
+  const c = (db.classes ||= []).find(x => x.code.toUpperCase() === code.toUpperCase());
+  if (!c) return false;
+  const exists = (db.classMemberships ||= []).some(m => m.classId === c.id && m.userId === userId);
+  if (!exists) db.classMemberships!.push({ id: id(), classId: c.id, userId, role: 'STUDENT' });
+  await write(db);
+  return true;
+}
+
+export async function listClassMembers(classId: string) {
+  const db = await read();
+  const members = (db.classMemberships ||= []).filter(m => m.classId === classId);
+  return members.map(m => ({ ...m, user: db.users.find(u => u.id === m.userId) || null }));
+}
+
+export async function postMessage(classId: string, userId: string, content: string) {
+  const db = await read();
+  const msg: ChatMessage = { id: id(), classId, userId, content: String(content).slice(0, 1000), createdAt: new Date().toISOString() };
+  (db.chatMessages ||= []).push(msg);
+  await write(db);
+  return msg;
+}
+
+export async function listMessages(classId: string) {
+  const db = await read();
+  return (db.chatMessages ||= []).filter(m => m.classId === classId).sort((a,b)=> a.createdAt < b.createdAt ? -1 : 1);
+}
+
+// Party helpers
+function randDir(): 'de2cs'|'cs2de' { return Math.random() < 0.5 ? 'de2cs' : 'cs2de'; }
+function shuffle<T>(arr: T[]): T[] { const a = arr.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+export async function createParty(data: { classId: string; lessonId: string; mode: 'mc'|'write'; timerSec: number; createdBy: string }) {
+  const db = await read();
+  const active = (db.parties ||= []).find(p => p.classId === data.classId && p.status !== 'ended');
+  if (active) return active;
+  const entries = (db.entries || []).filter(e => e.lessonId === data.lessonId);
+  const entryIds = shuffle(entries).map(e => e.id);
+  const dirs = entryIds.map(() => randDir());
+  const p: Party = { id: id(), classId: data.classId, lessonId: data.lessonId, mode: data.mode, timerSec: Math.max(5, Math.min(120, data.timerSec|0)), status: 'lobby', createdBy: data.createdBy, createdAt: new Date().toISOString(), entryIds, dirs, currentIndex: -1 };
+  db.parties!.push(p);
+  await write(db);
+  return p;
+}
+
+export async function getActivePartyForClass(classId: string) { const db = await read(); return (db.parties ||= []).find(p => p.classId === classId && p.status !== 'ended') || null; }
+export async function listPartiesForClass(classId: string) { const db = await read(); return (db.parties ||= []).filter(p => p.classId === classId).sort((a,b)=> a.createdAt < b.createdAt ? 1 : -1); }
+export async function startParty(partyId: string) { const db = await read(); const i = (db.parties ||= []).findIndex(p=>p.id===partyId); if (i===-1) return null; db.parties![i].status = 'running'; db.parties![i].currentIndex = 0; await write(db); return db.parties![i]; }
+export async function nextPartyQuestion(partyId: string) { const db = await read(); const i = (db.parties ||= []).findIndex(p=>p.id===partyId); if (i===-1) return null; const p = db.parties![i]; if (p.status !== 'running') return p; if (p.currentIndex < p.entryIds.length - 1) { p.currentIndex++; } else { p.status = 'ended'; } await write(db); return p; }
+export async function endParty(partyId: string) { const db = await read(); const i = (db.parties ||= []).findIndex(p=>p.id===partyId); if (i===-1) return null; db.parties![i].status = 'ended'; await write(db); return db.parties![i]; }
+
+export async function joinParty(partyId: string, userId: string, displayName: string) {
+  const db = await read();
+  const exists = (db.partyPlayers ||= []).find(pl => pl.partyId === partyId && pl.userId === userId);
+  if (exists) return exists;
+  const pl: PartyPlayer = { id: id(), partyId, userId, displayName, score: 0, joinedAt: new Date().toISOString() };
+  db.partyPlayers!.push(pl);
+  await write(db);
+  return pl;
+}
+export async function listPartyPlayers(partyId: string) { const db = await read(); return (db.partyPlayers ||= []).filter(pl => pl.partyId === partyId).sort((a,b)=> b.score - a.score); }
+
+export async function submitPartyAnswer(data: { partyId: string; userId: string; entryId: string; dir: 'de2cs'|'cs2de'; answer: string; chosenGender?: 'der'|'die'|'das'|null }) {
+  const db = await read();
+  const entry = (db.entries||[]).find(e => e.id === data.entryId);
+  if (!entry) return { points: 0, correct: false, textCorrect: false, genderCorrect: false };
+  const expected = data.dir==='cs2de' ? entry.term : entry.translation;
+  const expectedVariants = (data.dir === 'cs2de') ? [expected] : expected.split(/[;,/|]/).map(s=>s.trim()).filter(Boolean);
+  const normalize = (s: string) => s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ƫ/g,'ss').replace(/\s+/g,' ');
+  const textCorrect = expectedVariants.map(normalize).some(v => v === normalize(data.answer));
+  let genderCorrect = true;
+  const eg = entry.genders as ("der"|"die"|"das")[] | undefined;
+  if (entry.partOfSpeech === 'noun' && eg && eg.length) {
+    genderCorrect = data.chosenGender ? eg.includes(data.chosenGender) : false;
+  }
+  const correct = textCorrect && genderCorrect;
+  const points = correct ? 2 : (textCorrect ? 1 : 0);
+  const ans: PartyAnswer = { id: id(), partyId: data.partyId, userId: data.userId, entryId: data.entryId, dir: data.dir, answer: data.answer, points, textCorrect, genderCorrect, createdAt: new Date().toISOString() };
+  (db.partyAnswers ||= []).push(ans);
+  const player = (db.partyPlayers ||= []).find(p => p.partyId === data.partyId && p.userId === data.userId);
+  if (player) player.score += points;
+  await write(db);
+  return { points, correct, textCorrect, genderCorrect };
+}
+
+export async function getPartyState(partyId: string) {
+  const db = await read();
+  const p = (db.parties ||= []).find(pp=>pp.id===partyId) || null;
+  if (!p) return null;
+  const players = (db.partyPlayers ||= []).filter(pl=>pl.partyId===partyId).sort((a,b)=> b.score - a.score);
+  const entryId = p.entryIds[p.currentIndex] || null;
+  const dir = p.dirs[p.currentIndex] || 'de2cs';
+  return { party: p, players, entryId, dir };
+}
+

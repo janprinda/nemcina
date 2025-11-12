@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/server/authOptions";
 import { getEntryById, recordAttempt } from "@/server/store";
 
-type SubmitResult = { correct: boolean; expected: string; expectedGenders: ("der"|"die"|"das")[] | null; genderCorrect: boolean };
+type SubmitResult = { correct: boolean; expected: string; expectedGenders: ("der"|"die"|"das")[] | null; genderCorrect: boolean; textCorrect: boolean };
 
 export async function submitAnswer(entryId: string, answer: string, dir?: 'de2cs' | 'cs2de', chosenGender?: 'der'|'die'|'das'|null): Promise<SubmitResult> {
   const session = await getServerSession(authOptions as any);
@@ -23,7 +23,7 @@ export async function submitAnswer(entryId: string, answer: string, dir?: 'de2cs
   }
   const correct = textCorrect && genderCorrect;
   await recordAttempt({ userId, entryId, answer, correct });
-  return { correct, expected, expectedGenders: eg ?? null, genderCorrect };
+  return { correct, expected, expectedGenders: eg ?? null, genderCorrect, textCorrect };
 }
 
 function normalize(s: string) {
