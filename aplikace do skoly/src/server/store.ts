@@ -89,16 +89,75 @@ type DB = {
 const dataDir = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(process.cwd(), "data");
 const dbFile = path.join(dataDir, "db.json");
 
+function emptyDb(): DB {
+  return {
+    users: [],
+    lessons: [],
+    entries: [],
+    attempts: [],
+    accounts: [],
+    sessions: [],
+    verificationTokens: [],
+    teacherCodes: [],
+    classes: [],
+    classMemberships: [],
+    chatMessages: [],
+    parties: [],
+    partyPlayers: [],
+    partyAnswers: [],
+  };
+}
+
 async function ensure() {
   await fs.mkdir(dataDir, { recursive: true });
   try { await fs.access(dbFile); } catch {
-    const empty: DB = { users: [], lessons: [], entries: [], attempts: [], accounts: [], sessions: [], verificationTokens: [], teacherCodes: [], classes: [], classMemberships: [], chatMessages: [], parties: [], partyPlayers: [], partyAnswers: [] };
-    await fs.writeFile(dbFile, JSON.stringify(empty, null, 2), "utf8");
+    const empty = emptyDb();
+    await writeRaw(JSON.stringify(empty, null, 2));
   }
 }
 
-async function read(): Promise<DB> { await ensure(); const raw = await fs.readFile(dbFile, "utf8"); return JSON.parse(raw); }
-async function write(db: DB) { await fs.writeFile(dbFile, JSON.stringify(db, null, 2), "utf8"); }
+async function writeRaw(contents: string) {
+  const tmp = dbFile + ".tmp";
+  await fs.writeFile(tmp, contents, "utf8");
+  await fs.rename(tmp, dbFile).catch(async () => {
+    // Fallback on rename failure
+    await fs.writeFile(dbFile, contents, "utf8");
+  });
+}
+
+async function read(): Promise<DB> {
+  await ensure();
+  try {
+    const raw = await fs.readFile(dbFile, "utf8");
+    if (!raw || !raw.trim()) {
+      const empty = emptyDb();
+      await writeRaw(JSON.stringify(empty, null, 2));
+      return empty;
+    }
+    const db = JSON.parse(raw) as DB;
+    // normalize missing arrays
+    (db as any).users ||= [];
+    (db as any).lessons ||= [];
+    (db as any).entries ||= [];
+    (db as any).attempts ||= [];
+    (db as any).accounts ||= [];
+    (db as any).sessions ||= [];
+    (db as any).verificationTokens ||= [];
+    (db as any).teacherCodes ||= [];
+    (db as any).classes ||= [];
+    (db as any).classMemberships ||= [];
+    (db as any).chatMessages ||= [];
+    (db as any).parties ||= [];
+    (db as any).partyPlayers ||= [];
+    (db as any).partyAnswers ||= [];
+    return db;
+  } catch {
+    const empty = emptyDb();
+    await writeRaw(JSON.stringify(empty, null, 2));
+    return empty;
+  }
+}
+async function write(db: DB) { await writeRaw(JSON.stringify(db, null, 2)); }
 
 const id = () => crypto.randomUUID();
 

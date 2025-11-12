@@ -10,13 +10,28 @@ type DB = {
   verificationTokens?: any[];
 };
 
-const dbPath = path.join(process.cwd(), "data", "db.json");
+const dataDir = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(process.cwd(), "data");
+const dbPath = path.join(dataDir, "db.json");
+
+async function writeRaw(contents: string) {
+  await fs.mkdir(path.dirname(dbPath), { recursive: true });
+  const tmp = dbPath + ".tmp";
+  await fs.writeFile(tmp, contents, "utf8");
+  await fs.rename(tmp, dbPath).catch(async () => {
+    await fs.writeFile(dbPath, contents, "utf8");
+  });
+}
 
 async function readDB(): Promise<DB> {
   await fs.mkdir(path.dirname(dbPath), { recursive: true });
   try {
     const raw = await fs.readFile(dbPath, "utf8");
-    const db = JSON.parse(raw);
+    if (!raw || !raw.trim()) {
+      const empty: DB = { users: [], accounts: [], sessions: [], verificationTokens: [] };
+      await writeRaw(JSON.stringify(empty, null, 2));
+      return empty;
+    }
+    const db = JSON.parse(raw) as DB;
     db.accounts ||= [];
     db.sessions ||= [];
     db.verificationTokens ||= [];
@@ -24,13 +39,13 @@ async function readDB(): Promise<DB> {
     return db;
   } catch {
     const empty: DB = { users: [], accounts: [], sessions: [], verificationTokens: [] };
-    await fs.writeFile(dbPath, JSON.stringify(empty, null, 2), "utf8");
+    await writeRaw(JSON.stringify(empty, null, 2));
     return empty;
   }
 }
 
 async function writeDB(db: DB) {
-  await fs.writeFile(dbPath, JSON.stringify(db, null, 2), "utf8");
+  await writeRaw(JSON.stringify(db, null, 2));
 }
 
 export function JsonAdapter(): Adapter {
