@@ -5,7 +5,7 @@
       "name": "",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$BQbIMEHqHxcVkU.VJHfSZewtWcJAZ.oC39hn5ncVLF6tWQHljbS4K",
+      "passwordHash": "$2a$10$ER6dl9MRbJ6iVN41ZKyq3.la1p/jNYDhUKSu1HXKipFzRikvt2tEO",
       "displayName": "",
       "nickname": ""
     },
@@ -1533,6 +1533,13 @@
       "code": "69U044",
       "teacherId": "a54fea40-d0c3-456b-8b56-",
       "createdAt": "2025-11-12T17:59:14.386Z"
+    },
+    {
+      "id": "5700174e-f3f3-481e-af34-124a7d66bcfe",
+      "name": "Němčina 7.A",
+      "code": "CFXVTJ",
+      "teacherId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "createdAt": "2025-11-12T20:17:57.812Z"
     }
   ],
   "classMemberships": [
@@ -1540,6 +1547,12 @@
       "id": "7b48c721-1191-44bc-adbf-abe47e9507d5",
       "classId": "663945c5-0681-431d-ab4c-0dcc1e446dbe",
       "userId": "a54fea40-d0c3-456b-8b56-",
+      "role": "TEACHER"
+    },
+    {
+      "id": "9f849d98-64f2-44df-b54f-a571d2268d8c",
+      "classId": "5700174e-f3f3-481e-af34-124a7d66bcfe",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
       "role": "TEACHER"
     }
   ]
