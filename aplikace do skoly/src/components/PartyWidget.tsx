@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-type State = { party: any; players: Array<{ id:string; displayName:string; score:number }>; entryId?: string; dir?: 'de2cs'|'cs2de' } | null;
+type State = { party: any; players: Array<{ id:string; displayName:string; score:number; avatarUrl?: string|null }>; entryId?: string; dir?: 'de2cs'|'cs2de' } | null;
 
 export default function PartyWidget({ classId, canControl }: { classId: string; canControl?: boolean }) {
   const [state, setState] = useState<State>(null);
@@ -50,7 +50,10 @@ export default function PartyWidget({ classId, canControl }: { classId: string; 
           <div className="grid grid-cols-1 gap-1">
             {(state?.players||[]).map((p,i)=> (
               <div key={p.id} className="flex items-center justify-between text-sm">
-                <div><span className="muted">{i+1}.</span> {p.displayName}</div>
+                <div className="flex items-center gap-2">
+                  <img src={p.avatarUrl || '/avatar-placeholder.png'} alt="avatar" className="w-6 h-6 rounded-full object-cover" />
+                  <div><span className="muted">{i+1}.</span> {p.displayName}</div>
+                </div>
                 <div className="font-medium">{p.score} b.</div>
               </div>
             ))}
@@ -61,3 +64,4 @@ export default function PartyWidget({ classId, canControl }: { classId: string; 
     </div>
   );
 }
+

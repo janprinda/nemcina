@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { findUserByEmail, activateTeacherCodeIfValid } from "@/server/store";
+import { findUserByEmail, activateTeacherCodeIfValid, joinClassByCode } from "@/server/store";
 import { promises as fs } from "fs";
 import path from "path";
 import bcrypt from "bcryptjs";
@@ -56,10 +56,13 @@ export async function POST(req: Request) {
     desiredClassCode: (role === 'TEACHER' ? null : (joinClass && classCode ? classCode : null))
   });
   await fs.writeFile(dbPath, JSON.stringify(db, null, 2), 'utf8');
+  // If student chose to join a class immediately, try to join
+  if (role === 'USER' && joinClass && classCode) {
+    await joinClassByCode(id, classCode);
+  }
   return NextResponse.json({ ok: true });
 }
 
 function cryptoRandomId() {
   return (globalThis.crypto?.randomUUID?.() || (Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2))).slice(0, 24);
 }
-

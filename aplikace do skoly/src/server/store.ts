@@ -3,7 +3,7 @@ import path from "path";
 import crypto from "crypto";
 
 export type Role = "USER" | "ADMIN" | "TEACHER";
-export type User = { id: string; name?: string | null; displayName?: string | null; nickname?: string | null; email?: string | null; role: Role; passwordHash?: string | null; birthDate?: string | null; interests?: string[] | null; phone?: string | null; desiredClassCode?: string | null; avatarUrl?: string | null };
+export type User = { id: string; name?: string | null; displayName?: string | null; nickname?: string | null; email?: string | null; role: Role; passwordHash?: string | null; birthDate?: string | null; interests?: string[] | null; phone?: string | null; desiredClassCode?: string | null; avatarUrl?: string | null; rank?: string | null };
 
 export type TeacherCode = { id: string; code: string; note?: string | null; activated: boolean; activatedAt?: string | null; activatedBy?: string | null; createdAt: string };
 export type Lesson = { id: string; title: string; description?: string | null; createdAt: string };
@@ -21,7 +21,7 @@ export type Entry = {
 export type Attempt = { id: string; userId?: string | null; entryId: string; answer: string; correct: boolean; createdAt: string };
 
 // Classes and chat
-export type ClassRoom = { id: string; name: string; code: string; teacherId: string; createdAt: string };
+export type ClassRoom = { id: string; name: string; code: string; teacherId: string; createdAt: string; chatCooldownSec?: number };
 export type ClassMembership = { id: string; classId: string; userId: string; role: 'STUDENT'|'TEACHER'|'ADMIN' };
 export type ChatMessage = { id: string; classId: string; userId: string; content: string; createdAt: string };
 
@@ -203,7 +203,7 @@ export async function createClass(name: string, teacherId: string, allowMultiple
   if (!teacher) throw new Error('Teacher not found');
   const existing = (db.classes ||= []).filter(c => c.teacherId === teacherId);
   if (teacher.role === 'TEACHER' && !allowMultiple && existing.length > 0) throw new Error('Teacher already has a class');
-  const c: ClassRoom = { id: id(), name, code: newClassCode(), teacherId, createdAt: new Date().toISOString() };
+  const c: ClassRoom = { id: id(), name, code: newClassCode(), teacherId, createdAt: new Date().toISOString(), chatCooldownSec: 0 };
   db.classes.push(c);
   (db.classMemberships ||= []).push({ id: id(), classId: c.id, userId: teacherId, role: 'TEACHER' });
   await write(db);
@@ -246,6 +246,21 @@ export async function postMessage(classId: string, userId: string, content: stri
 export async function listMessages(classId: string) {
   const db = await read();
   return (db.chatMessages ||= []).filter(m => m.classId === classId).sort((a,b)=> a.createdAt < b.createdAt ? -1 : 1);
+}
+
+export async function updateClass(classId: string, patch: Partial<ClassRoom>) {
+  const db = await read();
+  const i = (db.classes ||= []).findIndex(c => c.id === classId);
+  if (i === -1) return null;
+  db.classes![i] = { ...db.classes![i], ...patch };
+  await write(db);
+  return db.classes![i];
+}
+
+export async function removeMember(membershipId: string) {
+  const db = await read();
+  db.classMemberships = (db.classMemberships||[]).filter(m => m.id !== membershipId);
+  await write(db);
 }
 
 // Party helpers
@@ -309,7 +324,11 @@ export async function getPartyState(partyId: string) {
   const db = await read();
   const p = (db.parties ||= []).find(pp=>pp.id===partyId) || null;
   if (!p) return null;
-  const players = (db.partyPlayers ||= []).filter(pl=>pl.partyId===partyId).sort((a,b)=> b.score - a.score);
+  const playersRaw = (db.partyPlayers ||= []).filter(pl=>pl.partyId===partyId).sort((a,b)=> b.score - a.score);
+  const players = playersRaw.map(pl => {
+    const u = (db.users||[]).find(x=>x.id===pl.userId);
+    return { ...pl, avatarUrl: u?.avatarUrl || null } as any;
+  });
   const entryId = p.entryIds[p.currentIndex] || null;
   const dir = p.dirs[p.currentIndex] || 'de2cs';
   return { party: p, players, entryId, dir };

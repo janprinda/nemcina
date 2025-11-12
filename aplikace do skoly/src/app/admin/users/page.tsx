@@ -8,7 +8,8 @@ async function updateAction(formData: FormData) {
   const displayName = String(formData.get("displayName")||"");
   const nickname = String(formData.get("nickname")||"");
   const role = String(formData.get("role")||"USER");
-  await updateUser(id, { name, displayName, nickname, role: role as any });
+  const rank = String(formData.get("rank")||"");
+  await updateUser(id, { name, displayName, nickname, role: role as any, rank: rank || null });
   revalidatePath("/admin/users");
 }
 
@@ -26,6 +27,7 @@ export default async function AdminUsersPage() {
               <th className="py-2 pr-3">Zobrazované</th>
               <th className="py-2 pr-3">Přezdívka</th>
               <th className="py-2 pr-3">Role</th>
+              <th className="py-2 pr-3">Titul/Rank</th>
               <th className="py-2">Akce</th>
             </tr>
           </thead>
@@ -46,8 +48,8 @@ export default async function AdminUsersPage() {
                     <option value="TEACHER">TEACHER</option>
                     <option value="ADMIN">ADMIN</option>
                   </select>
-                  <button className="btn btn-secondary">Uložit</button>
                 </form></td>
+                <td className="py-2 pr-3"><form action={updateAction} className="min-w-36"><input type="hidden" name="id" value={u.id} /><input name="rank" defaultValue={u.rank||''} className="input" placeholder="např. Prefekt" /></form></td>
                 <td className="py-2 pr-3 text-right">
                   <form action={async () => { "use server"; await deleteUserById(u.id); revalidatePath('/admin/users'); }}>
                     <button className="btn btn-ghost text-red-400" type="submit">Smazat</button>
@@ -61,3 +63,4 @@ export default async function AdminUsersPage() {
     </div>
   );
 }
+
