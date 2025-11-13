@@ -6,7 +6,7 @@ export type Role = "USER" | "ADMIN" | "TEACHER";
 export type User = { id: string; name?: string | null; displayName?: string | null; nickname?: string | null; email?: string | null; role: Role; passwordHash?: string | null; birthDate?: string | null; interests?: string[] | null; phone?: string | null; desiredClassCode?: string | null; avatarUrl?: string | null; rank?: string | null };
 
 export type TeacherCode = { id: string; code: string; note?: string | null; activated: boolean; activatedAt?: string | null; activatedBy?: string | null; createdAt: string };
-export type Lesson = { id: string; title: string; description?: string | null; createdAt: string };
+export type Lesson = { id: string; title: string; description?: string | null; createdAt: string; published?: boolean };
 export type Entry = {
   id: string;
   lessonId: string;
@@ -162,10 +162,11 @@ async function write(db: DB) { await writeRaw(JSON.stringify(db, null, 2)); }
 const id = () => crypto.randomUUID();
 
 export async function getLessons(): Promise<Lesson[]> { const db = await read(); return db.lessons.sort((a,b)=> (a.createdAt < b.createdAt ? 1 : -1)); }
+export async function getPublishedLessons(): Promise<Lesson[]> { const db = await read(); return db.lessons.filter(l=>!!l.published).sort((a,b)=> (a.createdAt < b.createdAt ? 1 : -1)); }
 export async function getLesson(idv: string) { const db = await read(); return db.lessons.find(l => l.id === idv) || null; }
 export async function createLesson(data: { title: string; description?: string | null }) {
   const db = await read();
-  const l: Lesson = { id: id(), title: data.title, description: data.description ?? null, createdAt: new Date().toISOString() };
+  const l: Lesson = { id: id(), title: data.title, description: data.description ?? null, createdAt: new Date().toISOString(), published: false };
   db.lessons.push(l); await write(db); return l;
 }
 export async function deleteLesson(lessonId: string) { const db = await read(); db.entries = db.entries.filter(e=> e.lessonId !== lessonId); db.lessons = db.lessons.filter(l=> l.id!==lessonId); await write(db); }
@@ -254,6 +255,15 @@ export async function listClassesForUser(userId: string) {
   const memberships = (db.classMemberships ||= []).filter(m => m.userId === userId);
   const classes = (db.classes ||= []).filter(c => memberships.some(m => m.classId === c.id));
   return classes;
+}
+
+export async function setLessonPublished(lessonId: string, published: boolean) {
+  const db = await read();
+  const idx = db.lessons.findIndex(l => l.id === lessonId);
+  if (idx === -1) return null;
+  db.lessons[idx].published = !!published;
+  await write(db);
+  return db.lessons[idx];
 }
 
 

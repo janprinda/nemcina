@@ -1,7 +1,7 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createLesson as storeCreate, deleteLesson as storeDelete } from "@/server/store";
+import { createLesson as storeCreate, deleteLesson as storeDelete, setLessonPublished } from "@/server/store";
 import { z } from "zod";
 
 const lessonSchema = z.object({
@@ -30,3 +30,14 @@ export async function deleteLesson(id: string) {
   redirect("/admin/lessons");
 }
 
+export async function publishLesson(id: string) {
+  await setLessonPublished(id, true);
+  revalidatePath("/admin/lessons");
+  redirect("/admin/lessons");
+}
+
+export async function unpublishLesson(id: string) {
+  await setLessonPublished(id, false);
+  revalidatePath("/admin/lessons");
+  redirect("/admin/lessons");
+}

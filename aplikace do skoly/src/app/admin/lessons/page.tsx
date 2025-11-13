@@ -1,5 +1,5 @@
 import { getLessons } from "@/server/store";
-import { createLesson, deleteLesson } from "./actions";
+import { createLesson, deleteLesson, publishLesson, unpublishLesson } from "./actions";
 import Link from "next/link";
 
 export default async function LessonsAdminPage() {
@@ -29,12 +29,22 @@ export default async function LessonsAdminPage() {
             <div className="card-body space-y-2">
               <div className="font-medium text-gray-100">{l.title}</div>
               <div className="text-sm text-gray-400">{l.description}</div>
-              <div className="mt-2 flex gap-3">
+              <div className="text-xs muted">Stav: {l.published ? 'Publikováno' : 'Koncept'}</div>
+              <div className="mt-2 flex flex-wrap gap-3 items-center">
                 <Link className="btn btn-secondary" href={`/admin/lessons/${l.id}`}>Upravit/slovíčka</Link>
-              <form action={async () => { "use server"; await deleteLesson(l.id); }}>
-                <button className="btn btn-ghost text-red-400" type="submit">Smazat</button>
-              </form>
-            </div>
+                {l.published ? (
+                  <form action={async () => { "use server"; await unpublishLesson(l.id); }}>
+                    <button className="btn btn-ghost" type="submit">Skrýt</button>
+                  </form>
+                ) : (
+                  <form action={async () => { "use server"; await publishLesson(l.id); }}>
+                    <button className="btn btn-primary" type="submit">Publikovat</button>
+                  </form>
+                )}
+                <form action={async () => { "use server"; await deleteLesson(l.id); }}>
+                  <button className="btn btn-ghost text-red-400" type="submit">Smazat</button>
+                </form>
+              </div>
             </div>
           </div>
         ))}

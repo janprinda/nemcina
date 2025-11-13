@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { getLessons } from "@/server/store";
+import { getPublishedLessons } from "@/server/store";
 
 export async function GET() {
-  const lessons = await getLessons();
+  const lessons = await getPublishedLessons();
   return NextResponse.json(lessons);
 }
-
