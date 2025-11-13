@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 import Link from "next/link";
@@ -12,18 +12,31 @@ export default function AuthPage() {
   if (session) {
     return (
       <div className="space-y-4">
-        <div>PĹ™ihlĂˇĹˇen: <b>{session.user?.email}</b></div>
-        <button className="btn btn-secondary" onClick={() => signOut({ callbackUrl: '/auth' })}>Odhlásit</button>
+        <div>Přihlášen: <b>{session.user?.email}</b></div>
+        <button className="btn btn-secondary" onClick={() => signOut({ callbackUrl: "/auth" })}>
+          Odhlásit
+        </button>
       </div>
     );
   }
 
   return (
     <div className="max-w-sm space-y-4">
-      <h1 className="text-xl font-semibold">PĹ™ihlĂˇĹˇenĂ­</h1>
+      <h1 className="text-xl font-semibold">Přihlášení</h1>
       <div className="space-y-2">
-        <input className="w-full px-3 py-2" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-        <input className="w-full px-3 py-2" placeholder="Heslo" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <input
+          className="w-full px-3 py-2 input"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          className="w-full px-3 py-2 input"
+          placeholder="Heslo"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </div>
       {error && <div className="text-sm text-red-400">{error}</div>}
       <button
@@ -34,13 +47,13 @@ export default function AuthPage() {
           if (res?.error) setError("Nesprávný email nebo heslo");
         }}
       >
-        PĹ™ihlĂˇsit
+        Přihlásit
       </button>
-      {/* OAuth login buttons removed per request */}
-      <div className="text-sm">NemĂˇĹˇ ĂşÄŤet? <Link className="underline" href="/auth/signup">Registrace</Link></div>
-      <p className="text-sm text-gray-400">ĂšÄŤet admin se vytvoĹ™Ă­ automaticky pĹ™i startu (viz seed).</p>
+      <div className="text-sm">
+        Nemáte účet? <Link className="underline" href="/auth/signup">Registrace</Link>
+      </div>
+      <p className="text-sm text-gray-400">Účet admin se vytvoří automaticky při startu (viz seed).</p>
     </div>
   );
 }
-
 

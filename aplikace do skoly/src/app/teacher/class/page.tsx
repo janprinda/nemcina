@@ -83,7 +83,7 @@ export default async function TeacherClassPage() {
 
       <PartyWidget classId={c.id} canControl />
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="space-y-4">
         <div className="card">
           <div className="card-body space-y-2">
             <div className="font-medium">Členové</div>
@@ -92,10 +92,7 @@ export default async function TeacherClassPage() {
               const u = users.find((u: any) => u.id === m.userId);
               return (
                 <div key={m.id} className="flex items-center justify-between text-sm">
-                  <div className="flex items-center gap-2">
-                    <Image src={u?.avatarUrl || '/avatar-placeholder.png'} alt="avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover" />
-                    <div>{u?.displayName || u?.name || u?.email || '—'}</div>
-                  </div>
+                  <div>{u?.displayName || u?.name || u?.email || '—'}</div>
                   <div className="flex items-center gap-2">
                     <span className="muted">{m.role}</span>
                     {m.role === 'STUDENT' && (

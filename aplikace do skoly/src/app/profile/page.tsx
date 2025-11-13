@@ -4,6 +4,7 @@ import { getUserById } from "@/server/store";
 import { updateProfileAction } from "./actions";
 import Link from "next/link";
 import AvatarUpload from "@/components/AvatarUpload";
+import SignOutButton from "@/components/SignOutButton";
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions as any);
@@ -15,7 +16,10 @@ export default async function ProfilePage() {
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
       <h1 className="text-xl font-semibold">Profil</h1>
-      <div className="card"><div className="card-body text-sm">Přihlášen jako: <b>{display}</b></div></div>
+      <div className="card"><div className="card-body flex items-center justify-between text-sm">
+        <div>Přihlášen jako: <b>{display}</b></div>
+        <SignOutButton />
+      </div></div>
       <form action={updateProfileAction} className="card" encType="multipart/form-data">
         <div className="card-body">
           <div className="grid md:grid-cols-3 gap-6 items-start">
@@ -69,4 +73,3 @@ export default async function ProfilePage() {
     </div>
   );
 }
-

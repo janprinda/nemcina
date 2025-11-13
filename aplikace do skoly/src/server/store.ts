@@ -1,4 +1,4 @@
-import { promises as fs } from "fs";
+﻿import { promises as fs } from "fs";
 import path from "path";
 import crypto from "crypto";
 
@@ -249,7 +249,19 @@ function newClassCode(): string { return Math.random().toString(36).slice(2, 8).
 
 export async function listClasses() { const db = await read(); db.classes ||= []; return db.classes; }
 export async function getClassById(classId: string) { const db = await read(); return (db.classes ||= []).find(c=>c.id===classId) || null; }
-export async function getClassByCode(code: string) { const db = await read(); return (db.classes ||= []).find(c=>c.code.toUpperCase() === code.toUpperCase()) || null; }
+export async function deleteClassById(classId: string) {
+  const db = await read();
+  const partyIds = (db.parties || []).filter(p => p.classId === classId).map(p => p.id);
+  db.classes = (db.classes || []).filter(c => c.id !== classId);
+  db.classMemberships = (db.classMemberships || []).filter(m => m.classId !== classId);
+  db.chatMessages = (db.chatMessages || []).filter(m => m.classId !== classId);
+  db.parties = (db.parties || []).filter(p => p.classId !== classId);
+  if (partyIds.length) {
+    db.partyPlayers = (db.partyPlayers || []).filter(pl => !partyIds.includes(pl.partyId));
+    db.partyAnswers = (db.partyAnswers || []).filter(ans => !partyIds.includes(ans.partyId));
+  }
+  await write(db);
+}export async function getClassByCode(code: string) { const db = await read(); return (db.classes ||= []).find(c=>c.code.toUpperCase() === code.toUpperCase()) || null; }
 export async function listClassesForUser(userId: string) {
   const db = await read();
   const memberships = (db.classMemberships ||= []).filter(m => m.userId === userId);
@@ -373,7 +385,7 @@ export async function submitPartyAnswer(data: { partyId: string; userId: string;
   if (!entry) return { points: 0, correct: false, textCorrect: false, genderCorrect: false };
   const expected = data.dir==='cs2de' ? entry.term : entry.translation;
   const expectedVariants = (data.dir === 'cs2de') ? [expected] : expected.split(/[;,/|]/).map(s=>s.trim()).filter(Boolean);
-  const normalize = (s: string) => s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ƫ/g,'ss').replace(/\s+/g,' ');
+  const normalize = (s: string) => s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/Ć«/g,'ss').replace(/\s+/g,' ');
   const textCorrect = expectedVariants.map(normalize).some(v => v === normalize(data.answer));
   let genderCorrect = true;
   const eg = entry.genders as ("der"|"die"|"das")[] | undefined;
@@ -403,4 +415,5 @@ export async function getPartyState(partyId: string) {
   const dir = p.dirs[p.currentIndex] || 'de2cs';
   return { party: p, players, entryId, dir };
 }
+
 
