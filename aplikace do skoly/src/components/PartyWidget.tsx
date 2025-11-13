@@ -17,7 +17,7 @@ export default function PartyWidget({ classId, canControl }: { classId: string; 
       } catch {}
     };
     tick();
-    const id = setInterval(tick, 2000);
+    const id = setInterval(tick, 1000);
     return () => { alive = false; clearInterval(id); };
   }, [classId]);
 

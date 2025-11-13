@@ -5,6 +5,7 @@ import { getUsers, listClassMembers, listClassesForUser, listMessages, getLesson
 import PartyWidget from "@/components/PartyWidget";
 import CopyCode from "@/components/CopyCode";
 import Image from "next/image";
+import ClassChat from "@/components/ClassChat";
 
 export default async function TeacherClassPage() {
   const session = await getServerSession(authOptions as any);
@@ -41,6 +42,7 @@ export default async function TeacherClassPage() {
             <div className="text-sm muted">Kód pro připojení: <CopyCode code={c.code} /></div>
           </div>
           <div className="flex items-center gap-2">
+            <a className="btn btn-primary" href={`/teacher/party/${c.id}`}>Host a Party</a>
             <form action={regenerateCodeAction.bind(null, c.id)}><button className="btn btn-secondary">Obnovit kód</button></form>
             <form action={updateCooldownAction.bind(null, c.id)} className="flex items-center gap-2">
               <label className="text-sm">Cooldown</label>
@@ -110,20 +112,7 @@ export default async function TeacherClassPage() {
         <div className="card">
           <div className="card-body space-y-3">
             <div className="font-medium">Třídní chat</div>
-            <div className="space-y-2 max-h-72 overflow-auto">
-              {msgs.map((m: any) => {
-                const u = users.find((u: any) => u.id === m.userId);
-                return (
-                  <div key={m.id} className="text-sm flex items-start gap-2">
-                    <Image src={u?.avatarUrl || '/avatar-placeholder.png'} alt="avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover mt-0.5" />
-                    <div>
-                      <b>{u?.displayName || u?.name || u?.email || '—'}</b>: {m.content} <span className="muted">{new Date(m.createdAt).toLocaleString()}</span>
-                    </div>
-                  </div>
-                );
-              })}
-              {msgs.length === 0 && <div className="text-sm muted">Zatím žádné zprávy.</div>}
-            </div>
+            <ClassChat classId={c.id} users={users as any} />
             <form key={msgs.length} action={sendClassMessageAction.bind(null, c.id)} className="flex gap-2">
               <input className="input flex-1" name="content" placeholder="Napiš zprávu…" />
               <input type="hidden" name="cooldownHint" value={String(c.chatCooldownSec ?? 0)} />
@@ -135,3 +124,4 @@ export default async function TeacherClassPage() {
     </div>
   );
 }
+

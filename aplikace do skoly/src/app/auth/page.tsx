@@ -13,7 +13,7 @@ export default function AuthPage() {
     return (
       <div className="space-y-4">
         <div>PĹ™ihlĂˇĹˇen: <b>{session.user?.email}</b></div>
-        <button className="btn btn-secondary" onClick={() => signOut({ callbackUrl: '/auth' })}>OdhlĂˇsit</button>
+        <button className="btn btn-secondary" onClick={() => signOut({ callbackUrl: '/auth' })}>Odhlásit</button>
       </div>
     );
   }
@@ -31,7 +31,7 @@ export default function AuthPage() {
         onClick={async () => {
           setError(null);
           const res = await signIn("credentials", { email, password, redirect: false });
-          if (res?.error) setError("NesprĂˇvnĂ˝ email nebo heslo");
+          if (res?.error) setError("Nesprávný email nebo heslo");
         }}
       >
         PĹ™ihlĂˇsit
@@ -42,4 +42,5 @@ export default function AuthPage() {
     </div>
   );
 }
+
 

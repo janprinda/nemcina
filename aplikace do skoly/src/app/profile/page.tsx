@@ -10,10 +10,12 @@ export default async function ProfilePage() {
   const uid = (session as any)?.user?.id as string | undefined;
   if (!uid) return <div>Pro přístup se prosím <Link className="underline" href="/auth">přihlas</Link>.</div>;
   const user = await getUserById(uid);
+  const display = user?.displayName || user?.name || user?.email || "—";
 
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
       <h1 className="text-xl font-semibold">Profil</h1>
+      <div className="card"><div className="card-body text-sm">Přihlášen jako: <b>{display}</b></div></div>
       <form action={updateProfileAction} className="card" encType="multipart/form-data">
         <div className="card-body">
           <div className="grid md:grid-cols-3 gap-6 items-start">
@@ -67,3 +69,4 @@ export default async function ProfilePage() {
     </div>
   );
 }
+

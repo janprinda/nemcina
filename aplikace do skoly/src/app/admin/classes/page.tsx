@@ -1,5 +1,6 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { getUsers, listClasses } from "@/server/store";
+import AdminClassesTable from "@/components/AdminClassesTable";
 import { adminCreateClassAction } from "./actions";
 
 export default async function AdminClassesPage() {
@@ -7,21 +8,21 @@ export default async function AdminClassesPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold">Třídy</h1>
-        <Link className="btn btn-secondary" href="/admin">Zpět</Link>
+        <h1 className="text-xl font-semibold">TĹ™Ă­dy</h1>
+        <Link className="btn btn-secondary" href="/admin">ZpÄ›t</Link>
       </div>
 
       <form action={adminCreateClassAction} className="card max-w-xl">
         <div className="card-body grid md:grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm">Název třídy</label>
-            <input name="name" className="input" placeholder="např. Němčina 7.A" />
+            <label className="block text-sm">NĂˇzev tĹ™Ă­dy</label>
+            <input name="name" className="input" placeholder="napĹ™. NÄ›mÄŤina 7.A" />
           </div>
           <div>
-            <label className="block text-sm">Email učitele</label>
+            <label className="block text-sm">Email uÄŤitele</label>
             <input name="teacherEmail" className="input" placeholder="teacher@example.com" />
           </div>
-          <div className="md:col-span-2"><button className="btn btn-primary">Vytvořit</button></div>
+          <div className="md:col-span-2"><button className="btn btn-primary">VytvoĹ™it</button></div>
         </div>
       </form>
 
@@ -29,10 +30,10 @@ export default async function AdminClassesPage() {
         <table className="w-full text-sm align-middle">
           <thead className="muted text-left">
             <tr>
-              <th className="py-2 pr-3">Název</th>
-              <th className="py-2 pr-3">Učitel</th>
-              <th className="py-2 pr-3">Kód</th>
-              <th className="py-2 pr-3">Vytvořeno</th>
+              <th className="py-2 pr-3">NĂˇzev</th>
+              <th className="py-2 pr-3">UÄŤitel</th>
+              <th className="py-2 pr-3">KĂłd</th>
+              <th className="py-2 pr-3">VytvoĹ™eno</th>
             </tr>
           </thead>
           <tbody>
@@ -54,4 +55,5 @@ export default async function AdminClassesPage() {
     </div>
   );
 }
+
 

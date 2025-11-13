@@ -256,6 +256,7 @@ export async function listClassesForUser(userId: string) {
   return classes;
 }
 
+
 export async function createClass(name: string, teacherId: string, allowMultiple = false) {
   const db = await read();
   const teacher = db.users.find(u => u.id === teacherId);

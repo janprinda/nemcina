@@ -2,7 +2,7 @@ import { type NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import AzureADProvider from "next-auth/providers/azure-ad";
-import { findUserByEmail } from "@/server/store";
+import { findUserByEmail, getUserById } from "@/server/store";
 import { JsonAdapter } from "@/server/jsonAdapter";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
@@ -47,11 +47,23 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: { signIn: "/auth" },
   callbacks: {
-    async jwt({ token }) { return token; },
+    async jwt({ token, user }) {
+      try {
+        const id = (user as any)?.id || token.sub;
+        if (id) {
+          const u = await getUserById(id as string);
+          if (u) (token as any).role = u.role;
+        }
+      } catch {}
+      return token as any;
+    },
     async session({ session, token }) {
-      (session as any).user = { ...session.user, id: token.sub } as any;
+      (session as any).user = { ...session.user, id: token.sub, role: (token as any).role } as any;
+      // Fallback: if role missing, try infer admin by email (seeded admin)
+      if (!(session as any).user.role && session.user?.email === 'admin@example.com') {
+        (session as any).user.role = 'ADMIN';
+      }
       return session;
     },
   },
 };
-

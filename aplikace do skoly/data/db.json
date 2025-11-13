@@ -1,6 +1,21 @@
 {
-  "users": [],
-  "lessons": [],
+  "users": [
+    {
+      "id": "dc8ad187-4c44-40e6-978c-109164a1549a",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "role": "ADMIN",
+      "passwordHash": "$2a$10$a/ruBm/zmlq5V3mo9A6jwOFnu0utqSL1ekwpn3aklfB0bayL6b692"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "776754eb-dc68-46cd-9a9a-3073a28457ab",
+      "title": "Lekce 1 ",
+      "description": "ushg",
+      "createdAt": "2025-11-13T19:58:58.743Z"
+    }
+  ],
   "entries": [
     {
       "id": "cb951a83-297a-4d26-a01e-dd5879ff64a0",
