@@ -11,6 +11,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   void ensureSeed();
   return (
     <html lang="cs" className="dark">
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className="min-h-screen">
         <Providers>
           <Header />

@@ -102,7 +102,11 @@ html { font-size: clamp(15px, 0.9vw + 12px, 19px); }
 .animate-pop { animation: pop-in 500ms ease-out both; }
 .animate-fade-up { animation: float-up 600ms ease-out both; }
 .confetti-container { position: relative; overflow: hidden; }
-.confetti-piece {
+  .confetti-piece {
   position: absolute; top: -10vh; width: 6px; height: 14px; border-radius: 2px;
   animation: confetti-fall 2.2s linear forwards;
 }
+
+/* Hide scrollbars in scrollable containers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

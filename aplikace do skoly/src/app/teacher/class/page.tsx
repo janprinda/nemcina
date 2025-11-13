@@ -112,7 +112,7 @@ export default async function TeacherClassPage() {
         <div className="card">
           <div className="card-body space-y-3">
             <div className="font-medium">Třídní chat</div>
-            <ClassChat classId={c.id} users={users as any} />
+            <ClassChat classId={c.id} users={users as any} hideAvatars />
             <form key={msgs.length} action={sendClassMessageAction.bind(null, c.id)} className="flex gap-2">
               <input className="input flex-1" name="content" placeholder="Napiš zprávu…" />
               <input type="hidden" name="cooldownHint" value={String(c.chatCooldownSec ?? 0)} />
@@ -124,4 +124,3 @@ export default async function TeacherClassPage() {
     </div>
   );
 }
-
