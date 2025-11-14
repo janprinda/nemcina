@@ -53,14 +53,14 @@ export default function PosGenderControls({
           >
             <option value="">-</option>
             <option value="noun">Podstatné jméno</option>
-            <option value="adj">Přídavné jméno</option>
-            <option value="pronoun">Zájmeno</option>
-            <option value="num">Číslovka</option>
             <option value="verb">Sloveso</option>
+            <option value="adj">Přídavné jméno</option>
             <option value="adv">Příslovce</option>
+            <option value="pronoun">Zájmeno</option>
             <option value="prep">Předložka</option>
             <option value="conj">Spojka</option>
             <option value="particle">Částice</option>
+            <option value="num">Číslovka</option>
             <option value="phrase">Fráze</option>
             <option value="other">Jiné</option>
           </select>
@@ -72,7 +72,7 @@ export default function PosGenderControls({
           <input
             name="plural"
             defaultValue={defaultPlural ?? ""}
-            className="w-full px-3 py-2 input"
+            className="w-full px-3 py-2"
             placeholder="např. er (uloží se jako -er)"
             disabled={!isNoun}
           />

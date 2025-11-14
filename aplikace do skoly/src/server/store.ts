@@ -23,6 +23,13 @@ export type Entry = {
   partOfSpeech?: string | null;
   genders?: ("der" | "die" | "das")[] | null;
   explanation?: string | null;
+  termSynonyms?: string[] | null;
+  translationSynonyms?: string[] | null;
+  plural?: string | null;
+  verbClass?: "regular" | "irregular" | null;
+  pointsCorrect?: number | null;
+  pointsPartial?: number | null;
+  pointsWrong?: number | null;
   createdAt: string;
 };
 export type Attempt = {
@@ -217,7 +224,21 @@ export async function getEntryById(entryId: string) { const db = await read(); r
 export async function getAllEntries() { const db = await read(); return db.entries.slice(); }
 export async function addEntry(
   lessonId: string,
-  data: { term: string; translation: string; type: "WORD"|"PHRASE"; partOfSpeech?: string | null; genders?: ("der"|"die"|"das")[] | null; explanation?: string | null }
+  data: {
+    term: string;
+    translation: string;
+    type: "WORD" | "PHRASE";
+    partOfSpeech?: string | null;
+    genders?: ("der" | "die" | "das")[] | null;
+    explanation?: string | null;
+    termSynonyms?: string[] | null;
+    translationSynonyms?: string[] | null;
+    plural?: string | null;
+    verbClass?: "regular" | "irregular" | null;
+    pointsCorrect?: number | null;
+    pointsPartial?: number | null;
+    pointsWrong?: number | null;
+  }
 ) {
   const db = await read();
   const e: Entry = {
@@ -229,12 +250,39 @@ export async function addEntry(
     partOfSpeech: data.partOfSpeech ?? null,
     genders: data.genders ?? null,
     explanation: data.explanation ?? null,
+    termSynonyms: data.termSynonyms ?? null,
+    translationSynonyms: data.translationSynonyms ?? null,
+    plural: data.plural ?? null,
+    verbClass: data.verbClass ?? null,
+    pointsCorrect: data.pointsCorrect ?? null,
+    pointsPartial: data.pointsPartial ?? null,
+    pointsWrong: data.pointsWrong ?? null,
     createdAt: new Date().toISOString(),
   };
   db.entries.push(e); await write(db); return e;
 }
 export async function removeEntry(entryId: string) { const db = await read(); db.entries = db.entries.filter(e=> e.id!==entryId); await write(db); }
-export async function updateEntry(entryId: string, data: Partial<Pick<Entry, 'term'|'translation'|'type'|'partOfSpeech'|'genders'|'explanation'>>) {
+export async function updateEntry(
+  entryId: string,
+  data: Partial<
+    Pick<
+      Entry,
+      | "term"
+      | "translation"
+      | "type"
+      | "partOfSpeech"
+      | "genders"
+      | "explanation"
+      | "termSynonyms"
+      | "translationSynonyms"
+      | "plural"
+      | "verbClass"
+      | "pointsCorrect"
+      | "pointsPartial"
+      | "pointsWrong"
+    >
+  >
+) {
   const db = await read();
   const idx = db.entries.findIndex(e => e.id === entryId);
   if (idx === -1) return null;

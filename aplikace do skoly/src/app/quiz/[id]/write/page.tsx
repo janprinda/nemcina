@@ -110,9 +110,12 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
               <div className="mt-1 text-2xl font-semibold text-gray-100">
                 {shown}
               </div>
-              {current?.explanation && (
-                <div className="mt-2 text-xs muted">{current.explanation}</div>
-              )}
+              {current?.explanation &&
+                (currentDir === "cs2de" || feedback) && (
+                  <div className="mt-2 text-xs muted">
+                    {current.explanation}
+                  </div>
+                )}
             </div>
           </div>
 
@@ -157,9 +160,13 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
           </div>
 
           {!feedback ? (
-            <div className="flex gap-2 justify-center">
+            <div className="flex justify-center">
               <button
-                className="btn btn-primary"
+                className={`btn w-full md:w-auto text-base py-3 ${
+                  canSubmit
+                    ? "bg-emerald-500 hover:bg-emerald-400 border-none text-white"
+                    : "bg-gray-600 text-gray-300 cursor-not-allowed"
+                }`}
                 disabled={!canSubmit}
                 onClick={async () => {
                   if (!current) return;
@@ -217,9 +224,13 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
                   )}
                 </div>
               </div>
-              <div className="flex gap-2 justify-center">
+              <div className="flex justify-center">
                 <button
-                  className="btn btn-secondary"
+                  className={`btn w-full md:w-auto text-base py-3 ${
+                    feedback.correct
+                      ? "bg-emerald-500 hover:bg-emerald-400 border-none text-white"
+                      : "bg-red-500 hover:bg-red-400 border-none text-white"
+                  }`}
                   onClick={() => {
                     setFeedback(null);
                     setAnswer("");
@@ -271,4 +282,3 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
     </div>
   );
 }
-

@@ -33,10 +33,19 @@ export async function submitAnswer(
     };
 
   const expected = dir === "cs2de" ? entry.term : entry.translation;
+  const termSynonyms = ((entry as any).termSynonyms as string[] | null) || [];
+  const translationSynonyms =
+    ((entry as any).translationSynonyms as string[] | null) || [];
   const expectedVariants =
     dir === "cs2de"
-      ? [expected]
-      : expected.split(/[;,/|]/).map((s) => s.trim()).filter(Boolean);
+      ? [expected, ...termSynonyms]
+      : [expected, ...translationSynonyms]
+          .flatMap((t) =>
+            t
+              .split(/[;,/|]/)
+              .map((s) => s.trim())
+              .filter(Boolean)
+          );
   const normAns = normalize(answer);
   const textCorrect = expectedVariants.map(normalize).some(v => v === normAns);
   let genderCorrect = true;

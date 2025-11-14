@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$x6zgOHAEexDuEqppKF8SMOkwblIoHXATvPq3t8pzqruu10GX9cjWK",
+      "passwordHash": "$2a$10$.0suO.HBFu8BKfnGVic7s.B6uew9eoDs7uUaMvVsBChXndReYCgkm",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -20,7 +20,8 @@
       "title": "Lekce 1. část 1.",
       "description": "Strana 10, 11 a 12",
       "createdAt": "2025-11-13T22:27:15.027Z",
-      "published": true
+      "published": true,
+      "unlockScore": 0
     },
     {
       "id": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
@@ -41,8 +42,15 @@
       "genders": [
         "der"
       ],
-      "explanation": "mn. č. -e",
-      "createdAt": "2025-11-13T22:27:33.615Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:27:33.615Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": "-e",
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": 18,
+      "pointsWrong": -2
     },
     {
       "id": "8a11ee4a-6eb3-42c9-9692-e02339125957",
@@ -50,10 +58,17 @@
       "term": "du",
       "translation": "ty",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "pronoun",
       "genders": null,
-      "explanation": "koncovka -st u pravidelných sloves",
-      "createdAt": "2025-11-13T22:28:29.931Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:28:29.931Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "63c7115a-94f9-4cc0-8277-c7e54246926f",
@@ -61,10 +76,19 @@
       "term": "Freut mich",
       "translation": "Těší mě.",
       "type": "PHRASE",
-      "partOfSpeech": "other",
+      "partOfSpeech": "phrase",
       "genders": null,
-      "explanation": "(Es) Freut mich",
-      "createdAt": "2025-11-13T22:29:09.477Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:29:09.477Z",
+      "termSynonyms": [
+        "(Es) Freut mich"
+      ],
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 60,
+      "pointsPartial": null,
+      "pointsWrong": -1
     },
     {
       "id": "8d62e567-b388-4555-87b4-4ed62d01cc0a",
@@ -75,7 +99,14 @@
       "partOfSpeech": "adv",
       "genders": null,
       "explanation": null,
-      "createdAt": "2025-11-13T22:29:37.686Z"
+      "createdAt": "2025-11-13T22:29:37.686Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "69d40dd5-ae61-43de-a267-ab820eaaf924",
@@ -86,7 +117,14 @@
       "partOfSpeech": "other",
       "genders": null,
       "explanation": null,
-      "createdAt": "2025-11-13T22:29:57.372Z"
+      "createdAt": "2025-11-13T22:29:57.372Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "96935430-eac4-4b2f-be17-5448868f78f4",
@@ -97,7 +135,14 @@
       "partOfSpeech": "verb",
       "genders": null,
       "explanation": "(heissen), Er heißt, Ich heiße Jens. - Jmenuji se Jens",
-      "createdAt": "2025-11-13T22:31:27.932Z"
+      "createdAt": "2025-11-13T22:31:27.932Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": "regular",
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "899ee516-0c4f-42fd-aa7f-f5885c4fa311",
@@ -108,7 +153,14 @@
       "partOfSpeech": "other",
       "genders": null,
       "explanation": null,
-      "createdAt": "2025-11-13T22:31:42.694Z"
+      "createdAt": "2025-11-13T22:31:42.694Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "195e81ca-bd0d-46bc-a249-6b56990a0424",
@@ -116,10 +168,17 @@
       "term": "ich",
       "translation": "já",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "pronoun",
       "genders": null,
       "explanation": "koncovka -e u pravidelných sloves",
-      "createdAt": "2025-11-13T22:31:56.907Z"
+      "createdAt": "2025-11-13T22:31:56.907Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "ee068f06-5b5f-4696-b013-d50d81e782a8",
@@ -291,8 +350,15 @@
       "type": "WORD",
       "partOfSpeech": "verb",
       "genders": null,
-      "explanation": "Ich wohne in Prag - Bydlím v Praze",
-      "createdAt": "2025-11-13T22:42:45.831Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:42:45.831Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": "regular",
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "bc761c68-ae61-40fa-9bc0-1fef7143123a",
@@ -300,10 +366,19 @@
       "term": "null",
       "translation": "0",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "nula - 0",
-      "createdAt": "2025-11-13T22:43:11.551Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:11.551Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "nula"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "4e98ba17-658d-4a23-bdbe-7f1a21b393f0",
@@ -311,10 +386,19 @@
       "term": "eins",
       "translation": "1",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "jedna - 1",
-      "createdAt": "2025-11-13T22:43:21.441Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:21.441Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "jedna"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "c2bb31cc-d53a-4996-b55b-e5604ce7ac0a",
@@ -322,10 +406,19 @@
       "term": "zwei",
       "translation": "2",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "dva - 2",
-      "createdAt": "2025-11-13T22:43:31.062Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:31.062Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "dva"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "490cd043-9868-41b6-9a08-94e621f89014",
@@ -333,10 +426,19 @@
       "term": "drei",
       "translation": "3",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "tři - 3",
-      "createdAt": "2025-11-13T22:43:42.899Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:42.899Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "tři"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "81a288f2-f548-4446-8ebc-1343c5f61161",
@@ -344,10 +446,19 @@
       "term": "vier",
       "translation": "4",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "čtyři",
-      "createdAt": "2025-11-13T22:43:53.776Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:53.776Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "čtyři"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "81c05a9d-aae2-4a1c-bc19-b3340fc03757",
@@ -355,10 +466,19 @@
       "term": "fünf",
       "translation": "5",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "pět",
-      "createdAt": "2025-11-13T22:44:13.862Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:44:13.862Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "pět"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "80e5edfa-adb8-4d31-9c91-f2a4396d97b9",
@@ -366,10 +486,19 @@
       "term": "sechs",
       "translation": "6",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "šest",
-      "createdAt": "2025-11-13T22:44:38.721Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:44:38.721Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "šest"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "835a4dc2-9940-4f30-ad72-e150f60cf362",
@@ -377,10 +506,19 @@
       "term": "sieben",
       "translation": "7",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "sedm",
-      "createdAt": "2025-11-13T22:44:51.027Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:44:51.027Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "sedm"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "891e3eb1-585c-49c9-a2ad-82600e1fe86a",
@@ -388,10 +526,19 @@
       "term": "acht",
       "translation": "8",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "osm",
-      "createdAt": "2025-11-13T22:45:00.552Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:00.552Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "osm"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "f127ab82-1d5f-4915-a112-56523c345077",
@@ -399,10 +546,19 @@
       "term": "neun",
       "translation": "9",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "devět",
-      "createdAt": "2025-11-13T22:45:15.664Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:15.664Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "devět"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "d4ed2f6f-d323-405b-895b-fa60d525888e",
@@ -410,10 +566,19 @@
       "term": "zehn",
       "translation": "10",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "deset",
-      "createdAt": "2025-11-13T22:45:25.303Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:25.303Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "deset"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "e8deb664-4dce-428e-a395-4299c7a69365",
@@ -421,10 +586,19 @@
       "term": "elf",
       "translation": "11",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "jedenáct",
-      "createdAt": "2025-11-13T22:45:35.119Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:35.119Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "jedenáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "756ed5d8-71e1-4a43-aebd-19822cc9552b",
@@ -432,10 +606,19 @@
       "term": "zwölf",
       "translation": "12",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "dvanáct",
-      "createdAt": "2025-11-13T22:45:47.573Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:47.573Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "dvanáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "337e997d-852d-49e8-b1eb-f08cd834d799",
@@ -443,10 +626,19 @@
       "term": "dreizehn",
       "translation": "13",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "třináct",
-      "createdAt": "2025-11-13T22:46:21.088Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:46:21.088Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "třináct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "97b8fc31-d0e2-4ebb-9d33-eccb31fda844",
@@ -454,10 +646,19 @@
       "term": "vierzehn",
       "translation": "14",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "čtrnáct",
-      "createdAt": "2025-11-13T22:46:33.506Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:46:33.506Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "čtrnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "6681d21e-8f01-4998-95df-16759a799b47",
@@ -465,10 +666,19 @@
       "term": "fünfzehn",
       "translation": "15",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "patnáct",
-      "createdAt": "2025-11-13T22:46:57.927Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:46:57.927Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "patnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "79fc963d-d952-481f-a03c-29007f870e51",
@@ -476,10 +686,19 @@
       "term": "sechzehn",
       "translation": "16",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "šestnáct",
-      "createdAt": "2025-11-13T22:47:21.515Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:21.515Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "šestnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "cef78d0b-5689-4d7f-b569-10d8b9b12746",
@@ -487,10 +706,19 @@
       "term": "siebzehn",
       "translation": "17",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "sedmnáct",
-      "createdAt": "2025-11-13T22:47:31.050Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:31.050Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "sedmnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "44e1d974-d763-42a8-a8d6-4f75a98dbba0",
@@ -498,10 +726,19 @@
       "term": "achtzechn",
       "translation": "18",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "osmnáct",
-      "createdAt": "2025-11-13T22:47:41.835Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:41.835Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "osmnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "018100cb-f010-48e0-833f-144140a67f21",
@@ -509,10 +746,19 @@
       "term": "neunzehn",
       "translation": "19",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "devatenáct",
-      "createdAt": "2025-11-13T22:47:55.522Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:55.522Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "devatenáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "756efa5d-e63a-4aeb-a671-01ff353a7673",
@@ -520,10 +766,19 @@
       "term": "zwanzig",
       "translation": "20",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "num",
       "genders": null,
-      "explanation": "dvacet",
-      "createdAt": "2025-11-13T22:48:27.620Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:48:27.620Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "dvacet"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "5f40d547-bb86-431b-bb04-d4e3dcd02e5c",
@@ -531,10 +786,17 @@
       "term": "alt",
       "translation": "starý",
       "type": "WORD",
-      "partOfSpeech": "adj",
+      "partOfSpeech": "adv",
       "genders": null,
       "explanation": null,
-      "createdAt": "2025-11-13T22:49:06.653Z"
+      "createdAt": "2025-11-13T22:49:06.653Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "31d688a1-0640-4254-ba23-8cd77c991602",
@@ -542,10 +804,17 @@
       "term": "er",
       "translation": "on",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "pronoun",
       "genders": null,
       "explanation": "koncovka -t u pravidelných sloves",
-      "createdAt": "2025-11-13T22:49:43.332Z"
+      "createdAt": "2025-11-13T22:49:43.332Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "08ad1d86-8556-4f74-af86-34c533141e31",
@@ -557,8 +826,15 @@
       "genders": [
         "der"
       ],
-      "explanation": "mn. č. -e",
-      "createdAt": "2025-11-13T22:50:21.244Z"
+      "explanation": null,
+      "createdAt": "2025-11-13T22:50:21.244Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": "-e",
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": 18,
+      "pointsWrong": -1
     },
     {
       "id": "aa0590b8-e44f-4de7-a4df-ff05da01329a",
@@ -566,10 +842,17 @@
       "term": "sie",
       "translation": "ona",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "pronoun",
       "genders": null,
       "explanation": "koncovka -t u pravidelných sloves",
-      "createdAt": "2025-11-13T22:50:57.382Z"
+      "createdAt": "2025-11-13T22:50:57.382Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "6acbbe87-f323-4393-9f85-bb5741a608d0",
@@ -577,10 +860,17 @@
       "term": "sie",
       "translation": "oni",
       "type": "WORD",
-      "partOfSpeech": "other",
+      "partOfSpeech": "pronoun",
       "genders": null,
       "explanation": "koncovka -en u pravidelných sloves",
-      "createdAt": "2025-11-13T22:51:19.204Z"
+      "createdAt": "2025-11-13T22:51:19.204Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
     },
     {
       "id": "b619e0ce-c743-40b5-95f8-d29ca16c762d",
@@ -3194,6 +3484,248 @@
       "answer": "Jahr",
       "correct": true,
       "createdAt": "2025-11-14T09:32:59.592Z"
+    },
+    {
+      "id": "dd9da375-ef91-4ab0-9a45-984ff36c7abc",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6681d21e-8f01-4998-95df-16759a799b47",
+      "answer": "15",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:14:12.099Z"
+    },
+    {
+      "id": "36e90d6f-2934-4d33-a935-40be8cf45264",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ee068f06-5b5f-4696-b013-d50d81e782a8",
+      "answer": "vy",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:14:22.704Z"
+    },
+    {
+      "id": "766c1024-fc5d-46cd-a6f3-a048fe7e4893",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f127ab82-1d5f-4915-a112-56523c345077",
+      "answer": "9",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:14:30.615Z"
+    },
+    {
+      "id": "d297caa8-6fa3-45e2-93b1-965f9b0545cb",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e677b46-2193-42e8-9689-368f6ed6eb42",
+      "answer": "cestovat",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:15:46.654Z"
+    },
+    {
+      "id": "34d102f1-63f9-4b20-92d6-c4951df9688f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "3dc59a13-8e2e-4dc0-bfb5-a25af41d99f1",
+      "answer": "pan",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:43.581Z"
+    },
+    {
+      "id": "0d0fe8a5-ca64-4826-8843-d80b085c146c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ca6f505f-5766-44b4-b356-1ddac2db4e5c",
+      "answer": "dělat",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:52.231Z"
+    },
+    {
+      "id": "94da15f3-a6e3-4147-adb3-cba15ebdb786",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f526f0cf-8390-4b3d-b5ec-1d32489f75c6",
+      "answer": "hezký",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:56.208Z"
+    },
+    {
+      "id": "923a049f-1448-4174-b431-dd30ae455d31",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "295ba883-7e1a-40ef-9af4-880882a8954d",
+      "answer": "squash",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:59.027Z"
+    },
+    {
+      "id": "8e1177eb-fad5-4c34-8c02-d651fc821545",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f5d4479a-bd86-40b4-9020-73cc378e5568",
+      "answer": "učit se",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:18:28.140Z"
+    },
+    {
+      "id": "3130c94d-d18b-4b79-ab1c-5aaa76554c5d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f8abc6f2-e81f-4d21-a0ab-b073726b1dda",
+      "answer": "kamarád",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:18:31.286Z"
+    },
+    {
+      "id": "5a6883f3-ae8a-439a-8e6d-02727b25bdc7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "756efa5d-e63a-4aeb-a671-01ff353a7673",
+      "answer": "20",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:18:57.263Z"
+    },
+    {
+      "id": "80f8bcb7-a398-4324-9107-e2c9b82ea202",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f127ab82-1d5f-4915-a112-56523c345077",
+      "answer": "9",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:01.137Z"
+    },
+    {
+      "id": "bd14527a-209a-41c6-b287-73ff6adbf544",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f92b1013-5920-40f6-b719-31e222c43609",
+      "answer": "kde",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:06.868Z"
+    },
+    {
+      "id": "cff7b345-b657-41ac-9e89-4b857ad9636c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "195e81ca-bd0d-46bc-a249-6b56990a0424",
+      "answer": "já",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:10.568Z"
+    },
+    {
+      "id": "7db8b0ce-8acd-493b-b921-6e3ddfdf3220",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "899ee516-0c4f-42fd-aa7f-f5885c4fa311",
+      "answer": "ahoj",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:15.288Z"
+    },
+    {
+      "id": "f8f8693d-f2be-4c38-8a17-c36f584646f8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "81a288f2-f548-4446-8ebc-1343c5f61161",
+      "answer": "4",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:18.512Z"
+    },
+    {
+      "id": "be4ec0b9-6803-46a4-81b1-f61c76292e84",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "96935430-eac4-4b2f-be17-5448868f78f4",
+      "answer": "jmenovat se",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:23.394Z"
+    },
+    {
+      "id": "2edd1398-54df-4163-a72e-ca387f48be0d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cef78d0b-5689-4d7f-b569-10d8b9b12746",
+      "answer": "17",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:27.529Z"
+    },
+    {
+      "id": "20101f7a-1bd1-45ee-8b26-d6a99f861da3",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "891e3eb1-585c-49c9-a2ad-82600e1fe86a",
+      "answer": "8",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:30.319Z"
+    },
+    {
+      "id": "b82914dc-6c65-45ac-81e4-8683f0ca0000",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "835a4dc2-9940-4f30-ad72-e150f60cf362",
+      "answer": "7",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:36.368Z"
+    },
+    {
+      "id": "3438044f-7755-4f13-a222-eea211e49dad",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "69d40dd5-ae61-43de-a267-ab820eaaf924",
+      "answer": "ahoj",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:42.364Z"
+    },
+    {
+      "id": "efff9a8d-b0cc-4e57-8cfb-980e72e3496e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "20ebf6a8-e5b9-4ccb-af89-6e3da3c239aa",
+      "answer": "hra",
+      "correct": false,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:45.770Z"
     }
   ],
   "classes": [
