@@ -30,8 +30,13 @@ export async function deleteEntry(lessonId: string, id: string) {
 export async function updateLessonAction(lessonId: string, formData: FormData) {
   const title = String(formData.get("title") || "").trim();
   const description = String(formData.get("description") || "").trim();
-  await storeUpdateLesson(lessonId, { title: title || undefined, description: description || undefined });
+  const unlockScoreRaw = String(formData.get("unlockScore") || "").trim();
+  const unlockScore = unlockScoreRaw ? parseInt(unlockScoreRaw, 10) : NaN;
+  await storeUpdateLesson(lessonId, {
+    title: title || undefined,
+    description: description || undefined,
+    unlockScore: Number.isFinite(unlockScore) ? unlockScore : undefined,
+  });
   revalidatePath(`/admin/lessons/${lessonId}`);
   redirect(`/admin/lessons/${lessonId}`);
 }
-

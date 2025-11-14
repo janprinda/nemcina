@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": "370217f4-af54-46a7-93e3-550ca91546f2",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "role": "ADMIN",
+      "passwordHash": "$2a$10$78F8gyxm9I.4ntCzyS77zeO1XzLKXVRlTnnygDFgi5b6tAAjms4x6"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1afc0350-99d8-48c3-b218-51d133455ed3",
+      "title": "Pozdravy a základy",
+      "description": "Základní fráze",
+      "createdAt": "2025-11-14T19:04:57.196Z",
+      "published": false,
+      "unlockScore": null
+    }
+  ],
+  "entries": [
+    {
+      "id": "4825dcf2-6611-444a-b823-7f642808d5c4",
+      "lessonId": "1afc0350-99d8-48c3-b218-51d133455ed3",
+      "term": "Guten Tag",
+      "translation": "Dobrý den",
+      "type": "PHRASE",
+      "partOfSpeech": null,
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-14T19:04:57.204Z"
+    },
+    {
+      "id": "cf347641-a55b-4213-b67b-6ed4618ae88c",
+      "lessonId": "1afc0350-99d8-48c3-b218-51d133455ed3",
+      "term": "Bitte",
+      "translation": "Prosím",
+      "type": "WORD",
+      "partOfSpeech": null,
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-14T19:04:57.223Z"
+    },
+    {
+      "id": "efb0e2d5-1f75-4a5b-9ebf-c9cda08a1d5c",
+      "lessonId": "1afc0350-99d8-48c3-b218-51d133455ed3",
+      "term": "Danke",
+      "translation": "Děkuji",
+      "type": "WORD",
+      "partOfSpeech": null,
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-14T19:04:57.250Z"
+    }
+  ],
+  "attempts": [],
+  "accounts": [],
+  "sessions": [],
+  "verificationTokens": [],
+  "teacherCodes": [],
+  "classes": [
+    {
+      "id": "849751d9-8953-48cb-aaa7-1282055b1e36",
+      "name": "Moje třída",
+      "code": "HLVGD9",
+      "teacherId": "370217f4-af54-46a7-93e3-550ca91546f2",
+      "createdAt": "2025-11-14T19:09:42.082Z",
+      "chatCooldownSec": 0
+    }
+  ],
+  "classMemberships": [
+    {
+      "id": "2f02e3a7-7c26-43ce-aa9b-93d8ecbf3f96",
+      "classId": "849751d9-8953-48cb-aaa7-1282055b1e36",
+      "userId": "370217f4-af54-46a7-93e3-550ca91546f2",
+      "role": "TEACHER"
+    }
+  ],
+  "chatMessages": [],
+  "assignments": [],
+  "parties": [],
+  "partyPlayers": [],
+  "partyAnswers": []
+}

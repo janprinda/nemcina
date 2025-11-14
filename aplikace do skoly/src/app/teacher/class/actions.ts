@@ -75,3 +75,15 @@ export async function updateCooldownAction(classId: string, formData: FormData) 
   revalidatePath('/teacher/class');
 }
 
+export async function renameClassAction(classId: string, formData: FormData) {
+  const session = await getServerSession(authOptions as any);
+  const uid = (session as any)?.user?.id as string | undefined;
+  if (!uid) return;
+  const me = await getUserById(uid);
+  if (!me || (me.role !== 'TEACHER' && me.role !== 'ADMIN')) return;
+  const name = String(formData.get('name') || '').trim().slice(0, 80);
+  if (!name) return;
+  await updateClass(classId, { name });
+  revalidatePath('/teacher/class');
+}
+

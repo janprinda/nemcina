@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "73f1cb22-1e1c-49e0-8e6e-ebd104bfc006",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "role": "ADMIN",
+      "passwordHash": "$2a$10$7yvDEHH7H48sYd.GxIa3zuN8bFs09dFUf3DhbnyyR7kecwjHYOUcO"
+    }
+  ],
+  "lessons": [],
+  "entries": [],
+  "attempts": [],
+  "accounts": [],
+  "sessions": [],
+  "verificationTokens": [],
+  "teacherCodes": [],
+  "classes": [],
+  "classMemberships": [],
+  "chatMessages": [],
+  "assignments": [],
+  "parties": [],
+  "partyPlayers": [],
+  "partyAnswers": []
+}

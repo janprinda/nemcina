@@ -48,20 +48,42 @@ export const authOptions: NextAuthOptions = {
   pages: { signIn: "/auth" },
   callbacks: {
     async jwt({ token, user }) {
-      try {
-        const id = (user as any)?.id || token.sub;
-        if (id) {
-          const u = await getUserById(id as string);
-          if (u) (token as any).role = u.role;
-        }
-      } catch {}
+      // Při přihlášení jen uložíme základní identifikaci,
+      // detail profilu se dohledává až v session callbacku.
+      if (user) {
+        token.sub = (user as any).id ?? token.sub;
+      }
       return token as any;
     },
     async session({ session, token }) {
-      (session as any).user = { ...session.user, id: token.sub, role: (token as any).role } as any;
-      // Fallback: if role missing, try infer admin by email (seeded admin)
-      if (!(session as any).user.role && session.user?.email === 'admin@example.com') {
-        (session as any).user.role = 'ADMIN';
+      const id = token.sub as string | undefined;
+
+      if (!id) {
+        (session as any).user = undefined;
+        return session;
+      }
+
+      // Každé načtení session ověří, že uživatel v DB existuje.
+      // Pokud byl smazán (nebo DB přepsána), považujeme ho za odhlášeného.
+      const u = await getUserById(id);
+      if (!u) {
+        (session as any).user = undefined;
+        return session;
+      }
+
+      (session as any).user = {
+        id: u.id,
+        email: u.email ?? session.user?.email ?? undefined,
+        name: u.name ?? session.user?.name ?? undefined,
+        role: u.role,
+        displayName: u.displayName ?? u.name ?? null,
+        avatarUrl: u.avatarUrl ?? null,
+        rank: u.rank ?? null,
+      } as any;
+
+      // Fallback: pokud by role chyběla, ale je to seedovaný admin
+      if (!(session as any).user.role && session.user?.email === "admin@example.com") {
+        (session as any).user.role = "ADMIN";
       }
       return session;
     },

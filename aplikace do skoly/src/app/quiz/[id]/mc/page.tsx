@@ -26,7 +26,7 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
   const [entries, setEntries] = useState<Entry[]>([]);
   const [idx, setIdx] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<null | { correct: boolean; expected: string }>(null);
+  const [feedback, setFeedback] = useState<null | { correct: boolean; expected: string; points: number }>(null);
   const [dirs, setDirs] = useState<Array<'de2cs'|'cs2de'>>([]);
   const [results, setResults] = useState<Array<{ id: string; correct: boolean; expected: string; your: string; term: string; translation: string; dir: 'de2cs'|'cs2de' }>>([]);
   const [eliminated, setEliminated] = useState<Set<string>>(new Set());
@@ -73,13 +73,13 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
           setSelected(options[map[e.key]]);
         } else if (e.key === 'Enter' && selected) {
           (async () => {
-            const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null);
+            const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null, "mc");
             if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
               // allow one retry to fix only gender
               setGenderRetry(true);
               return;
             }
-            setFeedback({ correct: !!res.correct, expected: res.expected });
+            setFeedback({ correct: !!res.correct, expected: res.expected, points: res.points });
             setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: selected, term: current.term, translation: current.translation, dir: currentDir }]);
           })();
         }
@@ -134,12 +134,12 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
               <button className="btn btn-primary" disabled={!selected}
                       onClick={async () => {
                         if (!selected) return;
-                        const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null);
+                        const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null, "mc");
                         if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
                           setGenderRetry(true);
                           return;
                         }
-                        setFeedback({ correct: !!res.correct, expected: res.expected });
+                        setFeedback({ correct: !!res.correct, expected: res.expected, points: res.points });
                         setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: selected, term: current.term, translation: current.translation, dir: currentDir }]);
                       }}>Potvrdit</button>
               <button className="btn btn-secondary" onClick={() => {

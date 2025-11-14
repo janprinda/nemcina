@@ -52,7 +52,7 @@ export default function PartyWidget({ classId, canControl }: { classId: string; 
             {(state?.players||[]).map((p,i)=> (
               <div key={p.id} className="flex items-center justify-between text-sm">
                 <div className="flex items-center gap-2">
-                  <Image src={p.avatarUrl || '/avatar-placeholder.png'} alt="avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover" />
+                  <Image src={p.avatarUrl || '/avatar-placeholder.svg'} alt="avatar" width={24} height={24} className="w-6 h-6 rounded-full object-cover" />
                   <div><span className="muted">{i+1}.</span> {p.displayName}</div>
                 </div>
                 <div className="font-medium">{p.score} b.</div>

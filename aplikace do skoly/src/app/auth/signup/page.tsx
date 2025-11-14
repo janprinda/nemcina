@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function SignUpPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -43,6 +45,47 @@ export default function SignUpPage() {
   const passOk = passLenOk && passUpperOk && passNumOk;
   const nameOk = name.trim().length >= 1;
   const basicValid = emailOk && passOk && nameOk;
+
+  const handleFinalSubmit = async () => {
+    setError(null);
+    if (passwordConfirm !== password) {
+      setError("Hesla se neshodují.");
+      return;
+    }
+    const emailClean = email.trim().toLowerCase();
+    setOk(false);
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email: emailClean,
+        password,
+        birthDate,
+        interests,
+        phoneCode,
+        phoneNumber,
+        role,
+        teacherCode,
+        joinClass,
+        classCode,
+      }),
+    });
+    const j = await res.json().catch(() => null);
+    if (!res.ok) {
+      setError(j?.error || "Chyba registrace");
+      return;
+    }
+    setOk(true);
+    // Automatické přihlášení nového uživatele
+    const resLogin = await signIn("credentials", { redirect: false, email: emailClean, password });
+    if (resLogin?.error) {
+      setError("Účet byl vytvořen, ale přihlášení selhalo. Přihlaste se prosím ručně.");
+      router.replace("/auth");
+    } else {
+      router.replace("/");
+    }
+  };
 
   return (
     <div className="w-full">
@@ -136,8 +179,8 @@ export default function SignUpPage() {
                         type="button"
                         className={`btn ${interests.includes(i) ? "btn-primary" : "btn-secondary"}`}
                         onClick={() =>
-                          setInterests((arr) =>
-                            arr.includes(i) ? arr.filter((x) => x !== i) : [...arr, i]
+                          setInterests((prev) =>
+                            prev.includes(i) ? prev.filter((x) => x !== i) : [...prev, i]
                           )
                         }
                       >
@@ -148,7 +191,7 @@ export default function SignUpPage() {
                   <div className="flex gap-2 mt-2">
                     <input
                       className="input flex-1"
-                      placeholder="Přidat vlastní zájem"
+                      placeholder="Vlastní zájem"
                       value={customInterest}
                       onChange={(e) => setCustomInterest(e.target.value)}
                     />
@@ -156,12 +199,13 @@ export default function SignUpPage() {
                       type="button"
                       className="btn btn-secondary"
                       onClick={() => {
-                        const v = customInterest.trim();
-                        if (v && !interests.includes(v)) setInterests((a) => [...a, v]);
+                        const val = customInterest.trim();
+                        if (!val) return;
+                        setInterests((prev) => (prev.includes(val) ? prev : [...prev, val]));
                         setCustomInterest("");
                       }}
                     >
-                      + Přidat
+                      Přidat
                     </button>
                   </div>
                 </div>
@@ -198,7 +242,11 @@ export default function SignUpPage() {
                 {role === "STUDENT" && (
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-sm">
-                      <input type="checkbox" checked={joinClass} onChange={(e) => setJoinClass(e.target.checked)} />
+                      <input
+                        type="checkbox"
+                        checked={joinClass}
+                        onChange={(e) => setJoinClass(e.target.checked)}
+                      />
                       Chci se připojit do třídy
                     </label>
                     {joinClass && (
@@ -235,10 +283,9 @@ export default function SignUpPage() {
 
             {error && <div className="text-sm text-red-400">{error}</div>}
             {ok && (
-              <div className="text-sm text-green-400">
-                Účet vytvořen. <Link className="underline" href="/auth">Přejít na přihlášení</Link>
-              </div>
+              <div className="text-sm text-green-400">Účet vytvořen.</div>
             )}
+
             <div className="flex gap-2 justify-center">
               {step > 1 && !ok && (
                 <button
@@ -269,35 +316,7 @@ export default function SignUpPage() {
                       setStep(4);
                       return;
                     }
-                    if (passwordConfirm !== password) {
-                      setError("Hesla se neshodují.");
-                      return;
-                    }
-                    setOk(false);
-                    const res = await fetch("/api/auth/register", {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        name,
-                        email,
-                        password,
-                        birthDate,
-                        interests,
-                        phoneCode,
-                        phoneNumber,
-                        role,
-                        teacherCode,
-                        joinClass,
-                        classCode,
-                      }),
-                    });
-                    const j = await res.json();
-                    if (!res.ok) {
-                      setError(j.error || "Chyba registrace");
-                    } else {
-                      setOk(true);
-                      await signIn("credentials", { redirect: true, email, password, callbackUrl: "/" });
-                    }
+                    await handleFinalSubmit();
                   }}
                 >
                   {step === 1 ? (basicValid ? "Další" : "Zaregistrovat") : step === 2 ? "Další" : step === 3 ? "Další" : "Vytvořit účet"}

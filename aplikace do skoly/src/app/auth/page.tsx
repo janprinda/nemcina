@@ -1,24 +1,37 @@
 "use client";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { useState } from "react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function AuthPage() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  if (session) {
-    return (
-      <div className="space-y-4">
-        <div>Přihlášen: <b>{session.user?.email}</b></div>
-        <button className="btn btn-secondary" onClick={() => signOut({ callbackUrl: "/auth" })}>
-          Odhlásit
-        </button>
-      </div>
-    );
-  }
+  // Pokud už je uživatel přihlášený, pošli ho rovnou na domovskou stránku
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.replace("/");
+    }
+  }, [status, router]);
+
+  const handleSubmit = async () => {
+    setError(null);
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    if (res?.error) {
+      setError("Nesprávný email nebo heslo");
+    } else {
+      // úspěšné přihlášení → domovská stránka s lekcemi
+      router.replace("/");
+    }
+  };
 
   return (
     <div className="max-w-sm space-y-4">
@@ -41,11 +54,7 @@ export default function AuthPage() {
       {error && <div className="text-sm text-red-400">{error}</div>}
       <button
         className="btn btn-primary"
-        onClick={async () => {
-          setError(null);
-          const res = await signIn("credentials", { email, password, redirect: false });
-          if (res?.error) setError("Nesprávný email nebo heslo");
-        }}
+        onClick={handleSubmit}
       >
         Přihlásit
       </button>

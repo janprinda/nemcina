@@ -3,8 +3,14 @@ import { ReactNode } from "react";
 import Providers from "@/app/providers";
 import { ensureSeed } from "@/server/init";
 import Header from "@/components/Header";
+import { Poppins } from "next/font/google";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   // kick off seed/initialization on server
@@ -14,7 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <meta charSet="utf-8" />
       </head>
-      <body className="min-h-screen">
+      <body className={`min-h-screen ${poppins.className}`}>
         <Providers>
           <Header />
           <main className="container py-10 flex justify-center">

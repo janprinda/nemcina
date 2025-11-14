@@ -13,7 +13,15 @@ export default async function AdminIndex() {
   }
 
   if (!session) {
-    return <div>Pro přístup se prosím <Link href="/auth" className="underline">přihlas</Link>.</div>;
+    return (
+      <div>
+        Pro přístup se prosím{" "}
+        <Link href="/auth" className="underline">
+          přihlas
+        </Link>
+        .
+      </div>
+    );
   }
   if (role !== "ADMIN") {
     return <div>Potřebuješ roli ADMIN.</div>;
@@ -26,28 +34,45 @@ export default async function AdminIndex() {
         <Link href="/admin/lessons" className="card">
           <div className="card-body">
             <div className="font-medium">Správa lekcí</div>
-            <div className="text-sm muted">Přidávání a úprava lekcí a slovíček.</div>
+            <div className="text-sm muted">
+              Přidávání a úprava lekcí a slovíček.
+            </div>
           </div>
         </Link>
         <Link href="/admin/users" className="card">
           <div className="card-body">
             <div className="font-medium">Uživatelé</div>
-            <div className="text-sm muted">Role, zobrazované jméno, přezdívka.</div>
+            <div className="text-sm muted">
+              Role, zobrazované jméno, přezdívka.
+            </div>
           </div>
         </Link>
         <Link href="/admin/teacher-codes" className="card">
           <div className="card-body">
             <div className="font-medium">Kódy učitelů</div>
-            <div className="text-sm muted">Generování kódů, poznámky, export do PDF.</div>
+            <div className="text-sm muted">
+              Generování kódů, poznámky, export.
+            </div>
           </div>
         </Link>
         <Link href="/admin/classes" className="card">
           <div className="card-body">
             <div className="font-medium">Třídy</div>
-            <div className="text-sm muted">Správa tříd, přiřazení učitelů.</div>
+            <div className="text-sm muted">
+              Správa tříd, přiřazování učitelů.
+            </div>
+          </div>
+        </Link>
+        <Link href="/admin/data" className="card">
+          <div className="card-body">
+            <div className="font-medium">Datové soubory</div>
+            <div className="text-sm muted">
+              Nahrávání a export datových souborů (TXT).
+            </div>
           </div>
         </Link>
       </div>
     </div>
   );
 }
+
