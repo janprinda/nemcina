@@ -6,7 +6,14 @@ export type Role = "USER" | "ADMIN" | "TEACHER";
 export type User = { id: string; name?: string | null; displayName?: string | null; nickname?: string | null; email?: string | null; role: Role; passwordHash?: string | null; birthDate?: string | null; interests?: string[] | null; phone?: string | null; desiredClassCode?: string | null; avatarUrl?: string | null; rank?: string | null };
 
 export type TeacherCode = { id: string; code: string; note?: string | null; activated: boolean; activatedAt?: string | null; activatedBy?: string | null; createdAt: string };
-export type Lesson = { id: string; title: string; description?: string | null; createdAt: string; published?: boolean };
+export type Lesson = {
+  id: string;
+  title: string;
+  description?: string | null;
+  createdAt: string;
+  published?: boolean;
+  unlockScore?: number | null;
+};
 export type Entry = {
   id: string;
   lessonId: string;
@@ -18,12 +25,23 @@ export type Entry = {
   explanation?: string | null;
   createdAt: string;
 };
-export type Attempt = { id: string; userId?: string | null; entryId: string; answer: string; correct: boolean; createdAt: string };
+export type Attempt = {
+  id: string;
+  userId?: string | null;
+  entryId: string;
+  answer: string;
+  correct: boolean;
+  createdAt: string;
+  points?: number;
+  mode?: "mc" | "write";
+  dir?: "de2cs" | "cs2de";
+};
 
-// Classes and chat
+// Classes, chat a úkoly
 export type ClassRoom = { id: string; name: string; code: string; teacherId: string; createdAt: string; chatCooldownSec?: number };
 export type ClassMembership = { id: string; classId: string; userId: string; role: 'STUDENT'|'TEACHER'|'ADMIN' };
 export type ChatMessage = { id: string; classId: string; userId: string; content: string; createdAt: string };
+export type Assignment = { id: string; classId: string; title: string; description?: string | null; dueDate?: string | null; createdAt: string };
 
 // Party (live activity like Kahoot)
 export type Party = {
@@ -81,6 +99,7 @@ type DB = {
   classes?: ClassRoom[];
   classMemberships?: ClassMembership[];
   chatMessages?: ChatMessage[];
+  assignments?: Assignment[];
   parties?: Party[];
   partyPlayers?: PartyPlayer[];
   partyAnswers?: PartyAnswer[];
@@ -102,6 +121,7 @@ function emptyDb(): DB {
     classes: [],
     classMemberships: [],
     chatMessages: [],
+    assignments: [],
     parties: [],
     partyPlayers: [],
     partyAnswers: [],
@@ -147,6 +167,7 @@ async function read(): Promise<DB> {
     (db as any).classes ||= [];
     (db as any).classMemberships ||= [];
     (db as any).chatMessages ||= [];
+    (db as any).assignments ||= [];
     (db as any).parties ||= [];
     (db as any).partyPlayers ||= [];
     (db as any).partyAnswers ||= [];
@@ -164,13 +185,25 @@ const id = () => crypto.randomUUID();
 export async function getLessons(): Promise<Lesson[]> { const db = await read(); return db.lessons.sort((a,b)=> (a.createdAt < b.createdAt ? 1 : -1)); }
 export async function getPublishedLessons(): Promise<Lesson[]> { const db = await read(); return db.lessons.filter(l=>!!l.published).sort((a,b)=> (a.createdAt < b.createdAt ? 1 : -1)); }
 export async function getLesson(idv: string) { const db = await read(); return db.lessons.find(l => l.id === idv) || null; }
-export async function createLesson(data: { title: string; description?: string | null }) {
+export async function createLesson(data: {
+  title: string;
+  description?: string | null;
+  unlockScore?: number | null;
+}) {
   const db = await read();
-  const l: Lesson = { id: id(), title: data.title, description: data.description ?? null, createdAt: new Date().toISOString(), published: false };
+  const l: Lesson = {
+    id: id(),
+    title: data.title,
+    description: data.description ?? null,
+    createdAt: new Date().toISOString(),
+    published: false,
+    unlockScore:
+      typeof data.unlockScore === "number" ? data.unlockScore : null,
+  };
   db.lessons.push(l); await write(db); return l;
 }
 export async function deleteLesson(lessonId: string) { const db = await read(); db.entries = db.entries.filter(e=> e.lessonId !== lessonId); db.lessons = db.lessons.filter(l=> l.id!==lessonId); await write(db); }
-export async function updateLesson(lessonId: string, data: Partial<Pick<Lesson,'title'|'description'>>) {
+export async function updateLesson(lessonId: string, data: Partial<Pick<Lesson,'title'|'description'|'unlockScore'>>) {
   const db = await read();
   const idx = db.lessons.findIndex(l => l.id === lessonId);
   if (idx === -1) return null;
@@ -181,6 +214,7 @@ export async function updateLesson(lessonId: string, data: Partial<Pick<Lesson,'
 
 export async function getEntries(lessonId: string) { const db = await read(); return db.entries.filter(e=> e.lessonId === lessonId).sort((a,b)=> (a.createdAt < b.createdAt ? 1 : -1)); }
 export async function getEntryById(entryId: string) { const db = await read(); return db.entries.find(e => e.id === entryId) || null; }
+export async function getAllEntries() { const db = await read(); return db.entries.slice(); }
 export async function addEntry(
   lessonId: string,
   data: { term: string; translation: string; type: "WORD"|"PHRASE"; partOfSpeech?: string | null; genders?: ("der"|"die"|"das")[] | null; explanation?: string | null }
@@ -209,8 +243,24 @@ export async function updateEntry(entryId: string, data: Partial<Pick<Entry, 'te
   return db.entries[idx];
 }
 
-export async function recordAttempt(data: { userId?: string | null; entryId: string; answer: string; correct: boolean }) {
-  const db = await read(); const a: Attempt = { id: id(), ...data, createdAt: new Date().toISOString() } as Attempt; db.attempts.push(a); await write(db); return a;
+export async function recordAttempt(data: {
+  userId?: string | null;
+  entryId: string;
+  answer: string;
+  correct: boolean;
+  points: number;
+  mode: "mc" | "write";
+  dir: "de2cs" | "cs2de";
+}) {
+  const db = await read();
+  const a: Attempt = {
+    id: id(),
+    ...data,
+    createdAt: new Date().toISOString(),
+  } as Attempt;
+  db.attempts.push(a);
+  await write(db);
+  return a;
 }
 
 export async function findUserByEmail(email: string) { const db = await read(); return db.users.find(u => (u.email||"").toLowerCase() === email.toLowerCase()) || null; }
@@ -328,6 +378,35 @@ export async function postMessage(classId: string, userId: string, content: stri
 export async function listMessages(classId: string) {
   const db = await read();
   return (db.chatMessages ||= []).filter(m => m.classId === classId).sort((a,b)=> a.createdAt < b.createdAt ? -1 : 1);
+}
+
+// Assignments (úkoly)
+export async function listAssignmentsForClass(classId: string) {
+  const db = await read();
+  return (db.assignments ||= [])
+    .filter(a => a.classId === classId)
+    .sort((a,b) => a.createdAt < b.createdAt ? 1 : -1);
+}
+
+export async function createAssignment(classId: string, data: { title: string; description?: string | null; dueDate?: string | null }) {
+  const db = await read();
+  const a: Assignment = {
+    id: id(),
+    classId,
+    title: data.title,
+    description: data.description ?? null,
+    dueDate: data.dueDate ?? null,
+    createdAt: new Date().toISOString(),
+  };
+  (db.assignments ||= []).push(a);
+  await write(db);
+  return a;
+}
+
+export async function deleteAssignment(assignmentId: string) {
+  const db = await read();
+  db.assignments = (db.assignments || []).filter(a => a.id !== assignmentId);
+  await write(db);
 }
 
 export async function updateClass(classId: string, patch: Partial<ClassRoom>) {
