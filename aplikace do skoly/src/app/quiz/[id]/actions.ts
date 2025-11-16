@@ -1,4 +1,5 @@
-﻿"use server";
+"use server";
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/server/authOptions";
 import { getEntryById, recordAttempt } from "@/server/store";
@@ -22,7 +23,7 @@ export async function submitAnswer(
   const session = await getServerSession(authOptions as any);
   const userId = (session as any)?.user?.id as string | undefined;
   const entry = await getEntryById(entryId);
-  if (!entry)
+  if (!entry) {
     return {
       correct: false,
       expected: "",
@@ -31,11 +32,15 @@ export async function submitAnswer(
       textCorrect: false,
       points: 0,
     };
+  }
 
+  const isNoun = entry.partOfSpeech === "noun";
   const expected = dir === "cs2de" ? entry.term : entry.translation;
+
   const termSynonyms = ((entry as any).termSynonyms as string[] | null) || [];
   const translationSynonyms =
     ((entry as any).translationSynonyms as string[] | null) || [];
+
   const expectedVariants =
     dir === "cs2de"
       ? [expected, ...termSynonyms]
@@ -46,13 +51,18 @@ export async function submitAnswer(
               .map((s) => s.trim())
               .filter(Boolean)
           );
+
   const normAns = normalize(answer);
-  const textCorrect = expectedVariants.map(normalize).some(v => v === normAns);
+  const textCorrect = expectedVariants.map(normalize).some((v) => v === normAns);
+
   let genderCorrect = true;
   const eg = (entry as any).genders as ("der" | "die" | "das")[] | undefined;
-  if (entry.partOfSpeech === "noun" && eg && eg.length) {
+
+  // Rod se řeší jen pro směr CS -> DE u podstatných jmen
+  if (dir === "cs2de" && isNoun && eg && eg.length) {
     genderCorrect = chosenGender ? eg.includes(chosenGender) : false;
   }
+
   const correct = textCorrect && genderCorrect;
 
   // bodování
@@ -78,6 +88,8 @@ export async function submitAnswer(
       else if (textCorrect && !genderCorrect) points = 20;
       else points = 0;
     }
+    // multiplier pro body u psaní odpovědi
+    points = Math.round(points * 1.6);
   }
 
   await recordAttempt({
@@ -104,11 +116,9 @@ function normalize(s: string) {
   return s
     .trim()
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // diakritika
-    .replace(/Ăź/g, 'ss')
-    .replace(/\s+/g, ' ');
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // diakritika
+    .replace(/ƫ/g, "ss")
+    .replace(/\s+/g, " ");
 }
-
-
 

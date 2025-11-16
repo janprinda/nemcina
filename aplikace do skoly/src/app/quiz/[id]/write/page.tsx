@@ -82,12 +82,6 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
       ? `${current.genders!.join("/")} ${shownBase}`
       : shownBase;
 
-  const expectedNow = current
-    ? currentDir === "de2cs"
-      ? current.translation
-      : current.term
-    : "";
-
   const canSubmit = !!answer.trim();
 
   const totalPoints = useMemo(
@@ -101,8 +95,18 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
         <div>Načítám… nebo v lekci nejsou slovíčka.</div>
       ) : !done ? (
         <>
-          <div className="text-sm text-gray-400">
-            {idx + 1} / {entries.length}
+          <div className="space-y-2">
+            <div className="text-sm text-gray-400">
+              {idx + 1} / {entries.length}
+            </div>
+            <div className="w-full h-2 bg-black/40 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-emerald-500"
+                style={{
+                  width: `${entries.length ? Math.min(100, (idx / entries.length) * 100) : 0}%`,
+                }}
+              />
+            </div>
           </div>
           <div className="card">
             <div className="card-body">
@@ -140,7 +144,9 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
                         className={`btn ${
                           active ? colorClass : "btn-secondary"
                         }`}
-                        onClick={() => setGenderChoice(g)}
+                        onClick={() =>
+                          setGenderChoice((prev) => (prev === g ? "" : g))
+                        }
                       >
                         {g}
                       </button>
@@ -177,9 +183,18 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
                     genderChoice || null,
                     "write"
                   );
+                  let expectedText = res.expected;
+                  if (
+                    !res.correct &&
+                    currentDir === "cs2de" &&
+                    current.partOfSpeech === "noun" &&
+                    current.genders?.length
+                  ) {
+                    expectedText = `${current.genders.join("/")} ${res.expected}`;
+                  }
                   setFeedback({
                     correct: !!res.correct,
-                    expected: res.expected,
+                    expected: expectedText,
                     points: res.points,
                   });
                   setResults((r) => [
@@ -187,7 +202,7 @@ export default function QuizWritePage({ params }: { params: { id: string } }) {
                     {
                       id: current.id,
                       correct: !!res.correct,
-                      expected: res.expected,
+                      expected: expectedText,
                       your: answer,
                       term: current.term,
                       translation: current.translation,

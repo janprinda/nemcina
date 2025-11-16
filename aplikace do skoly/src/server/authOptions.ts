@@ -2,7 +2,7 @@ import { type NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import AzureADProvider from "next-auth/providers/azure-ad";
-import { findUserByEmail, getUserById } from "@/server/store";
+import { findUserByEmail } from "@/server/store";
 import { JsonAdapter } from "@/server/jsonAdapter";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
@@ -30,7 +30,17 @@ export const authOptions: NextAuthOptions = {
         if (!user || !user.passwordHash) return null;
         const valid = await bcrypt.compare(password, user.passwordHash);
         if (!valid) return null;
-        return { id: user.id, name: user.name ?? null, email: user.email ?? undefined } as any;
+        // Vrátíme user objekt včetně role a dalších polí,
+        // aby se vše propsalo do JWT.
+        return {
+          id: user.id,
+          name: user.name ?? null,
+          email: user.email ?? undefined,
+          role: user.role,
+          displayName: user.displayName ?? user.name ?? null,
+          avatarUrl: user.avatarUrl ?? null,
+          rank: user.rank ?? null,
+        } as any;
       },
     }),
     GoogleProvider({
@@ -48,44 +58,53 @@ export const authOptions: NextAuthOptions = {
   pages: { signIn: "/auth" },
   callbacks: {
     async jwt({ token, user }) {
-      // Při přihlášení jen uložíme základní identifikaci,
-      // detail profilu se dohledává až v session callbacku.
+      // Při přihlášení natáhneme data uživatele do tokenu.
       if (user) {
-        token.sub = (user as any).id ?? token.sub;
+        const u = user as any;
+        token.sub = u.id ?? token.sub;
+        token.email = u.email ?? token.email;
+        token.name = u.name ?? token.name;
+        (token as any).role = u.role ?? (token as any).role ?? "USER";
+        (token as any).displayName =
+          u.displayName ?? u.name ?? (token as any).displayName ?? null;
+        (token as any).avatarUrl = u.avatarUrl ?? (token as any).avatarUrl ?? null;
+        (token as any).rank = u.rank ?? (token as any).rank ?? null;
       }
       return token as any;
     },
     async session({ session, token }) {
       const id = token.sub as string | undefined;
-
       if (!id) {
         (session as any).user = undefined;
         return session;
       }
 
-      // Každé načtení session ověří, že uživatel v DB existuje.
-      // Pokud byl smazán (nebo DB přepsána), považujeme ho za odhlášeného.
-      const u = await getUserById(id);
-      if (!u) {
-        (session as any).user = undefined;
-        return session;
-      }
+      const role = (token as any).role as "USER" | "TEACHER" | "ADMIN" | undefined;
+      const displayName = (token as any).displayName as string | null | undefined;
+      const avatarUrl = (token as any).avatarUrl as string | null | undefined;
+      const rank = (token as any).rank as string | null | undefined;
 
       (session as any).user = {
-        id: u.id,
-        email: u.email ?? session.user?.email ?? undefined,
-        name: u.name ?? session.user?.name ?? undefined,
-        role: u.role,
-        displayName: u.displayName ?? u.name ?? null,
-        avatarUrl: u.avatarUrl ?? null,
-        rank: u.rank ?? null,
+        id,
+        email: token.email ?? session.user?.email ?? undefined,
+        name: token.name ?? session.user?.name ?? undefined,
+        role: role ?? "USER",
+        displayName: displayName ?? token.name ?? null,
+        avatarUrl: avatarUrl ?? null,
+        rank: rank ?? null,
       } as any;
 
       // Fallback: pokud by role chyběla, ale je to seedovaný admin
-      if (!(session as any).user.role && session.user?.email === "admin@example.com") {
+      if (
+        !(session as any).user.role &&
+        ((session as any).user.email === "admin@example.com" ||
+          session.user?.email === "admin@example.com")
+      ) {
         (session as any).user.role = "ADMIN";
       }
+
       return session;
     },
   },
 };
+

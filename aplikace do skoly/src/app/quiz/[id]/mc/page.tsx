@@ -1,16 +1,24 @@
 "use client";
+
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { submitAnswer } from "../actions";
 
-type Entry = { id: string; term: string; translation: string; partOfSpeech?: string | null; genders?: ('der'|'die'|'das')[]|null };
+type Entry = {
+  id: string;
+  term: string;
+  translation: string;
+  explanation?: string | null;
+  partOfSpeech?: string | null;
+  genders?: ("der" | "die" | "das")[] | null;
+};
 
 async function fetchEntries(lessonId: string): Promise<Entry[]> {
   const res = await fetch(`/api/lesson/${lessonId}/entries`);
   return res.json();
 }
 
-function shuffle<T>(arr: T[]) {
+function shuffle<T>(arr: T[]): T[] {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -21,147 +29,378 @@ function shuffle<T>(arr: T[]) {
 
 export default function QuizMCPage({ params }: { params: { id: string } }) {
   const search = useSearchParams();
-  const dirParam = (search.get('dir') as 'de2cs'|'cs2de'|'mix' | null) || 'de2cs';
-  const shuffleParam = search.get('shuffle') === '1';
+  const dirParam =
+    (search.get("dir") as "de2cs" | "cs2de" | "mix" | null) || "de2cs";
+  const shuffleParam = search.get("shuffle") === "1";
+
   const [entries, setEntries] = useState<Entry[]>([]);
+  const [dirs, setDirs] = useState<Array<"de2cs" | "cs2de">>([]);
   const [idx, setIdx] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<null | { correct: boolean; expected: string; points: number }>(null);
-  const [dirs, setDirs] = useState<Array<'de2cs'|'cs2de'>>([]);
-  const [results, setResults] = useState<Array<{ id: string; correct: boolean; expected: string; your: string; term: string; translation: string; dir: 'de2cs'|'cs2de' }>>([]);
-  const [eliminated, setEliminated] = useState<Set<string>>(new Set());
-  const [genderChoice, setGenderChoice] = useState<''|'der'|'die'|'das'>('');
+  const [feedback, setFeedback] = useState<
+    | null
+    | {
+        correct: boolean;
+        expected: string;
+        points: number;
+      }
+  >(null);
+  const [results, setResults] = useState<
+    Array<{
+      id: string;
+      correct: boolean;
+      expected: string;
+      your: string;
+      term: string;
+      translation: string;
+      dir: "de2cs" | "cs2de";
+    }>
+  >([]);
+  const [genderChoice, setGenderChoice] = useState<"" | "der" | "die" | "das">(
+    ""
+  );
   const [genderRetry, setGenderRetry] = useState(false);
-
-  // shuffle() defined above at module scope
 
   useEffect(() => {
     fetchEntries(params.id).then((list) => {
       const base = shuffleParam ? shuffle(list) : list;
-      const d = base.map(() => dirParam === 'mix' ? (Math.random() < 0.5 ? 'de2cs' : 'cs2de') : dirParam);
+      const d = base.map(() =>
+        dirParam === "mix"
+          ? Math.random() < 0.5
+            ? "de2cs"
+            : "cs2de"
+          : dirParam
+      );
       setEntries(base);
       setDirs(d);
+      setIdx(0);
+      setFeedback(null);
+      setResults([]);
+      setSelected(null);
+      setGenderChoice("");
+      setGenderRetry(false);
     });
   }, [params.id, dirParam, shuffleParam]);
 
   const current = entries[idx];
   const done = idx >= entries.length;
+  const currentDir = dirs[idx] || "de2cs";
+  const progress = entries.length
+    ? Math.min(100, (idx / entries.length) * 100)
+    : 0;
 
-  const currentDir = dirs[idx] || 'de2cs';
-  const prompt = currentDir === 'de2cs' ? 'Vyber správný překlad (CZ)' : 'Vyber správný překlad (DE)';
-  const shownBase = currentDir === 'de2cs' ? current?.term : current?.translation;
-  const shown = (currentDir === 'de2cs' && current?.partOfSpeech === 'noun' && current?.genders?.length)
-    ? `${current.genders!.join('/')} ${shownBase}`
-    : shownBase;
+  const requiresGender =
+    currentDir === "cs2de" &&
+    current?.partOfSpeech === "noun" &&
+    (current?.genders?.length || 0) > 0;
+
+  const prompt =
+    currentDir === "de2cs"
+      ? "Vyber správný překlad do češtiny"
+      : "Vyber správný překlad do němčiny";
+
+  const shownBase =
+    currentDir === "de2cs" ? current?.term : current?.translation;
+  const shown =
+    currentDir === "de2cs" &&
+    current?.partOfSpeech === "noun" &&
+    current?.genders?.length
+      ? `${current.genders.join("/")} ${shownBase}`
+      : shownBase;
+
   const options = useMemo(() => {
     if (!current) return [] as string[];
-    const pool = entries.filter(e => e.id !== current.id);
-    const others = currentDir === 'de2cs' ? pool.map(e => e.translation) : pool.map(e => e.term);
+    const pool = entries.filter((e) => e.id !== current.id);
+    const others =
+      currentDir === "de2cs"
+        ? pool.map((e) => e.translation)
+        : pool.map((e) => e.term);
     const count = Math.min(4, 1 + others.length);
     const distractors = shuffle(others).slice(0, count - 1);
-    const correct = currentDir === 'de2cs' ? current.translation : current.term;
+    const correct =
+      currentDir === "de2cs" ? current.translation : current.term;
     return shuffle([correct, ...distractors]);
   }, [current, entries, currentDir]);
-  useEffect(() => { setEliminated(new Set()); setSelected(null); setGenderChoice(''); setGenderRetry(false); }, [idx, currentDir]);
-  // Keyboard shortcuts: 1-4 select option, Enter confirm/next
+
+  // reset state between questions / directions
+  useEffect(() => {
+    setSelected(null);
+    setGenderChoice("");
+    setGenderRetry(false);
+  }, [idx, currentDir]);
+
+  // Keyboard shortcuts: 1–4 select, Enter confirm/next
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (!current) return;
+      if (!current || done) return;
       if (!feedback) {
-        const map: Record<string, number> = { '1': 0, '2': 1, '3': 2, '4': 3 };
+        const map: Record<string, number> = { "1": 0, "2": 1, "3": 2, "4": 3 };
         if (map[e.key] !== undefined && options[map[e.key]] !== undefined) {
           setSelected(options[map[e.key]]);
-        } else if (e.key === 'Enter' && selected) {
-          (async () => {
-            const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null, "mc");
-            if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
-              // allow one retry to fix only gender
-              setGenderRetry(true);
-              return;
-            }
-            setFeedback({ correct: !!res.correct, expected: res.expected, points: res.points });
-            setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: selected, term: current.term, translation: current.translation, dir: currentDir }]);
-          })();
+        } else if (e.key === "Enter" && selected) {
+          handleConfirm();
         }
-      } else if (e.key === 'Enter') {
-        setFeedback(null); setSelected(null); setIdx((i)=>i+1);
+      } else if (e.key === "Enter") {
+        handleNext();
       }
     }
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [current, feedback, options, selected, currentDir, genderChoice, genderRetry]);
+    function handleConfirm() {
+      if (!current || !selected) return;
+      (async () => {
+        const res = await submitAnswer(
+          current.id,
+          selected,
+          currentDir,
+          requiresGender ? genderChoice || null : null,
+          "mc"
+        );
+        if (
+          !res.correct &&
+          res.textCorrect &&
+          currentDir === "cs2de" &&
+          current.partOfSpeech === "noun" &&
+          !genderRetry
+        ) {
+          // jedna šance opravit jen rod
+          setGenderRetry(true);
+          return;
+        }
+        let expectedText = res.expected;
+        if (
+          !res.correct &&
+          currentDir === "cs2de" &&
+          current.partOfSpeech === "noun" &&
+          current.genders?.length
+        ) {
+          expectedText = `${current.genders.join("/")} ${res.expected}`;
+        }
+        setFeedback({
+          correct: !!res.correct,
+          expected: expectedText,
+          points: res.points,
+        });
+        setResults((r) => [
+          ...r,
+          {
+            id: current.id,
+            correct: !!res.correct,
+            expected: expectedText,
+            your: selected,
+            term: current.term,
+            translation: current.translation,
+            dir: currentDir,
+          },
+        ]);
+      })();
+    }
+    function handleNext() {
+      setFeedback(null);
+      setSelected(null);
+      setGenderChoice("");
+      setGenderRetry(false);
+      setIdx((i) => i + 1);
+    }
 
-  if (!entries.length) return <div>Načítám… nebo v lekci nejsou slovíčka.</div>;
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [
+    current,
+    currentDir,
+    done,
+    feedback,
+    genderChoice,
+    genderRetry,
+    options,
+    requiresGender,
+    selected,
+  ]);
+
+  if (!entries.length) {
+    return <div>Načítám… nebo v lekci nejsou slovíčka.</div>;
+  }
+
+  const handleConfirmClick = async () => {
+    if (!current || !selected) return;
+    const res = await submitAnswer(
+      current.id,
+      selected,
+      currentDir,
+      requiresGender ? genderChoice || null : null,
+      "mc"
+    );
+    if (
+      !res.correct &&
+      res.textCorrect &&
+      currentDir === "cs2de" &&
+      current.partOfSpeech === "noun" &&
+      !genderRetry
+    ) {
+      setGenderRetry(true);
+      return;
+    }
+    let expectedText = res.expected;
+    if (
+      !res.correct &&
+      currentDir === "cs2de" &&
+      current.partOfSpeech === "noun" &&
+      current.genders?.length
+    ) {
+      expectedText = `${current.genders.join("/")} ${res.expected}`;
+    }
+    setFeedback({
+      correct: !!res.correct,
+      expected: expectedText,
+      points: res.points,
+    });
+    setResults((r) => [
+      ...r,
+      {
+        id: current.id,
+        correct: !!res.correct,
+        expected: expectedText,
+        your: selected,
+        term: current.term,
+        translation: current.translation,
+        dir: currentDir,
+      },
+    ]);
+  };
+
+  const handleNextClick = () => {
+    setFeedback(null);
+    setSelected(null);
+    setGenderChoice("");
+    setGenderRetry(false);
+    setIdx((i) => i + 1);
+  };
 
   return (
     <div className="max-w-2xl mx-auto space-y-4">
       {!done ? (
         <>
-          <div className="text-sm text-gray-400">{idx + 1} / {entries.length}</div>
-          <div className="card"><div className="card-body">
-            <div className="text-gray-400 text-sm">{prompt}</div>
-            <div className="mt-1 text-2xl font-semibold text-gray-100">{shown}</div>
-          </div></div>
-          <div className="text-xs muted text-left">Tip: ß lze psát jako "ss".</div>
-          {currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && (
+          <div className="space-y-2">
+            <div className="text-sm text-gray-400">
+              {idx + 1} / {entries.length}
+            </div>
+            <div className="w-full h-2 bg-black/40 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-emerald-500"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
+
+          <div className="card">
+            <div className="card-body space-y-2">
+              <div className="text-gray-400 text-sm">{prompt}</div>
+              <div className="mt-1 text-2xl font-semibold text-gray-100">
+                {shown}
+              </div>
+              {current?.explanation && (
+                <div className="mt-1 text-xs muted">{current.explanation}</div>
+              )}
+            </div>
+          </div>
+
+          {requiresGender && (
             <div className="space-y-2">
               <div className="text-sm muted">Vyber rod (der/die/das)</div>
               <div className="grid grid-cols-3 gap-2">
-                {(['der','die','das'] as const).map(g => {
+                {(["der", "die", "das"] as const).map((g) => {
                   const active = genderChoice === g;
-                  const colorClass = g==='der' ? 'gender-der' : g==='die' ? 'gender-die' : 'gender-das';
+                  const colorClass =
+                    g === "der"
+                      ? "gender-der"
+                      : g === "die"
+                      ? "gender-die"
+                      : "gender-das";
                   return (
-                    <button key={g} type="button" className={`btn ${active ? colorClass : 'btn-secondary'}`} onClick={()=> setGenderChoice(g)}>{g}</button>
+                    <button
+                      key={g}
+                      type="button"
+                      className={`btn ${
+                        active ? colorClass : "btn-secondary"
+                      }`}
+                      onClick={() =>
+                        setGenderChoice((prev) => (prev === g ? "" : g))
+                      }
+                    >
+                      {g}
+                    </button>
                   );
                 })}
               </div>
-              {genderRetry && (
-                <div className="text-xs text-yellow-300">Text je správně, oprav jen rod (der/die/das) a potvrď znovu.</div>
-              )}
             </div>
           )}
-          <div className="grid gap-2">
-            {options.map((opt, i) => (
-              <button key={opt}
-                      className={`btn ${selected === opt ? 'btn-primary' : 'btn-secondary'} ${eliminated.has(opt) || genderRetry ? 'opacity-40 pointer-events-none' : ''}`}
-                      onClick={() => { if (!genderRetry) setSelected(opt); }}>
-                <span className="opacity-70 mr-1 text-xs">{i+1}.</span> {opt}
-              </button>
-            ))}
+
+          <div className="grid sm:grid-cols-2 gap-3">
+            {options.map((opt) => {
+              const isCorrectOption =
+                currentDir === "de2cs"
+                  ? opt === current?.translation
+                  : opt === current?.term;
+              const isSelected = selected === opt;
+              return (
+                <button
+                  key={opt}
+                  className={`btn text-left ${
+                    isSelected ? "btn-primary" : "btn-secondary"
+                  }`}
+                  onClick={() =>
+                    setSelected((prev) => (prev === opt ? null : opt))
+                  }
+                >
+                  {opt}
+                  {feedback && isCorrectOption && (
+                    <span className="ml-2 text-xs text-emerald-300">✓</span>
+                  )}
+                </button>
+              );
+            })}
           </div>
+
           {!feedback ? (
-            <div className="flex gap-2 justify-center">
-              <button className="btn btn-primary" disabled={!selected}
-                      onClick={async () => {
-                        if (!selected) return;
-                        const res = await submitAnswer(current.id, selected, currentDir, genderChoice || null, "mc");
-                        if (!res.correct && res.textCorrect && currentDir === 'cs2de' && current?.partOfSpeech === 'noun' && !genderRetry) {
-                          setGenderRetry(true);
-                          return;
-                        }
-                        setFeedback({ correct: !!res.correct, expected: res.expected, points: res.points });
-                        setResults((r) => [...r, { id: current.id, correct: !!res.correct, expected: res.expected, your: selected, term: current.term, translation: current.translation, dir: currentDir }]);
-                      }}>Potvrdit</button>
-              <button className="btn btn-secondary" onClick={() => {
-                const wrong = options.filter(o => o !== (currentDir === 'de2cs' ? current!.translation : current!.term) && !eliminated.has(o));
-                const toRemove = wrong.slice(0, Math.max(0, Math.min(2, wrong.length)));
-                if (!genderRetry) setEliminated(prev => new Set([...Array.from(prev), ...toRemove]));
-              }}>Nápověda (50/50)</button>
+            <div className="mt-4 flex justify-center">
+              <button
+                className="btn w-full text-lg py-4 bg-emerald-500 hover:bg-emerald-400 border-none text-white disabled:bg-gray-600 disabled:text-gray-300"
+                disabled={!selected || (requiresGender && !genderChoice)}
+                onClick={handleConfirmClick}
+              >
+                Potvrdit
+              </button>
             </div>
           ) : (
-            <div className="space-y-3">
-              <div className={`card ${feedback.correct ? 'border-green-700' : 'border-red-700'}`}>
+            <div className="mt-4 space-y-3">
+              <div
+                className={`card ${
+                  feedback.correct ? "border-green-700" : "border-red-700"
+                }`}
+              >
                 <div className="card-body">
-                  <div className={`text-sm ${feedback.correct ? 'text-green-400' : 'text-red-400'}`}>
-                    {feedback.correct ? 'Správně!' : 'Špatně.'}
+                  <div
+                    className={`text-sm ${
+                      feedback.correct ? "text-green-400" : "text-red-400"
+                    }`}
+                  >
+                    {feedback.correct ? "Správně!" : "Špatně."}{" "}
+                    <span className="muted text-xs">
+                      ({feedback.points} bodů)
+                    </span>
                   </div>
                   {!feedback.correct && (
-                    <div className="text-sm text-gray-300">Správně: <b>{feedback.expected}</b></div>
+                    <div className="text-sm text-gray-300">
+                      Správně: <b>{feedback.expected}</b>
+                    </div>
                   )}
                 </div>
               </div>
-              <div className="flex gap-2">
-                <button className="btn btn-secondary" onClick={() => { setFeedback(null); setSelected(null); setIdx((i)=>i+1); }}>Další</button>
+              <div className="flex justify-center">
+                <button
+                  className="btn w-full md:w-auto text-base py-3"
+                  onClick={handleNextClick}
+                >
+                  Další
+                </button>
               </div>
             </div>
           )}
@@ -170,36 +409,68 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
         <div className="overlay">
           <div className="confetti-layer">
             {Array.from({ length: 48 }).map((_, i) => (
-              <span key={i} className="confetti-piece" style={{
-                left: `${(i*2.1)%100}%`,
-                backgroundColor: ["#60a5fa","#34d399","#f87171","#fbbf24","#a78bfa"][i%5],
-                animationDelay: `${(i%10)*0.12}s`,
-                animationDuration: `${1.8 + (i%6)*0.25}s`
-              }} />
+              <span
+                key={i}
+                className="confetti-piece"
+                style={{
+                  left: `${((i * 2.1) % 100).toFixed(2)}%`,
+                  backgroundColor: [
+                    "#60a5fa",
+                    "#34d399",
+                    "#f87171",
+                    "#fbbf24",
+                    "#a78bfa",
+                  ][i % 5],
+                  animationDelay: `${(i % 10) * 0.12}s`,
+                  animationDuration: `${1.8 + (i % 6) * 0.25}s`,
+                }}
+              />
             ))}
           </div>
           <div className="relative z-10 w-full max-w-3xl space-y-4">
             <div className="text-3xl font-semibold text-center">Hotovo!</div>
-            <div className="text-center text-sm text-gray-400">Správně: {results.filter(r=>r.correct).length} / {entries.length}</div>
-            {results.some(r=>!r.correct) && (
+            <div className="text-center text-sm text-gray-400">
+              Správně: {results.filter((r) => r.correct).length} /{" "}
+              {entries.length}
+            </div>
+            {results.some((r) => !r.correct) && (
               <div className="card">
                 <div className="card-body space-y-2 max-h-80 overflow-auto">
                   <div className="font-medium">Shrnutí chyb</div>
-                  {results.filter(r=>!r.correct).map(r => (
-                    <div key={r.id} className="text-sm text-gray-300">
-                      {r.dir === 'de2cs' ? (<>
-                        <b>{r.term}</b> → {r.expected} <span className="text-red-400">(tvé: {r.your || '—'})</span>
-                      </>) : (<>
-                        <b>{r.translation}</b> → {r.expected} <span className="text-red-400">(tvé: {r.your || '—'})</span>
-                      </>)}
-                    </div>
-                  ))}
+                  {results
+                    .filter((r) => !r.correct)
+                    .map((r) => (
+                      <div key={r.id} className="text-sm text-gray-300">
+                        {r.dir === "de2cs" ? (
+                          <>
+                            <b>{r.term}</b> → {r.expected}{" "}
+                            <span className="text-red-400">
+                              (tvoje: {r.your || "—"})
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <b>{r.translation}</b> → {r.expected}{" "}
+                            <span className="text-red-400">
+                              (tvoje: {r.your || "—"})
+                            </span>
+                          </>
+                        )}
+                      </div>
+                    ))}
                 </div>
               </div>
             )}
             <div className="flex gap-2 justify-center">
-              <a className="btn btn-secondary" href={`/quiz/${params.id}`}>Zpět na volbu</a>
-              <a className="btn btn-primary" href={`/quiz/${params.id}/mc?shuffle=1&dir=${dirParam}`}>Zkusit znovu</a>
+              <a className="btn btn-secondary" href={`/quiz/${params.id}`}>
+                Zpět na volbu
+              </a>
+              <a
+                className="btn btn-primary"
+                href={`/quiz/${params.id}/mc?shuffle=1&dir=${dirParam}`}
+              >
+                Zkusit znovu
+              </a>
             </div>
           </div>
         </div>
