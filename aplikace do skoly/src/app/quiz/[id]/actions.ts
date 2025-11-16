@@ -23,6 +23,7 @@ export async function submitAnswer(
   const session = await getServerSession(authOptions as any);
   const userId = (session as any)?.user?.id as string | undefined;
   const entry = await getEntryById(entryId);
+
   if (!entry) {
     return {
       correct: false,
@@ -44,13 +45,12 @@ export async function submitAnswer(
   const expectedVariants =
     dir === "cs2de"
       ? [expected, ...termSynonyms]
-      : [expected, ...translationSynonyms]
-          .flatMap((t) =>
-            t
-              .split(/[;,/|]/)
-              .map((s) => s.trim())
-              .filter(Boolean)
-          );
+      : [expected, ...translationSynonyms].flatMap((t) =>
+          t
+            .split(/[;,/|]/)
+            .map((s) => s.trim())
+            .filter(Boolean)
+        );
 
   const normAns = normalize(answer);
   const textCorrect = expectedVariants.map(normalize).some((v) => v === normAns);
@@ -58,37 +58,65 @@ export async function submitAnswer(
   let genderCorrect = true;
   const eg = (entry as any).genders as ("der" | "die" | "das")[] | undefined;
 
-  // Rod se řeší jen pro směr CS -> DE u podstatných jmen
+  // Rod se kontroluje jen pro směr CS -> DE u podstatných jmen
   if (dir === "cs2de" && isNoun && eg && eg.length) {
     genderCorrect = chosenGender ? eg.includes(chosenGender) : false;
   }
 
   const correct = textCorrect && genderCorrect;
 
-  // bodování
+  // entry-specific scoring (pokud je nastaveno)
+  const pc = entry.pointsCorrect;
+  const pp = entry.pointsPartial;
+  const pw = entry.pointsWrong;
+  const hasCustom =
+    typeof pc === "number" || typeof pp === "number" || typeof pw === "number";
+
   let points = 0;
-  if (mode === "mc") {
-    if (dir === "de2cs") {
-      // rozhodovačka DE -> CS
-      points = correct ? 18 : -1;
+
+  if (hasCustom) {
+    if (textCorrect && genderCorrect) {
+      points = pc ?? 0;
+    } else if (textCorrect && !genderCorrect) {
+      if (typeof pp === "number") {
+        points = pp;
+      } else if (typeof pc === "number") {
+        // fallback: polovina bodů za správně
+        points = Math.round(pc / 2);
+      } else {
+        points = 0;
+      }
     } else {
-      // rozhodovačka CS -> DE
-      if (textCorrect && genderCorrect) points = 21;
-      else if (textCorrect && !genderCorrect) points = 10;
-      else points = -2;
+      points = pw ?? 0;
     }
   } else {
-    // mode === "write"
-    if (dir === "de2cs") {
-      // psaní DE -> CS
-      points = textCorrect ? 35 : 0;
+    // globální bodování podle režimu a směru
+    if (mode === "mc") {
+      if (dir === "de2cs") {
+        // rozhodovačka DE -> CS
+        points = correct ? 18 : -1;
+      } else {
+        // rozhodovačka CS -> DE
+        if (textCorrect && genderCorrect) points = 21;
+        else if (textCorrect && !genderCorrect) points = 10;
+        else points = -2;
+      }
     } else {
-      // psaní CS -> DE
-      if (textCorrect && genderCorrect) points = 40;
-      else if (textCorrect && !genderCorrect) points = 20;
-      else points = 0;
+      // mode === "write"
+      if (dir === "de2cs") {
+        // psaní DE -> CS
+        points = textCorrect ? 35 : 0;
+      } else {
+        // psaní CS -> DE
+        if (textCorrect && genderCorrect) points = 40;
+        else if (textCorrect && !genderCorrect) points = 20;
+        else points = 0;
+      }
     }
-    // multiplier pro body u psaní odpovědi
+  }
+
+  // multiplier pro psaní odpovědí
+  if (mode === "write") {
     points = Math.round(points * 1.6);
   }
 
@@ -117,7 +145,7 @@ function normalize(s: string) {
     .trim()
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // diakritika
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/ƫ/g, "ss")
     .replace(/\s+/g, " ");
 }

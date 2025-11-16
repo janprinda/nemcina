@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$8gRHqQbe76eD4Hb/RjhgKuDZ9zK/rutOGs07jd8SEd9TPN72aR.DG",
+      "passwordHash": "$2a$10$hK00TEh0B5O5T.0KNY3t3.6NiXPiMPOqT00KtA62f97Cmcgk9osoa",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -4761,6 +4761,83 @@
       "mode": "mc",
       "dir": "cs2de",
       "createdAt": "2025-11-16T18:23:56.588Z"
+    },
+    {
+      "id": "d60afbb2-1bea-49df-9199-24c6af03d77d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "answer": "Hobby",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:50:31.573Z"
+    },
+    {
+      "id": "6a2c1673-92aa-484e-99c2-7932a73a2621",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2e27f551-7f43-4f30-8bec-2d944842e7ec",
+      "answer": "Alter",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:50:53.205Z"
+    },
+    {
+      "id": "73440a04-4118-4cde-855c-fd5a72c9ed2c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "0a120ce9-c6b2-4fa4-b0b5-91a7cbf19cb4",
+      "answer": "chatten",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:50:56.623Z"
+    },
+    {
+      "id": "4807e676-5f66-4e84-92d4-6d19d68c736d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781da388-5cc1-49aa-bbbc-213cdf2157e7",
+      "answer": "Sport",
+      "correct": false,
+      "points": -2,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:00.041Z"
+    },
+    {
+      "id": "4c40231b-04e9-4ae8-8d17-43780dcdde2d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72b1093c-f02d-4f28-be41-576ac46100d9",
+      "answer": "Gitarre",
+      "correct": false,
+      "points": -2,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:04.695Z"
+    },
+    {
+      "id": "83814808-1fe9-4ea8-9df5-650f0544312a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a4f4ef74-fb0f-40be-8760-7968b8fa80c5",
+      "answer": "auch",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:09.244Z"
+    },
+    {
+      "id": "968c0e40-5f9a-4268-a254-c38b35cf28b9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "answer": "Hobby",
+      "correct": true,
+      "points": 64,
+      "mode": "write",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:21.855Z"
     }
   ],
   "classes": [
