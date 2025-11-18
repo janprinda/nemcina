@@ -305,6 +305,16 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
           {requiresGender && (
             <div className="space-y-2">
               <div className="text-sm muted">Vyber rod (der/die/das)</div>
+              {genderRetry && (
+                <div
+                  className="text-sm bg-yellow-600/20 border border-yellow-600 rounded px-3 py-2 mt-2"
+                  role="status"
+                  aria-live="polite"
+                >
+                  Nesprávná odpověď — máš jednu šanci opravit jen rod a potvrdit
+                  znovu.
+                </div>
+              )}
               <div className="grid grid-cols-3 gap-2">
                 {(["der", "die", "das"] as const).map((g) => {
                   const active = genderChoice === g;
@@ -366,7 +376,7 @@ export default function QuizMCPage({ params }: { params: { id: string } }) {
                 disabled={!selected || (requiresGender && !genderChoice)}
                 onClick={handleConfirmClick}
               >
-                Potvrdit
+                {genderRetry ? "Potvrdit (opravit rod)" : "Potvrdit"}
               </button>
             </div>
           ) : (

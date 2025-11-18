@@ -2,7 +2,6 @@ import { getLesson, getEntries } from "@/server/store";
 import { addEntry, deleteEntry, updateLessonAction } from "./actions";
 import Link from "next/link";
 import PosGenderControls from "@/components/PosGenderControls";
-import EntryScoringControls from "@/components/EntryScoringControls";
 import SynonymInputs from "@/components/SynonymInputs";
 
 export default async function LessonDetail({
@@ -104,7 +103,6 @@ export default async function LessonDetail({
 
           <div className="grid gap-4 md:grid-cols-2">
             <PosGenderControls />
-            <EntryScoringControls />
           </div>
 
           <button className="btn btn-primary">Přidat položku</button>
@@ -147,15 +145,6 @@ export default async function LessonDetail({
                     Sloveso:{" "}
                     {e.verbClass === "regular" ? "pravidelné" : "nepravidelné"}
                   </span>
-                )}
-                {(e.pointsCorrect ?? null) !== null && (
-                  <span>✓ {e.pointsCorrect} b</span>
-                )}
-                {(e.pointsPartial ?? null) !== null && (
-                  <span>≈ {e.pointsPartial} b</span>
-                )}
-                {(e.pointsWrong ?? null) !== null && (
-                  <span>✗ {e.pointsWrong} b</span>
                 )}
               </div>
               {e.explanation && (

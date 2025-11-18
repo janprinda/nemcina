@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$z3FypbQNqvZU0wobGkOW3udcZN7ZyiOYmHqQm3s3NZDW2b4E62.HW",
+      "passwordHash": "$2a$10$RHt4xwSEa7TxwnvXa30BUuBhr.qVnzMtFiW0WTDDUap8Aaj5aNGS.",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -10912,7 +10912,7 @@
         "cs2de",
         "de2cs"
       ],
-      "currentIndex": 9
+      "currentIndex": 8
     }
   ],
   "partyPlayers": [],

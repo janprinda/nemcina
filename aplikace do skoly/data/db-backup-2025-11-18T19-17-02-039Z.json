@@ -1,0 +1,5048 @@
+{
+  "users": [
+    {
+      "id": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "role": "ADMIN",
+      "passwordHash": "$2a$10$21ZRFY7OsfIaAJJltvaRj.Uugd/vL9CUOvzkHfhuoNrgQnzoFBDA6",
+      "displayName": null,
+      "nickname": null,
+      "birthDate": null,
+      "phone": null,
+      "interests": null,
+      "avatarUrl": "/uploads/2c2af287-79e3-42ac-b8b0-61a76a4c9bd1-1763068667940.png"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "title": "Lekce 1. část 1.",
+      "description": "Strana 10, 11 a 12",
+      "createdAt": "2025-11-13T22:27:15.027Z",
+      "published": true,
+      "unlockScore": 0
+    },
+    {
+      "id": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "title": "Lekce 1. část 2.",
+      "description": "strana 13, 14 a 15",
+      "createdAt": "2025-11-13T22:52:27.708Z",
+      "published": true,
+      "unlockScore": 2500
+    }
+  ],
+  "entries": [
+    {
+      "id": "3743b970-8c61-48cb-95b9-ae8c54500fc0",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Abend",
+      "translation": "večer",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T22:27:33.615Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": "-e",
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": 18,
+      "pointsWrong": -2
+    },
+    {
+      "id": "8a11ee4a-6eb3-42c9-9692-e02339125957",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "du",
+      "translation": "ty",
+      "type": "WORD",
+      "partOfSpeech": "pronoun",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:28:29.931Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "63c7115a-94f9-4cc0-8277-c7e54246926f",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Freut mich",
+      "translation": "Těší mě.",
+      "type": "PHRASE",
+      "partOfSpeech": "phrase",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:29:09.477Z",
+      "termSynonyms": [
+        "(Es) Freut mich"
+      ],
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 60,
+      "pointsPartial": null,
+      "pointsWrong": -1
+    },
+    {
+      "id": "8d62e567-b388-4555-87b4-4ed62d01cc0a",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "gut",
+      "translation": "dobrý",
+      "type": "WORD",
+      "partOfSpeech": "adv",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:29:37.686Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "69d40dd5-ae61-43de-a267-ab820eaaf924",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Hallo",
+      "translation": "Ahoj",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:29:57.372Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "96935430-eac4-4b2f-be17-5448868f78f4",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "heißen",
+      "translation": "Jmenovat se",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "(heissen), Er heißt, Ich heiße Jens. - Jmenuji se Jens",
+      "createdAt": "2025-11-13T22:31:27.932Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": "regular",
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "899ee516-0c4f-42fd-aa7f-f5885c4fa311",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Hi",
+      "translation": "Ahoj",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:31:42.694Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "195e81ca-bd0d-46bc-a249-6b56990a0424",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "ich",
+      "translation": "já",
+      "type": "WORD",
+      "partOfSpeech": "pronoun",
+      "genders": null,
+      "explanation": "koncovka -e u pravidelných sloves",
+      "createdAt": "2025-11-13T22:31:56.907Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "ee068f06-5b5f-4696-b013-d50d81e782a8",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "ihr",
+      "translation": "vy",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "vy - ukazování na skupinu, koncovka -t u pravidelných sloves",
+      "createdAt": "2025-11-13T22:32:40.999Z"
+    },
+    {
+      "id": "e4e1fc13-990e-432a-b220-7875e72b93ac",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "ja",
+      "translation": "ano",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:33:39.588Z"
+    },
+    {
+      "id": "fbf18aad-4d98-4b2b-870a-0d90c8588974",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Morgen",
+      "translation": "ráno",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "Guten Morgen! - Dobré ráno!",
+      "createdAt": "2025-11-13T22:34:19.208Z"
+    },
+    {
+      "id": "e912bae7-2a61-4c47-b08d-c643b653adbc",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Name",
+      "translation": "Jméno",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -n",
+      "createdAt": "2025-11-13T22:35:07.377Z"
+    },
+    {
+      "id": "a30cf045-18db-4da9-84cf-81686b3bba45",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "nein",
+      "translation": "ne",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:35:40.815Z"
+    },
+    {
+      "id": "00b58d31-84e1-440c-8aed-25aa90202e7d",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "sein",
+      "translation": "být",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "Er ist, Du bin, Er/Sie/Es bin, Wir sind, Ihr seid, Sie/sie sind",
+      "createdAt": "2025-11-13T22:36:59.514Z"
+    },
+    {
+      "id": "2af0db73-1942-4631-861d-fab3a241ce88",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Tag",
+      "translation": "den",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -e, Guten Tag! - Dobrý den",
+      "createdAt": "2025-11-13T22:37:41.501Z"
+    },
+    {
+      "id": "64b2f4e7-6a6c-471c-b1ad-4c89c433dd22",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "und",
+      "translation": "a",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:37:56.605Z"
+    },
+    {
+      "id": "5512958b-8ee7-4c57-8e26-20fedc695512",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "wer",
+      "translation": "kdo",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "Wer bist du? - Kdo jsi?",
+      "createdAt": "2025-11-13T22:38:19.086Z"
+    },
+    {
+      "id": "c5bffa14-1181-4a3c-930d-ca2c2f9201a7",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "wie",
+      "translation": "jak",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "Wie heißt du? - Jak se jmenuješ?",
+      "createdAt": "2025-11-13T22:39:07.272Z"
+    },
+    {
+      "id": "f72870b4-7eb9-4a6a-a81e-b17bc3fa2a17",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "wir",
+      "translation": "my",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "koncovka -en u pravidelných sloves",
+      "createdAt": "2025-11-13T22:39:40.506Z"
+    },
+    {
+      "id": "ecda54d7-e0f5-4e1f-ac36-57aaeee763cb",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "in",
+      "translation": "v",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "in der Nähe (von) - nedaleko (čeho)",
+      "createdAt": "2025-11-13T22:40:47.133Z"
+    },
+    {
+      "id": "20ebf6a8-e5b9-4ccb-af89-6e3da3c239aa",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Spiel",
+      "translation": "hra",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. -e",
+      "createdAt": "2025-11-13T22:41:13.017Z"
+    },
+    {
+      "id": "f92b1013-5920-40f6-b719-31e222c43609",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "wo",
+      "translation": "kde",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "Wo wohnst du? - Kde bydlíš?",
+      "createdAt": "2025-11-13T22:41:38.444Z"
+    },
+    {
+      "id": "7cba4ea3-63ce-4719-b809-9f6a76155292",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "wohnen",
+      "translation": "bydlet",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:42:45.831Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": "regular",
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "bc761c68-ae61-40fa-9bc0-1fef7143123a",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "null",
+      "translation": "0",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:11.551Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "nula"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "4e98ba17-658d-4a23-bdbe-7f1a21b393f0",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "eins",
+      "translation": "1",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:21.441Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "jedna"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "c2bb31cc-d53a-4996-b55b-e5604ce7ac0a",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "zwei",
+      "translation": "2",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:31.062Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "dva"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "490cd043-9868-41b6-9a08-94e621f89014",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "drei",
+      "translation": "3",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:42.899Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "tři"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "81a288f2-f548-4446-8ebc-1343c5f61161",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "vier",
+      "translation": "4",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:43:53.776Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "čtyři"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "81c05a9d-aae2-4a1c-bc19-b3340fc03757",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "fünf",
+      "translation": "5",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:44:13.862Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "pět"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "80e5edfa-adb8-4d31-9c91-f2a4396d97b9",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "sechs",
+      "translation": "6",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:44:38.721Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "šest"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "835a4dc2-9940-4f30-ad72-e150f60cf362",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "sieben",
+      "translation": "7",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:44:51.027Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "sedm"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "891e3eb1-585c-49c9-a2ad-82600e1fe86a",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "acht",
+      "translation": "8",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:00.552Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "osm"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "f127ab82-1d5f-4915-a112-56523c345077",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "neun",
+      "translation": "9",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:15.664Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "devět"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "d4ed2f6f-d323-405b-895b-fa60d525888e",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "zehn",
+      "translation": "10",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:25.303Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "deset"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "e8deb664-4dce-428e-a395-4299c7a69365",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "elf",
+      "translation": "11",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:35.119Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "jedenáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "756ed5d8-71e1-4a43-aebd-19822cc9552b",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "zwölf",
+      "translation": "12",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:45:47.573Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "dvanáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "337e997d-852d-49e8-b1eb-f08cd834d799",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "dreizehn",
+      "translation": "13",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:46:21.088Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "třináct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "97b8fc31-d0e2-4ebb-9d33-eccb31fda844",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "vierzehn",
+      "translation": "14",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:46:33.506Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "čtrnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "6681d21e-8f01-4998-95df-16759a799b47",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "fünfzehn",
+      "translation": "15",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:46:57.927Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "patnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "79fc963d-d952-481f-a03c-29007f870e51",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "sechzehn",
+      "translation": "16",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:21.515Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "šestnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "cef78d0b-5689-4d7f-b569-10d8b9b12746",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "siebzehn",
+      "translation": "17",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:31.050Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "sedmnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "44e1d974-d763-42a8-a8d6-4f75a98dbba0",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "achtzechn",
+      "translation": "18",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:41.835Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "osmnáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "018100cb-f010-48e0-833f-144140a67f21",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "neunzehn",
+      "translation": "19",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:47:55.522Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "devatenáct"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "756efa5d-e63a-4aeb-a671-01ff353a7673",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "zwanzig",
+      "translation": "20",
+      "type": "WORD",
+      "partOfSpeech": "num",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:48:27.620Z",
+      "termSynonyms": null,
+      "translationSynonyms": [
+        "dvacet"
+      ],
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 29,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "5f40d547-bb86-431b-bb04-d4e3dcd02e5c",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "alt",
+      "translation": "starý",
+      "type": "WORD",
+      "partOfSpeech": "adv",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:49:06.653Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "31d688a1-0640-4254-ba23-8cd77c991602",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "er",
+      "translation": "on",
+      "type": "WORD",
+      "partOfSpeech": "pronoun",
+      "genders": null,
+      "explanation": "koncovka -t u pravidelných sloves",
+      "createdAt": "2025-11-13T22:49:43.332Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "08ad1d86-8556-4f74-af86-34c533141e31",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "Monat",
+      "translation": "měsíc",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T22:50:21.244Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": "-e",
+      "verbClass": null,
+      "pointsCorrect": 35,
+      "pointsPartial": 18,
+      "pointsWrong": -1
+    },
+    {
+      "id": "aa0590b8-e44f-4de7-a4df-ff05da01329a",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "sie",
+      "translation": "ona",
+      "type": "WORD",
+      "partOfSpeech": "pronoun",
+      "genders": null,
+      "explanation": "koncovka -t u pravidelných sloves",
+      "createdAt": "2025-11-13T22:50:57.382Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "6acbbe87-f323-4393-9f85-bb5741a608d0",
+      "lessonId": "dcbce088-98f6-4ecc-82f6-7f63544d16f1",
+      "term": "sie",
+      "translation": "oni",
+      "type": "WORD",
+      "partOfSpeech": "pronoun",
+      "genders": null,
+      "explanation": "koncovka -en u pravidelných sloves",
+      "createdAt": "2025-11-13T22:51:19.204Z",
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": 20,
+      "pointsPartial": null,
+      "pointsWrong": -2
+    },
+    {
+      "id": "b619e0ce-c743-40b5-95f8-d29ca16c762d",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "aber",
+      "translation": "ale",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:52:44.662Z"
+    },
+    {
+      "id": "2e27f551-7f43-4f30-8bec-2d944842e7ec",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Alter",
+      "translation": "věk",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T22:52:58.284Z"
+    },
+    {
+      "id": "a4f4ef74-fb0f-40be-8760-7968b8fa80c5",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "auch",
+      "translation": "také",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:53:10.977Z"
+    },
+    {
+      "id": "c23621f7-e646-47ff-8bd5-b0a27239fd88",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "aus",
+      "translation": "z",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:53:19.597Z"
+    },
+    {
+      "id": "512130b2-f443-4d0a-93a7-8aa576e46181",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Band",
+      "translation": "skupina",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "die"
+      ],
+      "explanation": "mn. č. -s",
+      "createdAt": "2025-11-13T22:53:53.515Z"
+    },
+    {
+      "id": "0a120ce9-c6b2-4fa4-b0b5-91a7cbf19cb4",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "chatten",
+      "translation": "chatovat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:54:10.807Z"
+    },
+    {
+      "id": "1494faa8-54dd-4237-86b1-d02405fb0f3c",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Computerspiele",
+      "translation": "počítačová hra",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": null,
+      "explanation": "mn. č. -e",
+      "createdAt": "2025-11-13T22:54:43.090Z"
+    },
+    {
+      "id": "d82870e6-360d-4fb2-a27f-afda09c229a4",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "E-mail",
+      "translation": "email",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "die",
+        "das"
+      ],
+      "explanation": "mn. č. -s",
+      "createdAt": "2025-11-13T22:55:02.623Z"
+    },
+    {
+      "id": "dc7daf63-b3f5-416e-825a-f0ed2d02a466",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Englisch",
+      "translation": "Angličtina",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T22:55:27.749Z"
+    },
+    {
+      "id": "e31a0d36-d97c-4f34-b99a-a7851e702e69",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Fan",
+      "translation": "Fanoušek",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -s",
+      "createdAt": "2025-11-13T22:55:52.195Z"
+    },
+    {
+      "id": "fbce6c6b-b214-4cfe-8dde-035846762383",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Französish",
+      "translation": "francouzština",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T22:56:28.312Z"
+    },
+    {
+      "id": "f8abc6f2-e81f-4d21-a0ab-b073726b1dda",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Freund",
+      "translation": "kamarád",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -e",
+      "createdAt": "2025-11-13T22:56:45.669Z"
+    },
+    {
+      "id": "d6c81f7e-be6e-4396-bec9-6b59a41124fb",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Freundin",
+      "translation": "kamarádka",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "die"
+      ],
+      "explanation": "mn. č. -nen",
+      "createdAt": "2025-11-13T22:57:19.625Z"
+    },
+    {
+      "id": "d1472dd7-17ae-4bdd-83c3-9961f9ab49f3",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Fußball",
+      "translation": "fotbal",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "Er ist ein Fußballfanatiker",
+      "createdAt": "2025-11-13T22:58:05.406Z"
+    },
+    {
+      "id": "75da6462-6da2-4c6e-bb36-7d1737b8d1db",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "gehen",
+      "translation": "jít",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "chodit",
+      "createdAt": "2025-11-13T22:58:28.063Z"
+    },
+    {
+      "id": "16d1144c-4c7e-46af-8885-8e91d914a225",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "gern",
+      "translation": "rád",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T22:58:40.131Z"
+    },
+    {
+      "id": "a579f3b1-5cca-48f1-a043-b74c5979e9ba",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Gitarre",
+      "translation": "kytara",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "die"
+      ],
+      "explanation": "mn. č. -n",
+      "createdAt": "2025-11-13T22:59:03.649Z"
+    },
+    {
+      "id": "9f2dcde3-4fd4-466d-ae80-6f792254988d",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Handy",
+      "translation": "mobil",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. -s",
+      "createdAt": "2025-11-13T22:59:26.796Z"
+    },
+    {
+      "id": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Hobby",
+      "translation": "koníček",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. -s",
+      "createdAt": "2025-11-13T22:59:36.648Z"
+    },
+    {
+      "id": "ff07436f-67f8-4e7b-aadf-4016ceaf8a9c",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "hören",
+      "translation": "poslouchat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:00:08.950Z"
+    },
+    {
+      "id": "9a9c5931-30fe-4edf-bb8e-ae82403a5b34",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "im Internet surfen",
+      "translation": "surfovat na internetu",
+      "type": "PHRASE",
+      "partOfSpeech": "phrase",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:00:41.296Z"
+    },
+    {
+      "id": "db71b25c-4c53-443a-b552-1fc481b98cca",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "immer",
+      "translation": "pořád, neustále",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:01:03.853Z"
+    },
+    {
+      "id": "781e893e-1f49-4a1f-ab61-4ec54de98b8d",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Jahr",
+      "translation": "rok",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. -e",
+      "createdAt": "2025-11-13T23:01:22.715Z"
+    },
+    {
+      "id": "c89e4b3d-b377-4e8c-8314-69e39ae4b208",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Klavier",
+      "translation": "klavír",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. -e",
+      "createdAt": "2025-11-13T23:01:38.710Z"
+    },
+    {
+      "id": "51ac276d-544c-476c-b2c5-4f1800d8346c",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "kein/keine/kein",
+      "translation": "žádný/žádná/žádné",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:02:18.109Z"
+    },
+    {
+      "id": "692df987-8c63-46c9-beb3-1885a8cef6c3",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "kommen",
+      "translation": "pocházet",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": "kommen (aus) - pocházet (z)",
+      "createdAt": "2025-11-13T23:03:02.664Z"
+    },
+    {
+      "id": "980a1f67-3324-4357-a0d6-502bc7e3bd24",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Konzert",
+      "translation": "koncert",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. -e",
+      "createdAt": "2025-11-13T23:03:39.796Z"
+    },
+    {
+      "id": "f5d4479a-bd86-40b4-9020-73cc378e5568",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "lernen",
+      "translation": "učit se",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:04:13.316Z"
+    },
+    {
+      "id": "c4738a11-05bf-49c0-99ca-0811e566d9c6",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "liegen",
+      "translation": "ležet",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:04:25.798Z"
+    },
+    {
+      "id": "501bf967-c13a-4c22-8d8b-64a15d22bc85",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Nachname",
+      "translation": "příjmení",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -n",
+      "createdAt": "2025-11-13T23:04:53.445Z"
+    },
+    {
+      "id": "c89edb0b-75b2-40d1-8a1e-f29c52a62f0d",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "nicht weit von",
+      "translation": "nedaleko",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "nedaleko(koho, čeho)",
+      "createdAt": "2025-11-13T23:06:22.955Z"
+    },
+    {
+      "id": "5e677b46-2193-42e8-9689-368f6ed6eb42",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "reisen",
+      "translation": "cestovat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:06:54.443Z"
+    },
+    {
+      "id": "086905ff-f5be-4833-ad2d-00fd767c57cb",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "schreiben",
+      "translation": "psát",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:07:08.883Z"
+    },
+    {
+      "id": "293c9cab-6523-4dff-85ae-d52f281d5e64",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "spielen",
+      "translation": "hrát",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:07:36.755Z"
+    },
+    {
+      "id": "72b1093c-f02d-4f28-be41-576ac46100d9",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "tanzen",
+      "translation": "tancovat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:08:50.977Z"
+    },
+    {
+      "id": "63f467f8-ee48-4915-a0bf-5f350c1d11b2",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "haben",
+      "translation": "mít",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:09:02.593Z"
+    },
+    {
+      "id": "ca6f505f-5766-44b4-b356-1ddac2db4e5c",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "machen",
+      "translation": "dělat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:09:19.729Z"
+    },
+    {
+      "id": "2f7b594d-5c41-4d8b-812b-e09d4ab3a17b",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Sport treiben",
+      "translation": "sportovat",
+      "type": "WORD",
+      "partOfSpeech": "verb",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:09:43.619Z"
+    },
+    {
+      "id": "788169bc-de10-4edb-b76d-df38302475f7",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Schule",
+      "translation": "škola",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "die"
+      ],
+      "explanation": "mn. č. -n",
+      "createdAt": "2025-11-13T23:10:15.221Z"
+    },
+    {
+      "id": "b7850749-01c6-421d-925b-56454a86ef39",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Vorname",
+      "translation": "křestní jméno",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -n",
+      "createdAt": "2025-11-13T23:10:45.238Z"
+    },
+    {
+      "id": "872244ff-6181-48fb-adf8-41e848f0e920",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Wohnort",
+      "translation": "bydliště",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -e",
+      "createdAt": "2025-11-13T23:11:32.255Z"
+    },
+    {
+      "id": "6f7ee208-3e39-4878-8480-130a3279cc68",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Flöte",
+      "translation": "flétna",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -n",
+      "createdAt": "2025-11-13T23:12:00.226Z"
+    },
+    {
+      "id": "2fe08134-2121-48ce-b3b6-9d1440f5abdc",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Instrument",
+      "translation": "nástroj",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. -e, (hudební nástroj)",
+      "createdAt": "2025-11-13T23:12:59.284Z"
+    },
+    {
+      "id": "38d851b9-2206-4bfb-af74-bccd4c58033d",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Sport",
+      "translation": "sport",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T23:13:18.247Z"
+    },
+    {
+      "id": "295ba883-7e1a-40ef-9af4-880882a8954d",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Squash",
+      "translation": "squash",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T23:13:51.106Z"
+    },
+    {
+      "id": "781da388-5cc1-49aa-bbbc-213cdf2157e7",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Yoga",
+      "translation": "jóga",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das",
+        "der"
+      ],
+      "explanation": null,
+      "createdAt": "2025-11-13T23:14:07.646Z"
+    },
+    {
+      "id": "cf43009e-1102-4ad5-acd2-6371b635001d",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Frau",
+      "translation": "paní",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "die"
+      ],
+      "explanation": "mn. č. -en",
+      "createdAt": "2025-11-13T23:14:41.267Z"
+    },
+    {
+      "id": "3dc59a13-8e2e-4dc0-bfb5-a25af41d99f1",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Herr",
+      "translation": "pan",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "der"
+      ],
+      "explanation": "mn. č. -en",
+      "createdAt": "2025-11-13T23:15:11.087Z"
+    },
+    {
+      "id": "44735e5d-2351-451d-8de1-72c023a3a082",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Mach's gut!",
+      "translation": "Měj se (hezky)!",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:15:50.134Z"
+    },
+    {
+      "id": "9e50e9c2-2aa8-4220-b930-4bda8ceff39b",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Museum",
+      "translation": "muzeum",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "mn. č. Museen",
+      "createdAt": "2025-11-13T23:17:22.886Z"
+    },
+    {
+      "id": "52ccf63c-b4de-487e-aea8-560f81c7d37a",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Wiedersehen",
+      "translation": "schledání",
+      "type": "WORD",
+      "partOfSpeech": "noun",
+      "genders": [
+        "das"
+      ],
+      "explanation": "Auf Wiedersehen! - na schledanou",
+      "createdAt": "2025-11-13T23:17:57.910Z"
+    },
+    {
+      "id": "66088a05-b614-44e2-b1f8-73f8c907e7ab",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "falsch",
+      "translation": "špatně, nesprávně, chybně",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:18:44.296Z"
+    },
+    {
+      "id": "b410b6aa-be18-454c-8429-9f37747f86c2",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "jetzt",
+      "translation": "nyní, teď",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:19:22.115Z"
+    },
+    {
+      "id": "00415bfe-8cc1-4c4b-828c-55fc335e5ebc",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "richtig",
+      "translation": "správně",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:19:50.085Z"
+    },
+    {
+      "id": "17a0bdcc-4da3-4ebc-846a-d66e56d77e63",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "bald",
+      "translation": "brzy",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:20:06.380Z"
+    },
+    {
+      "id": "72e323b0-b3c7-4e95-aadd-cfc85fa2fdb2",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "bis",
+      "translation": "(Uvidíme se), přístě!",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:20:51.958Z"
+    },
+    {
+      "id": "de13c193-8503-4364-b22f-7990482e152b",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Bis Bald!",
+      "translation": "Brzy na schledanou!",
+      "type": "PHRASE",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "Loučení v rakousku primárně.",
+      "createdAt": "2025-11-13T23:21:46.006Z"
+    },
+    {
+      "id": "f526f0cf-8390-4b3d-b5ec-1d32489f75c6",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "schön",
+      "translation": "hezký",
+      "type": "PHRASE",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:22:24.738Z"
+    },
+    {
+      "id": "7dfa29bc-d8e2-41b1-b041-d62ca53cc1e5",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Servus!",
+      "translation": "Ahoj!",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": null,
+      "createdAt": "2025-11-13T23:22:48.114Z"
+    },
+    {
+      "id": "d905ce08-b59a-4b2b-9a8f-cd2a46a8650b",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "term": "Tschüs!",
+      "translation": "Ahoj!",
+      "type": "WORD",
+      "partOfSpeech": "other",
+      "genders": null,
+      "explanation": "(Při loučení)",
+      "createdAt": "2025-11-13T23:23:21.321Z"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "2cf419d5-35fc-4f4d-bc8b-776acf060c6c",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:13:45.737Z"
+    },
+    {
+      "id": "db56761e-8950-4eae-92fa-5984be175641",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosím",
+      "correct": true,
+      "createdAt": "2025-11-10T17:13:52.118Z"
+    },
+    {
+      "id": "f85dfbcb-37d3-4aae-b35d-84f289094115",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": false,
+      "createdAt": "2025-11-10T17:13:56.983Z"
+    },
+    {
+      "id": "85a2a07e-958c-46f2-9caa-fc477367aac5",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:19:10.644Z"
+    },
+    {
+      "id": "e2679a02-a3ef-4843-b52d-50b65eb53217",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:20:58.519Z"
+    },
+    {
+      "id": "f049bb2a-3618-4622-81de-5908fd515e8c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "Děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:24:48.070Z"
+    },
+    {
+      "id": "4f828ac2-f0fa-45ea-864d-c716c39031c0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "Prosím",
+      "correct": true,
+      "createdAt": "2025-11-10T17:24:57.685Z"
+    },
+    {
+      "id": "eed91fec-0d86-4ffd-953d-1a569102a5b1",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "Dobrý den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:25:01.080Z"
+    },
+    {
+      "id": "01390f57-5751-448a-8d5e-7571ec1983f4",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "Guten Tag",
+      "correct": true,
+      "createdAt": "2025-11-10T17:27:51.218Z"
+    },
+    {
+      "id": "e866fdb7-80e1-42e5-98ff-e6232b9f23ce",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "bitte",
+      "correct": true,
+      "createdAt": "2025-11-10T17:27:55.749Z"
+    },
+    {
+      "id": "b42d3b92-a3c6-46b9-9a69-cfb53bfb7877",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "danke",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:00.170Z"
+    },
+    {
+      "id": "674b7bb5-e031-443d-9e58-53d70049044f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "danke",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:14.242Z"
+    },
+    {
+      "id": "8fa44270-6909-4056-8ab2-ce1e7f294869",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "guten tag",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:20.578Z"
+    },
+    {
+      "id": "f0adf149-5631-4d5c-9859-e488b5af9379",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "bitte",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:25.732Z"
+    },
+    {
+      "id": "a9ac3177-1cf8-4218-af2b-94bdc7893047",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:33.628Z"
+    },
+    {
+      "id": "97139e81-d32b-4c4e-a86d-af7214d6a3d8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dik",
+      "correct": false,
+      "createdAt": "2025-11-10T17:28:36.710Z"
+    },
+    {
+      "id": "284677d7-22b0-4923-aba9-31ae4122f282",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dekuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:42.672Z"
+    },
+    {
+      "id": "fa6ba4b6-50c3-4883-9f12-c534ccdacdf6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "guten tag",
+      "correct": true,
+      "createdAt": "2025-11-10T17:28:47.232Z"
+    },
+    {
+      "id": "01a33701-3104-4bca-87f6-723cb83b2f1e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dekuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:32:37.151Z"
+    },
+    {
+      "id": "6ccbc0a7-f3d1-4f76-b9a6-05507b482096",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:32:40.698Z"
+    },
+    {
+      "id": "587e362e-ee8a-4713-b8a1-68469b6e7eff",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:32:43.449Z"
+    },
+    {
+      "id": "b3643535-34c5-4dc9-bd0f-1a971ff81fdf",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "dekuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:34:37.477Z"
+    },
+    {
+      "id": "7bf76795-0e36-43ce-bdec-8342ed3bd2be",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:34:41.618Z"
+    },
+    {
+      "id": "7e642599-dfcd-4909-9820-ad55dfe7d198",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:34:45.794Z"
+    },
+    {
+      "id": "3b1b7455-bd2c-48b2-974b-b2e05357002c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "Děkuji",
+      "correct": true,
+      "createdAt": "2025-11-10T17:38:57.609Z"
+    },
+    {
+      "id": "1482f81f-da10-4cfa-8a9c-28171129cf67",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T17:48:17.216Z"
+    },
+    {
+      "id": "97d3fbc9-3edd-45f5-9226-eed5b9459c18",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "danke",
+      "correct": false,
+      "createdAt": "2025-11-10T17:48:44.264Z"
+    },
+    {
+      "id": "e6512520-bc3d-440d-9cf6-0e6deecfcb95",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "251dbe3a-2377-472b-bc4f-2f06387ae43e",
+      "answer": "",
+      "correct": false,
+      "createdAt": "2025-11-10T17:53:21.699Z"
+    },
+    {
+      "id": "81f340dd-acff-4cfe-8160-5e93cd9f6742",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prso",
+      "correct": false,
+      "createdAt": "2025-11-10T17:54:34.018Z"
+    },
+    {
+      "id": "c1775d26-5541-439f-9175-f785823bb1de",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T17:54:44.093Z"
+    },
+    {
+      "id": "c8535b84-6ae8-4ede-a74b-14154e46ab35",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "bitte",
+      "correct": true,
+      "createdAt": "2025-11-10T18:08:19.229Z"
+    },
+    {
+      "id": "7f247d60-b73e-4f49-bc7f-181bb77d7a76",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "guten tag",
+      "correct": true,
+      "createdAt": "2025-11-10T18:08:24.606Z"
+    },
+    {
+      "id": "313e69d9-4091-4011-bd20-c7c0e0355755",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "prosim",
+      "correct": true,
+      "createdAt": "2025-11-10T18:47:08.757Z"
+    },
+    {
+      "id": "45ed643f-47a6-40cc-b25a-653ecbe7cc95",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "dobry den",
+      "correct": true,
+      "createdAt": "2025-11-10T18:47:17.162Z"
+    },
+    {
+      "id": "ae651ed5-8983-44e1-8242-609584c1baa7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e80fddf-a8e5-4886-a2d1-fed4a6f38c31",
+      "answer": "aefgag",
+      "correct": false,
+      "createdAt": "2025-11-10T19:15:57.332Z"
+    },
+    {
+      "id": "d5005648-89c7-48d5-8665-d3b2994917f7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b46a88b9-3389-4b62-a099-bf48282b8e1f",
+      "answer": "wda",
+      "correct": false,
+      "createdAt": "2025-11-10T19:16:01.145Z"
+    },
+    {
+      "id": "432bc9ef-d599-450f-b30a-adc1c145ed17",
+      "entryId": "8527f9b5-bf56-4122-9f93-656fbacf3ee1",
+      "answer": "surfovat na internetu,prohlížet si internet,být na internetu",
+      "correct": false,
+      "createdAt": "2025-11-11T09:18:03.752Z"
+    },
+    {
+      "id": "788964e7-ed47-4040-b33f-f35b4d93eac7",
+      "entryId": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "answer": "jít",
+      "correct": false,
+      "createdAt": "2025-11-11T09:18:45.790Z"
+    },
+    {
+      "id": "7cec1f7d-1728-4930-9788-ef9d811d5b51",
+      "entryId": "60cb8115-966f-41f6-92a1-866269654a86",
+      "answer": "chatovat",
+      "correct": false,
+      "createdAt": "2025-11-11T09:18:48.220Z"
+    },
+    {
+      "id": "a3bfe806-850a-481f-92dd-6d6f66834096",
+      "entryId": "f5aa45ed-89d6-4cc8-b099-57e7f8a0afec",
+      "answer": "angličtina",
+      "correct": false,
+      "createdAt": "2025-11-11T09:18:51.431Z"
+    },
+    {
+      "id": "fc312005-9faa-4f92-bef0-8df3e8ab1238",
+      "entryId": "8572a36d-77fe-4a85-91f5-cc6957b106f8",
+      "answer": "Freund",
+      "correct": true,
+      "createdAt": "2025-11-11T09:30:17.627Z"
+    },
+    {
+      "id": "beffd754-de89-4bcd-a472-bc9ef14e8434",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "Band",
+      "correct": true,
+      "createdAt": "2025-11-11T09:35:27.520Z"
+    },
+    {
+      "id": "3179d832-cb61-4456-83e2-ee5df6403393",
+      "entryId": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "answer": "Schule",
+      "correct": false,
+      "createdAt": "2025-11-11T09:35:31.608Z"
+    },
+    {
+      "id": "06054720-aba0-4bc6-9c05-b01592a7194e",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "Band",
+      "correct": true,
+      "createdAt": "2025-11-11T09:41:36.157Z"
+    },
+    {
+      "id": "b26a402c-2d71-4573-b16f-1551d2a20690",
+      "entryId": "81d0c38f-c9ef-4314-8afb-29aabd00aed5",
+      "answer": "Englisch",
+      "correct": false,
+      "createdAt": "2025-11-11T09:41:40.367Z"
+    },
+    {
+      "id": "58a1ab40-6b25-4743-8e94-f4e22dbfdc06",
+      "entryId": "01a1e1d6-6226-43b2-bc21-3f57d7aa6a17",
+      "answer": "Alter",
+      "correct": true,
+      "createdAt": "2025-11-11T09:42:16.708Z"
+    },
+    {
+      "id": "776ef447-81e4-4e7b-b890-e2d2d4304052",
+      "entryId": "351eb764-825f-4809-9fca-485b07c354cd",
+      "answer": "lernen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:42:19.735Z"
+    },
+    {
+      "id": "0b42ffb5-8efc-43c3-a0a1-8160c7157e88",
+      "entryId": "60cb8115-966f-41f6-92a1-866269654a86",
+      "answer": "Fußball",
+      "correct": true,
+      "createdAt": "2025-11-11T09:42:23.069Z"
+    },
+    {
+      "id": "4ccf5ef0-4451-4309-9b60-22c38ece9d55",
+      "entryId": "6a4a6d0b-94e5-45b5-931d-c882370092d6",
+      "answer": "aber",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:02.283Z"
+    },
+    {
+      "id": "903082b7-3163-434c-8a79-46ce70ed3ce0",
+      "entryId": "f5aa45ed-89d6-4cc8-b099-57e7f8a0afec",
+      "answer": "Freundin",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:06.365Z"
+    },
+    {
+      "id": "6ff6d176-ab6d-48e7-9708-8ace8f717675",
+      "entryId": "a64f1379-af1d-41f1-932c-84a82f82e8c1",
+      "answer": "Hobby",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:09.919Z"
+    },
+    {
+      "id": "bf423c5b-5298-469b-80f2-5f9371de503b",
+      "entryId": "027463a9-2d25-44d6-9357-21b840be7187",
+      "answer": "kommen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:15.454Z"
+    },
+    {
+      "id": "c8e05202-84f2-453c-8dbb-d5f771b1ea11",
+      "entryId": "779a4b19-beaa-48b8-9435-c60ae44795cd",
+      "answer": "Klavier",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:19.082Z"
+    },
+    {
+      "id": "aab97255-aaf4-4634-b29e-14dc308f4a9c",
+      "entryId": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "answer": "Konzert",
+      "correct": false,
+      "createdAt": "2025-11-11T09:43:24.504Z"
+    },
+    {
+      "id": "50de179d-bf21-44a9-aa16-c3f2f5ccaeae",
+      "entryId": "a71f383b-e8af-4aa5-a42e-85587abf6dc4",
+      "answer": "kein",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:29.483Z"
+    },
+    {
+      "id": "85c3fb5f-adc0-4da9-a2bd-05dfa7e47d6b",
+      "entryId": "9f7797a9-708f-4191-ab39-76e7e49b7cf9",
+      "answer": "Fan",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:33.472Z"
+    },
+    {
+      "id": "0ba6c67d-af12-434f-b034-a9c9cc3539ae",
+      "entryId": "8572a36d-77fe-4a85-91f5-cc6957b106f8",
+      "answer": "Freund",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:37.144Z"
+    },
+    {
+      "id": "41930e3b-48cd-4eea-8951-ab017450846a",
+      "entryId": "685fb419-c6d9-42c6-80b5-05ab26a64fc1",
+      "answer": "Jahr",
+      "correct": false,
+      "createdAt": "2025-11-11T09:43:40.843Z"
+    },
+    {
+      "id": "64750c6d-d575-4e5f-8208-870dd856738b",
+      "entryId": "cd58a516-10b0-437d-aed4-039b1eedf925",
+      "answer": "im Internet surfen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:49.740Z"
+    },
+    {
+      "id": "e4502ecf-14af-4a42-83fa-60e308a7f454",
+      "entryId": "a316170e-6858-4729-88ed-e5ac93538811",
+      "answer": "Handy",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:54.435Z"
+    },
+    {
+      "id": "76a504b5-d39f-42ea-bf75-a0db4f6e5d0f",
+      "entryId": "16898ae0-469a-4e3b-8c6b-16cd6b5ccd00",
+      "answer": "Immer",
+      "correct": true,
+      "createdAt": "2025-11-11T09:43:58.575Z"
+    },
+    {
+      "id": "da85ffa6-fa2f-43b5-95d7-b29657275c8b",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:05.664Z"
+    },
+    {
+      "id": "bddce850-0775-4252-a890-ad2043ae1061",
+      "entryId": "4b42ed79-f4b8-4a65-b14b-157f81a7ef2c",
+      "answer": "spielen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:09.235Z"
+    },
+    {
+      "id": "9913d7dd-da64-4dcc-bb54-6c0f4f46381e",
+      "entryId": "f7b45038-1d68-4501-8101-3e2e219d7295",
+      "answer": "gern",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:12.206Z"
+    },
+    {
+      "id": "3a54b641-6736-4335-bfe8-9e3e6df3b399",
+      "entryId": "9a549780-4f5f-47ad-a700-e3daa1e8d97e",
+      "answer": "Hören",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:15.439Z"
+    },
+    {
+      "id": "cab4741f-ad14-4478-b1dc-8bef5b1f11c2",
+      "entryId": "8527f9b5-bf56-4122-9f93-656fbacf3ee1",
+      "answer": "tanzen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:18.424Z"
+    },
+    {
+      "id": "b00d8c81-bb0b-4c87-9f8d-734863ebe9e5",
+      "entryId": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "answer": "liegen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:21.312Z"
+    },
+    {
+      "id": "5ebb53b1-771a-4819-a38b-3c90f3444cdd",
+      "entryId": "0016a3c3-7e5d-47cc-a65e-d66bbbb775ca",
+      "answer": "aus",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:26.835Z"
+    },
+    {
+      "id": "d3f53e87-e91d-48e6-ad31-3ac9c64a244c",
+      "entryId": "4f4b8657-8fd9-4776-9a7f-f166402d3712",
+      "answer": "Wohnort",
+      "correct": false,
+      "createdAt": "2025-11-11T09:44:32.849Z"
+    },
+    {
+      "id": "455c5ae9-3be2-4949-a63a-eebfda0f08dd",
+      "entryId": "81d0c38f-c9ef-4314-8afb-29aabd00aed5",
+      "answer": "Englisch",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:39.145Z"
+    },
+    {
+      "id": "477e0fca-eec2-4399-bcb5-87e06260899e",
+      "entryId": "cd1f512b-259a-42cc-9c1c-44af76826fdc",
+      "answer": "schreiben",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:42.777Z"
+    },
+    {
+      "id": "a7d630bd-7965-4da3-8c92-a20f74c0be61",
+      "entryId": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "answer": "Schule",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:47.256Z"
+    },
+    {
+      "id": "abe3beed-5635-4609-8d46-243ec9313dff",
+      "entryId": "ff00f2c4-9049-4633-a78c-583961d83bc1",
+      "answer": "auch",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:51.711Z"
+    },
+    {
+      "id": "ebff6318-5aec-453a-be88-2f02b739a682",
+      "entryId": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "answer": "gehen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:44:54.425Z"
+    },
+    {
+      "id": "1d409d1a-aec7-40df-93ac-5f9dac0740dc",
+      "entryId": "04ac36e9-59b8-4502-82e3-61aaae629eda",
+      "answer": "Vorname",
+      "correct": false,
+      "createdAt": "2025-11-11T09:45:05.706Z"
+    },
+    {
+      "id": "312086e0-a15a-4943-bb27-cc70c9e8fa6e",
+      "entryId": "e2f11584-1258-4c8d-bdc7-aa8bef82e608",
+      "answer": "E-mail",
+      "correct": true,
+      "createdAt": "2025-11-11T09:45:14.808Z"
+    },
+    {
+      "id": "18967fe0-c39b-4a26-b850-34dfddaa7d69",
+      "entryId": "95c37e12-6fa6-460b-94b1-1eaa25caf02d",
+      "answer": "Computerspiele",
+      "correct": false,
+      "createdAt": "2025-11-11T09:45:19.498Z"
+    },
+    {
+      "id": "55a858eb-507f-4003-a1b5-56718f0beec6",
+      "entryId": "1859a327-a094-47cc-ab81-eb75dcc74fd3",
+      "answer": "Französisch",
+      "correct": true,
+      "createdAt": "2025-11-11T09:45:33.397Z"
+    },
+    {
+      "id": "cb636c9a-c7c0-4679-a27a-d98849247e93",
+      "entryId": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "answer": "reisen",
+      "correct": true,
+      "createdAt": "2025-11-11T09:45:36.585Z"
+    },
+    {
+      "id": "3c86c810-02a1-4a4a-b889-a0219afac257",
+      "entryId": "6b6137ca-e6db-4381-8fd4-a530b5a496c0",
+      "answer": "nicht weit von",
+      "correct": true,
+      "createdAt": "2025-11-11T09:45:40.201Z"
+    },
+    {
+      "id": "3f8bb832-82e4-4f5b-a132-d87f50ea48e4",
+      "entryId": "544f263d-c74e-40ed-a071-8c0307e54375",
+      "answer": "chatten",
+      "correct": true,
+      "createdAt": "2025-11-11T09:45:43.064Z"
+    },
+    {
+      "id": "81934db1-64ff-4ded-9416-4b44a08345d2",
+      "entryId": "3f17372d-60f5-435b-bae0-6d87399df919",
+      "answer": "Gitarre",
+      "correct": true,
+      "createdAt": "2025-11-11T09:45:46.289Z"
+    },
+    {
+      "id": "8c217a09-c5a5-49a7-a33e-1780fb278030",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "Band",
+      "correct": false,
+      "createdAt": "2025-11-11T09:45:53.146Z"
+    },
+    {
+      "id": "232589f9-cb3e-48a7-ae3e-34898ec9d5b5",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "skupina",
+      "correct": true,
+      "createdAt": "2025-11-11T21:00:21.214Z"
+    },
+    {
+      "id": "85fe7fa4-d3d0-4cb6-b82b-b0a224118ea1",
+      "entryId": "6b6137ca-e6db-4381-8fd4-a530b5a496c0",
+      "answer": "nedaleko,poblíž,koho,čeho",
+      "correct": false,
+      "createdAt": "2025-11-11T21:00:24.732Z"
+    },
+    {
+      "id": "0fc12334-706b-49ab-ab65-d9ba5d88c668",
+      "entryId": "9f7797a9-708f-4191-ab39-76e7e49b7cf9",
+      "answer": "fanoušek",
+      "correct": true,
+      "createdAt": "2025-11-11T21:00:40.228Z"
+    },
+    {
+      "id": "ef317890-7fa7-4a62-ac52-fb79a0dfc39f",
+      "entryId": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "answer": "cestovat",
+      "correct": true,
+      "createdAt": "2025-11-12T16:39:03.347Z"
+    },
+    {
+      "id": "bcdaed1f-bb2d-4a9d-bdba-512c54aaf16f",
+      "entryId": "ff00f2c4-9049-4633-a78c-583961d83bc1",
+      "answer": "také",
+      "correct": true,
+      "createdAt": "2025-11-12T16:39:08.881Z"
+    },
+    {
+      "id": "c5152b51-a6d5-449b-8ab4-2564989c6c47",
+      "entryId": "779a4b19-beaa-48b8-9435-c60ae44795cd",
+      "answer": "klavír",
+      "correct": true,
+      "createdAt": "2025-11-12T16:39:20.107Z"
+    },
+    {
+      "id": "a4e778fe-e401-4eaa-843c-61cc16f191d6",
+      "entryId": "01a1e1d6-6226-43b2-bc21-3f57d7aa6a17",
+      "answer": "Alter",
+      "correct": true,
+      "createdAt": "2025-11-12T17:18:42.607Z"
+    },
+    {
+      "id": "58359d1a-ecf3-4a8a-b2e6-3324ddcd0b9e",
+      "entryId": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "answer": "gehen",
+      "correct": true,
+      "createdAt": "2025-11-12T17:18:47.718Z"
+    },
+    {
+      "id": "f236dad5-70f2-4979-be9b-e49c1bed75f4",
+      "entryId": "4f4b8657-8fd9-4776-9a7f-f166402d3712",
+      "answer": "Nevím",
+      "correct": false,
+      "createdAt": "2025-11-12T18:14:40.058Z"
+    },
+    {
+      "id": "cff8c919-86cd-43ec-9cc3-fdf5d0079148",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f7b45038-1d68-4501-8101-3e2e219d7295",
+      "answer": "gern",
+      "correct": true,
+      "createdAt": "2025-11-12T19:55:51.907Z"
+    },
+    {
+      "id": "49fdf082-762e-46fa-88e7-6dd6b61eb036",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cd1f512b-259a-42cc-9c1c-44af76826fdc",
+      "answer": "schreiben",
+      "correct": true,
+      "createdAt": "2025-11-12T19:55:56.034Z"
+    },
+    {
+      "id": "b572533b-fe0f-4a78-b586-80e0b78fc441",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cd58a516-10b0-437d-aed4-039b1eedf925",
+      "answer": "im Internet surfen",
+      "correct": true,
+      "createdAt": "2025-11-12T19:56:01.772Z"
+    },
+    {
+      "id": "07b2cd10-e426-4b91-b1df-702f30f20bdc",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": false,
+      "createdAt": "2025-11-12T19:56:10.145Z"
+    },
+    {
+      "id": "c82af029-a503-4dd1-9e4c-f0ebbca50974",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": true,
+      "createdAt": "2025-11-12T19:56:13.890Z"
+    },
+    {
+      "id": "f74e650a-ab54-45bd-ad13-b9b48c857625",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ff00f2c4-9049-4633-a78c-583961d83bc1",
+      "answer": "auch",
+      "correct": true,
+      "createdAt": "2025-11-12T19:56:22.499Z"
+    },
+    {
+      "id": "78ab865d-b6df-45c5-9b5b-78566f31c59c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "answer": "Schule",
+      "correct": true,
+      "createdAt": "2025-11-12T19:56:42.289Z"
+    },
+    {
+      "id": "aaf08b48-e551-4ccb-b932-9f1f358559c2",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "answer": "reisen",
+      "correct": true,
+      "createdAt": "2025-11-12T19:56:53.063Z"
+    },
+    {
+      "id": "b480d8c2-7320-40be-870f-1bf458fba40a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a64f1379-af1d-41f1-932c-84a82f82e8c1",
+      "answer": "Hobby",
+      "correct": true,
+      "createdAt": "2025-11-12T19:56:58.696Z"
+    },
+    {
+      "id": "cdf1c409-c203-406f-a255-b81418fbc3ce",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6b6137ca-e6db-4381-8fd4-a530b5a496c0",
+      "answer": "nicht weit von",
+      "correct": true,
+      "createdAt": "2025-11-12T19:57:07.380Z"
+    },
+    {
+      "id": "5f049636-81e3-4aa5-8b7e-9035b4f5dc10",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "3f17372d-60f5-435b-bae0-6d87399df919",
+      "answer": "Gitarre",
+      "correct": true,
+      "createdAt": "2025-11-12T19:57:12.530Z"
+    },
+    {
+      "id": "2b098499-a0ee-42a0-a51d-2f13dda3117e",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "a316170e-6858-4729-88ed-e5ac93538811",
+      "answer": "Handy",
+      "correct": true,
+      "createdAt": "2025-11-12T21:05:06.527Z"
+    },
+    {
+      "id": "b5536e60-b3e4-4fd6-b464-e1af76cbb5cf",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "0016a3c3-7e5d-47cc-a65e-d66bbbb775ca",
+      "answer": "aus",
+      "correct": true,
+      "createdAt": "2025-11-12T21:05:15.214Z"
+    },
+    {
+      "id": "6b72ac59-9570-42d7-9aeb-b6120dbd45d7",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "Band",
+      "correct": false,
+      "createdAt": "2025-11-12T21:05:22.228Z"
+    },
+    {
+      "id": "7632de0c-1122-417b-9258-d283706f72bf",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "e100a8ea-7964-4c46-92de-bb75c4f81743",
+      "answer": "Band",
+      "correct": false,
+      "createdAt": "2025-11-12T21:05:24.521Z"
+    },
+    {
+      "id": "f2ad1102-75ec-4133-880b-7a37da3c74f2",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": true,
+      "createdAt": "2025-11-12T21:05:35.935Z"
+    },
+    {
+      "id": "06779376-2e23-49a1-b1b6-d3817f6406ff",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "8572a36d-77fe-4a85-91f5-cc6957b106f8",
+      "answer": "Freund",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:01.877Z"
+    },
+    {
+      "id": "dd99badc-2e46-45e6-b6c7-b06359ca5b82",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "a71f383b-e8af-4aa5-a42e-85587abf6dc4",
+      "answer": "kein",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:06.873Z"
+    },
+    {
+      "id": "c9bb90fe-2197-48eb-9069-238b607eb94c",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "351eb764-825f-4809-9fca-485b07c354cd",
+      "answer": "lernen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:10.488Z"
+    },
+    {
+      "id": "d528487b-0b25-4b78-8f64-055faaa08bce",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "cd58a516-10b0-437d-aed4-039b1eedf925",
+      "answer": "im Internet surfen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:13.494Z"
+    },
+    {
+      "id": "5a409eb2-90c9-4675-8063-359a7ae9e457",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "answer": "Schule",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:17.074Z"
+    },
+    {
+      "id": "6b22c63c-e618-4ee6-8eee-d25f7d9af1bb",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "answer": "gehen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:20.899Z"
+    },
+    {
+      "id": "609c6a25-d02a-433f-a097-20b50556e4bf",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "answer": "Konzert",
+      "correct": false,
+      "createdAt": "2025-11-12T21:06:26.403Z"
+    },
+    {
+      "id": "1d743ed5-944c-47a8-9fcf-f2e587b4cded",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "answer": "Konzert",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:32.328Z"
+    },
+    {
+      "id": "1c6607f9-d91a-4d60-ba1e-934e5645b804",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "cd1f512b-259a-42cc-9c1c-44af76826fdc",
+      "answer": "schreiben",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:38.440Z"
+    },
+    {
+      "id": "c98d8124-62be-452a-8bc8-a9935d6b8a70",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "6b6137ca-e6db-4381-8fd4-a530b5a496c0",
+      "answer": "nicht weit von",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:41.320Z"
+    },
+    {
+      "id": "5bfe8008-95df-4588-8194-bc61b54797a3",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "answer": "liegen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:45.424Z"
+    },
+    {
+      "id": "d719d0b6-b0d3-483b-943d-ece4b26a8bcb",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "01a1e1d6-6226-43b2-bc21-3f57d7aa6a17",
+      "answer": "Alter",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:50.297Z"
+    },
+    {
+      "id": "08223ca0-2c36-41b2-89b4-3c87d629016e",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "60cb8115-966f-41f6-92a1-866269654a86",
+      "answer": "Fußball",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:56.044Z"
+    },
+    {
+      "id": "f16c84e2-06e6-44cc-ba76-db1ad2665be7",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "8527f9b5-bf56-4122-9f93-656fbacf3ee1",
+      "answer": "tanzen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:06:58.416Z"
+    },
+    {
+      "id": "70182b8f-7797-4cb1-a736-32956c23ea07",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "4f4b8657-8fd9-4776-9a7f-f166402d3712",
+      "answer": "Wohnort",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:03.035Z"
+    },
+    {
+      "id": "a798a0f5-ee21-495a-8652-d5bf44dc6c2e",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "9a549780-4f5f-47ad-a700-e3daa1e8d97e",
+      "answer": "Hören",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:05.472Z"
+    },
+    {
+      "id": "fc103e6e-a61d-4636-81b6-abf675aadc7a",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "3f17372d-60f5-435b-bae0-6d87399df919",
+      "answer": "Gitarre",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:08.411Z"
+    },
+    {
+      "id": "0fa6737f-b4ef-40da-9ef6-e0f6c293e15b",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "04ac36e9-59b8-4502-82e3-61aaae629eda",
+      "answer": "Vorname",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:11.551Z"
+    },
+    {
+      "id": "114fee93-421a-42d4-850d-593dc1eeabdf",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "9f7797a9-708f-4191-ab39-76e7e49b7cf9",
+      "answer": "Fan",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:14.603Z"
+    },
+    {
+      "id": "17eb888e-8773-4329-974b-22edaf9c21fa",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "a64f1379-af1d-41f1-932c-84a82f82e8c1",
+      "answer": "Hobby",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:17.592Z"
+    },
+    {
+      "id": "055eac8c-1912-4f27-b68c-0dea896d3f01",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "544f263d-c74e-40ed-a071-8c0307e54375",
+      "answer": "chatten",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:19.564Z"
+    },
+    {
+      "id": "56c1711b-a97b-4a39-a789-58c2123b3d41",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "95c37e12-6fa6-460b-94b1-1eaa25caf02d",
+      "answer": "Computerspiele",
+      "correct": false,
+      "createdAt": "2025-11-12T21:07:22.849Z"
+    },
+    {
+      "id": "19958f11-242c-422e-aac3-490bd6a6081b",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "95c37e12-6fa6-460b-94b1-1eaa25caf02d",
+      "answer": "Computerspiele",
+      "correct": false,
+      "createdAt": "2025-11-12T21:07:24.789Z"
+    },
+    {
+      "id": "042cc134-ffe4-414c-9e5a-7933fb075233",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "95c37e12-6fa6-460b-94b1-1eaa25caf02d",
+      "answer": "Computerspiele",
+      "correct": false,
+      "createdAt": "2025-11-12T21:07:25.686Z"
+    },
+    {
+      "id": "9da10e9a-8f3a-4735-b680-6749a9d705b6",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "027463a9-2d25-44d6-9357-21b840be7187",
+      "answer": "kommen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:32.704Z"
+    },
+    {
+      "id": "f774b276-356e-4ad7-941a-330288282e87",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "1859a327-a094-47cc-ab81-eb75dcc74fd3",
+      "answer": "Französisch",
+      "correct": false,
+      "createdAt": "2025-11-12T21:07:36.987Z"
+    },
+    {
+      "id": "806526c0-818f-4bf1-b811-403020ec2b40",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "1859a327-a094-47cc-ab81-eb75dcc74fd3",
+      "answer": "Französisch",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:41.690Z"
+    },
+    {
+      "id": "6956f2f2-861d-4b48-beb8-b64fd72c7b75",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "ff00f2c4-9049-4633-a78c-583961d83bc1",
+      "answer": "auch",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:44.502Z"
+    },
+    {
+      "id": "7de94a97-ebee-4988-8af9-55e5db07167e",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "e2f11584-1258-4c8d-bdc7-aa8bef82e608",
+      "answer": "E-mail",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:47.089Z"
+    },
+    {
+      "id": "7d73fe6f-f9d6-4f91-9f4d-9d15a78a8df6",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "4b42ed79-f4b8-4a65-b14b-157f81a7ef2c",
+      "answer": "spielen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:51.223Z"
+    },
+    {
+      "id": "59931879-cec6-4a2c-a1b4-79218e30a995",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "answer": "reisen",
+      "correct": true,
+      "createdAt": "2025-11-12T21:07:55.021Z"
+    },
+    {
+      "id": "dc625caf-56c3-450c-be22-b4f10b0058d2",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "f5aa45ed-89d6-4cc8-b099-57e7f8a0afec",
+      "answer": "Freundin",
+      "correct": true,
+      "createdAt": "2025-11-12T21:08:01.150Z"
+    },
+    {
+      "id": "0fa9275c-f294-4499-8dd1-a170f24f1e7c",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "81d0c38f-c9ef-4314-8afb-29aabd00aed5",
+      "answer": "Englisch",
+      "correct": true,
+      "createdAt": "2025-11-12T21:08:03.882Z"
+    },
+    {
+      "id": "26759839-d56d-44ef-b0c2-9de775dd522d",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "6a4a6d0b-94e5-45b5-931d-c882370092d6",
+      "answer": "aber",
+      "correct": true,
+      "createdAt": "2025-11-12T21:08:05.530Z"
+    },
+    {
+      "id": "c6a7ad20-db82-4928-9bcb-514103c9c060",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "16898ae0-469a-4e3b-8c6b-16cd6b5ccd00",
+      "answer": "Immer",
+      "correct": true,
+      "createdAt": "2025-11-12T21:08:08.151Z"
+    },
+    {
+      "id": "787a82b3-2686-4dcd-b49a-5496e9a016d5",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "779a4b19-beaa-48b8-9435-c60ae44795cd",
+      "answer": "Klavier",
+      "correct": true,
+      "createdAt": "2025-11-12T21:08:11.934Z"
+    },
+    {
+      "id": "6a21007a-01f8-4a00-97d9-08cf5ab982cb",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "685fb419-c6d9-42c6-80b5-05ab26a64fc1",
+      "answer": "Jahr",
+      "correct": true,
+      "createdAt": "2025-11-12T21:08:15.848Z"
+    },
+    {
+      "id": "93917e32-bfcb-41d4-880d-0bff8ccb48f3",
+      "userId": "556f292a-df3d-4d5e-8b3c-",
+      "entryId": "f7b45038-1d68-4501-8101-3e2e219d7295",
+      "answer": "gern",
+      "correct": true,
+      "createdAt": "2025-11-12T21:08:18.039Z"
+    },
+    {
+      "id": "f10b730d-ca95-4ee9-8a44-babc32eb07ea",
+      "userId": "13c6ad0b-1510-4a89-8e6d-",
+      "entryId": "cd58a516-10b0-437d-aed4-039b1eedf925",
+      "answer": "falsh",
+      "correct": false,
+      "createdAt": "2025-11-12T22:19:17.125Z"
+    },
+    {
+      "id": "7820e52b-def6-4192-b4f0-fa8d6f5b8578",
+      "userId": "13c6ad0b-1510-4a89-8e6d-",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": false,
+      "createdAt": "2025-11-12T22:19:21.613Z"
+    },
+    {
+      "id": "4650ae0f-1406-42aa-b9b2-f963f2983631",
+      "userId": "13c6ad0b-1510-4a89-8e6d-",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": true,
+      "createdAt": "2025-11-12T22:19:23.661Z"
+    },
+    {
+      "id": "a5d3816f-9899-43fd-9754-bf88baae79c4",
+      "userId": "13c6ad0b-1510-4a89-8e6d-",
+      "entryId": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "answer": "Fußball",
+      "correct": false,
+      "createdAt": "2025-11-12T22:19:26.530Z"
+    },
+    {
+      "id": "201f0d0f-6421-47e4-ad02-a1f0e37945c5",
+      "userId": "13c6ad0b-1510-4a89-8e6d-",
+      "entryId": "67b433e7-7cda-4c0c-8b26-729f90082124",
+      "answer": "falsh",
+      "correct": true,
+      "createdAt": "2025-11-12T22:19:30.127Z"
+    },
+    {
+      "id": "20657fda-2907-466f-84cc-643b573985f2",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "4f4b8657-8fd9-4776-9a7f-f166402d3712",
+      "answer": "Wohnort",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:04.417Z"
+    },
+    {
+      "id": "17a404f6-ff9d-4a99-a7e9-6784fc34419e",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "351eb764-825f-4809-9fca-485b07c354cd",
+      "answer": "lernen",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:08.774Z"
+    },
+    {
+      "id": "46f0acdb-f17d-49f7-9b9f-84f1b06e9d79",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "9f5914f5-0964-40c7-b3d1-fbdc07097969",
+      "answer": "Nachname",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:14.148Z"
+    },
+    {
+      "id": "0fb9a915-fd11-497e-8d82-e816e194bfd0",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "8527f9b5-bf56-4122-9f93-656fbacf3ee1",
+      "answer": "tanzen",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:17.773Z"
+    },
+    {
+      "id": "bc8c6e6e-d99d-4bc3-b8dc-5839e7f5da69",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "a316170e-6858-4729-88ed-e5ac93538811",
+      "answer": "Handy",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:22.191Z"
+    },
+    {
+      "id": "330f4d2f-170c-4cb3-8050-9e1ef5781877",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "01a1e1d6-6226-43b2-bc21-3f57d7aa6a17",
+      "answer": "Alter",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:37.597Z"
+    },
+    {
+      "id": "b977be23-e974-4c6e-9503-5dc00b165e49",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "fe833ad9-52f3-411e-81a6-45a983884202",
+      "answer": "gehen",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:40.798Z"
+    },
+    {
+      "id": "07bb9db8-d89b-43f6-a87d-57ecfeab2ab3",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "f5aa45ed-89d6-4cc8-b099-57e7f8a0afec",
+      "answer": "Freundin",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:45.579Z"
+    },
+    {
+      "id": "2fd280c9-b35f-440a-ab3d-67dd3da053de",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "609d45a9-bf50-419b-884b-3c0103ffe1a4",
+      "answer": "Konzert",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:50.017Z"
+    },
+    {
+      "id": "62f2247d-0788-4618-a928-3cf0d483aba9",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "b50b9c3b-0ef1-463f-9c05-270f70a74f1b",
+      "answer": "liegen",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:53.058Z"
+    },
+    {
+      "id": "cb78728f-d89f-4d71-b249-c57ec7991ff0",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "3f17372d-60f5-435b-bae0-6d87399df919",
+      "answer": "Gitarre",
+      "correct": true,
+      "createdAt": "2025-11-12T22:20:56.721Z"
+    },
+    {
+      "id": "209ed8c4-28a2-47a0-882e-b1897a1e3ec7",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "04ac36e9-59b8-4502-82e3-61aaae629eda",
+      "answer": "Vorname",
+      "correct": true,
+      "createdAt": "2025-11-12T22:21:00.753Z"
+    },
+    {
+      "id": "a8bfd883-7ae5-4ee9-91de-1333118bb052",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "9a3e6c66-3cda-4d3c-a48a-2e57a0dce111",
+      "answer": "reisen",
+      "correct": true,
+      "createdAt": "2025-11-12T22:21:04.137Z"
+    },
+    {
+      "id": "c89a6344-a59c-406f-9d15-c3ec48630cc4",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "ed390383-0af9-49f5-a022-e518ec63101d",
+      "answer": "Schule",
+      "correct": true,
+      "createdAt": "2025-11-12T22:21:07.820Z"
+    },
+    {
+      "id": "6ec7cbf5-d9ed-49d0-8d6d-df2cd00e8304",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "60cb8115-966f-41f6-92a1-866269654a86",
+      "answer": "Fußball",
+      "correct": true,
+      "createdAt": "2025-11-12T22:21:11.673Z"
+    },
+    {
+      "id": "dab301dd-610a-48cf-8417-8e612c457a51",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "779a4b19-beaa-48b8-9435-c60ae44795cd",
+      "answer": "Klavier",
+      "correct": true,
+      "createdAt": "2025-11-12T22:21:16.837Z"
+    },
+    {
+      "id": "0554b471-960c-4be1-9fc9-d1bd15426fc1",
+      "userId": "2ee923ed-713f-4e13-8dee-",
+      "entryId": "8572a36d-77fe-4a85-91f5-cc6957b106f8",
+      "answer": "Freund",
+      "correct": true,
+      "createdAt": "2025-11-12T22:21:21.275Z"
+    },
+    {
+      "id": "b49fa660-5da6-4867-a477-0323423aec94",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b7850749-01c6-421d-925b-56454a86ef39",
+      "answer": "Vorname",
+      "correct": true,
+      "createdAt": "2025-11-13T23:39:17.192Z"
+    },
+    {
+      "id": "51daf285-e5ac-4f1c-9e5c-3dd64fe5cbe6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ff07436f-67f8-4e7b-aadf-4016ceaf8a9c",
+      "answer": "hören",
+      "correct": true,
+      "createdAt": "2025-11-13T23:39:21.341Z"
+    },
+    {
+      "id": "4955661b-fc19-427b-8791-9de9a900114d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "63f467f8-ee48-4915-a0bf-5f350c1d11b2",
+      "answer": "haben",
+      "correct": true,
+      "createdAt": "2025-11-13T23:39:29.067Z"
+    },
+    {
+      "id": "6be80b71-6f7a-4f1d-bb86-9d2712bccc6f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "38d851b9-2206-4bfb-af74-bccd4c58033d",
+      "answer": "Sport",
+      "correct": false,
+      "createdAt": "2025-11-13T23:39:33.577Z"
+    },
+    {
+      "id": "820c9ee3-3908-4d74-aee8-bcf0345f6f1b",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "38d851b9-2206-4bfb-af74-bccd4c58033d",
+      "answer": "Sport",
+      "correct": true,
+      "createdAt": "2025-11-13T23:39:37.554Z"
+    },
+    {
+      "id": "8cf342d3-38a1-41e3-bea5-787a535d906a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c23621f7-e646-47ff-8bd5-b0a27239fd88",
+      "answer": "aus",
+      "correct": true,
+      "createdAt": "2025-11-13T23:39:42.474Z"
+    },
+    {
+      "id": "08e2d6ef-887a-4e0e-816f-21479ed180fd",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c89e4b3d-b377-4e8c-8314-69e39ae4b208",
+      "answer": "Klavier",
+      "correct": true,
+      "createdAt": "2025-11-13T23:39:51.145Z"
+    },
+    {
+      "id": "0e12e102-f83a-403a-b586-c1560f7c4166",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "692df987-8c63-46c9-beb3-1885a8cef6c3",
+      "answer": "kommen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:01.829Z"
+    },
+    {
+      "id": "850fd034-1f0e-46ea-b495-447258c84a28",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "00415bfe-8cc1-4c4b-828c-55fc335e5ebc",
+      "answer": "richtig",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:07.274Z"
+    },
+    {
+      "id": "5893cd4d-05a2-4abc-a5ca-139cb58ba603",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "52ccf63c-b4de-487e-aea8-560f81c7d37a",
+      "answer": "Wiedersehen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:12.632Z"
+    },
+    {
+      "id": "70cef875-4c40-418e-b62e-5df0ca6bf9d7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "e31a0d36-d97c-4f34-b99a-a7851e702e69",
+      "answer": "Fan",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:16.484Z"
+    },
+    {
+      "id": "7961f365-1ffc-4118-9cc8-db085e5e603c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "501bf967-c13a-4c22-8d8b-64a15d22bc85",
+      "answer": "Nachname",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:29.955Z"
+    },
+    {
+      "id": "b083fa91-5711-482b-9b59-2db69c29a76c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f5d4479a-bd86-40b4-9020-73cc378e5568",
+      "answer": "lernen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:33.247Z"
+    },
+    {
+      "id": "8d0e0326-3940-4c44-b059-b59a30b8b93a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "0a120ce9-c6b2-4fa4-b0b5-91a7cbf19cb4",
+      "answer": "chatten",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:37.727Z"
+    },
+    {
+      "id": "406cf661-05a6-4580-bc31-a643442ed950",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "980a1f67-3324-4357-a0d6-502bc7e3bd24",
+      "answer": "Konzert",
+      "correct": false,
+      "createdAt": "2025-11-13T23:40:42.230Z"
+    },
+    {
+      "id": "cff875cc-05eb-4457-a876-963011c1b4c5",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "980a1f67-3324-4357-a0d6-502bc7e3bd24",
+      "answer": "Konzert",
+      "correct": false,
+      "createdAt": "2025-11-13T23:40:43.622Z"
+    },
+    {
+      "id": "bac957ec-31d7-4fb0-9459-64401e52d796",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1494faa8-54dd-4237-86b1-d02405fb0f3c",
+      "answer": "Computerspiele",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:53.217Z"
+    },
+    {
+      "id": "c4e2ee97-34e3-454e-a6f8-9ae77d9d6f80",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a4f4ef74-fb0f-40be-8760-7968b8fa80c5",
+      "answer": "auch",
+      "correct": true,
+      "createdAt": "2025-11-13T23:40:56.138Z"
+    },
+    {
+      "id": "037f45e8-fbed-4539-98e3-4cf7a84c1413",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "fbce6c6b-b214-4cfe-8dde-035846762383",
+      "answer": "Französish",
+      "correct": false,
+      "createdAt": "2025-11-13T23:41:00.139Z"
+    },
+    {
+      "id": "4dfe79a3-c6cc-464f-a242-dc90af3165f2",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "fbce6c6b-b214-4cfe-8dde-035846762383",
+      "answer": "Französish",
+      "correct": false,
+      "createdAt": "2025-11-13T23:41:02.186Z"
+    },
+    {
+      "id": "95b6047d-c5a3-4e54-9999-79a5d640400a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "51ac276d-544c-476c-b2c5-4f1800d8346c",
+      "answer": "kein/keine/kein",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:07.320Z"
+    },
+    {
+      "id": "f4af8681-3b6f-45d7-9c18-9fcf728b4004",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "51ac276d-544c-476c-b2c5-4f1800d8346c",
+      "answer": "kein/keine/kein",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:11.577Z"
+    },
+    {
+      "id": "f8c01336-f14c-4347-bdca-dd251e505294",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "51ac276d-544c-476c-b2c5-4f1800d8346c",
+      "answer": "kein/keine/kein",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:11.703Z"
+    },
+    {
+      "id": "974a280c-1d5d-4eaf-8586-9bdb06a972ab",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "51ac276d-544c-476c-b2c5-4f1800d8346c",
+      "answer": "kein/keine/kein",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:11.837Z"
+    },
+    {
+      "id": "fee27929-b092-44e2-b07c-b8b59a91d9ef",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "51ac276d-544c-476c-b2c5-4f1800d8346c",
+      "answer": "kein/keine/kein",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:11.931Z"
+    },
+    {
+      "id": "8c86563c-a51b-4583-ac14-cb17a6549619",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "512130b2-f443-4d0a-93a7-8aa576e46181",
+      "answer": "Band",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:16.121Z"
+    },
+    {
+      "id": "8a86d906-e1df-4dee-9ec7-ad3b30283396",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781e893e-1f49-4a1f-ab61-4ec54de98b8d",
+      "answer": "schön",
+      "correct": false,
+      "createdAt": "2025-11-13T23:41:21.747Z"
+    },
+    {
+      "id": "680c839d-2501-4655-a0c6-df060e6d6c7f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "3dc59a13-8e2e-4dc0-bfb5-a25af41d99f1",
+      "answer": "Herr",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:35.536Z"
+    },
+    {
+      "id": "43d35ac2-57cc-4b3d-9cb1-5b89445ef809",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "db71b25c-4c53-443a-b552-1fc481b98cca",
+      "answer": "immer",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:39.630Z"
+    },
+    {
+      "id": "28a269f3-1706-4d47-abae-a28f04a816bf",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e677b46-2193-42e8-9689-368f6ed6eb42",
+      "answer": "reisen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:42.918Z"
+    },
+    {
+      "id": "15e1069c-3ee9-4671-8433-00041fcc351c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e677b46-2193-42e8-9689-368f6ed6eb42",
+      "answer": "reisen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:43.439Z"
+    },
+    {
+      "id": "a2b1818a-6790-4737-a679-e82d24c92c5d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2fe08134-2121-48ce-b3b6-9d1440f5abdc",
+      "answer": "Instrument",
+      "correct": false,
+      "createdAt": "2025-11-13T23:41:48.725Z"
+    },
+    {
+      "id": "a001c53f-769f-47b7-b41e-38f233477cf2",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2fe08134-2121-48ce-b3b6-9d1440f5abdc",
+      "answer": "Instrument",
+      "correct": false,
+      "createdAt": "2025-11-13T23:41:49.980Z"
+    },
+    {
+      "id": "8aa08ea8-4be0-4112-89be-160a441273f7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "7dfa29bc-d8e2-41b1-b041-d62ca53cc1e5",
+      "answer": "Servus!",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:54.751Z"
+    },
+    {
+      "id": "843ea99d-e20a-4a00-a891-b3e7274c73c6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d1472dd7-17ae-4bdd-83c3-9961f9ab49f3",
+      "answer": "Fußball",
+      "correct": true,
+      "createdAt": "2025-11-13T23:41:59.836Z"
+    },
+    {
+      "id": "d96626d7-88cc-4ec9-bc1a-53e079fd5e8a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "16d1144c-4c7e-46af-8885-8e91d914a225",
+      "answer": "gern",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:03.402Z"
+    },
+    {
+      "id": "1f72ddcc-43e5-4acf-a571-aabe38faeb55",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cf43009e-1102-4ad5-acd2-6371b635001d",
+      "answer": "Frau",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:08.176Z"
+    },
+    {
+      "id": "f66bb4eb-1ae0-485b-91b4-441b96de07a4",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72b1093c-f02d-4f28-be41-576ac46100d9",
+      "answer": "tanzen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:10.711Z"
+    },
+    {
+      "id": "06af93d6-7c08-4c7f-8b7b-b64fc0c455a4",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d82870e6-360d-4fb2-a27f-afda09c229a4",
+      "answer": "E-mail",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:17.120Z"
+    },
+    {
+      "id": "2ddde17e-172b-4cd5-9d47-1605e860e433",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9a9c5931-30fe-4edf-bb8e-ae82403a5b34",
+      "answer": "im Internet surfen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:20.977Z"
+    },
+    {
+      "id": "0a7e67e5-438e-498b-ac4a-808a7c6df2c8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "17a0bdcc-4da3-4ebc-846a-d66e56d77e63",
+      "answer": "bald",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:28.588Z"
+    },
+    {
+      "id": "352f830e-d855-4df3-a9bc-62e410cf92a5",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c89edb0b-75b2-40d1-8a1e-f29c52a62f0d",
+      "answer": "nicht weit von",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:31.111Z"
+    },
+    {
+      "id": "a7737423-61e8-4ef8-a271-748382e9f83f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d6c81f7e-be6e-4396-bec9-6b59a41124fb",
+      "answer": "Freundin",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:34.115Z"
+    },
+    {
+      "id": "baa40c8d-1eee-44e6-9a3b-62a95a3a32a8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2f7b594d-5c41-4d8b-812b-e09d4ab3a17b",
+      "answer": "Sport treiben",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:37.798Z"
+    },
+    {
+      "id": "12e9ba0c-9cc1-4f68-af62-3457a5c5ea92",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f8abc6f2-e81f-4d21-a0ab-b073726b1dda",
+      "answer": "Freund",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:41.320Z"
+    },
+    {
+      "id": "0cab2cd9-264a-4f01-a66f-f4565ef46a88",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "44735e5d-2351-451d-8de1-72c023a3a082",
+      "answer": "Mach's gut!",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:44.725Z"
+    },
+    {
+      "id": "8e66f8ef-f8de-4431-a0b2-6e0045ed8aa9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72e323b0-b3c7-4e95-aadd-cfc85fa2fdb2",
+      "answer": "bis",
+      "correct": true,
+      "createdAt": "2025-11-13T23:42:49.394Z"
+    },
+    {
+      "id": "1469ead3-ca73-453b-8049-01f5fece2aa9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9e50e9c2-2aa8-4220-b930-4bda8ceff39b",
+      "answer": "Museum",
+      "correct": false,
+      "createdAt": "2025-11-13T23:42:58.895Z"
+    },
+    {
+      "id": "ba9ff123-168e-417c-9b49-13d8be4d13f1",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9e50e9c2-2aa8-4220-b930-4bda8ceff39b",
+      "answer": "Museum",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:00.064Z"
+    },
+    {
+      "id": "e4f74c5f-c67c-4cc9-af0a-576bd8d56f74",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "de13c193-8503-4364-b22f-7990482e152b",
+      "answer": "Bis Bald!",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:14.537Z"
+    },
+    {
+      "id": "b2e029cd-c4ed-4052-8b26-3f515f2d3d24",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f2dcde3-4fd4-466d-ae80-6f792254988d",
+      "answer": "Handy",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:19.155Z"
+    },
+    {
+      "id": "5442ad06-3f89-4959-9379-20436ec58321",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "295ba883-7e1a-40ef-9af4-880882a8954d",
+      "answer": "Squash",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:24.200Z"
+    },
+    {
+      "id": "3dc9c337-6eba-40e7-ab49-3b4a9bdefdeb",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "293c9cab-6523-4dff-85ae-d52f281d5e64",
+      "answer": "spielen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:27.596Z"
+    },
+    {
+      "id": "d9ff8476-bf6d-41ed-8895-a43cb04a0133",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d905ce08-b59a-4b2b-9a8f-cd2a46a8650b",
+      "answer": "Tschüs!",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:29.987Z"
+    },
+    {
+      "id": "096df255-5d76-4caf-b7da-645137feee94",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b619e0ce-c743-40b5-95f8-d29ca16c762d",
+      "answer": "aber",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:32.090Z"
+    },
+    {
+      "id": "c9b25b6a-1ca3-41ee-b7ea-e99bef131053",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "66088a05-b614-44e2-b1f8-73f8c907e7ab",
+      "answer": "falsch",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:35.094Z"
+    },
+    {
+      "id": "35509446-3ace-4efc-9f2e-1fc47c28ec13",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f526f0cf-8390-4b3d-b5ec-1d32489f75c6",
+      "answer": "schön",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:40.594Z"
+    },
+    {
+      "id": "423eec85-b8de-4624-979f-7a2a910fe54d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "75da6462-6da2-4c6e-bb36-7d1737b8d1db",
+      "answer": "gehen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:43.427Z"
+    },
+    {
+      "id": "2a1f9079-2b21-40eb-bda7-56680e736815",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781da388-5cc1-49aa-bbbc-213cdf2157e7",
+      "answer": "Yoga",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:47.312Z"
+    },
+    {
+      "id": "5bdb3ba4-ab8c-4266-a8fc-10b753bc4066",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "dc7daf63-b3f5-416e-825a-f0ed2d02a466",
+      "answer": "Englisch",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:50.192Z"
+    },
+    {
+      "id": "63385f92-914d-4883-a1d6-156ef323014e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "872244ff-6181-48fb-adf8-41e848f0e920",
+      "answer": "Wohnort",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:53.690Z"
+    },
+    {
+      "id": "533a7d7d-fba7-4acb-afdb-f5db0a61cd27",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ca6f505f-5766-44b4-b356-1ddac2db4e5c",
+      "answer": "machen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:43:56.281Z"
+    },
+    {
+      "id": "933f5938-bf7a-4ad8-816c-1970004661ad",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "788169bc-de10-4edb-b76d-df38302475f7",
+      "answer": "Schule",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:00.109Z"
+    },
+    {
+      "id": "41803917-16e1-46a3-89c7-29d7cdad4064",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b410b6aa-be18-454c-8429-9f37747f86c2",
+      "answer": "jetzt",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:04.129Z"
+    },
+    {
+      "id": "29b1891d-0dda-4bb4-82aa-d97be00c99a1",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "086905ff-f5be-4833-ad2d-00fd767c57cb",
+      "answer": "schreiben",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:07.046Z"
+    },
+    {
+      "id": "2d46338d-df34-4ea3-b757-44904eda2837",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c4738a11-05bf-49c0-99ca-0811e566d9c6",
+      "answer": "liegen",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:09.590Z"
+    },
+    {
+      "id": "7e41c96d-5717-4ed7-b21d-a3c8d73622a0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2e27f551-7f43-4f30-8bec-2d944842e7ec",
+      "answer": "Alter",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:14.663Z"
+    },
+    {
+      "id": "22d26fe0-47bc-40fc-82ed-346449aebe0a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "answer": "Hobby",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:18.491Z"
+    },
+    {
+      "id": "2c6497c9-f0a0-4cd8-bde8-27f2e01ee5dd",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6f7ee208-3e39-4878-8480-130a3279cc68",
+      "answer": "Flöte",
+      "correct": false,
+      "createdAt": "2025-11-13T23:44:21.674Z"
+    },
+    {
+      "id": "83cd5490-a719-482a-9fc0-ba7eb9e6bc24",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6f7ee208-3e39-4878-8480-130a3279cc68",
+      "answer": "Flöte",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:25.145Z"
+    },
+    {
+      "id": "e32908b9-acdf-41c3-8499-8add8c6b01be",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a579f3b1-5cca-48f1-a043-b74c5979e9ba",
+      "answer": "Gitarre",
+      "correct": true,
+      "createdAt": "2025-11-13T23:44:29.590Z"
+    },
+    {
+      "id": "1dc222bd-7365-4783-8c31-58d176fde724",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d905ce08-b59a-4b2b-9a8f-cd2a46a8650b",
+      "answer": "Tschüs!",
+      "correct": true,
+      "createdAt": "2025-11-14T09:32:41.115Z"
+    },
+    {
+      "id": "43aae01c-ca59-496a-af1f-39da33ac5c29",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9a9c5931-30fe-4edf-bb8e-ae82403a5b34",
+      "answer": "im Internet surfen",
+      "correct": true,
+      "createdAt": "2025-11-14T09:32:45.271Z"
+    },
+    {
+      "id": "dde62337-157b-4c3e-a245-57630a645e8f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "44735e5d-2351-451d-8de1-72c023a3a082",
+      "answer": "Mach's gut!",
+      "correct": true,
+      "createdAt": "2025-11-14T09:32:48.950Z"
+    },
+    {
+      "id": "fbdc9e34-8dfa-4f47-b8ab-57204d17720d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781e893e-1f49-4a1f-ab61-4ec54de98b8d",
+      "answer": "Jahr",
+      "correct": false,
+      "createdAt": "2025-11-14T09:32:56.712Z"
+    },
+    {
+      "id": "2caeaaf9-e4ea-4319-abaf-edeaa4dd9db6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781e893e-1f49-4a1f-ab61-4ec54de98b8d",
+      "answer": "Jahr",
+      "correct": true,
+      "createdAt": "2025-11-14T09:32:59.592Z"
+    },
+    {
+      "id": "dd9da375-ef91-4ab0-9a45-984ff36c7abc",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6681d21e-8f01-4998-95df-16759a799b47",
+      "answer": "15",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:14:12.099Z"
+    },
+    {
+      "id": "36e90d6f-2934-4d33-a935-40be8cf45264",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ee068f06-5b5f-4696-b013-d50d81e782a8",
+      "answer": "vy",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:14:22.704Z"
+    },
+    {
+      "id": "766c1024-fc5d-46cd-a6f3-a048fe7e4893",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f127ab82-1d5f-4915-a112-56523c345077",
+      "answer": "9",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:14:30.615Z"
+    },
+    {
+      "id": "d297caa8-6fa3-45e2-93b1-965f9b0545cb",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e677b46-2193-42e8-9689-368f6ed6eb42",
+      "answer": "cestovat",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:15:46.654Z"
+    },
+    {
+      "id": "34d102f1-63f9-4b20-92d6-c4951df9688f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "3dc59a13-8e2e-4dc0-bfb5-a25af41d99f1",
+      "answer": "pan",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:43.581Z"
+    },
+    {
+      "id": "0d0fe8a5-ca64-4826-8843-d80b085c146c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ca6f505f-5766-44b4-b356-1ddac2db4e5c",
+      "answer": "dělat",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:52.231Z"
+    },
+    {
+      "id": "94da15f3-a6e3-4147-adb3-cba15ebdb786",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f526f0cf-8390-4b3d-b5ec-1d32489f75c6",
+      "answer": "hezký",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:56.208Z"
+    },
+    {
+      "id": "923a049f-1448-4174-b431-dd30ae455d31",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "295ba883-7e1a-40ef-9af4-880882a8954d",
+      "answer": "squash",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:16:59.027Z"
+    },
+    {
+      "id": "8e1177eb-fad5-4c34-8c02-d651fc821545",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f5d4479a-bd86-40b4-9020-73cc378e5568",
+      "answer": "učit se",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:18:28.140Z"
+    },
+    {
+      "id": "3130c94d-d18b-4b79-ab1c-5aaa76554c5d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f8abc6f2-e81f-4d21-a0ab-b073726b1dda",
+      "answer": "kamarád",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:18:31.286Z"
+    },
+    {
+      "id": "5a6883f3-ae8a-439a-8e6d-02727b25bdc7",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "756efa5d-e63a-4aeb-a671-01ff353a7673",
+      "answer": "20",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:18:57.263Z"
+    },
+    {
+      "id": "80f8bcb7-a398-4324-9107-e2c9b82ea202",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f127ab82-1d5f-4915-a112-56523c345077",
+      "answer": "9",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:01.137Z"
+    },
+    {
+      "id": "bd14527a-209a-41c6-b287-73ff6adbf544",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f92b1013-5920-40f6-b719-31e222c43609",
+      "answer": "kde",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:06.868Z"
+    },
+    {
+      "id": "cff7b345-b657-41ac-9e89-4b857ad9636c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "195e81ca-bd0d-46bc-a249-6b56990a0424",
+      "answer": "já",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:10.568Z"
+    },
+    {
+      "id": "7db8b0ce-8acd-493b-b921-6e3ddfdf3220",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "899ee516-0c4f-42fd-aa7f-f5885c4fa311",
+      "answer": "ahoj",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:15.288Z"
+    },
+    {
+      "id": "f8f8693d-f2be-4c38-8a17-c36f584646f8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "81a288f2-f548-4446-8ebc-1343c5f61161",
+      "answer": "4",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:18.512Z"
+    },
+    {
+      "id": "be4ec0b9-6803-46a4-81b1-f61c76292e84",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "96935430-eac4-4b2f-be17-5448868f78f4",
+      "answer": "jmenovat se",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:23.394Z"
+    },
+    {
+      "id": "2edd1398-54df-4163-a72e-ca387f48be0d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cef78d0b-5689-4d7f-b569-10d8b9b12746",
+      "answer": "17",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:27.529Z"
+    },
+    {
+      "id": "20101f7a-1bd1-45ee-8b26-d6a99f861da3",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "891e3eb1-585c-49c9-a2ad-82600e1fe86a",
+      "answer": "8",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:30.319Z"
+    },
+    {
+      "id": "b82914dc-6c65-45ac-81e4-8683f0ca0000",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "835a4dc2-9940-4f30-ad72-e150f60cf362",
+      "answer": "7",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:36.368Z"
+    },
+    {
+      "id": "3438044f-7755-4f13-a222-eea211e49dad",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "69d40dd5-ae61-43de-a267-ab820eaaf924",
+      "answer": "ahoj",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:42.364Z"
+    },
+    {
+      "id": "efff9a8d-b0cc-4e57-8cfb-980e72e3496e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "20ebf6a8-e5b9-4ccb-af89-6e3da3c239aa",
+      "answer": "hra",
+      "correct": false,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-14T22:19:45.770Z"
+    },
+    {
+      "id": "9051dac8-d105-4302-bf90-a78c525e4225",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f2dcde3-4fd4-466d-ae80-6f792254988d",
+      "answer": "mobil",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:19:45.729Z"
+    },
+    {
+      "id": "76c89930-978a-4ceb-afbf-d18282b69c37",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "63f467f8-ee48-4915-a0bf-5f350c1d11b2",
+      "answer": "mít",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:20:42.042Z"
+    },
+    {
+      "id": "72a06dad-3987-42b4-9a39-eb01d2df9130",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d905ce08-b59a-4b2b-9a8f-cd2a46a8650b",
+      "answer": "Ahoj!",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:20:50.425Z"
+    },
+    {
+      "id": "c6878181-0b55-4f98-bc93-edbc253acfe9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "answer": "koníček",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:20:55.685Z"
+    },
+    {
+      "id": "c3025ab3-eab1-4d1d-af8d-8decd46e450d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d82870e6-360d-4fb2-a27f-afda09c229a4",
+      "answer": "email",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:21:36.326Z"
+    },
+    {
+      "id": "bc1f98b8-e18e-4361-9b48-8098be81a17b",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "44735e5d-2351-451d-8de1-72c023a3a082",
+      "answer": "Měj se (hezky)!",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:21:42.731Z"
+    },
+    {
+      "id": "34a6ee44-57aa-4e5e-930b-7a535fec4e3f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c4738a11-05bf-49c0-99ca-0811e566d9c6",
+      "answer": "ležet",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:21:45.499Z"
+    },
+    {
+      "id": "8283ce35-bd3c-4be5-ab5e-b2eb8a77cd2c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c23621f7-e646-47ff-8bd5-b0a27239fd88",
+      "answer": "z",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:21:49.100Z"
+    },
+    {
+      "id": "090c0703-ff02-4600-9ab3-b3650a795663",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f526f0cf-8390-4b3d-b5ec-1d32489f75c6",
+      "answer": "hezký",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:21:51.759Z"
+    },
+    {
+      "id": "5f3e4ec0-edf4-43f3-8f3a-e3ec4e3baa7e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f5d4479a-bd86-40b4-9020-73cc378e5568",
+      "answer": "učit se",
+      "correct": true,
+      "points": 18,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:21:54.550Z"
+    },
+    {
+      "id": "6d968b97-1525-4732-b04f-a7576849c461",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b7850749-01c6-421d-925b-56454a86ef39",
+      "answer": "křestní jméno",
+      "correct": false,
+      "points": -1,
+      "mode": "mc",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:21:58.226Z"
+    },
+    {
+      "id": "dd1e3ab2-e055-481d-b0e7-9daae712178d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1494faa8-54dd-4237-86b1-d02405fb0f3c",
+      "answer": "Computerspiele",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:22:46.754Z"
+    },
+    {
+      "id": "9c84cf22-5f94-4445-993d-c0b1a1637851",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "75da6462-6da2-4c6e-bb36-7d1737b8d1db",
+      "answer": "gehen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:22:50.765Z"
+    },
+    {
+      "id": "69fc3d99-6114-4c80-b5fd-17ae6e6fa695",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "e31a0d36-d97c-4f34-b99a-a7851e702e69",
+      "answer": "Fan",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:22:54.754Z"
+    },
+    {
+      "id": "b5c2bddc-533b-47e1-8674-12fcba4d16ae",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "e31a0d36-d97c-4f34-b99a-a7851e702e69",
+      "answer": "Fan",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:22:57.965Z"
+    },
+    {
+      "id": "9e76a009-cd0b-4d6f-b6c0-19cdd88c863a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "66088a05-b614-44e2-b1f8-73f8c907e7ab",
+      "answer": "falsch",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:23:56.989Z"
+    },
+    {
+      "id": "5ccbec3f-cc30-405c-8135-b042b44bebb0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "501bf967-c13a-4c22-8d8b-64a15d22bc85",
+      "answer": "Nachname",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:02.383Z"
+    },
+    {
+      "id": "1b7250e6-5ab8-4b0b-9798-2263f33a3c98",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72e323b0-b3c7-4e95-aadd-cfc85fa2fdb2",
+      "answer": "bis",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:05.394Z"
+    },
+    {
+      "id": "b40d59b9-c9ee-40c7-96c5-fb56a1c52b36",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "cf43009e-1102-4ad5-acd2-6371b635001d",
+      "answer": "Frau",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:10.320Z"
+    },
+    {
+      "id": "9497824f-11e3-430a-8753-626922327e28",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d905ce08-b59a-4b2b-9a8f-cd2a46a8650b",
+      "answer": "Tschüs!",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:13.476Z"
+    },
+    {
+      "id": "5c8d489d-515e-4f41-bf3c-a49fcf1857fd",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c89edb0b-75b2-40d1-8a1e-f29c52a62f0d",
+      "answer": "nicht weit von",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:16.337Z"
+    },
+    {
+      "id": "f5376919-c981-4586-b565-839409b585ec",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ca6f505f-5766-44b4-b356-1ddac2db4e5c",
+      "answer": "machen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:22.635Z"
+    },
+    {
+      "id": "31e1f2ce-1f2b-4020-996d-7e1a342ea4b1",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "3dc59a13-8e2e-4dc0-bfb5-a25af41d99f1",
+      "answer": "Herr",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:27.478Z"
+    },
+    {
+      "id": "70dafe57-63bb-421b-af5a-bd9177a338c0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "086905ff-f5be-4833-ad2d-00fd767c57cb",
+      "answer": "schreiben",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:30.913Z"
+    },
+    {
+      "id": "44b729f0-33cb-4f91-844d-5dee97dd219e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "db71b25c-4c53-443a-b552-1fc481b98cca",
+      "answer": "immer",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:36.483Z"
+    },
+    {
+      "id": "bd15d7e4-bf74-4490-9b2d-d37a8b985145",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d82870e6-360d-4fb2-a27f-afda09c229a4",
+      "answer": "E-mail",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:39.254Z"
+    },
+    {
+      "id": "fc66c187-a806-4152-bdc9-a2893784ab65",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "00415bfe-8cc1-4c4b-828c-55fc335e5ebc",
+      "answer": "richtig",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:42.252Z"
+    },
+    {
+      "id": "44fc3ad2-9bdc-47d6-bc9d-d36acbb55cd9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c4738a11-05bf-49c0-99ca-0811e566d9c6",
+      "answer": "liegen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:44.102Z"
+    },
+    {
+      "id": "c21343d7-8548-4c55-9b0b-449723ddb766",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72b1093c-f02d-4f28-be41-576ac46100d9",
+      "answer": "tanzen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:46.311Z"
+    },
+    {
+      "id": "dd48099e-8249-46b0-a084-415fb474e3bf",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "44735e5d-2351-451d-8de1-72c023a3a082",
+      "answer": "Mach's gut!",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:50.667Z"
+    },
+    {
+      "id": "e39632ac-130e-41d7-b016-cfd10af97f7b",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "512130b2-f443-4d0a-93a7-8aa576e46181",
+      "answer": "Band",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:54.683Z"
+    },
+    {
+      "id": "806e5860-5251-4033-b5bb-5b027a0b13f9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "16d1144c-4c7e-46af-8885-8e91d914a225",
+      "answer": "gern",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:24:58.429Z"
+    },
+    {
+      "id": "8b134986-19fd-432a-97b5-3f5036c413a1",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "872244ff-6181-48fb-adf8-41e848f0e920",
+      "answer": "Wohnort",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:02.018Z"
+    },
+    {
+      "id": "583a4d09-60e7-4bb1-8c20-2d91e1d63dd1",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f5d4479a-bd86-40b4-9020-73cc378e5568",
+      "answer": "lernen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:06.021Z"
+    },
+    {
+      "id": "b4bdb54f-9d01-4b68-b7d2-7ac6ac3f9307",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2fe08134-2121-48ce-b3b6-9d1440f5abdc",
+      "answer": "Instrument",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:10.126Z"
+    },
+    {
+      "id": "b12a98b2-0295-4248-bf3d-ba415748ce46",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c89e4b3d-b377-4e8c-8314-69e39ae4b208",
+      "answer": "Klavier",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:15.195Z"
+    },
+    {
+      "id": "1b235a88-4232-4a45-b564-09888c9dbd2a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c89e4b3d-b377-4e8c-8314-69e39ae4b208",
+      "answer": "Klavier",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:16.681Z"
+    },
+    {
+      "id": "ad57cc08-3d07-400c-882f-99d20491c206",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b410b6aa-be18-454c-8429-9f37747f86c2",
+      "answer": "jetzt",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:25.780Z"
+    },
+    {
+      "id": "9f239c89-9e9e-404e-8202-681171f42d1a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "0a120ce9-c6b2-4fa4-b0b5-91a7cbf19cb4",
+      "answer": "chatten",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:28.740Z"
+    },
+    {
+      "id": "3189790f-0120-4240-b1d5-c26cea834757",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b619e0ce-c743-40b5-95f8-d29ca16c762d",
+      "answer": "aber",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:32.911Z"
+    },
+    {
+      "id": "3aac4952-9838-4904-ab90-5d196aeade87",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "ff07436f-67f8-4e7b-aadf-4016ceaf8a9c",
+      "answer": "hören",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:36.001Z"
+    },
+    {
+      "id": "f1b07993-d153-44c2-afbf-6e46b03a8410",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "17a0bdcc-4da3-4ebc-846a-d66e56d77e63",
+      "answer": "bald",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:25:58.588Z"
+    },
+    {
+      "id": "b4b7888d-6a2c-4404-8a9c-2efe8667fef6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "fbce6c6b-b214-4cfe-8dde-035846762383",
+      "answer": "Französish",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:26:02.760Z"
+    },
+    {
+      "id": "98a22775-2dd6-414c-91ba-eb2263f0ebfb",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "980a1f67-3324-4357-a0d6-502bc7e3bd24",
+      "answer": "Konzert",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:26:07.627Z"
+    },
+    {
+      "id": "3c5c47d9-125b-4708-a508-f2a93aeca4a9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "980a1f67-3324-4357-a0d6-502bc7e3bd24",
+      "answer": "Konzert",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:26:09.520Z"
+    },
+    {
+      "id": "4fd16056-45aa-4cf7-9e92-c83496090be3",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781e893e-1f49-4a1f-ab61-4ec54de98b8d",
+      "answer": "Jahr",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:26:13.821Z"
+    },
+    {
+      "id": "c3982a5b-0906-4bc1-b130-e6721c76d030",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781e893e-1f49-4a1f-ab61-4ec54de98b8d",
+      "answer": "Jahr",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:26:15.725Z"
+    },
+    {
+      "id": "4c240dd1-0893-44c4-bd2b-515066bed45a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "295ba883-7e1a-40ef-9af4-880882a8954d",
+      "answer": "Squash",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:31.655Z"
+    },
+    {
+      "id": "924dacc0-a3c8-41af-b385-01703613efce",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "295ba883-7e1a-40ef-9af4-880882a8954d",
+      "answer": "Squash",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:34.166Z"
+    },
+    {
+      "id": "c3c2bd2b-b831-40a8-a333-92a53fd1abdf",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "7dfa29bc-d8e2-41b1-b041-d62ca53cc1e5",
+      "answer": "Servus!",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:37.852Z"
+    },
+    {
+      "id": "c2ca14fa-4519-4db3-8408-2db932774aa8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9a9c5931-30fe-4edf-bb8e-ae82403a5b34",
+      "answer": "im Internet surfen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:39.861Z"
+    },
+    {
+      "id": "9a4d47c6-f191-485d-b9f7-e33cf0a71fbf",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2e27f551-7f43-4f30-8bec-2d944842e7ec",
+      "answer": "Alter",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:44.275Z"
+    },
+    {
+      "id": "660f8bf5-dab0-468b-b03b-74ee381b7586",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2e27f551-7f43-4f30-8bec-2d944842e7ec",
+      "answer": "Alter",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:46.076Z"
+    },
+    {
+      "id": "5c550eeb-c43a-4897-b3cf-3dafe1f51798",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "692df987-8c63-46c9-beb3-1885a8cef6c3",
+      "answer": "kommen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:49.801Z"
+    },
+    {
+      "id": "968cfb41-d74e-4493-b933-28c944032523",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "52ccf63c-b4de-487e-aea8-560f81c7d37a",
+      "answer": "Wiedersehen",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:56.320Z"
+    },
+    {
+      "id": "7164b7b9-5297-4f91-9a7a-184be562820b",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "52ccf63c-b4de-487e-aea8-560f81c7d37a",
+      "answer": "Wiedersehen",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:27:58.349Z"
+    },
+    {
+      "id": "7f766a0b-4679-4106-accc-a92b0f210a27",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a579f3b1-5cca-48f1-a043-b74c5979e9ba",
+      "answer": "Gitarre",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:02.089Z"
+    },
+    {
+      "id": "2e434ce6-3a86-4a5a-bafe-0dbae2d5e1f8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "answer": "Hobby",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:06.154Z"
+    },
+    {
+      "id": "69592723-89a0-47ad-9646-c1d58d0c1376",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "38d851b9-2206-4bfb-af74-bccd4c58033d",
+      "answer": "Sport",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:12.284Z"
+    },
+    {
+      "id": "28f3dd28-e477-46f8-8296-7ea70ca0be86",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "38d851b9-2206-4bfb-af74-bccd4c58033d",
+      "answer": "Sport",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:14.259Z"
+    },
+    {
+      "id": "ae4f578c-5009-49fc-92d1-8d2020768b16",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c23621f7-e646-47ff-8bd5-b0a27239fd88",
+      "answer": "aus",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:16.143Z"
+    },
+    {
+      "id": "bd6c7ba4-5122-4d78-8d95-04634213ef44",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781da388-5cc1-49aa-bbbc-213cdf2157e7",
+      "answer": "Yoga",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:19.106Z"
+    },
+    {
+      "id": "1cfd8899-e69e-40de-b739-3d844f122c2a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "b7850749-01c6-421d-925b-56454a86ef39",
+      "answer": "Vorname",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:21.799Z"
+    },
+    {
+      "id": "48da29e3-3d4d-4928-b3b5-7cdc49a42eb3",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e677b46-2193-42e8-9689-368f6ed6eb42",
+      "answer": "reisen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:24.234Z"
+    },
+    {
+      "id": "6896ebbf-ef9b-4590-88b3-a96812180f7c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "788169bc-de10-4edb-b76d-df38302475f7",
+      "answer": "Schule",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:26.285Z"
+    },
+    {
+      "id": "92d458ce-aafa-4f39-96a7-4b48c48a7cc6",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2f7b594d-5c41-4d8b-812b-e09d4ab3a17b",
+      "answer": "Sport treiben",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:28.561Z"
+    },
+    {
+      "id": "dc299af8-27f3-4a4b-a2bf-1bf3014f9c52",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d6c81f7e-be6e-4396-bec9-6b59a41124fb",
+      "answer": "Freundin",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:31.799Z"
+    },
+    {
+      "id": "e9d01186-3ca1-4fc2-ac96-cfc17dfacda8",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "51ac276d-544c-476c-b2c5-4f1800d8346c",
+      "answer": "kein/keine/kein",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:33.641Z"
+    },
+    {
+      "id": "777858e4-dec0-44b6-bc71-934a708a5c83",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "dc7daf63-b3f5-416e-825a-f0ed2d02a466",
+      "answer": "Englisch",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:36.422Z"
+    },
+    {
+      "id": "edca4253-4a52-45a6-87df-9f755ed54834",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "d1472dd7-17ae-4bdd-83c3-9961f9ab49f3",
+      "answer": "Fußball",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:39.549Z"
+    },
+    {
+      "id": "cffe5b1d-b31c-4fce-86ff-cd8b8e4f5b9a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "de13c193-8503-4364-b22f-7990482e152b",
+      "answer": "Bis Bald!",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:41.806Z"
+    },
+    {
+      "id": "49e967ce-eabe-4a9b-ad41-02d20706c7f9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a4f4ef74-fb0f-40be-8760-7968b8fa80c5",
+      "answer": "auch",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:43.622Z"
+    },
+    {
+      "id": "7aa6aac0-a519-4840-b427-f686f9f68380",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9f2dcde3-4fd4-466d-ae80-6f792254988d",
+      "answer": "Handy",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:47.549Z"
+    },
+    {
+      "id": "d9d85875-345f-4ea4-a63e-2a7d65e14286",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "63f467f8-ee48-4915-a0bf-5f350c1d11b2",
+      "answer": "haben",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:49.802Z"
+    },
+    {
+      "id": "fef5b690-550d-4c80-b4bf-79a90bbfc048",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "9e50e9c2-2aa8-4220-b930-4bda8ceff39b",
+      "answer": "Museum",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:52.538Z"
+    },
+    {
+      "id": "b8f88f76-6c32-472b-bb8e-7df5d7658e36",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f8abc6f2-e81f-4d21-a0ab-b073726b1dda",
+      "answer": "Freund",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:56.532Z"
+    },
+    {
+      "id": "7cfc0b58-2458-4bda-86af-0866fd7b699b",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6f7ee208-3e39-4878-8480-130a3279cc68",
+      "answer": "Flöte",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:59.128Z"
+    },
+    {
+      "id": "347bb55c-4784-4b56-8280-72c77936d9a2",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "6f7ee208-3e39-4878-8480-130a3279cc68",
+      "answer": "Flöte",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:28:59.521Z"
+    },
+    {
+      "id": "3fec8b5c-f4f4-4fae-8203-2ac22f2885eb",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "293c9cab-6523-4dff-85ae-d52f281d5e64",
+      "answer": "spielen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:29:03.382Z"
+    },
+    {
+      "id": "75a84f1d-af69-4982-94bc-508b20837e63",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "f526f0cf-8390-4b3d-b5ec-1d32489f75c6",
+      "answer": "schön",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T15:29:05.452Z"
+    },
+    {
+      "id": "9c13598e-02b4-4d90-be31-57170f531c8a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72b1093c-f02d-4f28-be41-576ac46100d9",
+      "answer": "tancovat",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:30:18.459Z"
+    },
+    {
+      "id": "bad04b72-1ed3-419c-9a2b-e8759e8af9be",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "788169bc-de10-4edb-b76d-df38302475f7",
+      "answer": "škola",
+      "correct": false,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:30:26.018Z"
+    },
+    {
+      "id": "8d927dfc-ed1a-4496-b35d-67a73ff65fe0",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "44735e5d-2351-451d-8de1-72c023a3a082",
+      "answer": "na schledanou",
+      "correct": false,
+      "points": 0,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:30:58.235Z"
+    },
+    {
+      "id": "4434d482-d7a5-47c9-bac8-abed0d2f7464",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "0a120ce9-c6b2-4fa4-b0b5-91a7cbf19cb4",
+      "answer": "chatovat",
+      "correct": true,
+      "points": 35,
+      "mode": "write",
+      "dir": "de2cs",
+      "createdAt": "2025-11-16T15:31:12.707Z"
+    },
+    {
+      "id": "9a2a950e-2b48-46c0-9db7-76d37badbf4d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "52ccf63c-b4de-487e-aea8-560f81c7d37a",
+      "answer": "Wiedersehen",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T16:10:52.982Z"
+    },
+    {
+      "id": "5b6c4ddc-cecd-4516-a2a6-152221812880",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "52ccf63c-b4de-487e-aea8-560f81c7d37a",
+      "answer": "Wiedersehen",
+      "correct": false,
+      "points": 10,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T16:10:53.585Z"
+    },
+    {
+      "id": "084d439f-a4c2-44fd-8325-7c4a88b5c93f",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c23621f7-e646-47ff-8bd5-b0a27239fd88",
+      "answer": "aus",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T16:14:35.013Z"
+    },
+    {
+      "id": "2c20ac18-1c21-4498-9bb6-2f9112234322",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "e31a0d36-d97c-4f34-b99a-a7851e702e69",
+      "answer": "Fan",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T17:19:37.650Z"
+    },
+    {
+      "id": "a01cb954-5904-4c57-b299-02d0cbe99815",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "c4738a11-05bf-49c0-99ca-0811e566d9c6",
+      "answer": "liegen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T17:19:47.935Z"
+    },
+    {
+      "id": "895f1222-ce2a-48cc-910f-07588d96d4de",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "7dfa29bc-d8e2-41b1-b041-d62ca53cc1e5",
+      "answer": "Servus!",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T17:19:51.610Z"
+    },
+    {
+      "id": "af069ede-28bd-4c66-acd6-a92f9a219688",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "00415bfe-8cc1-4c4b-828c-55fc335e5ebc",
+      "answer": "richtig",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T17:19:55.064Z"
+    },
+    {
+      "id": "324bb7b7-de73-4014-8c77-d8df2cf7db8a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "44735e5d-2351-451d-8de1-72c023a3a082",
+      "answer": "Mach's gut!",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T17:19:57.314Z"
+    },
+    {
+      "id": "7f32bf2f-351f-4ae9-acf7-6b0a6e2e5e74",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72e323b0-b3c7-4e95-aadd-cfc85fa2fdb2",
+      "answer": "bis",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:23:44.409Z"
+    },
+    {
+      "id": "83ed6f6d-534f-4886-bcb7-654fd6d38887",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "293c9cab-6523-4dff-85ae-d52f281d5e64",
+      "answer": "spielen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:23:56.588Z"
+    },
+    {
+      "id": "d60afbb2-1bea-49df-9199-24c6af03d77d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "answer": "Hobby",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:50:31.573Z"
+    },
+    {
+      "id": "6a2c1673-92aa-484e-99c2-7932a73a2621",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "2e27f551-7f43-4f30-8bec-2d944842e7ec",
+      "answer": "Alter",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:50:53.205Z"
+    },
+    {
+      "id": "73440a04-4118-4cde-855c-fd5a72c9ed2c",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "0a120ce9-c6b2-4fa4-b0b5-91a7cbf19cb4",
+      "answer": "chatten",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:50:56.623Z"
+    },
+    {
+      "id": "4807e676-5f66-4e84-92d4-6d19d68c736d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "781da388-5cc1-49aa-bbbc-213cdf2157e7",
+      "answer": "Sport",
+      "correct": false,
+      "points": -2,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:00.041Z"
+    },
+    {
+      "id": "4c40231b-04e9-4ae8-8d17-43780dcdde2d",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "72b1093c-f02d-4f28-be41-576ac46100d9",
+      "answer": "Gitarre",
+      "correct": false,
+      "points": -2,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:04.695Z"
+    },
+    {
+      "id": "83814808-1fe9-4ea8-9df5-650f0544312a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "a4f4ef74-fb0f-40be-8760-7968b8fa80c5",
+      "answer": "auch",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:09.244Z"
+    },
+    {
+      "id": "968c0e40-5f9a-4268-a254-c38b35cf28b9",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+      "answer": "Hobby",
+      "correct": true,
+      "points": 64,
+      "mode": "write",
+      "dir": "cs2de",
+      "createdAt": "2025-11-16T18:51:21.855Z"
+    },
+    {
+      "id": "4752a762-d539-4bc6-b00a-0bb4d02e07bf",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "5e677b46-2193-42e8-9689-368f6ed6eb42",
+      "answer": "reisen",
+      "correct": true,
+      "points": 21,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-18T18:59:12.487Z"
+    }
+  ],
+  "classes": [
+    {
+      "id": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "name": "Moje třída",
+      "code": "LL8S9I",
+      "teacherId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "createdAt": "2025-11-14T19:13:59.744Z",
+      "chatCooldownSec": 0
+    }
+  ],
+  "classMemberships": [
+    {
+      "id": "08bbf115-4543-4a56-bd9c-99cd8379dfdd",
+      "classId": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "role": "TEACHER"
+    }
+  ],
+  "chatMessages": [],
+  "parties": [
+    {
+      "id": "79a3beeb-c896-4b6d-9f6a-c44372d44b6b",
+      "classId": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "lessonId": "32117f74-a41e-45c7-a8a8-ebaf030313b1",
+      "mode": "mc",
+      "timerSec": 30,
+      "status": "lobby",
+      "createdBy": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "createdAt": "2025-11-16T15:11:57.053Z",
+      "entryIds": [
+        "6f7ee208-3e39-4878-8480-130a3279cc68",
+        "72e323b0-b3c7-4e95-aadd-cfc85fa2fdb2",
+        "f8abc6f2-e81f-4d21-a0ab-b073726b1dda",
+        "7dfa29bc-d8e2-41b1-b041-d62ca53cc1e5",
+        "b410b6aa-be18-454c-8429-9f37747f86c2",
+        "9f2dcde3-4fd4-466d-ae80-6f792254988d",
+        "ca6f505f-5766-44b4-b356-1ddac2db4e5c",
+        "5e677b46-2193-42e8-9689-368f6ed6eb42",
+        "512130b2-f443-4d0a-93a7-8aa576e46181",
+        "d905ce08-b59a-4b2b-9a8f-cd2a46a8650b",
+        "a4f4ef74-fb0f-40be-8760-7968b8fa80c5",
+        "788169bc-de10-4edb-b76d-df38302475f7",
+        "f5d4479a-bd86-40b4-9020-73cc378e5568",
+        "00415bfe-8cc1-4c4b-828c-55fc335e5ebc",
+        "72b1093c-f02d-4f28-be41-576ac46100d9",
+        "66088a05-b614-44e2-b1f8-73f8c907e7ab",
+        "c23621f7-e646-47ff-8bd5-b0a27239fd88",
+        "db71b25c-4c53-443a-b552-1fc481b98cca",
+        "dc7daf63-b3f5-416e-825a-f0ed2d02a466",
+        "293c9cab-6523-4dff-85ae-d52f281d5e64",
+        "51ac276d-544c-476c-b2c5-4f1800d8346c",
+        "ff07436f-67f8-4e7b-aadf-4016ceaf8a9c",
+        "fbce6c6b-b214-4cfe-8dde-035846762383",
+        "2e27f551-7f43-4f30-8bec-2d944842e7ec",
+        "2f7b594d-5c41-4d8b-812b-e09d4ab3a17b",
+        "38d851b9-2206-4bfb-af74-bccd4c58033d",
+        "781e893e-1f49-4a1f-ab61-4ec54de98b8d",
+        "1494faa8-54dd-4237-86b1-d02405fb0f3c",
+        "63f467f8-ee48-4915-a0bf-5f350c1d11b2",
+        "a579f3b1-5cca-48f1-a043-b74c5979e9ba",
+        "de13c193-8503-4364-b22f-7990482e152b",
+        "e31a0d36-d97c-4f34-b99a-a7851e702e69",
+        "c89edb0b-75b2-40d1-8a1e-f29c52a62f0d",
+        "b7850749-01c6-421d-925b-56454a86ef39",
+        "692df987-8c63-46c9-beb3-1885a8cef6c3",
+        "f526f0cf-8390-4b3d-b5ec-1d32489f75c6",
+        "d82870e6-360d-4fb2-a27f-afda09c229a4",
+        "d1472dd7-17ae-4bdd-83c3-9961f9ab49f3",
+        "3dc59a13-8e2e-4dc0-bfb5-a25af41d99f1",
+        "d6c81f7e-be6e-4396-bec9-6b59a41124fb",
+        "16d1144c-4c7e-46af-8885-8e91d914a225",
+        "0a120ce9-c6b2-4fa4-b0b5-91a7cbf19cb4",
+        "086905ff-f5be-4833-ad2d-00fd767c57cb",
+        "c89e4b3d-b377-4e8c-8314-69e39ae4b208",
+        "75da6462-6da2-4c6e-bb36-7d1737b8d1db",
+        "9a9c5931-30fe-4edf-bb8e-ae82403a5b34",
+        "cf43009e-1102-4ad5-acd2-6371b635001d",
+        "44735e5d-2351-451d-8de1-72c023a3a082",
+        "295ba883-7e1a-40ef-9af4-880882a8954d",
+        "980a1f67-3324-4357-a0d6-502bc7e3bd24",
+        "b619e0ce-c743-40b5-95f8-d29ca16c762d",
+        "781da388-5cc1-49aa-bbbc-213cdf2157e7",
+        "501bf967-c13a-4c22-8d8b-64a15d22bc85",
+        "2fe08134-2121-48ce-b3b6-9d1440f5abdc",
+        "52ccf63c-b4de-487e-aea8-560f81c7d37a",
+        "872244ff-6181-48fb-adf8-41e848f0e920",
+        "1b495942-5b64-4e7e-ad08-38a5011d78f0",
+        "9e50e9c2-2aa8-4220-b930-4bda8ceff39b",
+        "c4738a11-05bf-49c0-99ca-0811e566d9c6",
+        "17a0bdcc-4da3-4ebc-846a-d66e56d77e63"
+      ],
+      "dirs": [
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "de2cs",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "de2cs",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "de2cs",
+        "cs2de",
+        "de2cs",
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "cs2de",
+        "de2cs",
+        "cs2de",
+        "cs2de",
+        "cs2de"
+      ],
+      "currentIndex": -1
+    }
+  ],
+  "partyPlayers": [],
+  "partyAnswers": [],
+  "accounts": [],
+  "sessions": [],
+  "teacherCodes": [
+    {
+      "id": "b83b0df7-b892-492c-90a9-702a4ea25cc3",
+      "code": "SXLQA3",
+      "activated": false,
+      "createdAt": "2025-11-14T13:53:02.770Z"
+    },
+    {
+      "id": "1ec647fb-c903-4b00-94cf-6540672fd8c1",
+      "code": "VAC0GH",
+      "activated": false,
+      "createdAt": "2025-11-14T13:53:02.770Z"
+    },
+    {
+      "id": "39ca9e38-4ecf-4b6b-a335-1b368cdacae2",
+      "code": "40NR9K",
+      "activated": false,
+      "createdAt": "2025-11-14T13:53:02.770Z"
+    },
+    {
+      "id": "e177af24-3de0-4abe-b8b8-5dd22425cdf5",
+      "code": "99AFHC",
+      "activated": false,
+      "createdAt": "2025-11-14T13:53:02.770Z"
+    },
+    {
+      "id": "633c28ee-d4e8-4447-abe8-5bcdb5dcb7d5",
+      "code": "MPR9QI",
+      "activated": false,
+      "createdAt": "2025-11-14T13:53:02.770Z"
+    }
+  ],
+  "verificationTokens": [],
+  "assignments": []
+}
