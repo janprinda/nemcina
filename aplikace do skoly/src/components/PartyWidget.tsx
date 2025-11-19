@@ -17,7 +17,8 @@ export default function PartyWidget({ classId, canControl }: { classId: string; 
       } catch {}
     };
     tick();
-    const id = setInterval(tick, 1000);
+    // preventivní refresh každých 30 minut místo 1s pollingu
+    const id = setInterval(tick, 30 * 60 * 1000);
     return () => { alive = false; clearInterval(id); };
   }, [classId]);
 

@@ -2,6 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createLesson as storeCreate, deleteLesson as storeDelete, setLessonPublished } from "@/server/store";
+import { emitTopic } from "@/server/events";
 import { z } from "zod";
 
 const lessonSchema = z.object({
@@ -20,24 +21,28 @@ export async function createLesson(formData: FormData) {
     redirect("/admin/lessons");
   }
   await storeCreate(parsed.data);
+  emitTopic("lessons", { kind: "create" });
   revalidatePath("/admin/lessons");
   redirect("/admin/lessons");
 }
 
 export async function deleteLesson(id: string) {
   await storeDelete(id);
+  emitTopic("lessons", { kind: "delete" });
   revalidatePath("/admin/lessons");
   redirect("/admin/lessons");
 }
 
 export async function publishLesson(id: string) {
   await setLessonPublished(id, true);
+  emitTopic("lessons", { kind: "update" });
   revalidatePath("/admin/lessons");
   redirect("/admin/lessons");
 }
 
 export async function unpublishLesson(id: string) {
   await setLessonPublished(id, false);
+  emitTopic("lessons", { kind: "update" });
   revalidatePath("/admin/lessons");
   redirect("/admin/lessons");
 }

@@ -31,6 +31,14 @@ export default async function AdminIndex() {
     <div className="space-y-6">
       <h1 className="text-xl font-semibold">Admin</h1>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <Link href="/admin/subjects" className="card">
+          <div className="card-body">
+            <div className="font-medium">Předměty</div>
+            <div className="text-sm muted">
+              Správa předmětů (Němčina, Matematika, ...).
+            </div>
+          </div>
+        </Link>
         <Link href="/admin/lessons" className="card">
           <div className="card-body">
             <div className="font-medium">Správa lekcí</div>
@@ -75,4 +83,3 @@ export default async function AdminIndex() {
     </div>
   );
 }
-

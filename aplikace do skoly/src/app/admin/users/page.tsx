@@ -3,19 +3,43 @@ import { revalidatePath } from "next/cache";
 
 async function updateAction(formData: FormData) {
   "use server";
-  const id = String(formData.get("id"));
-  const name = String(formData.get("name") || "");
-  const displayName = String(formData.get("displayName") || "");
-  const nickname = String(formData.get("nickname") || "");
-  const role = String(formData.get("role") || "USER");
-  const rank = String(formData.get("rank") || "");
-  await updateUser(id, {
-    name,
-    displayName,
-    nickname,
-    role: role as any,
-    rank: rank || null,
-  });
+  const id = String(formData.get("id") || "");
+  if (!id) return;
+
+  const patch: any = {};
+
+  const name = formData.get("name");
+  if (name !== null) patch.name = String(name);
+
+  const displayName = formData.get("displayName");
+  if (displayName !== null) patch.displayName = String(displayName);
+
+  const nickname = formData.get("nickname");
+  if (nickname !== null) patch.nickname = String(nickname);
+
+  const role = formData.get("role");
+  if (role !== null) patch.role = String(role) as any;
+
+  const rank = formData.get("rank");
+  if (rank !== null) {
+    const v = String(rank).trim();
+    patch.rank = v || null;
+  }
+
+  const scoreBonus = formData.get("scoreBonus");
+  if (scoreBonus !== null) {
+    const raw = String(scoreBonus).trim();
+    if (raw === "") {
+      patch.scoreBonus = null;
+    } else {
+      const num = Number(raw);
+      patch.scoreBonus = Number.isFinite(num) ? num : 0;
+    }
+  }
+
+  if (Object.keys(patch).length === 0) return;
+
+  await updateUser(id, patch);
   revalidatePath("/admin/users");
 }
 
@@ -26,7 +50,7 @@ export default async function AdminUsersPage() {
       <h1 className="text-xl font-semibold">Správa uživatelů</h1>
       <div className="card">
         <div className="card-body overflow-x-auto">
-          <table className="w-full min-w-[720px] text-sm align-middle">
+          <table className="w-full min-w-[840px] text-sm align-middle">
             <thead className="muted text-left">
               <tr>
                 <th className="py-2 pr-3">Email</th>
@@ -35,6 +59,7 @@ export default async function AdminUsersPage() {
                 <th className="py-2 pr-3">Přezdívka</th>
                 <th className="py-2 pr-3">Role</th>
                 <th className="py-2 pr-3">Titul/Rank</th>
+                <th className="py-2 pr-3">Bonus body</th>
                 <th className="py-2">Akce</th>
               </tr>
             </thead>
@@ -75,7 +100,10 @@ export default async function AdminUsersPage() {
                     </form>
                   </td>
                   <td className="py-2 pr-3 align-top">
-                    <form action={updateAction} className="flex items-center gap-2 min-w-[140px]">
+                    <form
+                      action={updateAction}
+                      className="flex items-center gap-2 min-w-[140px]"
+                    >
                       <input type="hidden" name="id" value={u.id} />
                       <select
                         name="role"
@@ -96,6 +124,22 @@ export default async function AdminUsersPage() {
                         defaultValue={u.rank || ""}
                         className="input"
                         placeholder="např. Prefekt"
+                      />
+                    </form>
+                  </td>
+                  <td className="py-2 pr-3 align-top">
+                    <form action={updateAction} className="min-w-[120px]">
+                      <input type="hidden" name="id" value={u.id} />
+                      <input
+                        name="scoreBonus"
+                        type="number"
+                        className="input"
+                        defaultValue={
+                          typeof u.scoreBonus === "number"
+                            ? String(u.scoreBonus)
+                            : ""
+                        }
+                        placeholder="+0"
                       />
                     </form>
                   </td>

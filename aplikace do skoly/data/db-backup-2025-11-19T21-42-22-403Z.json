@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$2AYVL3P/qqYImcAVX7CNs.qPVxayOclap.w28pjqfxTTnKJnT6Jhq",
+      "passwordHash": "$2a$10$VfYI3XKbAkw8bkdjDsEIleLxY86eYBCwCRWtzejg7kHyjQ.GQBLa.",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -12618,6 +12618,14 @@
       "description": "Slovíčka, kvízy, třídy a živé aktivity.",
       "active": true,
       "createdAt": "2025-11-19T00:00:00.000Z"
+    },
+    {
+      "id": "4e878dc0-b174-49ba-9557-f524c065a00d",
+      "slug": "konverzace",
+      "title": "Konverzace v AJ",
+      "description": "konverzace",
+      "active": true,
+      "createdAt": "2025-11-19T18:37:43.456Z"
     }
   ]
 }

@@ -43,12 +43,45 @@ async function uploadFileAction(formData: FormData) {
   await fs.writeFile(fullPath, buffer);
 
   const text = buffer.toString("utf8");
-  // jednoduchá validace JSONu – aby se databáze nerozbila
+
+  // validace a normalizace JSONu – aby se databáze nerozbila a byla kompatibilní
+  let parsed: any;
   try {
-    JSON.parse(text);
+    parsed = JSON.parse(text);
   } catch {
     return;
   }
+
+  parsed.users ||= [];
+  parsed.lessons ||= [];
+  parsed.entries ||= [];
+  parsed.attempts ||= [];
+  parsed.accounts ||= [];
+  parsed.sessions ||= [];
+  parsed.verificationTokens ||= [];
+  parsed.teacherCodes ||= [];
+  parsed.classes ||= [];
+  parsed.classMemberships ||= [];
+  parsed.chatMessages ||= [];
+  parsed.assignments ||= [];
+  parsed.parties ||= [];
+  parsed.partyPlayers ||= [];
+  parsed.partyAnswers ||= [];
+  parsed.subjects ||= [];
+
+  // pokud chybí předměty, doplníme výchozí Němčinu
+  if (Array.isArray(parsed.subjects) && parsed.subjects.length === 0) {
+    parsed.subjects.push({
+      id: "nemcina-subject-1",
+      slug: "nemcina",
+      title: "Němčina",
+      description: "Slovíčka, kvízy, třídy a živé aktivity.",
+      active: true,
+      createdAt: new Date().toISOString(),
+    });
+  }
+
+  const finalText = JSON.stringify(parsed, null, 2);
 
   // záloha původního db.json
   try {
@@ -60,8 +93,8 @@ async function uploadFileAction(formData: FormData) {
     // pokud db.json neexistuje, není co zálohovat
   }
 
-  // přepsat db.json novým obsahem
-  await fs.writeFile(dbPath, text, "utf8");
+  // přepsat db.json novým (normalizovaným) obsahem
+  await fs.writeFile(dbPath, finalText, "utf8");
 }
 
 export default async function AdminDataPage() {

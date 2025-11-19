@@ -3,7 +3,32 @@ import path from "path";
 import crypto from "crypto";
 
 export type Role = "USER" | "ADMIN" | "TEACHER";
-export type User = { id: string; name?: string | null; displayName?: string | null; nickname?: string | null; email?: string | null; role: Role; passwordHash?: string | null; birthDate?: string | null; interests?: string[] | null; phone?: string | null; desiredClassCode?: string | null; avatarUrl?: string | null; rank?: string | null };
+export type User = {
+  id: string;
+  name?: string | null;
+  displayName?: string | null;
+  nickname?: string | null;
+  email?: string | null;
+  role: Role;
+  passwordHash?: string | null;
+  birthDate?: string | null;
+  interests?: string[] | null;
+  phone?: string | null;
+  desiredClassCode?: string | null;
+  avatarUrl?: string | null;
+  rank?: string | null;
+  // ruční úprava bodového skóre (např. bonusy od admina)
+  scoreBonus?: number | null;
+};
+
+export type Subject = {
+  id: string;
+  slug: string;
+  title: string;
+  description?: string | null;
+  active?: boolean;
+  createdAt: string;
+};
 
 export type TeacherCode = { id: string; code: string; note?: string | null; activated: boolean; activatedAt?: string | null; activatedBy?: string | null; createdAt: string };
 export type Lesson = {
@@ -96,6 +121,7 @@ export type VerificationToken = {
 
 type DB = {
   users: User[];
+  subjects?: Subject[];
   lessons: Lesson[];
   entries: Entry[];
   attempts: Attempt[];
@@ -120,12 +146,13 @@ function emptyDb(): DB {
     users: [],
     lessons: [],
     entries: [],
-    attempts: [],
-    accounts: [],
-    sessions: [],
-    verificationTokens: [],
-    teacherCodes: [],
-    classes: [],
+  attempts: [],
+  accounts: [],
+  sessions: [],
+  verificationTokens: [],
+  teacherCodes: [],
+  subjects: [],
+  classes: [],
     classMemberships: [],
     chatMessages: [],
     assignments: [],
@@ -164,6 +191,7 @@ async function read(): Promise<DB> {
     const db = JSON.parse(raw) as DB;
     // normalize missing arrays
     (db as any).users ||= [];
+    (db as any).subjects ||= [];
     (db as any).lessons ||= [];
     (db as any).entries ||= [];
     (db as any).attempts ||= [];
@@ -188,6 +216,60 @@ async function read(): Promise<DB> {
 async function write(db: DB) { await writeRaw(JSON.stringify(db, null, 2)); }
 
 const id = () => crypto.randomUUID();
+
+// Subjects (předměty)
+export async function listSubjects(): Promise<Subject[]> {
+  const db = await read();
+  db.subjects ||= [];
+  // nejnovější nahoře
+  return db.subjects.slice().sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+}
+
+export async function createSubject(data: {
+  slug: string;
+  title: string;
+  description?: string | null;
+  active?: boolean;
+}) {
+  const db = await read();
+  db.subjects ||= [];
+  const slug = data.slug.trim().toLowerCase();
+  if (!slug) throw new Error("Slug je povinný");
+  if (db.subjects.some((s) => s.slug === slug)) {
+    throw new Error("Předmět s tímto slugem už existuje");
+  }
+  const subject: Subject = {
+    id: id(),
+    slug,
+    title: data.title.trim() || slug,
+    description: data.description ?? null,
+    active: data.active ?? true,
+    createdAt: new Date().toISOString(),
+  };
+  db.subjects.push(subject);
+  await write(db);
+  return subject;
+}
+
+export async function updateSubject(
+  subjectId: string,
+  patch: Partial<Pick<Subject, "title" | "description" | "active">>
+) {
+  const db = await read();
+  db.subjects ||= [];
+  const idx = db.subjects.findIndex((s) => s.id === subjectId);
+  if (idx === -1) return null;
+  db.subjects[idx] = { ...db.subjects[idx], ...patch };
+  await write(db);
+  return db.subjects[idx];
+}
+
+export async function deleteSubject(subjectId: string) {
+  const db = await read();
+  db.subjects ||= [];
+  db.subjects = db.subjects.filter((s) => s.id !== subjectId);
+  await write(db);
+}
 
 export async function getLessons(): Promise<Lesson[]> { const db = await read(); return db.lessons.sort((a,b)=> (a.createdAt < b.createdAt ? 1 : -1)); }
 export async function getPublishedLessons(): Promise<Lesson[]> { const db = await read(); return db.lessons.filter(l=>!!l.published).sort((a,b)=> (a.createdAt < b.createdAt ? 1 : -1)); }
@@ -420,6 +502,13 @@ export async function postMessage(classId: string, userId: string, content: stri
   const msg: ChatMessage = { id: id(), classId, userId, content: String(content).slice(0, 1000), createdAt: new Date().toISOString() };
   (db.chatMessages ||= []).push(msg);
   await write(db);
+  // upozornění pro SSE chat (best-effort, případné chyby ignorujeme)
+  try {
+    const mod = await import("@/server/events");
+    (mod as any).emitTopic?.(`chat:${classId}`, { kind: "message", id: msg.id });
+  } catch {
+    // ignore
+  }
   return msg;
 }
 

@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
@@ -24,7 +25,8 @@ const NAME_COLORS = [
 
 function colorForUser(userId: string) {
   let h = 0;
-  for (let i = 0; i < userId.length; i++) h = (h * 31 + userId.charCodeAt(i)) >>> 0;
+  for (let i = 0; i < userId.length; i++)
+    h = (h * 31 + userId.charCodeAt(i)) >>> 0;
   return NAME_COLORS[h % NAME_COLORS.length];
 }
 
@@ -44,20 +46,45 @@ export default function ClassChat({
 
   useEffect(() => {
     let alive = true;
+
     const load = async () => {
       try {
-        const res = await fetch(`/api/class/${encodeURIComponent(classId)}/messages`, {
-          cache: "no-store",
-        });
+        const res = await fetch(
+          `/api/class/${encodeURIComponent(classId)}/messages`,
+          { cache: "no-store" }
+        );
         const j = await res.json();
         if (alive) setMsgs(j);
-      } catch {}
+      } catch {
+        // ignore
+      }
     };
+
+    // úvodní načtení
     load();
-    const id = setInterval(load, 1000);
+
+    // SSE stream – posloucháme změny chatu v dané třídě
+    const es = new EventSource(
+      `/api/events/stream?topic=${encodeURIComponent(`chat:${classId}`)}`
+    );
+    es.onmessage = (e) => {
+      try {
+        const data = JSON.parse(e.data);
+        if (data?.type === "event") {
+          load();
+        }
+      } catch {
+        // ignore
+      }
+    };
+
+    // pojistka – každých 30 minut full refresh
+    const intervalId = setInterval(load, 30 * 60 * 1000);
+
     return () => {
       alive = false;
-      clearInterval(id);
+      es.close();
+      clearInterval(intervalId);
     };
   }, [classId]);
 
@@ -81,7 +108,9 @@ export default function ClassChat({
         return (
           <div
             key={m.id}
-            className={`text-sm flex ${isMe ? "justify-end" : "justify-start"}`}
+            className={`text-sm flex ${
+              isMe ? "justify-end" : "justify-start"
+            }`}
           >
             <div
               className={`px-3 py-2 rounded-lg border inline-block max-w-[70%] break-words ${
@@ -109,7 +138,9 @@ export default function ClassChat({
                     {name}
                   </span>
                 </div>
-                <span className="muted text-[10px] whitespace-nowrap">{ts}</span>
+                <span className="muted text-[10px] whitespace-nowrap">
+                  {ts}
+                </span>
               </div>
               <div className="text-sm mt-1 whitespace-pre-wrap break-words text-gray-100">
                 {m.content}
@@ -125,4 +156,3 @@ export default function ClassChat({
     </div>
   );
 }
-

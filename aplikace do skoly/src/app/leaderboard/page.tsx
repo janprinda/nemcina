@@ -11,10 +11,12 @@ type Row = {
 
 export default async function LeaderboardPage() {
   const [users, attempts] = await Promise.all([getUsers(), getAttempts()]);
+
   const byUser = new Map<
     string,
     { correct: number; total: number; points: number }
   >();
+
   for (const a of attempts) {
     if (!a.userId) continue;
     const r = byUser.get(a.userId) ?? { correct: 0, total: 0, points: 0 };
@@ -23,13 +25,16 @@ export default async function LeaderboardPage() {
     r.points += a.points ?? 0;
     byUser.set(a.userId, r);
   }
+
   const rows: Row[] = Array.from(byUser.entries())
     .map(([userId, { correct, total, points }]) => {
       const u = users.find((x) => x.id === userId);
       if (!u) return null as any;
       const name = u.displayName || u.name || u.email || "Bez jména";
+      const bonus = u.scoreBonus ?? 0;
+      const totalPoints = points + bonus;
       const accuracy = total ? Math.round((correct / total) * 100) : 0;
-      return { userId, name, correct, total, accuracy, points };
+      return { userId, name, correct, total, accuracy, points: totalPoints };
     })
     .filter((x): x is Row => !!x)
     .sort((a, b) => b.points - a.points || b.correct - a.correct);
@@ -77,4 +82,3 @@ export default async function LeaderboardPage() {
     </div>
   );
 }
-

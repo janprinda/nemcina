@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/server/authOptions";
 import { joinClassByCode, postMessage } from "@/server/store";
 import { revalidatePath } from "next/cache";
+import { emitTopic } from "@/server/events";
 
 export async function joinByCodeAction(formData: FormData) {
   const session = await getServerSession(authOptions as any);
@@ -21,6 +22,6 @@ export async function sendMessageAction(classId: string, formData: FormData) {
   const content = String(formData.get('content') || '').trim();
   if (!content) return;
   await postMessage(classId, uid, content);
+  emitTopic(`chat:${classId}`, { kind: "message" });
   revalidatePath('/classes');
 }
-

@@ -4,6 +4,7 @@ import { authOptions } from "@/server/authOptions";
 import { createClass as storeCreateClass, regenerateClassCode as storeRegen, postMessage, createParty, listMessages, getUserById, updateClass } from "@/server/store";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { emitTopic } from "@/server/events";
 
 export async function createClassAction(formData: FormData) {
   const session = await getServerSession(authOptions as any);
@@ -47,6 +48,7 @@ export async function sendClassMessageAction(classId: string, formData: FormData
     }
   }
   await postMessage(classId, uid, content);
+  emitTopic(`chat:${classId}`, { kind: "message" });
   revalidatePath('/teacher/class');
 }
 

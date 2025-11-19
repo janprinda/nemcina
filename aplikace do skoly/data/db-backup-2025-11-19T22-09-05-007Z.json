@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$2AYVL3P/qqYImcAVX7CNs.qPVxayOclap.w28pjqfxTTnKJnT6Jhq",
+      "passwordHash": "$2a$10$aaSNB1K.KUada5qN1syuiuBUTGBGcHsqboaFZeMcDLgLrn0VhcSPm",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -12610,14 +12610,5 @@
   ],
   "verificationTokens": [],
   "assignments": [],
-  "subjects": [
-    {
-      "id": "nemcina-subject-1",
-      "slug": "nemcina",
-      "title": "Němčina",
-      "description": "Slovíčka, kvízy, třídy a živé aktivity.",
-      "active": true,
-      "createdAt": "2025-11-19T00:00:00.000Z"
-    }
-  ]
+  "subjects": []
 }
