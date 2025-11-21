@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$2AYVL3P/qqYImcAVX7CNs.qPVxayOclap.w28pjqfxTTnKJnT6Jhq",
+      "passwordHash": "$2a$10$2jYu6cR9IUGf.9zIIYXLg.ISIEM2H9M/UGM91qdtWtn94oD5EHs.O",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -12459,6 +12459,20 @@
       "userId": "84f3aadb-1056-43d0-bed5-",
       "content": "efef",
       "createdAt": "2025-11-16T21:07:28.317Z"
+    },
+    {
+      "id": "69f38b08-7600-4eb3-a68a-8af1ea04ecde",
+      "classId": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "content": "efff",
+      "createdAt": "2025-11-20T15:17:48.726Z"
+    },
+    {
+      "id": "fe628bdc-d951-4344-8c25-052a8e8fff41",
+      "classId": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "content": "rfff",
+      "createdAt": "2025-11-21T12:44:11.254Z"
     }
   ],
   "parties": [
