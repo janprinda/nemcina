@@ -13,20 +13,22 @@ type User = {
   avatarUrl?: string | null;
 };
 
+// Jemnější barvy pro odlišení uživatelů (jen malá tečka, ne celé jméno)
 const NAME_COLORS = [
-  "#f97373",
-  "#facc15",
-  "#4ade80",
-  "#60a5fa",
-  "#a855f7",
-  "#fb923c",
-  "#2dd4bf",
+  "#fca5a5", // jemná červená
+  "#fde68a", // jemná žlutá
+  "#bbf7d0", // jemná zelená
+  "#bfdbfe", // jemná modrá
+  "#e9d5ff", // jemná fialová
+  "#fed7aa", // jemná oranžová
+  "#a5f3fc", // jemná tyrkysová
 ];
 
 function colorForUser(userId: string) {
   let h = 0;
-  for (let i = 0; i < userId.length; i++)
+  for (let i = 0; i < userId.length; i++) {
     h = (h * 31 + userId.charCodeAt(i)) >>> 0;
+  }
   return NAME_COLORS[h % NAME_COLORS.length];
 }
 
@@ -63,7 +65,7 @@ export default function ClassChat({
     // úvodní načtení
     load();
 
-    // SSE stream – posloucháme změny chatu v dané třídě
+    // SSE – posloucháme jen změny chatu pro danou třídu
     const es = new EventSource(
       `/api/events/stream?topic=${encodeURIComponent(`chat:${classId}`)}`
     );
@@ -102,9 +104,9 @@ export default function ClassChat({
           hour12: false,
         });
         const name = u?.displayName || u?.name || u?.email || "Bez jména";
-        const baseColor = colorForUser(m.userId);
+        const userColor = colorForUser(m.userId);
         const isMe = currentUserId && m.userId === currentUserId;
-        const nameColor = isMe ? "#0b0f1f" : baseColor;
+
         return (
           <div
             key={m.id}
@@ -116,7 +118,7 @@ export default function ClassChat({
               className={`px-3 py-2 rounded-lg border inline-block max-w-[70%] break-words ${
                 isMe
                   ? "bg-[var(--accent)] text-[var(--bg)] border-transparent"
-                  : "bg-[var(--card)] border-[var(--border)]"
+                  : "bg-[var(--card)] border-[var(--border)] text-gray-100"
               }`}
             >
               <div className="flex items-center justify-between gap-3">
@@ -130,19 +132,23 @@ export default function ClassChat({
                       className="w-5 h-5 rounded-full object-cover"
                     />
                   )}
+                  {/* malá barevná tečka podle uživatele */}
                   <span
-                    className="text-xs font-semibold"
-                    style={{ color: nameColor }}
+                    className="w-2 h-2 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: userColor }}
+                  />
+                  <span
+                    className="text-xs font-semibold truncate"
                     title={name}
                   >
                     {name}
                   </span>
                 </div>
-                <span className="muted text-[10px] whitespace-nowrap">
+                <span className="text-[10px] text-gray-400 whitespace-nowrap">
                   {ts}
                 </span>
               </div>
-              <div className="text-sm mt-1 whitespace-pre-wrap break-words text-gray-100">
+              <div className="text-sm mt-1 whitespace-pre-wrap break-words">
                 {m.content}
               </div>
             </div>

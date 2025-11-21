@@ -1,8 +1,10 @@
 import { getAttempts, getUsers } from "@/server/store";
+import Image from "next/image";
 
 type Row = {
   userId: string;
   name: string;
+  avatarUrl: string | null;
   correct: number;
   total: number;
   accuracy: number;
@@ -31,10 +33,19 @@ export default async function LeaderboardPage() {
       const u = users.find((x) => x.id === userId);
       if (!u) return null as any;
       const name = u.displayName || u.name || u.email || "Bez jména";
+      const avatarUrl = u.avatarUrl || null;
       const bonus = u.scoreBonus ?? 0;
       const totalPoints = points + bonus;
       const accuracy = total ? Math.round((correct / total) * 100) : 0;
-      return { userId, name, correct, total, accuracy, points: totalPoints };
+      return {
+        userId,
+        name,
+        avatarUrl,
+        correct,
+        total,
+        accuracy,
+        points: totalPoints,
+      };
     })
     .filter((x): x is Row => !!x)
     .sort((a, b) => b.points - a.points || b.correct - a.correct);
@@ -44,7 +55,7 @@ export default async function LeaderboardPage() {
       <h1 className="text-xl font-semibold">Žebříček</h1>
       {rows.length === 0 ? (
         <div className="muted">
-          Zatím žádná data. Začni trénovat a výsledky se zde objeví.
+          Zatím žádná data. Začni trénovat a výsledky se zde objev í.
         </div>
       ) : (
         <div className="card">
@@ -66,12 +77,23 @@ export default async function LeaderboardPage() {
                     key={r.userId}
                     className="border-t border-[var(--border)]"
                   >
-                    <td className="py-2">{i + 1}</td>
-                    <td>{r.name}</td>
-                    <td>{r.points}</td>
-                    <td>{r.correct}</td>
-                    <td>{r.total}</td>
-                    <td>{r.accuracy}%</td>
+                    <td className="py-2 align-middle">{i + 1}</td>
+                    <td className="py-2 align-middle">
+                      <div className="flex items-center gap-2">
+                        <Image
+                          src={r.avatarUrl || "/avatar-placeholder.svg"}
+                          alt={r.name}
+                          width={28}
+                          height={28}
+                          className="w-7 h-7 rounded-full object-cover bg-[var(--border)]"
+                        />
+                        <span>{r.name}</span>
+                      </div>
+                    </td>
+                    <td className="py-2 align-middle">{r.points}</td>
+                    <td className="py-2 align-middle">{r.correct}</td>
+                    <td className="py-2 align-middle">{r.total}</td>
+                    <td className="py-2 align-middle">{r.accuracy}%</td>
                   </tr>
                 ))}
               </tbody>

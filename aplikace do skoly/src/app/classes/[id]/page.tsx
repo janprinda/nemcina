@@ -6,7 +6,6 @@ import {
   listMessages,
   listAssignmentsForClass,
 } from "@/server/store";
-import PartyWidget from "@/components/PartyWidget";
 import ClassChat from "@/components/ClassChat";
 import CopyCode from "@/components/CopyCode";
 import { sendMessageAction } from "../actions";
@@ -30,7 +29,9 @@ export default async function ClassDetailPage({
   if (!c) {
     return (
       <div className="space-y-4 max-w-3xl mx-auto">
-        <p className="text-sm muted">Tuto třídu nemáš mezi svými třídami.</p>
+        <p className="text-sm muted">
+          Tuto třídu nemáš mezi svými třídami.
+        </p>
         <Link className="btn btn-secondary" href="/classes">
           Zpět na výběr tříd
         </Link>
@@ -62,14 +63,17 @@ export default async function ClassDetailPage({
           <div className="font-medium mb-1">Třídní chat</div>
           <ClassChat classId={c.id} users={users as any} />
           <form
-            key={msgs.length}
             action={sendMessageAction.bind(null, c.id)}
             className="flex gap-2 mt-2"
           >
             <input
               className="input flex-1"
               name="content"
-              placeholder="Napiš zprávu…"
+              placeholder="Napiš zprávu..."
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
             />
             <button className="btn btn-primary" type="submit">
               Odeslat
@@ -105,8 +109,6 @@ export default async function ClassDetailPage({
         </div>
       </div>
 
-      <PartyWidget classId={c.id} />
     </div>
   );
 }
-

@@ -8,80 +8,191 @@ html { font-size: clamp(15px, 0.9vw + 12px, 19px); }
 
 @layer base {
   :root {
-    --bg: #0f1224;
-    --card: #151a2f;
-    --border: #27304d;
-    --fg: #e6e9f5;
-    --muted: #a6b0d4;
-    --accent: #84c5f4;
-    --accent-2: #b6f0d1;
-    --accent-5: #cbb9ff;
+    /* CORE PALETTE: DEEP SPACE CYBERPUNK */
+    --bg: #020617;        /* Deepest Void (Slate 950) */
+    --card: rgba(30, 41, 59, 0.65); /* Translucent Glass Surface */
+    --border: rgba(148, 163, 184, 0.15); /* Subtle lighting edge */
+    
+    /* TEXT HIERARCHY */
+    --fg: #f8fafc;        /* Crisp Off-White (Slate 50) */
+    --muted: #94a3b8;     /* Cool Gray (Slate 400) */
+    
+    /* NEON ACCENTS (High Saturation) */
+    --accent: #06b6d4;    /* CYBER CYAN (Masculine/Der) */
+    --accent-2: #10b981;  /* NEON EMERALD (Neuter/Das) */
+    --accent-5: #a855f7;  /* ELECTRIC VIOLET (Feminine/Die) */
   }
-  body { background: radial-gradient(1000px 600px at 50% -10%, #1a1f3a 0%, var(--bg) 60%); color: var(--fg); }
-  a { color: #96c9ff; }
-  a:hover { color: #c6e2ff; }
-  input, select, textarea { background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: 0.5rem; }
-  label { color: var(--muted); }
+
+  body { 
+    background-color: var(--bg);
+    /* ADVANCED AURORA: Uses existing vars to create atmosphere */
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.15), transparent 25%), /* Cyan Glow */
+      radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%), /* Violet Glow */
+      linear-gradient(180deg, var(--bg) 0%, #0f172a 100%); /* Deep fade */
+    background-attachment: fixed;
+    color: var(--fg);
+    font-family: 'Inter', sans-serif; /* Assumed font for modern look */
+  }
+
+  a { 
+    color: var(--accent); 
+    text-decoration: none;
+    transition: text-shadow 0.3s ease;
+  }
+  a:hover { 
+    color: #67e8f9; /* Lighter Cyan */
+    text-shadow: 0 0 12px rgba(6, 182, 212, 0.6); /* Neon Bloom */
+  }
+
+  input, select, textarea { 
+    background: rgba(15, 23, 42, 0.8); /* Darker than card */
+    color: var(--fg); 
+    border: 1px solid var(--border); 
+    border-radius: 0.5rem; 
+  }
+  
+  label { 
+    color: var(--muted); 
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
 }
 
 @layer components {
-  .container { @apply mx-auto max-w-7xl px-4; }
-  .card { border: 1px solid var(--border); background: var(--card); border-radius: 0.75rem; }
-  .card-body { @apply p-4; }
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded px-3 py-2 text-sm font-medium transition-colors; }
-  /* Global interactive polish */
-  .btn { position: relative; overflow: hidden; background-size: 200% 200%; transition: background-position .35s ease, box-shadow .25s ease; }
-  .btn:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(132,197,244,.45); }
-  /* No lift on hover/active */
-  .btn:hover { transform: none; }
-  .btn:active { transform: none; }
+.container { @apply mx-auto max-w-7xl px-4; }
 
-  /* Primary with animated gradient sweep */
-  .btn-primary { color: #0b0f1f; background-image: linear-gradient(135deg, var(--accent), var(--accent-5)); }
-  .btn-primary:hover { background-position: 100% 0; }
+  /* --- GLASSMORPHISM CARD --- */
+.card { 
+    border: 1px solid var(--border); 
+    background: var(--card); 
+    border-radius: 0.75rem; 
+    /* The "Frosted Glass" Blur */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Top-light reflection for depth */
+    box-shadow: 
+      0 4px 24px -1px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+.card-body { @apply p-5; }
 
-  /* Secondary with subtle gradient film + hover sweep */
-  .btn-secondary { color: var(--fg); background-color: #202744; background-image: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.08)); border: 1px solid var(--border); }
-  .btn-secondary:hover { background-position: 100% 0; background-color: #263156; }
+  /* --- KINETIC BUTTONS --- */
+.btn { 
+    @apply inline-flex items-center justify-center gap-2 rounded px-4 py-2 text-sm font-bold transition-all; 
+    position: relative; overflow: hidden; 
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+  
+.btn:focus-visible { 
+    outline: none; 
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); 
+  }
 
-  /* Ghost with faint gradient glow on hover */
-  .btn-ghost { color: var(--fg); background-image: linear-gradient(135deg, rgba(255,255,255,0), rgba(255,255,255,0.06)); }
-  .btn-ghost:hover { background-position: 100% 0; background-color: rgba(255,255,255,0.05); }
+  /* PRIMARY: Liquid Gradient using Accent & Accent-5 */
+.btn-primary { 
+    color: #fff; 
+    background-image: linear-gradient(135deg, var(--accent) 0%, var(--accent-5) 100%);
+    background-size: 200% 200%;
+    border: none;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+  }
+.btn-primary:hover { 
+    background-position: 100% 0; /* Animation effect */
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4); /* Glow shifts to purple */
+    transform: translateY(-1px);
+  }
 
-  /* Exclude gender chips from generic hover tweaks */
-  .btn.gender-der:hover,
-  .btn.gender-die:hover,
-  .btn.gender-das:hover { background-position: initial; background-color: initial; }
-  .header-grad { background: linear-gradient(180deg, rgba(182,240,209,0.06), rgba(132,197,244,0)); border-bottom: 1px solid var(--border); }
-  .muted { color: var(--muted); }
-  .field { text-align: left; }
-  .field label { @apply text-sm; color: var(--muted); }
-  .input { @apply w-full px-3 py-2 rounded; background: var(--card); color: var(--fg); border: 1px solid var(--border); transition: border-color .2s ease, box-shadow .2s ease; }
-  .input-lg { @apply px-4 py-3 text-base; }
-  .input::placeholder { color: #9aa3c0; opacity: .85; }
-  .input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(132,197,244,.15); }
-  .select { @apply rounded border bg-[var(--card)] text-[var(--fg)]; border-color: var(--border); -webkit-appearance: none; -moz-appearance: none; appearance: none; padding: .5rem 2.25rem .5rem .5rem; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23cbd5ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .6rem center; background-size: 12px 8px; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
-  .select-lg { @apply text-base; }
-  .select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(132,197,244,.15); }
-  .select:hover { background-color: rgba(255,255,255,.02); }
-  .card { border: 1px solid var(--border); background: var(--card); border-radius: 0.9rem; box-shadow: 0 8px 24px rgba(0,0,0,.15); }
-  .card-body { @apply p-5; }
-  table tr:hover { background: rgba(255,255,255,.02); }
-  .stepper { @apply flex items-center justify-center gap-2 text-xs; }
-  .step { @apply h-2 w-2 rounded-full bg-[var(--border)]; }
-  .step-active { background: var(--accent); }
-  .text-der { color: #84c5f4; }
-  .text-die { color: #f7c8d0; }
-  .text-das { color: #b6f0d1; }
-  .chip { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium; }
-  .chip-der { color: #0b0f1f; background: linear-gradient(135deg, #84c5f4, #cbb9ff); }
-  .chip-die { color: #0b0f1f; background: linear-gradient(135deg, #f7c8d0, #cbb9ff); }
-  .chip-das { color: #0b0f1f; background: linear-gradient(135deg, #b6f0d1, #84c5f4); }
-  .gender-der { color: #0b0f1f; background: linear-gradient(135deg, #84c5f4, #cbb9ff); }
-  .gender-die { color: #0b0f1f; background: linear-gradient(135deg, #f7c8d0, #cbb9ff); }
-  .gender-das { color: #0b0f1f; background: linear-gradient(135deg, #b6f0d1, #84c5f4); }
-  .overlay { @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm; }
-  .confetti-layer { @apply absolute inset-0 overflow-hidden pointer-events-none; }
+  /* SECONDARY: Ghost Glass */
+.btn-secondary { 
+    color: var(--fg); 
+    background-color: rgba(255,255,255,0.03); 
+    border: 1px solid var(--border); 
+    backdrop-filter: blur(4px);
+  }
+.btn-secondary:hover { 
+    background-color: rgba(255,255,255,0.08); 
+    border-color: var(--accent); 
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+  }
+
+  /* --- ADVANCED INPUTS --- */
+.input { 
+    @apply w-full px-3 py-2 rounded; 
+    background: rgba(2, 6, 23, 0.5); /* Recessed depth */
+    color: var(--fg); 
+    border: 1px solid var(--border); 
+    transition: all 0.2s ease;
+  }
+.input:focus { 
+    outline: none; 
+    border-color: var(--accent); 
+    box-shadow: 0 0 0 1px var(--accent), 0 0 15px rgba(6, 182, 212, 0.2); /* Cyan Glow */
+  }
+.input::placeholder { color: rgba(148, 163, 184, 0.5); }
+
+  /* --- SEMANTIC GENDER CHIPS (NEON LINGUIST) --- */
+.chip { 
+    @apply inline-flex items-center rounded-full px-3 py-0.5 text-xs font-bold tracking-wide; 
+    border: 1px solid transparent;
+  }
+
+  /* DER (Masculine) -> ACCENT (Cyan) */
+.chip-der,.gender-der { 
+    color: #020617; 
+    background: linear-gradient(135deg, var(--accent), #67e8f9);
+    box-shadow: 0 2px 10px rgba(6, 182, 212, 0.2);
+  }
+.text-der { 
+    color: var(--accent); 
+    filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.4));
+  }
+
+  /* DIE (Feminine) -> ACCENT-5 (Violet) */
+.chip-die,.gender-die { 
+    color: #fff; 
+    background: linear-gradient(135deg, var(--accent-5), #d8b4fe);
+    box-shadow: 0 2px 10px rgba(168, 85, 247, 0.2);
+  }
+.text-die { 
+    color: var(--accent-5);
+    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.4));
+  }
+
+  /* DAS (Neuter) -> ACCENT-2 (Emerald) */
+.chip-das,.gender-das { 
+    color: #020617; 
+    background: linear-gradient(135deg, var(--accent-2), #6ee7b7);
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.2);
+  }
+.text-das { 
+    color: var(--accent-2);
+    filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.4));
+  }
+  
+  /* Interactive Chip Hover */
+.btn.gender-der:hover,.btn.gender-die:hover,.btn.gender-das:hover {
+    filter: brightness(1.15) contrast(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  /* --- UTILITIES & EXTRAS --- */
+.header-grad { 
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.08), transparent); 
+    border-bottom: 1px solid var(--border); 
+  }
+  
+.stepper { @apply flex items-center justify-center gap-2 text-xs; }
+.step { @apply h-2 w-2 rounded-full bg-[var(--border)]; }
+.step-active { 
+    background: var(--accent); 
+    box-shadow: 0 0 8px var(--accent); 
+  }
+  
+.overlay { @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm; }
 }
 
 /* Simple celebratory animations */

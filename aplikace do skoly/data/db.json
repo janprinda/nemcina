@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$lvCZhN2VZZf8qNzttRW/tO9Yd.LjfI91qt0hc2aOD4eMa.3cZIkGW",
+      "passwordHash": "$2a$10$CP0cd4qq4ZLnQySGLLxMl.YDmAD3chBM0CLmbvQXBac/Pe1svL6Mq",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -12398,6 +12398,50 @@
       "mode": "mc",
       "dir": "cs2de",
       "createdAt": "2025-11-19T06:37:59.836Z"
+    },
+    {
+      "id": "b465727b-6cb9-405b-b05a-1b5ffda94613",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "99883874-e0b3-4e37-8445-a099b7953193",
+      "answer": "Amerika",
+      "correct": true,
+      "points": 35,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-21T19:38:35.706Z"
+    },
+    {
+      "id": "ab4a558e-48b3-400f-a6fc-9f4275d7fcd2",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "190bbae2-81db-4d4a-9689-99da7bf40578",
+      "answer": "Sportinitiative",
+      "correct": true,
+      "points": 35,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-21T19:38:41.224Z"
+    },
+    {
+      "id": "1bd81948-1289-4251-9ebc-1da16b6e6a2a",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "902014de-34e1-4ee4-84e9-6631617846d1",
+      "answer": "Kroatisch",
+      "correct": false,
+      "points": 18,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-21T19:38:45.131Z"
+    },
+    {
+      "id": "7d8aff0c-4f36-4753-bff5-9c146080193e",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "entryId": "902014de-34e1-4ee4-84e9-6631617846d1",
+      "answer": "Kroatisch",
+      "correct": false,
+      "points": 18,
+      "mode": "mc",
+      "dir": "cs2de",
+      "createdAt": "2025-11-21T19:38:47.588Z"
     }
   ],
   "classes": [
@@ -12480,6 +12524,27 @@
       "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
       "content": "cc",
       "createdAt": "2025-11-21T13:28:22.615Z"
+    },
+    {
+      "id": "d8b79a29-b8ea-4385-b5f4-7cfa05a06ade",
+      "classId": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "content": "nigger",
+      "createdAt": "2025-11-21T18:11:09.582Z"
+    },
+    {
+      "id": "a18aedb1-a1aa-416a-ab1d-7fdb874bbaf2",
+      "classId": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "content": "blub",
+      "createdAt": "2025-11-21T18:11:18.390Z"
+    },
+    {
+      "id": "55fec0b9-50a0-4cd4-a13d-0bf36f7ad495",
+      "classId": "32053f46-46d8-4eda-b3b7-5c55ed457a60",
+      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
+      "content": "nigger",
+      "createdAt": "2025-11-21T19:46:05.882Z"
     }
   ],
   "parties": [
@@ -12590,7 +12655,7 @@
         "cs2de",
         "de2cs"
       ],
-      "currentIndex": 8
+      "currentIndex": 10
     }
   ],
   "partyPlayers": [],
@@ -12639,6 +12704,14 @@
       "description": "Slovíčka, kvízy, třídy a živé aktivity.",
       "active": true,
       "createdAt": "2025-11-19T00:00:00.000Z"
+    },
+    {
+      "id": "3ff8460e-aeea-47a0-ba4a-4ba6b4eb0e85",
+      "slug": "anglictina",
+      "title": "Angličtina",
+      "description": "Anglictina-jazyk",
+      "active": true,
+      "createdAt": "2025-11-21T18:19:12.788Z"
     }
   ]
 }

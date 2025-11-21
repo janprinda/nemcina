@@ -9,3 +9,20 @@ yarn-debug.log*
 yarn-error.log*
 server.log
 *.zip
+
+services:
+  db:
+    image: postgres:16
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_USER: user
+      POSTGRES_DB: aplikace_do_skoly
+    volumes:
+      - aplikace-do-skoly-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  aplikace-do-skoly-data:

@@ -38,6 +38,9 @@ export type Lesson = {
   createdAt: string;
   published?: boolean;
   unlockScore?: number | null;
+  // volitelně: ID předmětu a pořadí v rámci předmětu (přidáváme runtime, typ necháváme volnější)
+  // subjectId?: string | null;
+  // orderIndex?: number | null;
 };
 export type Entry = {
   id: string;

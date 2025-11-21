@@ -16,25 +16,49 @@ export default async function ClassesPage() {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
-      <div className="card">
-        <div className="card-body grid md:grid-cols-2 gap-4">
-          <form action={joinByCodeAction} className="space-y-2">
+      <header className="space-y-1">
+        <h1 className="text-xl font-semibold">Třída</h1>
+        <p className="text-sm muted">
+          Připoj se do třídy pomocí kódu a pak si vyber, ve které třídě chceš pracovat.
+        </p>
+      </header>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {/* Připojení pomocí kódu */}
+        <div className="card">
+          <div className="card-body space-y-3">
             <div>
-              <label className="block text-sm">Připojit se ke třídě (kód)</label>
-              <input
-                name="code"
-                className="input"
-                placeholder="Zadej kód třídy"
-              />
+              <div className="font-medium">Připojit se do třídy</div>
+              <div className="text-xs muted">
+                Zadej kód třídy, který ti dal učitel.
+              </div>
             </div>
-            <button className="btn btn-primary" type="submit">
-              Připojit
-            </button>
-          </form>
-          <div>
-            <div className="font-medium mb-1">Třída</div>
-            <div className="text-xs muted mb-1">Vyber si třídu:</div>
-            <ul className="text-sm space-y-1">
+            <form action={joinByCodeAction} className="space-y-2">
+              <div>
+                <label className="block text-sm">Kód třídy</label>
+                <input
+                  name="code"
+                  className="input"
+                  placeholder="např. AB12CD"
+                />
+              </div>
+              <button className="btn btn-primary w-full md:w-auto" type="submit">
+                Připojit
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Výběr třídy */}
+        <div className="card">
+          <div className="card-body space-y-3">
+            <div>
+              <div className="font-medium">Moje třídy</div>
+              <div className="text-xs muted">
+                Vyber si třídu, do které chceš vstoupit.
+              </div>
+            </div>
+            <ul className="text-sm space-y-2">
               {classes.map((cls) => {
                 const teacher = users.find((u) => u.id === cls.teacherId);
                 const teacherName =
@@ -43,16 +67,22 @@ export default async function ClassesPage() {
                   <li key={cls.id}>
                     <Link
                       href={`/classes/${encodeURIComponent(cls.id)}`}
-                      className="inline-flex items-center justify-between w-full rounded px-3 py-2 text-left text-xs md:text-sm border border-[var(--border)] bg-[var(--card)]/40 hover:bg-[var(--card)]/70"
+                      className="flex items-center justify-between gap-3 rounded-lg px-3 py-2 border border-[var(--border)] bg-[var(--card)]/60 hover:bg-[var(--card)]"
                     >
-                      <span className="font-medium mr-2 truncate">{cls.name}</span>
-                      <span className="muted truncate">učitel: {teacherName}</span>
+                      <div className="min-w-0">
+                        <div className="font-medium truncate">{cls.name}</div>
+                        <div className="text-[11px] muted truncate">
+                          Učitel: {teacherName}
+                        </div>
+                      </div>
                     </Link>
                   </li>
                 );
               })}
               {classes.length === 0 && (
-                <li className="muted">Zatím nejsi v žádné třídě.</li>
+                <li className="muted text-xs">
+                  Zatím nejsi v žádné třídě. Použij kód od učitele a připoj se.
+                </li>
               )}
             </ul>
           </div>

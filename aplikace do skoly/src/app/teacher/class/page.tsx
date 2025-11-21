@@ -4,7 +4,6 @@ import {
   createClassAction,
   regenerateCodeAction,
   sendClassMessageAction,
-  startPartyAction,
   updateCooldownAction,
   renameClassAction,
 } from "./actions";
@@ -13,10 +12,8 @@ import {
   listClassMembers,
   listClassesForUser,
   listMessages,
-  getLessons,
   listAssignmentsForClass,
 } from "@/server/store";
-import PartyWidget from "@/components/PartyWidget";
 import CopyCode from "@/components/CopyCode";
 import ClassChat from "@/components/ClassChat";
 import Link from "next/link";
@@ -53,7 +50,6 @@ export default async function TeacherClassPage() {
 
   const members = await listClassMembers(c.id);
   const msgs = await listMessages(c.id);
-  const lessons = await getLessons();
   const assignments = await listAssignmentsForClass(c.id);
 
   return (
@@ -103,70 +99,18 @@ export default async function TeacherClassPage() {
         </div>
       </div>
 
-      {/* Hostování – vše pod jednou kartou */}
+      {/* Členové třídy */}
       <div className="card">
-        <div className="card-body space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="font-medium">Hostování</div>
-              <div className="text-xs muted">
-                Nastav lekci, režim a časovač a spusť aktivitu pro celou třídu.
-              </div>
-            </div>
-          </div>
-
-          <form
-            action={startPartyAction.bind(null, c.id)}
-            className="grid md:grid-cols-4 gap-3 items-end"
-          >
-            <div className="md:col-span-2">
-              <label className="block text-sm">Lekce</label>
-              <select name="lessonId" className="select w-full">
-                {lessons.map((l: any) => (
-                  <option key={l.id} value={l.id}>
-                    {l.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm">Režim</label>
-              <select name="mode" className="select w-full">
-                <option value="mc">Rozhodovačka</option>
-                <option value="write">Psaní</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm">Čas (s)</label>
-              <input
-                name="timerSec"
-                className="input"
-                type="number"
-                min={5}
-                max={120}
-                defaultValue={30}
-              />
-            </div>
-            <div className="md:col-span-4">
-              <button type="submit" className="btn btn-primary w-full md:w-auto">
-                Spustit aktivitu
-              </button>
-            </div>
-          </form>
-
-          <PartyWidget classId={c.id} canControl />
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <div className="card">
-          <div className="card-body space-y-2">
-            <div className="font-medium">Členové</div>
+        <div className="card-body space-y-3">
+          <div className="font-medium">Členové třídy</div>
+          <div className="space-y-2 text-sm">
             {members.length === 0 && (
               <div className="text-sm muted">Zatím žádní členové.</div>
             )}
             {members.map((m: any) => {
               const u = users.find((u: any) => u.id === m.userId);
+              const name =
+                u?.displayName || u?.name || u?.email || "Bez jména";
               return (
                 <div
                   key={m.id}
@@ -178,7 +122,7 @@ export default async function TeacherClassPage() {
                         href={`/teacher/student/${u.id}`}
                         className="underline hover:text-[var(--accent)]"
                       >
-                        {u.displayName || u.name || u.email || "Bez jména"}
+                        {name}
                       </Link>
                     ) : (
                       "Bez jména"
@@ -208,115 +152,120 @@ export default async function TeacherClassPage() {
             })}
           </div>
         </div>
+      </div>
 
-        <div className="card">
-          <div className="card-body space-y-3">
-            <div className="font-medium">Třídní chat</div>
-            <ClassChat classId={c.id} users={users as any} hideAvatars />
-            <form
-              key={msgs.length}
-              action={sendClassMessageAction.bind(null, c.id)}
-              className="flex gap-2"
-            >
-              <input
-                className="input flex-1"
-                name="content"
-                placeholder="Napiš zprávu…"
-              />
-              <input
-                type="hidden"
-                name="cooldownHint"
-                value={String(c.chatCooldownSec ?? 0)}
-              />
-              <button className="btn btn-primary" type="submit">
-                Odeslat
-              </button>
-            </form>
-          </div>
+      {/* Třídní chat */}
+      <div className="card">
+        <div className="card-body space-y-3">
+          <div className="font-medium">Třídní chat</div>
+          <ClassChat classId={c.id} users={users as any} hideAvatars />
+          <form
+            action={sendClassMessageAction.bind(null, c.id)}
+            className="flex gap-2"
+          >
+            <input
+              className="input flex-1"
+              name="content"
+              placeholder="Napiš zprávu…"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+            />
+            <input
+              type="hidden"
+              name="cooldownHint"
+              value={String(c.chatCooldownSec ?? 0)}
+            />
+            <button className="btn btn-primary" type="submit">
+              Odeslat
+            </button>
+          </form>
         </div>
+      </div>
 
-        <div className="card">
-          <div className="card-body space-y-3">
-            <div className="font-medium">Úkoly</div>
-            <form
-              action={async (formData: FormData) => {
-                "use server";
-                const { createAssignment } = await import("@/server/store");
-                const title = String(formData.get("title") || "").trim();
-                const description =
-                  String(formData.get("description") || "").trim() || null;
-                const dueDate =
-                  String(formData.get("dueDate") || "").trim() || null;
-                if (!title) return;
-                await createAssignment(c.id, { title, description, dueDate });
-              }}
-              className="grid md:grid-cols-3 gap-2 items-end"
-            >
-              <div className="md:col-span-1">
-                <label className="block text-sm">Název úkolu</label>
-                <input
-                  name="title"
-                  className="input"
-                  placeholder="např. Slovíčka lekce 3"
-                />
-              </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm">Popis</label>
-                <input
-                  name="description"
-                  className="input"
-                  placeholder="krátký popis"
-                />
-              </div>
-              <div className="md:col-span-1">
-                <label className="block text-sm">Termín</label>
-                <input name="dueDate" type="date" className="input" />
-              </div>
-              <div className="md:col-span-3">
-                <button className="btn btn-primary" type="submit">
-                  Přidat úkol
-                </button>
-              </div>
-            </form>
+      {/* Úkoly */}
+      <div className="card">
+        <div className="card-body space-y-3">
+          <div className="font-medium">Úkoly</div>
+          <form
+            action={async (formData: FormData) => {
+              "use server";
+              const { createAssignment } = await import("@/server/store");
+              const title = String(formData.get("title") || "").trim();
+              const description =
+                String(formData.get("description") || "").trim() || null;
+              const dueDate =
+                String(formData.get("dueDate") || "").trim() || null;
+              if (!title) return;
+              await createAssignment(c.id, { title, description, dueDate });
+            }}
+            className="grid md:grid-cols-3 gap-2 items-end"
+          >
+            <div className="md:col-span-1">
+              <label className="block text-sm">Název úkolu</label>
+              <input
+                name="title"
+                className="input"
+                placeholder="např. Slovíčka lekce 3"
+              />
+            </div>
+            <div className="md:col-span-1">
+              <label className="block text-sm">Popis</label>
+              <input
+                name="description"
+                className="input"
+                placeholder="krátký popis"
+              />
+            </div>
+            <div className="md:col-span-1">
+              <label className="block text-sm">Termín</label>
+              <input name="dueDate" type="date" className="input" />
+            </div>
+            <div className="md:col-span-3">
+              <button className="btn btn-primary" type="submit">
+                Přidat úkol
+              </button>
+            </div>
+          </form>
 
-            <ul className="text-sm space-y-2 mt-2">
-              {assignments.map((a: any) => (
-                <li
-                  key={a.id}
-                  className="flex items-start justify-between gap-3 border border-[var(--border)] rounded px-3 py-2 bg-[var(--card)]/60"
+          <ul className="text-sm space-y-2 mt-2">
+            {assignments.map((a: any) => (
+              <li
+                key={a.id}
+                className="flex items-start justify-between gap-3 border border-[var(--border)] rounded px-3 py-2 bg-[var(--card)]/60"
+              >
+                <div>
+                  <div className="font-medium">{a.title}</div>
+                  {a.description && (
+                    <div className="muted text-xs mt-0.5">{a.description}</div>
+                  )}
+                  {a.dueDate && (
+                    <div className="text-xs text-yellow-300 mt-0.5">
+                      Termín: {a.dueDate}
+                    </div>
+                  )}
+                </div>
+                <form
+                  action={async () => {
+                    "use server";
+                    const { deleteAssignment } = await import("@/server/store");
+                    await deleteAssignment(a.id);
+                  }}
                 >
-                  <div>
-                    <div className="font-medium">{a.title}</div>
-                    {a.description && (
-                      <div className="muted text-xs mt-0.5">{a.description}</div>
-                    )}
-                    {a.dueDate && (
-                      <div className="text-xs text-yellow-300 mt-0.5">
-                        Termín: {a.dueDate}
-                      </div>
-                    )}
-                  </div>
-                  <form
-                    action={async () => {
-                      "use server";
-                      const { deleteAssignment } = await import("@/server/store");
-                      await deleteAssignment(a.id);
-                    }}
+                  <button
+                    type="submit"
+                    className="btn btn-ghost text-red-400 whitespace-nowrap"
                   >
-                    <button
-                      type="submit"
-                      className="btn btn-ghost text-red-400 whitespace-nowrap"
-                    >
-                      Smazat
-                    </button>
-                  </form>
-                </li>
-              ))}
-              {assignments.length === 0 && (
-                <li className="muted text-sm">Zatím žádné úkoly.</li>
-              )}
-            </ul>
-          </div>
+                    Smazat
+                  </button>
+                </form>
+              </li>
+            ))}
+            {assignments.length === 0 && (
+              <li className="muted text-sm">Zatím žádné úkoly.</li>
+            )}
+          </ul>
         </div>
       </div>
     </div>

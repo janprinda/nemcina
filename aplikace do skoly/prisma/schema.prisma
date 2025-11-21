@@ -3,76 +3,260 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  // Až budeš připravený, nastav si sem PostgreSQL nebo MySQL
+  // třeba: provider = "postgresql", url = env("DATABASE_URL")
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id            String   @id @default(cuid())
-  name          String?
-  email         String?  @unique
-  emailVerified DateTime?
-  image         String?
-  role          String   @default("USER")
-  passwordHash  String?
-
-  accounts Account[]
-  sessions Session[]
-  lessons  Lesson[]     @relation("LessonCreatedBy")
-  attempts Attempt[]
+enum Role {
+  USER
+  TEACHER
+  ADMIN
 }
 
-model Lesson {
-  id          String   @id @default(cuid())
+enum ClassMemberRole {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+
+// Uživatelé
+model User {
+  id              String   @id @default(uuid())
+  name            String?
+  displayName     String?
+  nickname        String?
+  email           String?  @unique
+  passwordHash    String?
+  role            Role
+
+  birthDate       String?          // v JSONu máš řetězce, necháme tak
+  interests       String[]
+  phone           String?
+  desiredClassCode String?
+  avatarUrl       String?
+  rank            String?
+  scoreBonus      Int?
+
+  accounts        Account[]
+  sessions        Session[]
+
+  attempts        Attempt[]
+  memberships     ClassMembership[]
+  chatMessages    ChatMessage[]
+  partyPlayers    PartyPlayer[]
+  partyAnswers    PartyAnswer[]
+
+  createdLessons  Lesson[]         @relation("LessonCreatedBy")
+}
+
+// Předměty (Němčina, Matematika, ...)
+model Subject {
+  id          String   @id @default(uuid())
+  slug        String   @unique
   title       String
   description String?
-  languageFrom String  @default("DE")
-  languageTo   String  @default("CS")
+  active      Boolean  @default(true)
   createdAt   DateTime @default(now())
-  createdBy   User?    @relation("LessonCreatedBy", fields: [createdById], references: [id])
+
+  lessons     Lesson[]
+}
+
+// Lekce
+model Lesson {
+  id          String   @id @default(uuid())
+  subjectId   String?
+  subject     Subject? @relation(fields: [subjectId], references: [id])
+
+  title       String
+  description String?
+  createdAt   DateTime @default(now())
+  published   Boolean  @default(false)
+  unlockScore Int?
+
   createdById String?
+  createdBy   User?    @relation("LessonCreatedBy", fields: [createdById], references: [id])
 
-  entries Entry[]
+  entries     Entry[]
 }
 
+// Slovíčka / fráze
 model Entry {
-  id          String   @id @default(cuid())
-  lesson      Lesson   @relation(fields: [lessonId], references: [id])
+  id          String   @id @default(uuid())
   lessonId    String
-  term        String   // DE
-  translation String   // CS
-  type        String   @default("WORD")
-  partOfSpeech String?
-  createdAt   DateTime @default(now())
+  lesson      Lesson   @relation(fields: [lessonId], references: [id])
 
-  attempts Attempt[]
+  term        String
+  translation String
+  type        String   // "WORD" | "PHRASE"
+  partOfSpeech String?
+  genders     String[]
+  explanation String?
+
+  termSynonyms        String[]
+  translationSynonyms String[]
+  plural              String?
+  verbClass           String?
+
+  pointsCorrect Int?
+  pointsPartial Int?
+  pointsWrong   Int?
+
+  createdAt    DateTime @default(now())
+
+  attempts     Attempt[]
+  partyAnswers PartyAnswer[]
 }
 
+// Pokusy / body
 model Attempt {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  entry     Entry    @relation(fields: [entryId], references: [id])
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+
   entryId   String
+  entry     Entry    @relation(fields: [entryId], references: [id])
+
   answer    String
   correct   Boolean
+  points    Int?
+  mode      String?  // "mc" | "write"
+  dir       String?  // "de2cs" | "cs2de"
   createdAt DateTime @default(now())
 }
 
-// NextAuth models
+// Třídy
+model ClassRoom {
+  id              String   @id @default(uuid())
+  name            String
+  code            String   @unique
+  teacherId       String
+  teacher         User     @relation(fields: [teacherId], references: [id])
+  createdAt       DateTime @default(now())
+  chatCooldownSec Int      @default(0)
+
+  memberships     ClassMembership[]
+  chatMessages    ChatMessage[]
+  assignments     Assignment[]
+  parties         Party[]
+}
+
+// Členství ve třídě
+model ClassMembership {
+  id       String          @id @default(uuid())
+  classId  String
+  userId   String
+  role     ClassMemberRole
+
+  class    ClassRoom @relation(fields: [classId], references: [id])
+  user     User      @relation(fields: [userId], references: [id])
+
+  @@unique([classId, userId])
+}
+
+// Chat
+model ChatMessage {
+  id        String   @id @default(uuid())
+  classId   String
+  userId    String
+  content   String
+  createdAt DateTime @default(now())
+
+  class     ClassRoom @relation(fields: [classId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+}
+
+// Úkoly
+model Assignment {
+  id        String   @id @default(uuid())
+  classId   String
+  title     String
+  description String?
+  dueDate   DateTime?
+  createdAt DateTime @default(now())
+
+  class     ClassRoom @relation(fields: [classId], references: [id])
+}
+
+// Party (živá aktivita)
+model Party {
+  id          String   @id @default(uuid())
+  classId     String
+  class       ClassRoom @relation(fields: [classId], references: [id])
+
+  lessonId    String
+  lesson      Lesson    @relation(fields: [lessonId], references: [id])
+
+  mode        String    // "mc" | "write"
+  timerSec    Int
+  status      String    // "lobby" | "running" | "ended"
+  createdBy   String
+  createdAt   DateTime  @default(now())
+
+  entryIds    String[]  // seznam id slovíček
+  dirs        String[]  // "de2cs"/"cs2de"
+
+  currentIndex Int      @default(-1)
+
+  players     PartyPlayer[]
+  answers     PartyAnswer[]
+}
+
+model PartyPlayer {
+  id          String   @id @default(uuid())
+  partyId     String
+  userId      String
+  displayName String
+  score       Int      @default(0)
+  joinedAt    DateTime @default(now())
+
+  party       Party @relation(fields: [partyId], references: [id])
+  user        User  @relation(fields: [userId], references: [id])
+}
+
+model PartyAnswer {
+  id            String   @id @default(uuid())
+  partyId       String
+  userId        String
+  entryId       String
+  dir           String
+  answer        String
+  points        Int
+  textCorrect   Boolean
+  genderCorrect Boolean
+  createdAt     DateTime @default(now())
+
+  party         Party @relation(fields: [partyId], references: [id])
+  user          User  @relation(fields: [userId], references: [id])
+  entry         Entry @relation(fields: [entryId], references: [id])
+}
+
+// Teacher kódy
+model TeacherCode {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  note        String?
+  activated   Boolean  @default(false)
+  activatedAt DateTime?
+  activatedBy String?
+  createdAt   DateTime @default(now())
+}
+
+// NextAuth tabulky – připravené na budoucí přepnutí na Prisma adapter
 model Account {
-  id                String  @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?
-  access_token      String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?
-  session_state     String?
+  id                 String  @id @default(uuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?
+  access_token       String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?
+  session_state      String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -80,11 +264,12 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(uuid())
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
@@ -94,3 +279,4 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+*** End Patch***

@@ -110,9 +110,8 @@ export default async function SubjectPage({
           </div>
         )}
       </section>
-      {/* Zatím používáme stejné lekce pro všechny předměty.
-          Později můžeme filtrovat lekce podle subjectId. */}
-      <LessonGrid />
+      {/* Pro daný předmět zobrazíme jen jeho lekce (API filtruje podle subjectSlug). */}
+      <LessonGrid subjectSlug={slug} />
     </div>
   );
 }

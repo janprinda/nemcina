@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 type Lesson = { id: string; title: string; description?: string | null };
 
-export default function LessonGrid() {
+export default function LessonGrid({ subjectSlug }: { subjectSlug?: string }) {
   const [lessons, setLessons] = useState<Lesson[]>([]);
 
   useEffect(() => {
@@ -13,7 +13,10 @@ export default function LessonGrid() {
 
     const load = async () => {
       try {
-        const res = await fetch("/api/lessons", { cache: "no-store" });
+        const url = subjectSlug
+          ? `/api/lessons?subject=${encodeURIComponent(subjectSlug)}`
+          : "/api/lessons";
+        const res = await fetch(url, { cache: "no-store" });
         const j = await res.json();
         if (alive) setLessons(j);
       } catch {
@@ -44,7 +47,7 @@ export default function LessonGrid() {
       es.close();
       clearInterval(interval);
     };
-  }, []);
+  }, [subjectSlug]);
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
