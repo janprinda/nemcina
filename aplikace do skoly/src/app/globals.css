@@ -4,49 +4,64 @@
 
 html, body, #__next { height: 100%; }
 
-html { font-size: clamp(15px, 0.9vw + 12px, 19px); }
+/* [1] GLOBAL ENTRANCE ANIMATION SETTINGS */
+html { 
+  font-size: clamp(15px, 0.9vw + 12px, 19px); 
+  overflow-x: hidden; /* Prevent scrollbars during entrance slides */
+}
 
 @layer base {
   :root {
-    /* CORE PALETTE: DEEP SPACE CYBERPUNK */
-    --bg: #020617;        /* Deepest Void (Slate 950) */
-    --card: rgba(30, 41, 59, 0.65); /* Translucent Glass Surface */
-    --border: rgba(148, 163, 184, 0.15); /* Subtle lighting edge */
+    /* --- CORE PALETTE: DEEP SPACE VOID --- */
+    --bg: #020617;        
+    --card: rgba(30, 41, 59, 0.65); 
+    --card-hover: rgba(30, 41, 59, 0.9); 
+    --border: rgba(148, 163, 184, 0.1); 
     
-    /* TEXT HIERARCHY */
-    --fg: #f8fafc;        /* Crisp Off-White (Slate 50) */
-    --muted: #94a3b8;     /* Cool Gray (Slate 400) */
+    /* --- TEXT HIERARCHY --- */
+    --fg: #f8fafc;        
+    --muted: #94a3b8;    
     
-    /* NEON ACCENTS (High Saturation) */
-    --accent: #06b6d4;    /* CYBER CYAN (Masculine/Der) */
-    --accent-2: #10b981;  /* NEON EMERALD (Neuter/Das) */
-    --accent-5: #a855f7;  /* ELECTRIC VIOLET (Feminine/Die) */
+    /* --- HIGH-CHROMA NEON ACCENTS --- */
+    --accent: #06b6d4;    /* CYAN */
+    --accent-2: #10b981;  /* EMERALD */
+    --accent-5: #a855f7;  /* VIOLET */
+    
+    /* --- PHYSICS CONSTANTS --- */
+    --ease-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); /* "Apple-like" smooth stop */
   }
 
   body { 
     background-color: var(--bg);
-    /* ADVANCED AURORA: Uses existing vars to create atmosphere */
+    /* ATMOSPHERE: Complex multi-radial gradient */
     background-image: 
-      radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.15), transparent 25%), /* Cyan Glow */
-      radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%), /* Violet Glow */
-      linear-gradient(180deg, var(--bg) 0%, #0f172a 100%); /* Deep fade */
+      radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.15), transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.15), transparent 20%),
+      linear-gradient(180deg, var(--bg) 0%, #0f172a 100%);
     background-attachment: fixed;
     color: var(--fg);
-    font-family: 'Inter', sans-serif; /* Assumed font for modern look */
+    font-family: 'Inter', system-ui, sans-serif;
+    
+    /* [2] GLOBAL PAGE ENTRANCE */
+    /* Runs once when page loads */
+    animation: page-fade-in 0.8s var(--ease-out-expo) forwards;
   }
 
   a { 
     color: var(--accent); 
     text-decoration: none;
-    transition: text-shadow 0.3s ease;
+    transition: all 0.2s ease;
+    cursor: pointer;
   }
   a:hover { 
-    color: #67e8f9; /* Lighter Cyan */
-    text-shadow: 0 0 12px rgba(6, 182, 212, 0.6); /* Neon Bloom */
+    color: #67e8f9; 
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
   }
-
+  
+  /* Standardize inputs */
   input, select, textarea { 
-    background: rgba(15, 23, 42, 0.8); /* Darker than card */
+    background: rgba(15, 23, 42, 0.6);
     color: var(--fg); 
     border: 1px solid var(--border); 
     border-radius: 0.5rem; 
@@ -55,169 +70,218 @@ html { font-size: clamp(15px, 0.9vw + 12px, 19px); }
   label { 
     color: var(--muted); 
     font-size: 0.85rem;
+    font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-weight: 600;
   }
 }
 
 @layer components {
-.container { @apply mx-auto max-w-7xl px-4; }
+ .container { 
+    @apply mx-auto max-w-7xl px-4; 
+  }
 
-  /* --- GLASSMORPHISM CARD --- */
-.card { 
+  /* --- THE "MODERN" CARD --- */
+ .card { 
     border: 1px solid var(--border); 
     background: var(--card); 
-    border-radius: 0.75rem; 
-    /* The "Frosted Glass" Blur */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    /* Top-light reflection for depth */
+    border-radius: 1rem; 
+    
+    /* Glassmorphism */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* Lighting Effects */
     box-shadow: 
-      0 4px 24px -1px rgba(0, 0, 0, 0.3),
+      0 4px 30px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      
+    /* Transitions for Hover */
+    transition: 
+      transform 0.4s var(--ease-spring), 
+      background-color 0.4s ease,
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+      
+    /* [3] STAGGERED ENTRANCE FOR CARDS */
+    /* By default, cards are hidden and slide up */
+    opacity: 0;
+    animation: slide-up-fade 0.8s var(--ease-out-expo) forwards;
   }
-.card-body { @apply p-5; }
 
-  /* --- KINETIC BUTTONS --- */
-.btn { 
-    @apply inline-flex items-center justify-center gap-2 rounded px-4 py-2 text-sm font-bold transition-all; 
-    position: relative; overflow: hidden; 
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  /* Add delay to child cards automatically using :nth-child logic would be ideal,
+     but allows manual utility classes (see @layer utilities) */
+
+ .card:hover {
+    transform: scale(1.02) translateY(-2px); /* Lift and Grow */
+    background-color: var(--card-hover);
+    border-color: rgba(148, 163, 184, 0.3);
+    box-shadow: 
+      0 20px 40px -5px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(6, 182, 212, 0.1); /* Subtle Cyan Glow */
+  }
+
+ .card-body { @apply p-6; }
+
+  /* --- TACTILE BUTTONS --- */
+ .btn { 
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-bold tracking-wide; 
+    position: relative; 
+    overflow: hidden; 
+    transition: transform 0.1s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    user-select: none;
   }
   
-.btn:focus-visible { 
-    outline: none; 
-    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); 
+  /* [4] THE "CLICK" FEELING */
+ .btn:active {
+    transform: scale(0.94); /* Physically shrinks when clicked */
+  }
+  
+ .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
   }
 
-  /* PRIMARY: Liquid Gradient using Accent & Accent-5 */
-.btn-primary { 
+  /* Primary: Liquid Gradient */
+ .btn-primary { 
     color: #fff; 
     background-image: linear-gradient(135deg, var(--accent) 0%, var(--accent-5) 100%);
     background-size: 200% 200%;
     border: none;
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+    box-shadow: 0 10px 20px -10px rgba(6, 182, 212, 0.5);
+    animation: gradient-shift 3s ease infinite;
   }
-.btn-primary:hover { 
-    background-position: 100% 0; /* Animation effect */
-    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4); /* Glow shifts to purple */
+  
+ .btn-primary:hover { 
+    box-shadow: 0 15px 30px -5px rgba(168, 85, 247, 0.6); 
+    filter: brightness(1.1);
     transform: translateY(-1px);
   }
-
-  /* SECONDARY: Ghost Glass */
-.btn-secondary { 
-    color: var(--fg); 
-    background-color: rgba(255,255,255,0.03); 
-    border: 1px solid var(--border); 
-    backdrop-filter: blur(4px);
+ .btn-primary:active {
+    box-shadow: 0 5px 10px -5px rgba(168, 85, 247, 0.6);
+    transform: scale(0.95);
   }
-.btn-secondary:hover { 
-    background-color: rgba(255,255,255,0.08); 
+
+  /* Secondary: Ghost Glass */
+ .btn-secondary { 
+    color: var(--fg); 
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid var(--border); 
+    backdrop-filter: blur(5px);
+  }
+  
+ .btn-secondary:hover { 
+    background: rgba(255, 255, 255, 0.08); 
     border-color: var(--accent); 
-    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
   }
 
-  /* --- ADVANCED INPUTS --- */
-.input { 
-    @apply w-full px-3 py-2 rounded; 
-    background: rgba(2, 6, 23, 0.5); /* Recessed depth */
+  /* --- INPUTS & FORMS --- */
+ .input { 
+    @apply w-full px-4 py-3 rounded-lg; 
+    background: rgba(2, 6, 23, 0.5);
     color: var(--fg); 
     border: 1px solid var(--border); 
-    transition: all 0.2s ease;
+    transition: all 0.3s var(--ease-spring);
   }
-.input:focus { 
+ .input:focus { 
     outline: none; 
     border-color: var(--accent); 
-    box-shadow: 0 0 0 1px var(--accent), 0 0 15px rgba(6, 182, 212, 0.2); /* Cyan Glow */
-  }
-.input::placeholder { color: rgba(148, 163, 184, 0.5); }
-
-  /* --- SEMANTIC GENDER CHIPS (NEON LINGUIST) --- */
-.chip { 
-    @apply inline-flex items-center rounded-full px-3 py-0.5 text-xs font-bold tracking-wide; 
-    border: 1px solid transparent;
-  }
-
-  /* DER (Masculine) -> ACCENT (Cyan) */
-.chip-der,.gender-der { 
-    color: #020617; 
-    background: linear-gradient(135deg, var(--accent), #67e8f9);
-    box-shadow: 0 2px 10px rgba(6, 182, 212, 0.2);
-  }
-.text-der { 
-    color: var(--accent); 
-    filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.4));
-  }
-
-  /* DIE (Feminine) -> ACCENT-5 (Violet) */
-.chip-die,.gender-die { 
-    color: #fff; 
-    background: linear-gradient(135deg, var(--accent-5), #d8b4fe);
-    box-shadow: 0 2px 10px rgba(168, 85, 247, 0.2);
-  }
-.text-die { 
-    color: var(--accent-5);
-    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.4));
-  }
-
-  /* DAS (Neuter) -> ACCENT-2 (Emerald) */
-.chip-das,.gender-das { 
-    color: #020617; 
-    background: linear-gradient(135deg, var(--accent-2), #6ee7b7);
-    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.2);
-  }
-.text-das { 
-    color: var(--accent-2);
-    filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.4));
-  }
-  
-  /* Interactive Chip Hover */
-.btn.gender-der:hover,.btn.gender-die:hover,.btn.gender-das:hover {
-    filter: brightness(1.15) contrast(1.1);
+    background: rgba(2, 6, 23, 0.9);
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.15); /* Focus Ring */
     transform: translateY(-1px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+ .input::placeholder { color: rgba(148, 163, 184, 0.4); }
+
+  /* --- NEON GENDER CHIPS --- */
+ .chip { 
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase; 
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
   }
 
-  /* --- UTILITIES & EXTRAS --- */
-.header-grad { 
-    background: linear-gradient(180deg, rgba(6, 182, 212, 0.08), transparent); 
+  /* DER (Cyan) */
+ .chip-der,.gender-der { 
+    color: #020617; 
+    background: linear-gradient(135deg, #22d3ee, #0ea5e9);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+  }
+ .text-der { color: var(--accent); text-shadow: 0 0 10px rgba(6, 182, 212, 0.4); }
+
+  /* DIE (Violet) */
+ .chip-die,.gender-die { 
+    color: #fff; 
+    background: linear-gradient(135deg, #e879f9, #d946ef);
+    box-shadow: 0 0 15px rgba(217, 70, 239, 0.3);
+  }
+ .text-die { color: var(--accent-5); text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+
+  /* DAS (Emerald) */
+ .chip-das,.gender-das { 
+    color: #020617; 
+    background: linear-gradient(135deg, #34d399, #10b981);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+  }
+ .text-das { color: var(--accent-2); text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+
+  /* Interactive Chip States */
+ .btn.gender-der:hover,.btn.gender-die:hover,.btn.gender-das:hover {
+    transform: scale(1.05);
+    filter: brightness(1.15);
+  }
+
+  /* --- UTILITY COMPONENTS --- */
+ .header-grad { 
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.05), transparent); 
     border-bottom: 1px solid var(--border); 
   }
+ .stepper { @apply flex items-center justify-center gap-2 text-xs; }
+ .step { @apply h-2 w-2 rounded-full bg-[var(--border)]; }
+ .step-active { background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+ .overlay { @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md; }
+}
+
+/* --- [5] ANIMATION KEYFRAMES & UTILITIES --- */
+@layer utilities {
   
-.stepper { @apply flex items-center justify-center gap-2 text-xs; }
-.step { @apply h-2 w-2 rounded-full bg-[var(--border)]; }
-.step-active { 
-    background: var(--accent); 
-    box-shadow: 0 0 8px var(--accent); 
+  /* Page Load: Entire body fades in */
+  @keyframes page-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Element Entrance: Slide Up + Fade In */
+  @keyframes slide-up-fade {
+    0% { 
+      opacity: 0; 
+      transform: translateY(20px) scale(0.98); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0) scale(1); 
+    }
   }
   
-.overlay { @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm; }
-}
+  /* Continuous Gradient Shift for Buttons */
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
-/* Simple celebratory animations */
-@keyframes pop-in {
-  0% { transform: scale(0.8); opacity: 0; }
-  60% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); }
-}
-@keyframes float-up {
-  0% { transform: translateY(8px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-@keyframes confetti-fall {
-  0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-}
-.animate-pop { animation: pop-in 500ms ease-out both; }
-.animate-fade-up { animation: float-up 600ms ease-out both; }
-.confetti-container { position: relative; overflow: hidden; }
-  .confetti-piece {
-  position: absolute; top: -10vh; width: 6px; height: 14px; border-radius: 2px;
-  animation: confetti-fall 2.2s linear forwards;
-}
+  /* --- STAGGER DELAYS --- */
+  /* Apply these classes to elements you want to appear in sequence */
+  
+ .delay-100 { animation-delay: 100ms; }
+ .delay-200 { animation-delay: 200ms; }
+ .delay-300 { animation-delay: 300ms; }
+ .delay-500 { animation-delay: 500ms; }
+  
+  /* Example Usage: <div class="card delay-100"> */
 
-/* Hide scrollbars in scrollable containers */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  /* --- SCROLLBAR HIDING --- */
+ .no-scrollbar::-webkit-scrollbar { display: none; }
+ .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
