@@ -9,11 +9,15 @@ export async function GET(req: Request) {
     return new Response("Missing topic", { status: 400 });
   }
 
+  // společný cleanup pro stream – zajistí odhlášení z eventů a zrušení heartbeat
+  let cleanup: (() => void) | null = null;
+
   const stream = new ReadableStream({
     start(controller) {
       const encoder = new TextEncoder();
 
       const send = (data: any) => {
+        // pokud je stream zavřený, enqueue by vyhodil chybu – necháme ji probublat
         controller.enqueue(
           encoder.encode(`data: ${JSON.stringify(data ?? {})}\n\n`)
         );
@@ -30,15 +34,15 @@ export async function GET(req: Request) {
         send({ type: "ping", topic });
       }, 30 * 60 * 1000); // každých 30 minut preventivní ping
 
-      (controller as any)._cleanup = () => {
+      cleanup = () => {
         clearInterval(heartbeat);
         unsubscribe();
       };
     },
     cancel() {
-      const self: any = this;
-      if (typeof self._cleanup === "function") {
-        self._cleanup();
+      if (cleanup) {
+        cleanup();
+        cleanup = null;
       }
     },
   });
