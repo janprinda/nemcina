@@ -3,8 +3,6 @@ generator client {
 }
 
 datasource db {
-  // Až budeš připravený, nastav si sem PostgreSQL nebo MySQL
-  // třeba: provider = "postgresql", url = env("DATABASE_URL")
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
