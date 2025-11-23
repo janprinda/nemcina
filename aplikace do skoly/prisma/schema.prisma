@@ -3,9 +3,11 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+// --- ENUMS ---
 
 enum Role {
   USER
@@ -19,53 +21,184 @@ enum ClassMemberRole {
   ADMIN
 }
 
-// Uživatelé
-model User {
-  id              String   @id @default(uuid())
-  name            String?
-  displayName     String?
-  nickname        String?
-  email           String?  @unique
-  passwordHash    String?
-  role            Role
-
-  birthDate       String?          // v JSONu máš řetězce, necháme tak
-  interests       String[]
-  phone           String?
-  desiredClassCode String?
-  avatarUrl       String?
-  rank            String?
-  scoreBonus      Int?
-
-  accounts        Account[]
-  sessions        Session[]
-
-  attempts        Attempt[]
-  memberships     ClassMembership[]
-  chatMessages    ChatMessage[]
-  partyPlayers    PartyPlayer[]
-  partyAnswers    PartyAnswer[]
-
-  createdLessons  Lesson[]         @relation("LessonCreatedBy")
+enum EntryType {
+  WORD
+  PHRASE
 }
 
-// Předměty (Němčina, Matematika, ...)
+enum GameMode {
+  MC // Multiple Choice
+  WRITE // Typing
+  CASINO // Skill games / Gambling
+}
+
+enum PartyType {
+  CLASSIC // Standard Lesson Quiz
+  DUEL // 1v1
+  TRIO // 3 Players
+  SQUAD // 4 Players
+  TOURNAMENT // Many Players
+  CASINO_LOBBY // Betting Lobby
+}
+
+enum ItemType {
+  BOOSTER // XP Multiplier
+  STREAK_FREEZE // Protects Global Streak
+  STICKER // Cosmetic
+  CHEST // Random Rewards
+  TOKEN_PACK // Convert Points -> Tokens
+}
+
+// --- USER & GLOBAL PROFILE ---
+
+model User {
+  id           String  @id @default(uuid())
+  email        String  @unique
+  name         String?
+  displayName  String?
+  nickname     String?
+  passwordHash String?
+  role         Role    @default(USER)
+
+  // Personal Info
+  birthDate        String?
+  phone            String?
+  avatarUrl        String?
+  interests        String? // JSON array stored as string
+  desiredClassCode String?
+
+  // --- GLOBAL GAMIFICATION ---
+  // Streak is merged across all subjects (Duolingo style)
+  streakDays    Int       @default(0)
+  lastStudyDate DateTime?
+
+  // Global Inventory (Items that apply everywhere, e.g. Streak Freeze)
+  inventory UserInventory[]
+
+  // --- RELATIONS ---
+  accounts Account[]
+  sessions Session[]
+
+  // Learning & Progress
+  subjectProgress UserSubjectProgress[] // Points & Ranks per Subject
+  attempts        Attempt[] // History of answers
+
+  // Social & Class
+  memberships  ClassMembership[]
+  chatMessages ChatMessage[]
+
+  // AI Story Mode
+  aiChatSessions AIChatSession[]
+
+  // Multiplayer / Casino
+  partyPlayers PartyPlayer[]
+  partyAnswers PartyAnswer[]
+
+  // Content Creation (Teacher/Admin)
+  createdParties Party[]  @relation("PartyCreatedBy")
+  createdLessons Lesson[] @relation("LessonCreatedBy")
+
+  // Classes taught (if teacher)
+  classesTeaching ClassRoom[]
+}
+
+// --- SUBJECTS & ECONOMY (The "Silo" System) ---
+
 model Subject {
   id          String   @id @default(uuid())
-  slug        String   @unique
+  slug        String   @unique // e.g. "nemcina", "anglictina"
   title       String
   description String?
   active      Boolean  @default(true)
   createdAt   DateTime @default(now())
 
-  lessons     Lesson[]
+  lessons      Lesson[]
+  userProgress UserSubjectProgress[]
+  shopItems    ShopItem[] // Items specific to this subject
 }
 
-// Lekce
-model Lesson {
+model UserSubjectProgress {
+  id String @id @default(uuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  subjectId String
+  subject   Subject @relation(fields: [subjectId], references: [id])
+
+  // Economy is separate per subject
+  totalPoints     Int @default(0) // Lifetime Score (Determines Rank)
+  spendablePoints Int @default(0) // Wallet for Shop
+  tokens          Int @default(0) // Casino Chips
+
+  // Rank logic
+  currentRankId String?
+  currentRank   Rank?   @relation(fields: [currentRankId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, subjectId]) // One progress record per user per subject
+}
+
+model Rank {
+  id        String  @id @default(uuid())
+  name      String // e.g. "Bronze", "Silver", "Casino King"
+  minPoints Int // Points required to reach this rank
+  imageUrl  String? // Badge icon
+
+  progressRecords UserSubjectProgress[]
+}
+
+// --- SHOP & INVENTORY ---
+
+model ShopItem {
   id          String   @id @default(uuid())
-  subjectId   String?
-  subject     Subject? @relation(fields: [subjectId], references: [id])
+  name        String // "Streak Freeze", "Double XP"
+  description String?
+  type        ItemType
+
+  // Costs
+  pricePoints Int? // Cost in Spendable Points
+  priceTokens Int? // Cost in Casino Tokens
+
+  // Configuration
+  isGlobal  Boolean  @default(false) // If true, applies to all subjects (e.g. Streak Freeze)
+  subjectId String? // If set, item is only for this subject (e.g. German Booster)
+  subject   Subject? @relation(fields: [subjectId], references: [id])
+
+  config   Json? // e.g. { "multiplier": 2, "durationMinutes": 30 }
+  imageUrl String?
+  isActive Boolean @default(true)
+
+  inventoryItems UserInventory[]
+}
+
+model UserInventory {
+  id String @id @default(uuid())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  itemId String
+  item   ShopItem @relation(fields: [itemId], references: [id])
+
+  // If the item is subject-specific, we track it here. 
+  // Global items (Streak Freeze) can have subjectId = null.
+  subjectId String?
+
+  quantity   Int      @default(1)
+  acquiredAt DateTime @default(now())
+
+  @@unique([userId, itemId, subjectId])
+}
+
+// --- LEARNING CONTENT ---
+
+model Lesson {
+  id        String   @id @default(uuid())
+  subjectId String?
+  subject   Subject? @relation(fields: [subjectId], references: [id])
 
   title       String
   description String?
@@ -74,86 +207,95 @@ model Lesson {
   unlockScore Int?
 
   createdById String?
-  createdBy   User?    @relation("LessonCreatedBy", fields: [createdById], references: [id])
+  createdBy   User?   @relation("LessonCreatedBy", fields: [createdById], references: [id])
 
-  entries     Entry[]
+  entries Entry[]
+  parties Party[]
 }
 
-// Slovíčka / fráze
 model Entry {
-  id          String   @id @default(uuid())
-  lessonId    String
-  lesson      Lesson   @relation(fields: [lessonId], references: [id])
+  id       String @id @default(uuid())
+  lessonId String
+  lesson   Lesson @relation(fields: [lessonId], references: [id])
 
-  term        String
-  translation String
-  type        String   // "WORD" | "PHRASE"
+  term         String
+  translation  String
+  type         EntryType @default(WORD)
   partOfSpeech String?
-  genders     String[]
-  explanation String?
+  genders      String? // JSON array stored as string
+  explanation  String?
 
-  termSynonyms        String[]
-  translationSynonyms String[]
+  // Media
+  imageUrl String?
+  audioUrl String?
+  videoUrl String?
+
+  // Grammar / Synonyms
+  termSynonyms        String? // JSON array stored as string
+  translationSynonyms String? // JSON array stored as string
   plural              String?
   verbClass           String?
 
-  pointsCorrect Int?
+  // Default Difficulty Points
+  pointsCorrect Int?     @default(10)
   pointsPartial Int?
   pointsWrong   Int?
-
-  createdAt    DateTime @default(now())
+  createdAt     DateTime @default(now())
 
   attempts     Attempt[]
   partyAnswers PartyAnswer[]
+
+  // Search Indices
+  @@index([term])
+  @@index([translation])
 }
 
-// Pokusy / body
 model Attempt {
-  id        String   @id @default(uuid())
-  userId    String?
-  user      User?    @relation(fields: [userId], references: [id])
+  id String @id @default(uuid())
 
-  entryId   String
-  entry     Entry    @relation(fields: [entryId], references: [id])
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  entryId String
+  entry   Entry  @relation(fields: [entryId], references: [id])
 
   answer    String
   correct   Boolean
   points    Int?
-  mode      String?  // "mc" | "write"
-  dir       String?  // "de2cs" | "cs2de"
-  createdAt DateTime @default(now())
+  mode      GameMode?
+  dir       String?
+  createdAt DateTime  @default(now())
 }
 
-// Třídy
+// --- SCHOOL / CLASSES ---
+
 model ClassRoom {
   id              String   @id @default(uuid())
   name            String
   code            String   @unique
   teacherId       String
-  teacher         User     @relation(fields: [teacherId], references: [id])
+  teacher         User     @relation(fields: [teacherId], references: [id], onDelete: Cascade)
   createdAt       DateTime @default(now())
   chatCooldownSec Int      @default(0)
 
-  memberships     ClassMembership[]
-  chatMessages    ChatMessage[]
-  assignments     Assignment[]
-  parties         Party[]
+  memberships  ClassMembership[]
+  chatMessages ChatMessage[]
+  assignments  Assignment[]
+  parties      Party[]
 }
 
-// Členství ve třídě
 model ClassMembership {
-  id       String          @id @default(uuid())
-  classId  String
-  userId   String
-  role     ClassMemberRole
+  id      String          @id @default(uuid())
+  classId String
+  userId  String
+  role    ClassMemberRole @default(STUDENT)
 
-  class    ClassRoom @relation(fields: [classId], references: [id])
-  user     User      @relation(fields: [userId], references: [id])
+  class ClassRoom @relation(fields: [classId], references: [id])
+  user  User      @relation(fields: [userId], references: [id])
 
   @@unique([classId, userId])
 }
 
-// Chat
 model ChatMessage {
   id        String   @id @default(uuid())
   classId   String
@@ -161,44 +303,54 @@ model ChatMessage {
   content   String
   createdAt DateTime @default(now())
 
-  class     ClassRoom @relation(fields: [classId], references: [id])
-  user      User      @relation(fields: [userId], references: [id])
+  class ClassRoom @relation(fields: [classId], references: [id])
+  user  User      @relation(fields: [userId], references: [id])
 }
 
-// Úkoly
 model Assignment {
-  id        String   @id @default(uuid())
-  classId   String
-  title     String
-  description String?
-  dueDate   DateTime?
-  createdAt DateTime @default(now())
-
-  class     ClassRoom @relation(fields: [classId], references: [id])
-}
-
-// Party (živá aktivita)
-model Party {
-  id          String   @id @default(uuid())
+  id          String    @id @default(uuid())
   classId     String
-  class       ClassRoom @relation(fields: [classId], references: [id])
-
-  lessonId    String
-  lesson      Lesson    @relation(fields: [lessonId], references: [id])
-
-  mode        String    // "mc" | "write"
-  timerSec    Int
-  status      String    // "lobby" | "running" | "ended"
-  createdBy   String
+  title       String
+  description String?
+  dueDate     DateTime?
   createdAt   DateTime  @default(now())
 
-  entryIds    String[]  // seznam id slovíček
-  dirs        String[]  // "de2cs"/"cs2de"
+  class ClassRoom @relation(fields: [classId], references: [id])
+}
 
-  currentIndex Int      @default(-1)
+// --- MULTIPLAYER & CASINO ---
 
-  players     PartyPlayer[]
-  answers     PartyAnswer[]
+model Party {
+  id String @id @default(uuid())
+
+  // Lobby Code for Friends
+  joinCode String? @unique
+
+  // Optional Links (Casino might not have a Class, but usually has a Lesson/Game)
+  classId String?
+  class   ClassRoom? @relation(fields: [classId], references: [id])
+
+  lessonId String
+  lesson   Lesson @relation(fields: [lessonId], references: [id])
+
+  mode GameMode
+  type PartyType @default(CLASSIC)
+
+  timerSec Int
+  status   String @default("lobby") // lobby, running, ended
+
+  createdById String
+  createdBy   User   @relation("PartyCreatedBy", fields: [createdById], references: [id])
+
+  createdAt DateTime @default(now())
+
+  // Game State
+  entryIds     String? // JSON array stored as string
+  dirs         String? // JSON array stored as string
+  currentIndex Int     @default(-1)
+
+  players PartyPlayer[]
+  answers PartyAnswer[]
 }
 
 model PartyPlayer {
@@ -209,8 +361,8 @@ model PartyPlayer {
   score       Int      @default(0)
   joinedAt    DateTime @default(now())
 
-  party       Party @relation(fields: [partyId], references: [id])
-  user        User  @relation(fields: [userId], references: [id])
+  party Party @relation(fields: [partyId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
 }
 
 model PartyAnswer {
@@ -225,38 +377,74 @@ model PartyAnswer {
   genderCorrect Boolean
   createdAt     DateTime @default(now())
 
-  party         Party @relation(fields: [partyId], references: [id])
-  user          User  @relation(fields: [userId], references: [id])
-  entry         Entry @relation(fields: [entryId], references: [id])
+  party Party @relation(fields: [partyId], references: [id])
+  user  User  @relation(fields: [userId], references: [id])
+  entry Entry @relation(fields: [entryId], references: [id])
 }
 
-// Teacher kódy
+// --- AI STORY MODE (Base) ---
+
+model AICharacter {
+  id           String  @id @default(uuid())
+  name         String
+  description  String?
+  avatarUrl    String?
+  systemPrompt String // Instructions for the AI behavior
+  language     String // "de", "en"
+
+  sessions AIChatSession[]
+}
+
+model AIChatSession {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  characterId String
+  character   AICharacter @relation(fields: [characterId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages AIChatMessage[]
+}
+
+model AIChatMessage {
+  id        String        @id @default(uuid())
+  sessionId String
+  session   AIChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  role      String // "user" or "assistant"
+  content   String
+  createdAt DateTime @default(now())
+}
+
+// --- SYSTEM & AUTH ---
+
 model TeacherCode {
-  id          String   @id @default(uuid())
-  code        String   @unique
+  id          String    @id @default(uuid())
+  code        String    @unique
   note        String?
-  activated   Boolean  @default(false)
+  activated   Boolean   @default(false)
   activatedAt DateTime?
   activatedBy String?
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
 }
 
-// NextAuth tabulky – připravené na budoucí přepnutí na Prisma adapter
 model Account {
-  id                 String  @id @default(uuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?
-  access_token       String?
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?
-  session_state      String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(uuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -266,8 +454,7 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
@@ -277,4 +464,3 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
-*** End Patch***

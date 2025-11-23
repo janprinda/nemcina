@@ -1,0 +1,90 @@
+{
+  "users": [
+    {
+      "id": "73392de3-743d-4376-a5ee-3ccb8a987ad2",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "role": "ADMIN",
+      "passwordHash": "$2a$10$NwqWWBuDycm3tdyFsjYHIeWiBkFZG.EQ9f7KHYa.Bkhc25ZY2xejK"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "c5419fc6-e325-4998-a9e4-062ec907cc1e",
+      "title": "Pozdravy a základy",
+      "description": "Základní fráze",
+      "createdAt": "2025-11-22T17:24:17.742Z",
+      "published": false,
+      "unlockScore": null
+    }
+  ],
+  "entries": [
+    {
+      "id": "071c42d1-9172-4f4d-b47b-2041977a1f1c",
+      "lessonId": "c5419fc6-e325-4998-a9e4-062ec907cc1e",
+      "term": "Guten Tag",
+      "translation": "Dobrý den",
+      "type": "PHRASE",
+      "partOfSpeech": null,
+      "genders": null,
+      "explanation": null,
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": null,
+      "pointsPartial": null,
+      "pointsWrong": null,
+      "createdAt": "2025-11-22T17:24:17.780Z"
+    },
+    {
+      "id": "b180d110-49da-4e9b-98be-07eaaac9f04b",
+      "lessonId": "c5419fc6-e325-4998-a9e4-062ec907cc1e",
+      "term": "Bitte",
+      "translation": "Prosím",
+      "type": "WORD",
+      "partOfSpeech": null,
+      "genders": null,
+      "explanation": null,
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": null,
+      "pointsPartial": null,
+      "pointsWrong": null,
+      "createdAt": "2025-11-22T17:24:17.792Z"
+    },
+    {
+      "id": "444a194f-1ea9-4aae-93b9-b4166a5b1e61",
+      "lessonId": "c5419fc6-e325-4998-a9e4-062ec907cc1e",
+      "term": "Danke",
+      "translation": "Děkuji",
+      "type": "WORD",
+      "partOfSpeech": null,
+      "genders": null,
+      "explanation": null,
+      "termSynonyms": null,
+      "translationSynonyms": null,
+      "plural": null,
+      "verbClass": null,
+      "pointsCorrect": null,
+      "pointsPartial": null,
+      "pointsWrong": null,
+      "createdAt": "2025-11-22T17:24:17.798Z"
+    }
+  ],
+  "attempts": [],
+  "accounts": [],
+  "sessions": [],
+  "verificationTokens": [],
+  "teacherCodes": [],
+  "subjects": [],
+  "classes": [],
+  "classMemberships": [],
+  "chatMessages": [],
+  "assignments": [],
+  "parties": [],
+  "partyPlayers": [],
+  "partyAnswers": []
+}

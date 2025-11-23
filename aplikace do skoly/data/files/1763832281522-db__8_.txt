@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@example.com",
       "role": "ADMIN",
-      "passwordHash": "$2a$10$Ib1DA8jko4hk9XTPTj8f8eNgt8olamboI48y96mXBAcbZZmuaygZW",
+      "passwordHash": "$2a$10$vuZbvmydLORVe0VyZR7XiO4Ni/B0dtIxBwnjqJRhwSRQOBwYeVDAO",
       "displayName": null,
       "nickname": null,
       "birthDate": null,
@@ -13816,138 +13816,6 @@
       "mode": "mc",
       "dir": "cs2de",
       "createdAt": "2025-11-21T19:59:43.743Z"
-    },
-    {
-      "id": "ddbede5d-bb9f-4860-b6a4-b13a07259a8c",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "feacadc3-5dc0-4202-bb2d-f086b7ae2a56",
-      "answer": "(ein)hundert",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T22:45:42.091Z"
-    },
-    {
-      "id": "c61d3162-83b8-4fc6-a488-56449e337373",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "44735e5d-2351-451d-8de1-72c023a3a082",
-      "answer": "Mach's gut!",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T22:46:37.110Z"
-    },
-    {
-      "id": "e44e92ed-4b12-466d-bba5-d2cdf9bd8dbd",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "07fb82bd-f6a4-42b0-9d9d-08d394503e53",
-      "answer": "Wort",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:01.914Z"
-    },
-    {
-      "id": "bdabfb20-464f-4cc2-bf44-fb5f67bd91d2",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "75452429-b2bb-4034-8fb2-5fcdbcc07901",
-      "answer": "Russisch",
-      "correct": false,
-      "points": 10,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:05.472Z"
-    },
-    {
-      "id": "dcc402b2-dd25-46a6-ac5d-2c0be408d2db",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "75452429-b2bb-4034-8fb2-5fcdbcc07901",
-      "answer": "Russisch",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:07.069Z"
-    },
-    {
-      "id": "08295fce-2390-4ebe-a14b-5e210574c381",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "502e096e-fc52-4175-bca6-6961d1acd139",
-      "answer": "fünfzig",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:09.883Z"
-    },
-    {
-      "id": "d5a84928-e144-4830-8437-728095911a31",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "c532e19c-eda0-434e-b330-b9ab870ce3e8",
-      "answer": "vierzig",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:12.134Z"
-    },
-    {
-      "id": "50eec5cc-6439-4bdc-84ab-2e7de7a0af9f",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "c8f158b8-067c-4744-9c91-aa92c65bbdad",
-      "answer": "nur",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:15.188Z"
-    },
-    {
-      "id": "af14f480-475a-4611-9f3b-5291b1ece7e0",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "f113bbd1-b185-405d-8cf2-7ef71e561e4a",
-      "answer": "Schwedisch",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:19.590Z"
-    },
-    {
-      "id": "2146a013-5392-45dc-a059-327133d8b368",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "7e65e4d9-2fb7-4b31-99ba-05a812f0a38f",
-      "answer": "dreißig",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:21.724Z"
-    },
-    {
-      "id": "388bce24-84a7-40f8-9dcd-fb87e5d58a03",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "6d7db358-8955-4f28-906f-f7e1e19a7b8b",
-      "answer": "finden",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:24.866Z"
-    },
-    {
-      "id": "0241238c-bfcb-49c9-9356-53add1768589",
-      "userId": "2c2af287-79e3-42ac-b8b0-61a76a4c9bd1",
-      "entryId": "40b5bee7-5eda-4bd4-9eea-28b2abebcf43",
-      "answer": "Großbritannien",
-      "correct": true,
-      "points": 21,
-      "mode": "mc",
-      "dir": "cs2de",
-      "createdAt": "2025-11-22T23:24:27.321Z"
     }
   ],
   "classes": [

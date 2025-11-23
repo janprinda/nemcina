@@ -1,4 +1,5 @@
 import LessonGrid from "@/components/LessonGrid";
+import QuickAccess from "@/components/QuickAccess";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/server/authOptions";
 import { getAttempts, getLessons, getUserById, listSubjects } from "@/server/store";
@@ -110,8 +111,14 @@ export default async function SubjectPage({
           </div>
         )}
       </section>
+      {/* Quick Access to Casino, Shop, AI Chat */}
+      <div className="max-w-5xl mx-auto pb-6 mb-6 border-b border-gray-700">
+        <QuickAccess />
+      </div>
       {/* Pro daný předmět zobrazíme jen jeho lekce (API filtruje podle subjectSlug). */}
-      <LessonGrid subjectSlug={slug} />
+      <div className="mt-8">
+        <LessonGrid subjectSlug={slug} />
+      </div>
     </div>
   );
 }

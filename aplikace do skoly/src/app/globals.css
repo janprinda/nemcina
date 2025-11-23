@@ -66,6 +66,29 @@ html {
     border: 1px solid var(--border); 
     border-radius: 0.5rem; 
   }
+  /* Turn off browser suggestions/auto-fill popups everywhere */
+  form, input, textarea, select {
+    autocomplete: off;
+  }
+  input, textarea {
+    -webkit-autocorrect: off;
+    -webkit-text-fill-color: var(--fg);
+    caret-color: var(--fg);
+    spellcheck: false;
+  }
+  input::-ms-reveal,
+  input::-ms-clear,
+  input::-webkit-credentials-auto-fill-button,
+  input::-webkit-contacts-auto-fill-button {
+    display: none !important;
+  }
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    box-shadow: 0 0 0 1000px rgba(15, 23, 42, 0.9) inset !important;
+    -webkit-box-shadow: 0 0 0 1000px rgba(15, 23, 42, 0.9) inset !important;
+    -webkit-text-fill-color: var(--fg) !important;
+  }
   
   label { 
     color: var(--muted); 
